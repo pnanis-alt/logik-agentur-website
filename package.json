@@ -1,0 +1,18 @@
+{
+  "name": "logik-agentur-website",
+  "version": "1.0.0",
+  "description": "Logik-Agentur Marketing-Website — statisches HTML mit gebündelten React-Widgets",
+  "private": true,
+  "scripts": {
+    "build": "npm run build:roi",
+    "build:roi": "esbuild widgets/roi-rechner/mount.jsx --bundle --minify --outfile=widgets/roi-rechner/dist.js --target=es2020 --jsx=automatic --log-level=info"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.460.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0"
+  }
+}
