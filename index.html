@@ -227,8 +227,8 @@
        ========================================================================= -->
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
     <div class="max-w-content mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#hero" class="font-sans font-bold text-lg tracking-h2-section">
-        Logik-Agentur
+      <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur — Startseite">
+        <img src="assets/logo.svg" alt="Logik-Agentur" class="h-9 w-auto sm:h-10" height="40" />
       </a>
       <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-7 text-sm text-ink-muted">
         <a href="#hoerproben" class="hover:text-ink">Hörproben</a>
@@ -252,7 +252,36 @@
     <section id="hero" class="section" aria-labelledby="hero-title" data-section="01-hero">
       <div class="max-w-content mx-auto px-6">
         <h1 id="hero-title" class="sr-only">Hero</h1>
-        <div data-slot="hero"></div>
+        <div data-slot="hero">
+          <div class="mx-auto max-w-6xl px-6 pt-20 pb-24 sm:pt-24 sm:pb-28">
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium tracking-wide text-zinc-600">
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
+              Live im Hotel Nanis · Steinhuder Meer · seit 2026
+            </div>
+            <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.1]">
+              Erprobt im eigenen Hotel.<br class="hidden sm:block">Übertragbar auf jede Service-Branche.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
+              Voice, WhatsApp, E-Mail, Bewertungen — eine integrierte KI-Konfiguration. Im eigenen Hotelbetrieb täglich live, bevor wir sie bei dir installieren.
+            </p>
+            <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#4F46E5)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#4338CA)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                Erstgespräch buchen
+              </a>
+              <a href="#roi" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-zinc-700 transition hover:text-[color:var(--color-accent,#4F46E5)]">
+                ROI in 60 Sekunden berechnen
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+              </a>
+            </div>
+            <p class="mt-4 max-w-2xl text-sm text-zinc-500">30 Minuten, kostenlos, ohne Vorkenntnisse — wir analysieren ehrlich, ob KI für deinen Betrieb passt.</p>
+            <ul class="mt-12 flex flex-col flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-700 sm:flex-row">
+              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#4F46E5)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>DSGVO-konform · EU-Stack</li>
+              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#4F46E5)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Standard-Stack · kein Plattform-Lock-in</li>
+              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#4F46E5)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Solo-betrieben aus Niedersachsen · direkte Ansprache, keine Reseller</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -272,7 +301,44 @@
     <section id="omnichannel" class="section" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
       <div class="max-w-content mx-auto px-6">
         <h2 id="omnichannel-title" class="sr-only">Omnichannel-Grid</h2>
-        <div data-slot="omnichannel-grid"></div>
+        <div data-slot="omnichannel-grid">
+          <div class="text-center mb-12">
+            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Eine Konfiguration, sechs Kanäle</h2>
+            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Alle Kontaktpunkte deiner Gäste oder Kunden — orchestriert über einen einzigen, wartbaren KI-Stack.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Voice AI</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Telefon-Annahme rund um die Uhr — Reservierungen, FAQs, Anfragen. Natürliche Stimme über ElevenLabs, Telefonie via Twilio.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">WhatsApp AI</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Geführte Konversationen auf dem Kanal, den deine Gäste täglich nutzen. Buchungsdialoge, Re-Bestätigungen, Concierge-Anfragen.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 21h10"/><path d="M12 17v4"/><path d="M7 9h10"/><path d="M7 13h6"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Website-Chatbot</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Direkter Dialog auf deiner Seite — beantwortet 80 % der Standardfragen ohne Wartezeit und reicht den Rest sauber an dich weiter.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">E-Mail-Assistent</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Eingehende Anfragen werden klassifiziert, vorformuliert und mit Kontext aus deinem System angereichert. Du gibst nur noch frei.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Bewertungs-Management</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Google-Reviews aktiv einholen, Antworten vorbereiten, Tonalität deines Hauses konsistent halten — über alle Plattformen hinweg.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Prozess-Automation</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Anbindung an PMS, CRM, Buchungssystem und Buchhaltung über make.com. Wiederkehrende Abläufe laufen still im Hintergrund.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -282,7 +348,34 @@
     <section id="value" class="section section-alt" aria-labelledby="value-title" data-section="04-value-quadrant">
       <div class="max-w-content mx-auto px-6">
         <h2 id="value-title" class="sr-only">Value-Quadrant</h2>
-        <div data-slot="value-quadrant"></div>
+        <div data-slot="value-quadrant">
+          <div class="text-center mb-12">
+            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Warum Logik-Agentur</h2>
+            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Vier Punkte, die wir konsequent leben — und an denen wir uns messen lassen.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v8h4"/><path d="M18 9h2a2 2 0 0 1 2 2v11h-4"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Hotelier-Perspektive</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Wir betreiben das eigene Hotel Nanis am Steinhuder Meer. Jede Konfiguration entsteht aus operativer Erfahrung, nicht aus Spec-Lektüre.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H3v-7Z"/><path d="M18 18h3v-7h-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 11a9 9 0 0 1 18 0"/><path d="M21 17a3 3 0 0 1-3 3h-2"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Hands-on-Betreuung</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Content-Änderungen per E-Mail in zwei Werktagen. Kein Self-Service-Sheet, kein Ticket-System, kein Callcenter.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.18-9.17 4.18a2 2 0 0 1-1.66 0L2 12.18"/><path d="m22 17.18-9.17 4.18a2 2 0 0 1-1.66 0L2 17.18"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Standard-KI-Stack</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Standard-APIs marktführender Anbieter (ElevenLabs, Twilio). Keine eigenentwickelte KI, keine Black Box. Du weißt, was läuft.</p>
+            </article>
+            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
+              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">DACH-Compliance</h3>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">EU-AI-Act-Deployer-Status dokumentiert. Auftragsverarbeitungs-Verträge mit allen Sub-Prozessoren wirksam geprüft.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -292,7 +385,15 @@
     <section id="kpi" class="section" aria-labelledby="kpi-title" data-section="05-kpi-streifen">
       <div class="max-w-content mx-auto px-6">
         <h2 id="kpi-title" class="sr-only">KPI-Streifen</h2>
-        <div data-slot="kpi-streifen"></div>
+        <div data-slot="kpi-streifen">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">30+</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Sprachen automatisch erkannt</div></div>
+            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">24/7</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Annahme-Bereitschaft</div></div>
+            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">&lt;&thinsp;4&thinsp;h</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Reaktion bei kritischem Ausfall<span class="block text-[0.8125rem] font-normal text-ink-subtle mt-1">Mo–Fr 9–18 Uhr</span></div></div>
+            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">4&thinsp;/&thinsp;4</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Sub-Prozessor-AVVs DSGVO-konform</div></div>
+          </div>
+          <p class="mt-8 text-center text-[0.8125rem] text-ink-subtle leading-relaxed">Stand: Mai 2026 · belegt durch Anbieter-Spezifikation und interne Service-Selbstverpflichtungen.</p>
+        </div>
       </div>
     </section>
 
@@ -339,7 +440,32 @@
     <section id="ueber-mich" class="section" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
-        <div data-slot="ueber-mich"></div>
+        <div data-slot="ueber-mich">
+          <div class="text-center mb-12">
+            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Über mich</h2>
+            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Hinter Logik-Agentur steht eine Person — und ein Hotel, in dem alles, was du hier siehst, jeden Tag im Echtbetrieb läuft.</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-10 items-start max-w-4xl mx-auto">
+            <figure class="md:sticky md:top-24">
+              <div class="aspect-[4/5] w-full overflow-hidden rounded-xl bg-muted border border-line shadow-sm">
+                <img src="assets/images/pantelis-nanis.jpg" alt="Pantelis Nanis — Gründer Logik-Agentur" class="h-full w-full object-cover" loading="lazy" />
+              </div>
+              <figcaption class="mt-3 text-[0.8125rem] text-ink-subtle text-center md:text-left">Pantelis Nanis · Gründer</figcaption>
+            </figure>
+            <div class="space-y-5 text-[1rem] text-ink-muted leading-relaxed">
+              <p>Mein Name ist Pantelis Nanis. Ich betreibe gemeinsam mit meiner Familie das Hotel Nanis am Steinhuder Meer in Niedersachsen — und parallel dazu die Logik-Agentur.</p>
+              <p>Die Reihenfolge ist mir wichtig: Erst das Hotel, dann die Agentur. Jede KI-Konfiguration, die ich Kunden anbiete, läuft zuerst bei uns. Voice AI nimmt unsere Telefonate an, der WhatsApp-Assistent beantwortet Gästeanfragen, der E-Mail-Filter sortiert Reservierungen vor.</p>
+              <p>Daraus folgt eine ungewöhnliche Honorarstruktur und ein klares Versprechen: Ich verkaufe nichts, was ich nicht selbst im Tagesgeschäft einsetze. Wenn etwas nicht funktioniert, merke ich das vor dem Kunden — und nicht erst durch eine Beschwerde.</p>
+              <p>Die Logik-Agentur ist bewusst solo-betrieben. Kein Vertriebsteam, keine Reseller, kein Callcenter. Du sprichst mit der Person, die auch deine Konfiguration baut und betreut.</p>
+              <div class="pt-3">
+                <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center gap-2 text-[0.9375rem] font-medium text-accent hover:text-accent-hover">
+                  Erstgespräch buchen
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -359,7 +485,57 @@
     <section id="faq" class="section" aria-labelledby="faq-title" data-section="11-faq">
       <div class="max-w-content mx-auto px-6">
         <h2 id="faq-title" class="sr-only">FAQ</h2>
-        <div data-slot="faq"></div>
+        <div data-slot="faq">
+          <div class="text-center mb-12">
+            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Häufige Fragen</h2>
+            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Was Kunden vor dem Erstgespräch typischerweise wissen wollen.</p>
+          </div>
+          <div class="max-w-3xl mx-auto divide-y divide-line border-y border-line">
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Trainiert ihr eigene KI-Modelle?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Nein. Wir konfigurieren ausschließlich Standard-APIs marktführender Anbieter (ElevenLabs, OpenAI, Twilio). Dein Vorteil: ausgereifte Qualität, transparente Roadmap, kein Plattform-Lock-in.</p>
+            </details>
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Wo werden Daten verarbeitet?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Wo immer möglich in der EU. Auftragsverarbeitungs-Verträge liegen mit allen Sub-Prozessoren wirksam vor und werden auf Wunsch vorgelegt.</p>
+            </details>
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Wie lange dauert die Einführung?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Erste Voice-AI typischerweise innerhalb von zwei bis drei Wochen live. Komplettes Omnichannel-Setup je nach Umfang vier bis acht Wochen.</p>
+            </details>
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Brauche ich technisches Vorwissen?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Nein. Wir liefern eine fertig konfigurierte Lösung. Du gibst die Inhalte, wir bauen, betreiben und passen an.</p>
+            </details>
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Was passiert, wenn ich kündigen will?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Monatlich kündbar nach der Mindestlaufzeit. Da wir auf Standard-APIs aufsetzen, kannst du die Konfiguration mit jedem fähigen Dienstleister weiterbetreiben — kein Vendor-Lock-in.</p>
+            </details>
+            <details class="group py-5">
+              <summary class="flex cursor-pointer items-start justify-between gap-6 list-none">
+                <span class="text-[1rem] font-medium text-ink">Funktioniert das auch außerhalb der Hotellerie?</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 shrink-0 text-ink-subtle transition-transform duration-150 group-open:rotate-180" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="mt-3 text-[0.9375rem] text-ink-muted leading-relaxed">Ja. Die Architektur ist übertragbar auf jede Service-Branche mit hohem Anteil wiederkehrender Kundenkontakte — Arztpraxen, Handwerk, Kanzleien, lokale Dienstleister.</p>
+            </details>
+          </div>
+          <p class="mt-10 text-center text-[0.9375rem] text-ink-muted">Frage nicht dabei? <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="font-medium text-accent hover:text-accent-hover">Direkt im Erstgespräch klären</a>.</p>
+        </div>
       </div>
     </section>
 
@@ -369,7 +545,25 @@
     <section id="integrationen" class="section section-alt" aria-labelledby="integrationen-title" data-section="12-integrationen">
       <div class="max-w-content mx-auto px-6">
         <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
-        <div data-slot="integrationen"></div>
+        <div data-slot="integrationen">
+          <div class="text-center mb-12">
+            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Integrationen</h2>
+            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Geprüfte Standard-APIs marktführender Anbieter — kein Eigenbau, keine Black Box.</p>
+          </div>
+          <ul class="flex flex-wrap justify-center gap-3">
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">ElevenLabs</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Twilio</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">make.com</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">eviivo</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Google Workspace</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Google Business Profile</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Brevo</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Cal.eu</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">OpenAI</li>
+            <li class="inline-flex items-center gap-2 rounded-full border border-line bg-base px-4 py-2 text-[0.875rem] font-medium text-ink shadow-sm">Cloudflare</li>
+          </ul>
+          <p class="mt-8 text-center text-[0.8125rem] text-ink-subtle leading-relaxed">Weitere Anbindungen auf Anfrage. Erweiterungen via make.com in der Regel innerhalb weniger Tage umgesetzt.</p>
+        </div>
       </div>
     </section>
 
