@@ -399,8 +399,12 @@ export default function ROIRechner() {
               Kostenloses Erstgespräch — unverbindlich, 30 Minuten.
             </div>
           </div>
-          <button
+          <a
+            href="https://cal.eu/pantelis-nanis-m54voh/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             style={{
+              display: 'inline-block',
               padding: '0.75rem 1.5rem',
               background: '#4F46E5',
               color: '#FFFFFF',
@@ -410,6 +414,7 @@ export default function ROIRechner() {
               fontWeight: 500,
               cursor: 'pointer',
               fontFamily: 'inherit',
+              textDecoration: 'none',
               transition: 'background 0.15s ease',
               whiteSpace: 'nowrap',
             }}
@@ -417,7 +422,7 @@ export default function ROIRechner() {
             onMouseLeave={(e) => (e.currentTarget.style.background = '#4F46E5')}
           >
             Beratungstermin buchen →
-          </button>
+          </a>
         </div>
 
         {/* === Disclaimer === */}
