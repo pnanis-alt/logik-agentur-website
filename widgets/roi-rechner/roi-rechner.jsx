@@ -3,7 +3,7 @@ import { Phone, TrendingUp, Calendar, Calculator, ChevronDown, Sparkles } from '
 
 // ============================================================================
 // ROI-Rechner — Logik-Agentur
-// Design: Clean Tech Light · Akzent: Indigo (#4F46E5)
+// Design: Clean Tech Light · Akzent: Orange (#E67533)
 // Zielgruppe: KMU-Hotels DACH
 // ============================================================================
 
@@ -71,7 +71,7 @@ export default function ROIRechner() {
           appearance: none;
           width: 22px;
           height: 22px;
-          background: #4F46E5;
+          background: #E67533;
           border-radius: 50%;
           border: 3px solid #FFFFFF;
           box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
@@ -84,7 +84,7 @@ export default function ROIRechner() {
         .lg-slider::-moz-range-thumb {
           width: 22px;
           height: 22px;
-          background: #4F46E5;
+          background: #E67533;
           border-radius: 50%;
           border: 3px solid #FFFFFF;
           box-shadow: 0 1px 3px rgba(0,0,0,0.12);
@@ -109,11 +109,11 @@ export default function ROIRechner() {
               alignItems: 'center',
               gap: '0.5rem',
               padding: '0.375rem 0.875rem',
-              background: '#EEF2FF',
+              background: '#FDF1E7',
               borderRadius: '999px',
               fontSize: '0.8125rem',
               fontWeight: 500,
-              color: '#312E81',
+              color: '#7A3A0E',
               marginBottom: '1rem',
             }}
           >
@@ -208,7 +208,7 @@ export default function ROIRechner() {
           {/* === Hero Result === */}
           <div
             style={{
-              background: '#EEF2FF',
+              background: '#FDF1E7',
               borderRadius: '12px',
               padding: '1.5rem',
               marginBottom: '1rem',
@@ -218,7 +218,7 @@ export default function ROIRechner() {
               style={{
                 fontSize: '0.875rem',
                 fontWeight: 500,
-                color: '#312E81',
+                color: '#7A3A0E',
                 marginBottom: '0.5rem',
                 display: 'flex',
                 alignItems: 'center',
@@ -232,7 +232,7 @@ export default function ROIRechner() {
               style={{
                 fontSize: '3rem',
                 fontWeight: 700,
-                color: '#4F46E5',
+                color: '#E67533',
                 letterSpacing: '-0.03em',
                 lineHeight: 1,
                 marginBottom: '0.5rem',
@@ -243,7 +243,7 @@ export default function ROIRechner() {
                 style={{
                   fontSize: '1rem',
                   fontWeight: 500,
-                  color: '#312E81',
+                  color: '#7A3A0E',
                   letterSpacing: 'normal',
                   marginLeft: '0.5rem',
                 }}
@@ -254,7 +254,7 @@ export default function ROIRechner() {
             <div
               style={{
                 fontSize: '1rem',
-                color: '#312E81',
+                color: '#7A3A0E',
                 fontWeight: 500,
               }}
             >
@@ -346,7 +346,7 @@ export default function ROIRechner() {
               <div style={{ marginBottom: '0.75rem' }}>
                 <span style={{ color: '#71717A' }}>Mehrumsatz / Monat</span>
                 <br />
-                = {fmtNum(calc.verpassteBuchungenMonat)} × {fmtEUR(buchungswert)} = <strong style={{ color: '#4F46E5' }}>{fmtEUR(calc.mehrumsatzMonat)}</strong>
+                = {fmtNum(calc.verpassteBuchungenMonat)} × {fmtEUR(buchungswert)} = <strong style={{ color: '#E67533' }}>{fmtEUR(calc.mehrumsatzMonat)}</strong>
               </div>
               <div
                 style={{
@@ -406,7 +406,7 @@ export default function ROIRechner() {
             style={{
               display: 'inline-block',
               padding: '0.75rem 1.5rem',
-              background: '#4F46E5',
+              background: '#E67533',
               color: '#FFFFFF',
               border: 'none',
               borderRadius: '8px',
@@ -418,8 +418,8 @@ export default function ROIRechner() {
               transition: 'background 0.15s ease',
               whiteSpace: 'nowrap',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#4338CA')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#4F46E5')}
+            onMouseEnter={(e) => (e.currentTarget.style.background = '#C45A1A')}
+            onMouseLeave={(e) => (e.currentTarget.style.background = '#E67533')}
           >
             Beratungstermin buchen →
           </a>
@@ -481,7 +481,7 @@ function SliderField({ icon, label, value, displayValue, min, max, step, onChang
           style={{
             fontSize: '1rem',
             fontWeight: 600,
-            color: '#4F46E5',
+            color: '#E67533',
             fontVariantNumeric: 'tabular-nums',
             minWidth: '5rem',
             textAlign: 'right',
