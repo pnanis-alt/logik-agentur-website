@@ -16,14 +16,8 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: {
-            'la-navy': '#2E3849',
-            'la-orange': '#E67533',
-            'la-gold': '#F2A93B',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-          },
+          colors: { 'la-navy': '#2E3849', 'la-orange': '#E67533', 'la-gold': '#F2A93B' },
+          fontFamily: { sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'] },
         },
       },
     };
@@ -43,7 +37,6 @@
 </head>
 <body class="bg-white text-slate-800 antialiased">
 
-  <!-- Header -->
   <header class="border-b border-slate-200 bg-white">
     <div class="mx-auto max-w-4xl px-6 py-5 flex items-center justify-between">
       <a href="/" class="font-semibold text-[#2E3849] text-lg tracking-tight">Logik-Agentur</a>
@@ -51,19 +44,15 @@
     </div>
   </header>
 
-  <!-- Content -->
   <main class="mx-auto max-w-3xl px-6 py-12 md:py-16">
     <article class="legal-prose">
 
       <h1 class="text-3xl md:text-4xl font-bold text-[#2E3849] tracking-tight mb-2">Datenschutzerklärung</h1>
-      <p class="text-sm text-slate-500 mb-10"><strong>Stand:</strong> Mai 2026 · <strong>Rechtsstand:</strong> Deutschland / EU</p>
+      <p class="text-sm text-slate-500 mb-10"><strong>Version 1.4 vom 31.05.2026</strong> · Rechtsstand: Deutschland / EU</p>
 
-      <!-- 1. Verantwortlicher -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">1. Verantwortlicher</h2>
-        <p class="text-slate-700 mb-4">
-          Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und sonstiger nationaler Datenschutzgesetze sowie weiterer datenschutzrechtlicher Bestimmungen ist:
-        </p>
+        <p class="text-slate-700 mb-4">Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und sonstiger nationaler Datenschutzgesetze sowie weiterer datenschutzrechtlicher Bestimmungen ist:</p>
         <address class="not-italic text-slate-700 leading-relaxed mb-4">
           <strong class="block">Pantelis Nanis — Logik-Agentur</strong>
           Einzelunternehmen<br />
@@ -76,51 +65,27 @@
           <li><strong>Telefon:</strong> <a href="tel:+491718400101">+49 171 8400101</a></li>
           <li><strong>Website:</strong> <a href="https://logik-agentur.de">https://logik-agentur.de</a></li>
         </ul>
-        <p class="text-slate-700">
-          Ein Datenschutzbeauftragter ist nach § 38 BDSG nicht bestellt, da die gesetzlichen Voraussetzungen (regelmäßig mindestens 20 Personen ständig mit der automatisierten Verarbeitung beschäftigt) nicht erfüllt sind.
-        </p>
+        <p class="text-slate-700">Ein Datenschutzbeauftragter ist nach § 38 BDSG nicht bestellt. Es wurde geprüft, ob eine Bestellpflicht nach Art. 37 DSGVO oder § 38 Abs. 1 S. 2 BDSG (DSFA-pflichtige Verarbeitungen, geschäftsmäßige Übermittlung) besteht. Eine solche Pflicht wurde nach derzeitigem Stand verneint, da für die hier beschriebenen Verarbeitungen auf der Website keine DSFA-pflichtigen Vorgänge i.S.d. Art. 35 DSGVO durchgeführt werden und die 20-Personen-Schwelle nach § 38 Abs. 1 S. 1 BDSG nicht erreicht ist. Bei Erweiterung des Leistungsangebots wird die Prüfung erneut durchgeführt.</p>
       </section>
 
-      <!-- 2. Allgemeines -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">2. Allgemeines zur Datenverarbeitung</h2>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">2.1 Umfang der Verarbeitung personenbezogener Daten</h3>
-        <p class="text-slate-700">
-          Personenbezogene Daten der Nutzer werden grundsätzlich nur verarbeitet, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie der Inhalte und Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach Einwilligung des Nutzers oder in den Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.
-        </p>
-
+        <p class="text-slate-700">Personenbezogene Daten der Nutzer werden grundsätzlich nur verarbeitet, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie der Inhalte und Leistungen erforderlich ist. Die Verarbeitung erfolgt regelmäßig nur nach Einwilligung des Nutzers oder in den Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">2.2 Rechtsgrundlagen (Art. 6 DSGVO)</h3>
-        <p class="text-slate-700 mb-3">
-          Soweit für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person eingeholt wird, dient <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> als Rechtsgrundlage.
-        </p>
-        <p class="text-slate-700 mb-3">
-          Bei der Verarbeitung von Daten, die zur Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist, dient <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> als Rechtsgrundlage.
-        </p>
-        <p class="text-slate-700 mb-3">
-          Soweit eine Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, dient <strong>Art. 6 Abs. 1 lit. c DSGVO</strong> als Rechtsgrundlage.
-        </p>
-        <p class="text-slate-700">
-          Ist die Verarbeitung zur Wahrung eines berechtigten Interesses des Verantwortlichen oder eines Dritten erforderlich und überwiegen die Interessen, Grundrechte und Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht, so dient <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> als Rechtsgrundlage.
-        </p>
-
+        <p class="text-slate-700 mb-3">Soweit für Verarbeitungsvorgänge personenbezogener Daten eine Einwilligung der betroffenen Person eingeholt wird, dient <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> als Rechtsgrundlage.</p>
+        <p class="text-slate-700 mb-3">Bei der Verarbeitung von Daten, die zur Erfüllung eines Vertrages oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist, dient <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> als Rechtsgrundlage.</p>
+        <p class="text-slate-700 mb-3">Soweit eine Verarbeitung zur Erfüllung einer rechtlichen Verpflichtung erforderlich ist, dient <strong>Art. 6 Abs. 1 lit. c DSGVO</strong> als Rechtsgrundlage.</p>
+        <p class="text-slate-700">Ist die Verarbeitung zur Wahrung eines berechtigten Interesses des Verantwortlichen oder eines Dritten erforderlich und überwiegen die Interessen, Grundrechte und Grundfreiheiten des Betroffenen das erstgenannte Interesse nicht, so dient <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> als Rechtsgrundlage.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">2.3 Datenlöschung und Speicherdauer</h3>
-        <p class="text-slate-700">
-          Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde — insbesondere die handels- und steuerrechtlichen Aufbewahrungsfristen nach § 257 HGB und § 147 AO (i.d.R. 6 bzw. 10 Jahre).
-        </p>
+        <p class="text-slate-700">Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde — insbesondere die handels- und steuerrechtlichen Aufbewahrungsfristen nach § 257 HGB und § 147 AO (i.d.R. 6 bzw. 10 Jahre).</p>
       </section>
 
-      <!-- 3. Hosting GitHub Pages -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">3. Bereitstellung der Website und Erstellung von Logfiles (Hosting via GitHub Pages)</h2>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">3.1 Beschreibung und Umfang der Datenverarbeitung</h3>
-        <p class="text-slate-700 mb-3">
-          Diese Website wird über <strong>GitHub Pages</strong> gehostet, einen Dienst der <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA, einer Tochtergesellschaft der <strong>Microsoft Corporation</strong>, One Microsoft Way, Redmond, WA 98052, USA.
-        </p>
-        <p class="text-slate-700 mb-3">
-          Bei jedem Aufruf der Website durch einen Nutzer erfasst GitHub Pages automatisch Informationen, die der Browser des Nutzers an den Server übermittelt. Diese werden in sogenannten Server-Logfiles gespeichert:
-        </p>
+        <p class="text-slate-700 mb-3">Diese Website wird über <strong>GitHub Pages</strong> gehostet, einen Dienst der <strong>GitHub, Inc.</strong>, 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA, einer Tochtergesellschaft der <strong>Microsoft Corporation</strong>, One Microsoft Way, Redmond, WA 98052, USA.</p>
+        <p class="text-slate-700 mb-3">Bei jedem Aufruf der Website durch einen Nutzer erfasst GitHub Pages automatisch Informationen, die der Browser des Nutzers an den Server übermittelt. Diese werden in sogenannten Server-Logfiles gespeichert:</p>
         <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
           <li>IP-Adresse des anfragenden Endgeräts</li>
           <li>Datum und Uhrzeit des Zugriffs</li>
@@ -129,101 +94,56 @@
           <li>Verwendeter Browser und ggf. das Betriebssystem</li>
           <li>Name des Internet-Service-Providers des Nutzers</li>
         </ul>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">3.2 Rechtsgrundlage</h3>
-        <p class="text-slate-700">
-          Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>.
-        </p>
-
+        <p class="text-slate-700">Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">3.3 Zweck der Datenverarbeitung</h3>
-        <p class="text-slate-700">
-          Die Speicherung in Logfiles erfolgt, um die Funktionsfähigkeit der Website sicherzustellen. Zusätzlich dienen uns die Daten zur Optimierung der Website und zur Sicherstellung der Sicherheit unserer informationstechnischen Systeme. Eine Auswertung der Daten zu Marketingzwecken findet nicht statt.
-        </p>
-
+        <p class="text-slate-700">Die Speicherung in Logfiles erfolgt, um die Funktionsfähigkeit der Website sicherzustellen. Zusätzlich dienen uns die Daten zur Optimierung der Website und zur Sicherstellung der Sicherheit unserer informationstechnischen Systeme. Eine Auswertung der Daten zu Marketingzwecken findet nicht statt.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">3.4 Speicherdauer</h3>
-        <p class="text-slate-700">
-          Die Speicherdauer der Logfiles richtet sich nach den Vorgaben von GitHub. Eine direkte Auswertung dieser Logfiles durch uns als Verantwortlichen findet nicht statt.
-        </p>
-
+        <p class="text-slate-700">Die Logfiles werden ausschließlich durch GitHub als Auftragsverarbeiter gespeichert; wir haben darauf keinen Zugriff und führen keine eigene Speicherung dieser Daten durch. GitHub speichert Server-Logfiles nach eigenen Angaben für Sicherheits-, Betriebs- und Missbrauchserkennungszwecke nur für den hierfür erforderlichen Zeitraum. Konkrete Speicherfristen ergeben sich aus der Datenschutzerklärung von GitHub (siehe Abschnitt 3.5).</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">3.5 Drittlandtransfer</h3>
-        <p class="text-slate-700 mb-3">
-          GitHub, Inc. mit Sitz in den USA verarbeitet die Daten in den USA. Die Übermittlung erfolgt auf Grundlage des <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, zu dem sich GitHub, Inc. selbst zertifiziert hat (Angemessenheitsbeschluss der EU-Kommission vom 10.07.2023, C(2023) 4745). Ergänzend nutzt GitHub Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO als zusätzliche Garantie.
-        </p>
-        <p class="text-slate-700">
-          Weitere Informationen zum Datenschutz bei GitHub:
-          <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a>
-        </p>
+        <p class="text-slate-700 mb-3">GitHub, Inc. mit Sitz in den USA verarbeitet die Daten in den USA. Die Übermittlung erfolgt auf Grundlage des <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, zu dem sich GitHub, Inc. selbst zertifiziert hat (Angemessenheitsbeschluss der EU-Kommission vom 10.07.2023, C(2023) 4745). Ergänzend nutzt GitHub Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO als zusätzliche Garantie.</p>
+        <p class="text-slate-700">Weitere Informationen zum Datenschutz bei GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement</a></p>
       </section>
 
-      <!-- 4. Chat-Widget (Famulor) — VORBEREITET, aktivieren beim Widget-Einbau -->
+      <section class="mb-10">
+        <h2 class="text-xl font-semibold mb-4">3a. SSL-/TLS-Verschlüsselung</h2>
+        <p class="text-slate-700 mb-3">Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte (z.B. Anfragen, die Sie an uns senden) eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile. Bei aktivierter Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
+        <p class="text-slate-700">Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer sicheren Datenübertragung) i.V.m. der Pflicht zu geeigneten technischen Maßnahmen nach Art. 32 DSGVO.</p>
+      </section>
+
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">4. Chat-Widget (Famulor)</h2>
-
-        <!--
-        ⚠️ FAMULOR-SECTION: Aktivieren, sobald das Famulor-Chat-Widget tatsächlich auf logik-agentur.de eingebunden ist.
-        Solange das Widget NICHT eingebunden ist, beschreibt dieser Abschnitt eine Verarbeitung, die nicht stattfindet — das wäre nach Art. 13 DSGVO + § 5 UWG abmahnfähig.
-        Deployment-Reihenfolge: (1) Famulor-Embed-Code in index.html einbauen → (2) diesen HTML-Kommentar entfernen UND den Hinweis-Absatz unten löschen → (3) gemeinsam committen.
-
         <h3 class="text-lg font-semibold mt-6 mb-2">4.1 Beschreibung und Umfang der Datenverarbeitung</h3>
-        <p class="text-slate-700 mb-3">
-          Auf dieser Website ist ein Chat-Widget des Anbieters <strong>Famulor</strong> eingebunden, betrieben durch die <strong>BEK Service GmbH</strong>, Westendstr. 2A, 87439 Kempten (Allgäu), Deutschland (HRB 14544, Amtsgericht Kempten/Allgäu).
-        </p>
-        <p class="text-slate-700 mb-3">
-          Über das Chat-Widget können Sie als Besucher direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Bei Nutzung des Chat-Widgets werden folgende Daten verarbeitet:
-        </p>
+        <p class="text-slate-700 mb-3">Auf dieser Website ist ein Chat-Widget des Anbieters <strong>Famulor</strong> eingebunden, betrieben durch die <strong>BEK Service GmbH</strong>, Westendstr. 2A, 87439 Kempten (Allgäu), Deutschland (HRB 14544, Amtsgericht Kempten/Allgäu).</p>
+        <p class="text-slate-700 mb-3">Über das Chat-Widget können Sie als Besucher direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Bei Nutzung des Chat-Widgets werden folgende Daten verarbeitet:</p>
         <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
           <li>Inhalte Ihrer Chat-Nachrichten (Freitext-Eingaben)</li>
           <li>Ggf. von Ihnen freiwillig eingegebene Kontaktdaten (Name, E-Mail-Adresse, Telefonnummer)</li>
           <li>Technische Verbindungsdaten (IP-Adresse, Browser-Typ, Zeitstempel, Conversation-ID)</li>
         </ul>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">4.2 Rechtsgrundlage</h3>
         <p class="text-slate-700 mb-2">Die Rechtsgrundlage für die Verarbeitung ist:</p>
         <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
           <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Vertrag / vorvertragliche Maßnahmen), soweit Sie das Widget zur Anbahnung einer Geschäftsbeziehung nutzen</li>
           <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse) an einer effizienten Erstkontakt-Bearbeitung und Beantwortung von Anfragen außerhalb von Geschäftszeiten</li>
         </ul>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">4.3 Zweck</h3>
-        <p class="text-slate-700">
-          Beantwortung Ihrer Anfragen, Erstkontaktqualifizierung, ggf. Weiterleitung Ihrer Kontaktdaten zur persönlichen Rückmeldung durch uns.
-        </p>
-
+        <p class="text-slate-700">Beantwortung Ihrer Anfragen, Erstkontaktqualifizierung, ggf. Weiterleitung Ihrer Kontaktdaten zur persönlichen Rückmeldung durch uns.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">4.4 Auftragsverarbeitung & Hosting</h3>
-        <p class="text-slate-700">
-          Mit der BEK Service GmbH besteht ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO. Famulor hostet die Daten ausschließlich im <strong>Europäischen Wirtschaftsraum (EWR)</strong> — die Telefonie-/Chat-Infrastruktur in Frankfurt am Main (Deutschland), die KI-Verarbeitungsleistung in Schweden (beide Microsoft Azure). Ein Drittlandtransfer durch Famulor zur Erbringung der gegenüber uns geschuldeten Leistung findet nicht statt; eingesetzte Unter-Auftragsverarbeiter sind im AVV vertraglich auf dieses Schutzniveau verpflichtet.
-        </p>
-
+        <p class="text-slate-700 mb-3">Mit der BEK Service GmbH besteht ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO. Famulor hostet die Daten ausschließlich im <strong>Europäischen Wirtschaftsraum (EWR)</strong> — die Telefonie- und Chat-Infrastruktur in Frankfurt am Main (Deutschland), die KI-Verarbeitungsleistung in Schweden (jeweils Microsoft Azure).</p>
+        <p class="text-slate-700">Famulor setzt zur Erbringung der Leistung Sub-Auftragsverarbeiter ein, die im AVV vertraglich auf das DSGVO-Schutzniveau und auf Zero-Retention-/No-Training-Garantien verpflichtet sind. Dazu zählen insbesondere Microsoft Azure (Hosting, EWR) sowie ggf. Anbieter von Sprachmodellen (z.B. OpenAI, Anthropic) für die KI-Verarbeitung. Eine aktuelle Liste der Sub-Auftragsverarbeiter stellt Famulor auf Anfrage zur Verfügung; wir reichen diese auf Wunsch weiter (Kontakt siehe Abschnitt 1).</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">4.5 Speicherdauer</h3>
-        <p class="text-slate-700">
-          Chat-Verläufe werden zur Beweisführung und Qualitätssicherung für die Dauer von 90 Tagen gespeichert und anschließend gelöscht, sofern keine längeren gesetzlichen Aufbewahrungsfristen entgegenstehen.
-        </p>
-
+        <p class="text-slate-700">Chat-Verläufe werden zur Beweisführung und Qualitätssicherung für die Dauer von 90 Tagen gespeichert und anschließend gelöscht, sofern keine längeren gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">4.6 Hinweis zur KI-Verarbeitung (Art. 13 Abs. 2 lit. f DSGVO, EU AI Act)</h3>
-        <p class="text-slate-700 mb-3">
-          Im Chat-Widget kommt ein KI-System (Large Language Model) zum Einsatz. Es handelt sich nicht um eine automatisierte Entscheidung im Sinne von Art. 22 DSGVO mit rechtlicher Wirkung oder vergleichbarer erheblicher Beeinträchtigung Ihnen gegenüber. Sie werden im Chat transparent darüber informiert, dass Sie mit einem KI-System interagieren (Art. 50 EU AI Act).
-        </p>
-        <p class="text-slate-700">
-          Weitere Informationen zum Datenschutz bei Famulor: <a href="https://www.famulor.io/de/datenschutz">https://www.famulor.io/de/datenschutz</a>
-        </p>
-        -->
-
-        <p class="text-slate-700 italic bg-slate-50 border border-slate-200 rounded-md p-4">
-          Hinweis: Auf dieser Website ist derzeit kein Chat-Widget eingebunden. Sobald ein KI-Chat-Assistent aktiviert wird, ergänzen wir diese Datenschutzerklärung um die entsprechenden Informationen vor dessen Inbetriebnahme.
-        </p>
+        <p class="text-slate-700 mb-3">Im Chat-Widget kommt ein KI-System (Large Language Model) zum Einsatz. Es handelt sich nicht um eine automatisierte Entscheidung im Sinne von Art. 22 DSGVO mit rechtlicher Wirkung oder vergleichbarer erheblicher Beeinträchtigung Ihnen gegenüber. Sie werden im Chat transparent darüber informiert, dass Sie mit einem KI-System interagieren (Art. 50 EU AI Act).</p>
+        <p class="text-slate-700">Weitere Informationen zum Datenschutz bei Famulor: <a href="https://www.famulor.io/de/datenschutz">https://www.famulor.io/de/datenschutz</a></p>
       </section>
 
-      <!-- 5. Cal.eu -->
       <section class="mb-10">
-        <h2 class="text-xl font-semibold mb-4">5. Terminbuchung (Cal.eu — EU-gehostete Variante von Cal.com)</h2>
-
+        <h2 class="text-xl font-semibold mb-4">5. Terminbuchung (Cal.eu)</h2>
         <h3 class="text-lg font-semibold mt-6 mb-2">5.1 Beschreibung und Umfang der Datenverarbeitung</h3>
-        <p class="text-slate-700 mb-3">
-          Zur Vereinbarung von Beratungs- und Demo-Terminen nutzen wir den Online-Terminplaner <strong>Cal.eu</strong>, die ausschließlich innerhalb des Europäischen Wirtschaftsraums (EWR) gehostete Variante von Cal.com, betrieben durch die <strong>Cal.com, Inc.</strong>, 2261 Market Street #4382, San Francisco, CA 94114, USA.
-        </p>
-        <p class="text-slate-700 mb-3">
-          Die Buchungsoberfläche ist auf unserer Website verlinkt unter <a href="https://cal.eu/pantelis-nanis-m54voh/30min">https://cal.eu/pantelis-nanis-m54voh/30min</a>. Sobald Sie die Buchungsoberfläche aufrufen, wird eine Verbindung zu Servern innerhalb des EWR hergestellt. Folgende Daten werden bei der Terminbuchung verarbeitet:
-        </p>
+        <p class="text-slate-700 mb-3">Zur Vereinbarung von Beratungs- und Demo-Terminen nutzen wir den Online-Terminplaner <strong>Cal.eu</strong>, die europäisch gehostete Variante des Dienstes der <strong>Cal.com, Inc.</strong>, 2261 Market Street #4382, San Francisco, CA 94114, USA. Bei Cal.eu werden alle Termin- und Buchungsdaten nach Angaben des Anbieters ausschließlich auf Infrastruktur innerhalb der Europäischen Union gespeichert und verarbeitet.</p>
+        <p class="text-slate-700 mb-3">Die Buchungsseite ist auf unserer Website verlinkt oder eingebettet. Sobald Sie die Buchungsoberfläche aufrufen, wird eine Verbindung zu den EU-Servern von Cal.eu hergestellt. Folgende Daten werden bei der Terminbuchung verarbeitet:</p>
         <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
           <li>Name</li>
           <li>E-Mail-Adresse</li>
@@ -232,120 +152,93 @@
           <li>Gewählter Termin (Datum, Uhrzeit, Zeitzone)</li>
           <li>Technische Verbindungsdaten (IP-Adresse, Browser-Typ, Zeitstempel)</li>
         </ul>
-
         <h3 class="text-lg font-semibold mt-6 mb-2">5.2 Rechtsgrundlage</h3>
-        <p class="text-slate-700">
-          <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin).
-        </p>
-
+        <p class="text-slate-700"><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Durchführung vorvertraglicher Maßnahmen auf Ihre Anfrage hin).</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">5.3 Zweck</h3>
         <p class="text-slate-700">Vereinbarung, Bestätigung, Erinnerung und Verwaltung von Terminen.</p>
-
-        <h3 class="text-lg font-semibold mt-6 mb-2">5.4 Hosting und Datenstandort</h3>
-        <p class="text-slate-700">
-          Cal.eu speichert und verarbeitet sämtliche Buchungsdaten ausschließlich auf Server-Infrastruktur innerhalb des Europäischen Wirtschaftsraums. Ein systematischer Datentransfer in die USA findet im regulären Betrieb nicht statt. Der Anbieter Cal.com, Inc. hat seinen rechtlichen Sitz in den USA; ein anlassbezogener Konzern-Zugriff (z.B. für technischen Support) ist nicht ausgeschlossen und beruht in diesen Fällen auf Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO.
-        </p>
-
+        <h3 class="text-lg font-semibold mt-6 mb-2">5.4 Datenverarbeitung in der EU / Hinweis zur US-Muttergesellschaft</h3>
+        <p class="text-slate-700">Da Cal.eu die Daten ausschließlich innerhalb der Europäischen Union speichert und verarbeitet, findet <strong>keine regelmäßige Übermittlung Ihrer Buchungsdaten in ein Drittland</strong> statt. Betreiber des Dienstes ist jedoch die US-amerikanische Cal.com, Inc. Es kann daher im Ausnahmefall nicht vollständig ausgeschlossen werden, dass US-Behörden auf Grundlage US-amerikanischer Gesetze (z.B. CLOUD Act) Zugriff auf in der EU gespeicherte Daten verlangen. Cal.com, Inc. ist zusätzlich nach dem EU-U.S. Data Privacy Framework (DPF) zertifiziert; für etwaige unvermeidbare Übermittlungen kommen ergänzend Standardvertragsklauseln nach Art. 46 DSGVO zur Anwendung.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">5.5 Speicherdauer</h3>
-        <p class="text-slate-700 mb-3">
-          Daten werden bis zum Abschluss des angefragten Termins zzgl. einer angemessenen Nachbereitungsfrist (i.d.R. 6 Monate) gespeichert und anschließend gelöscht, sofern keine vertraglichen oder gesetzlichen Aufbewahrungsfristen entgegenstehen.
-        </p>
-        <p class="text-slate-700">
-          Datenschutzerklärung von Cal.eu: <a href="https://www.cal.eu/privacy">https://www.cal.eu/privacy</a>
-        </p>
+        <p class="text-slate-700">Daten werden bis zum Abschluss des angefragten Termins zzgl. einer angemessenen Nachbereitungsfrist (i.d.R. 6 Monate) gespeichert und anschließend gelöscht, sofern keine vertraglichen oder gesetzlichen Aufbewahrungsfristen entgegenstehen.</p>
+        <h3 class="text-lg font-semibold mt-6 mb-2">5.6 Hinweis zu besonderen Datenkategorien</h3>
+        <p class="text-slate-700 mb-3">Wir bitten Sie, im Zuge der Online-Terminvereinbarung <strong>keine besonderen Kategorien personenbezogener Daten</strong> im Sinne von Art. 9 DSGVO (z.B. Gesundheitsdaten, religiöse oder weltanschauliche Überzeugungen) im Freitextfeld zu übermitteln. Für die Terminvereinbarung sind solche Angaben nicht erforderlich.</p>
+        <p class="text-slate-700">Datenschutzerklärung von Cal.eu: <a href="https://www.cal.eu/privacy">https://www.cal.eu/privacy</a></p>
       </section>
 
-      <!-- 6. Cookies -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">6. Keine Cookies, kein Tracking, keine Analytics</h2>
-        <p class="text-slate-700 mb-3">
-          Diese Website setzt <strong>keine Cookies</strong> ein, die nicht für den technischen Betrieb zwingend erforderlich sind. Es findet <strong>kein Tracking</strong>, <strong>keine Reichweitenmessung</strong> und <strong>keine Webanalyse</strong> (Google Analytics, Matomo, Plausible o.ä.) statt. Eine Profilbildung Ihres Nutzungsverhaltens findet ebenfalls nicht statt.
-        </p>
-        <p class="text-slate-700">
-          Soweit eingebettete Drittdienste (Cal.eu-Buchungsseite) bei Interaktion technisch notwendige Cookies oder vergleichbare Speichertechnologien einsetzen, dient dies ausschließlich der Funktionsfähigkeit dieser Dienste im Sinne von <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> (Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz, ehemals TTDSG) und erfordert daher keine gesonderte Einwilligung. Eine Einwilligungspflicht nach § 25 Abs. 1 TDDDG besteht mangels Speicherung nicht zwingend erforderlicher Informationen auf Ihrem Endgerät nicht.
-        </p>
+        <p class="text-slate-700 mb-3">Diese Website (logik-agentur.de) setzt <strong>keine eigenen Cookies</strong> ein, die nicht für den technischen Betrieb zwingend erforderlich sind. Es findet <strong>kein Tracking</strong>, <strong>keine Reichweitenmessung</strong> und <strong>keine Webanalyse</strong> (Google Analytics, Matomo, Plausible o.ä.) statt. Eine Profilbildung Ihres Nutzungsverhaltens findet nicht statt.</p>
+        <p class="text-slate-700 mb-3"><strong>Eingebettete Drittdienste:</strong> Bei aktiver Nutzung der eingebetteten Drittdienste (Famulor-Chat-Widget, Cal.eu-Buchungsseite) können durch diese Anbieter technisch notwendige Cookies oder vergleichbare Speichertechnologien gesetzt werden — etwa Session-Cookies zur Aufrechterhaltung der Chat-Sitzung oder zur Verwaltung des Buchungsvorgangs. Diese sind nach <strong>§ 25 Abs. 2 Nr. 2 TDDDG</strong> (Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz, ehemals TTDSG) einwilligungsfrei zulässig, da sie für das vom Nutzer ausdrücklich gewünschte Telemediendienst-Angebot unbedingt erforderlich sind.</p>
+        <p class="text-slate-700">Sollten beim Aufruf der Cal.eu-Buchungsoberfläche darüber hinaus nicht zwingend erforderliche Cookies oder Analyse-Technologien gesetzt werden, erfolgt dies außerhalb unserer Kontrolle auf Verantwortung von Cal.com, Inc. Wir empfehlen einen Blick in die Datenschutzerklärung von Cal.eu (<a href="https://www.cal.eu/privacy">https://www.cal.eu/privacy</a>) vor Nutzung des Buchungsdienstes. Eine Einbettung mit weitergehender Trackingfunktion durch uns findet nicht statt.</p>
       </section>
 
-      <!-- 7. Drittlandtransfer USA -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">7. Drittlandtransfer in die USA — Hinweis zur Rechtslage</h2>
-        <p class="text-slate-700 mb-3">
-          Wie in Abschnitt 3 dargestellt, werden personenbezogene Daten an einen Anbieter mit Sitz und Datenverarbeitung in den USA übermittelt (GitHub, Inc. / Microsoft Corporation für das Hosting via GitHub Pages).
-        </p>
-        <p class="text-slate-700 mb-3">
-          Rechtsgrundlage dieser Übermittlung ist der <strong>Angemessenheitsbeschluss der EU-Kommission zum EU-U.S. Data Privacy Framework (DPF)</strong> vom 10.07.2023 (Durchführungsbeschluss (EU) 2023/1795). GitHub hat sich nach dem DPF zertifiziert.
-        </p>
-        <p class="text-slate-700 mb-3">
-          <strong>Wir weisen ausdrücklich darauf hin</strong>, dass trotz Angemessenheitsbeschluss ein Restrisiko des behördlichen Zugriffs durch US-Sicherheitsbehörden (insb. auf Grundlage von FISA 702 und Executive Order 12333) verbleibt, das nach Auffassung von Datenschützern auch durch das DPF nicht vollständig ausgeräumt ist. Gegen den DPF-Angemessenheitsbeschluss sind beim Gerichtshof der Europäischen Union Verfahren anhängig (u.a. Rs. T-553/23, „Latombe"); ein endgültiges Urteil steht zum Zeitpunkt der Erstellung dieser Erklärung aus. Sollte der DPF gekippt werden („Schrems III"), beruhen die Datenübermittlungen ergänzend auf den <strong>EU-Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO</strong>, die GitHub vertraglich anwendet.
-        </p>
-        <p class="text-slate-700">
-          Sie haben das Recht, eine Kopie der zur Verfügung gestellten geeigneten Garantien zu erhalten. Wenden Sie sich hierzu an die in Abschnitt 1 genannten Kontaktdaten.
-        </p>
+        <p class="text-slate-700 mb-3">Wie in Abschnitt 3 dargestellt, werden personenbezogene Daten (Server-Logfiles) an den Hosting-Anbieter mit Sitz und Datenverarbeitung in den USA übermittelt (GitHub, Inc. / Microsoft Corporation).</p>
+        <p class="text-slate-700 mb-3">Rechtsgrundlage dieser Übermittlung ist der <strong>Angemessenheitsbeschluss der EU-Kommission zum EU-U.S. Data Privacy Framework (DPF)</strong> vom 10.07.2023 (Durchführungsbeschluss (EU) 2023/1795). Der Anbieter hat sich nach dem DPF zertifiziert.</p>
+        <p class="text-slate-700 mb-3">Der von uns für die Terminbuchung genutzte Dienst <strong>Cal.eu</strong> speichert und verarbeitet Daten ausschließlich innerhalb der EU; eine regelmäßige Übermittlung in ein Drittland findet dort nicht statt (siehe Abschnitt 5.4 zur US-Muttergesellschaft).</p>
+        <p class="text-slate-700 mb-3"><strong>Wir weisen ausdrücklich darauf hin</strong>, dass trotz Angemessenheitsbeschluss ein Restrisiko des behördlichen Zugriffs durch US-Sicherheitsbehörden (insb. auf Grundlage von FISA 702 und Executive Order 12333) verbleibt, das nach Auffassung von Datenschützern auch durch das DPF nicht vollständig ausgeräumt ist. Gegen den DPF-Angemessenheitsbeschluss sind beim Gerichtshof der Europäischen Union Verfahren anhängig (u.a. Rs. T-553/23, „Latombe"); ein endgültiges Urteil steht zum Zeitpunkt der Erstellung dieser Erklärung aus. Sollte der DPF gekippt werden („Schrems III"), beruht die Datenübermittlung an GitHub/Microsoft ergänzend auf den <strong>EU-Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO</strong>.</p>
+        <p class="text-slate-700">Sie haben das Recht, eine Kopie der zur Verfügung gestellten geeigneten Garantien zu erhalten. Wenden Sie sich hierzu an die in Abschnitt 1 genannten Kontaktdaten.</p>
       </section>
 
-      <!-- 8. Rechte der Betroffenen -->
+      <section class="mb-10">
+        <h2 class="text-xl font-semibold mb-4">7a. Kontaktaufnahme per E-Mail oder Telefon</h2>
+        <h3 class="text-lg font-semibold mt-6 mb-2">7a.1 Beschreibung und Umfang der Datenverarbeitung</h3>
+        <p class="text-slate-700 mb-3">Bei Kontaktaufnahme per E-Mail oder Telefon (siehe Kontaktdaten in Abschnitt 1) werden die von Ihnen mitgeteilten Daten verarbeitet, insbesondere:</p>
+        <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
+          <li>Name</li>
+          <li>E-Mail-Adresse bzw. Telefonnummer</li>
+          <li>Inhalt Ihrer Anfrage (Freitext, freiwillige Angaben)</li>
+          <li>Zeitstempel der Anfrage</li>
+        </ul>
+        <h3 class="text-lg font-semibold mt-6 mb-2">7a.2 Rechtsgrundlage</h3>
+        <ul class="list-disc list-inside text-slate-700 space-y-1 mb-3">
+          <li><strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Durchführung vorvertraglicher Maßnahmen / Vertragserfüllung), wenn die Kontaktaufnahme auf die Anbahnung oder Durchführung eines Vertrags abzielt</li>
+          <li><strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse) für die Beantwortung allgemeiner Anfragen — unser berechtigtes Interesse besteht in einer effizienten Kommunikation mit Interessenten und Geschäftspartnern</li>
+        </ul>
+        <h3 class="text-lg font-semibold mt-6 mb-2">7a.3 Zweck</h3>
+        <p class="text-slate-700">Beantwortung Ihres Anliegens, Anbahnung und Durchführung von Geschäftsbeziehungen, Nachweis der geführten Korrespondenz.</p>
+        <h3 class="text-lg font-semibold mt-6 mb-2">7a.4 Speicherdauer</h3>
+        <p class="text-slate-700">Wir speichern die im Rahmen der Kontaktaufnahme erhaltenen Daten bis zur abschließenden Bearbeitung Ihres Anliegens. Soweit handels- oder steuerrechtliche Aufbewahrungspflichten bestehen (§ 257 HGB, § 147 AO — i.d.R. 6 bzw. 10 Jahre), erfolgt eine Aufbewahrung über diesen Zeitraum.</p>
+        <h3 class="text-lg font-semibold mt-6 mb-2">7a.5 Empfänger</h3>
+        <p class="text-slate-700">Eine Weitergabe Ihrer Daten an Dritte erfolgt nicht, soweit dies nicht gesetzlich vorgeschrieben oder zur Vertragsdurchführung erforderlich ist (z.B. Einbindung von Steuerberater, Buchhaltung).</p>
+      </section>
+
+      <section class="mb-10">
+        <h2 class="text-xl font-semibold mb-4">7b. Widerspruch gegen Werbe-E-Mails</h2>
+        <p class="text-slate-700">Der Nutzung der im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit widersprochen. Wir behalten uns ausdrücklich rechtliche Schritte für den Fall der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-E-Mails, vor.</p>
+      </section>
+
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">8. Rechte der betroffenen Person</h2>
-        <p class="text-slate-700 mb-4">
-          Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener i.S.d. DSGVO und es stehen Ihnen folgende Rechte gegenüber dem Verantwortlichen zu:
-        </p>
-
+        <p class="text-slate-700 mb-4">Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener i.S.d. DSGVO und es stehen Ihnen folgende Rechte gegenüber dem Verantwortlichen zu:</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.1 Auskunftsrecht (Art. 15 DSGVO)</h3>
-        <p class="text-slate-700">
-          Sie können von uns eine Bestätigung darüber verlangen, ob personenbezogene Daten, die Sie betreffen, von uns verarbeitet werden. Liegt eine solche Verarbeitung vor, können Sie Auskunft über diese personenbezogenen Daten und die in Art. 15 DSGVO im Einzelnen aufgeführten Informationen verlangen.
-        </p>
-
+        <p class="text-slate-700">Sie können von uns eine Bestätigung darüber verlangen, ob personenbezogene Daten, die Sie betreffen, von uns verarbeitet werden. Liegt eine solche Verarbeitung vor, können Sie Auskunft über diese personenbezogenen Daten und die in Art. 15 DSGVO im Einzelnen aufgeführten Informationen verlangen.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.2 Recht auf Berichtigung (Art. 16 DSGVO)</h3>
-        <p class="text-slate-700">
-          Sie haben ein Recht auf Berichtigung und/oder Vervollständigung gegenüber dem Verantwortlichen, sofern die verarbeiteten personenbezogenen Daten unrichtig oder unvollständig sind.
-        </p>
-
+        <p class="text-slate-700">Sie haben ein Recht auf Berichtigung und/oder Vervollständigung gegenüber dem Verantwortlichen, sofern die verarbeiteten personenbezogenen Daten unrichtig oder unvollständig sind.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.3 Recht auf Löschung (Art. 17 DSGVO)</h3>
-        <p class="text-slate-700">
-          Sie können vom Verantwortlichen verlangen, dass die Sie betreffenden personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der in Art. 17 Abs. 1 DSGVO im Einzelnen aufgeführten Gründe zutrifft.
-        </p>
-
+        <p class="text-slate-700">Sie können vom Verantwortlichen verlangen, dass die Sie betreffenden personenbezogenen Daten unverzüglich gelöscht werden, sofern einer der in Art. 17 Abs. 1 DSGVO im Einzelnen aufgeführten Gründe zutrifft.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.4 Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</h3>
-        <p class="text-slate-700">
-          Unter den in Art. 18 DSGVO genannten Voraussetzungen können Sie die Einschränkung der Verarbeitung der Sie betreffenden personenbezogenen Daten verlangen.
-        </p>
-
+        <p class="text-slate-700">Unter den in Art. 18 DSGVO genannten Voraussetzungen können Sie die Einschränkung der Verarbeitung der Sie betreffenden personenbezogenen Daten verlangen.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.5 Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</h3>
-        <p class="text-slate-700">
-          Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, die Sie dem Verantwortlichen bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.
-        </p>
-
+        <p class="text-slate-700">Sie haben das Recht, die Sie betreffenden personenbezogenen Daten, die Sie dem Verantwortlichen bereitgestellt haben, in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten — soweit die Verarbeitung auf einer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) oder einem Vertrag (Art. 6 Abs. 1 lit. b DSGVO) beruht <strong>und</strong> mithilfe automatisierter Verfahren erfolgt.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.6 Widerspruchsrecht (Art. 21 DSGVO)</h3>
-        <p class="text-slate-700 mb-3">
-          <strong>Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen.</strong>
-        </p>
-        <p class="text-slate-700">
-          Wir verarbeiten die personenbezogenen Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.
-        </p>
-
+        <p class="text-slate-700 mb-3"><strong>Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung der Sie betreffenden personenbezogenen Daten, die aufgrund von Art. 6 Abs. 1 lit. e oder f DSGVO erfolgt, Widerspruch einzulegen.</strong></p>
+        <p class="text-slate-700">Wir verarbeiten die personenbezogenen Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.7 Automatisierte Entscheidungen im Einzelfall (Art. 22 DSGVO)</h3>
-        <p class="text-slate-700">
-          Sie haben das Recht, nicht einer ausschließlich auf einer automatisierten Verarbeitung — einschließlich Profiling — beruhenden Entscheidung unterworfen zu werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt. Solche Entscheidungen finden auf dieser Website nicht statt.
-        </p>
-
+        <p class="text-slate-700">Sie haben das Recht, nicht einer ausschließlich auf einer automatisierten Verarbeitung — einschließlich Profiling — beruhenden Entscheidung unterworfen zu werden, die Ihnen gegenüber rechtliche Wirkung entfaltet oder Sie in ähnlicher Weise erheblich beeinträchtigt. Solche Entscheidungen finden auf dieser Website nicht statt.</p>
         <h3 class="text-lg font-semibold mt-6 mb-2">8.8 Recht auf Widerruf der datenschutzrechtlichen Einwilligung (Art. 7 Abs. 3 DSGVO)</h3>
-        <p class="text-slate-700 mb-3">
-          Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt.
-        </p>
-        <p class="text-slate-700">
-          <strong>Ausübung Ihrer Rechte:</strong> Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die in Abschnitt 1 genannten Kontaktdaten.
-        </p>
+        <p class="text-slate-700 mb-3">Sie haben das Recht, Ihre datenschutzrechtliche Einwilligungserklärung jederzeit zu widerrufen. Durch den Widerruf der Einwilligung wird die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung nicht berührt.</p>
+        <p class="text-slate-700 mb-3"><strong>Ausübung Ihrer Rechte:</strong> Zur Ausübung dieser Rechte genügt eine formlose Mitteilung an die in Abschnitt 1 genannten Kontaktdaten.</p>
+        <p class="text-slate-700"><strong>Reaktionsfrist:</strong> Wir bearbeiten Anfragen nach Art. 15–22 DSGVO unverzüglich, in jedem Fall jedoch innerhalb eines Monats nach Eingang (Art. 12 Abs. 3 DSGVO). Diese Frist kann bei Bedarf um weitere zwei Monate verlängert werden, wenn dies unter Berücksichtigung der Komplexität und der Anzahl von Anträgen erforderlich ist. Über eine solche Verlängerung sowie deren Gründe werden wir Sie innerhalb eines Monats nach Eingang Ihres Antrags unterrichten.</p>
       </section>
 
-      <!-- 9. Aufsichtsbehörde -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">9. Beschwerderecht bei einer Aufsichtsbehörde</h2>
-        <p class="text-slate-700 mb-4">
-          Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, zu, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die DSGVO verstößt (Art. 77 DSGVO).
-        </p>
+        <p class="text-slate-700 mb-4">Unbeschadet eines anderweitigen verwaltungsrechtlichen oder gerichtlichen Rechtsbehelfs steht Ihnen das Recht auf Beschwerde bei einer Aufsichtsbehörde, insbesondere in dem Mitgliedstaat Ihres Aufenthaltsorts, Ihres Arbeitsplatzes oder des Orts des mutmaßlichen Verstoßes, zu, wenn Sie der Ansicht sind, dass die Verarbeitung der Sie betreffenden personenbezogenen Daten gegen die DSGVO verstößt (Art. 77 DSGVO).</p>
         <p class="text-slate-700 mb-3">Die für uns zuständige Aufsichtsbehörde ist:</p>
         <address class="not-italic text-slate-700 leading-relaxed mb-3">
-          <strong class="block">Die Landesbeauftragte für den Datenschutz Niedersachsen</strong>
+          <strong class="block">Der Landesbeauftragte für den Datenschutz Niedersachsen</strong>
           Prinzenstraße 5<br />
           30159 Hannover<br />
           Deutschland
@@ -357,65 +250,39 @@
         </ul>
       </section>
 
-      <!-- 10. Auftragsverarbeiter -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">10. Auftragsverarbeiter und Empfänger</h2>
-        <p class="text-slate-700 mb-4">
-          Zur Erbringung unserer Dienstleistungen setzen wir Auftragsverarbeiter nach Art. 28 DSGVO ein. Mit allen Auftragsverarbeitern, die im Rahmen der hier beschriebenen Verarbeitungsvorgänge personenbezogene Daten verarbeiten, bestehen Auftragsverarbeitungsverträge.
-        </p>
-
+        <p class="text-slate-700 mb-4">Zur Erbringung unserer Dienstleistungen setzen wir Auftragsverarbeiter nach Art. 28 DSGVO ein. Mit allen Auftragsverarbeitern, die im Rahmen der hier beschriebenen Verarbeitungsvorgänge personenbezogene Daten verarbeiten, bestehen Auftragsverarbeitungsverträge.</p>
         <p class="text-slate-700 mb-3"><strong>Übersicht der für diese Website relevanten Auftragsverarbeiter / Empfänger:</strong></p>
-
         <div class="overflow-x-auto">
           <table>
             <thead>
-              <tr>
-                <th>Anbieter</th>
-                <th>Sitz / Hosting</th>
-                <th>Zweck</th>
-                <th>Drittland</th>
-                <th>Rechtsgrundlage Drittland</th>
-              </tr>
+              <tr><th>Anbieter</th><th>Sitz</th><th>Zweck</th><th>Drittland</th><th>Rechtsgrundlage Drittland</th></tr>
             </thead>
             <tbody>
-              <tr>
-                <td>GitHub, Inc. (Microsoft Corp.)</td>
-                <td>USA</td>
-                <td>Hosting (GitHub Pages)</td>
-                <td>✅ USA</td>
-                <td>DPF + SCCs</td>
-              </tr>
-              <tr>
-                <td>Cal.com, Inc. (Cal.eu)</td>
-                <td>USA (Sitz) / EWR (Hosting)</td>
-                <td>Terminbuchung</td>
-                <td>❌ (Hosting EWR)</td>
-                <td>SCCs für anlassbezogenen Konzern-Zugriff</td>
-              </tr>
+              <tr><td>GitHub, Inc.</td><td>USA</td><td>Hosting (GitHub Pages)</td><td>Ja, USA</td><td>DPF + SCCs</td></tr>
+              <tr><td>Microsoft Corporation</td><td>USA</td><td>Konzernmuttergesellschaft GitHub; Infrastruktur- und Sicherheitsleistungen</td><td>Ja, USA</td><td>DPF + SCCs</td></tr>
+              <tr><td>BEK Service GmbH (Famulor)</td><td>Deutschland</td><td>Chat-Widget</td><td>Nein, EWR</td><td>—</td></tr>
+              <tr><td>Cal.com, Inc. (Marke Cal.eu)</td><td>USA (Betreiber); Datenverarbeitung in der EU</td><td>Terminbuchung</td><td>Nein, EU-Hosting (US-Mutter, vgl. §5.4)</td><td>DPF + SCCs (nur Auffangnetz)</td></tr>
             </tbody>
           </table>
         </div>
-
-        <p class="text-slate-700 mt-4">
-          Eine weitergehende Übersicht über die von uns intern und im Rahmen unserer B2B-Dienstleistung eingesetzten Auftragsverarbeiter (Verzeichnis von Verarbeitungstätigkeiten nach Art. 30 DSGVO) führen wir gesondert; diese werden auf Anfrage betroffenen Personen offengelegt, soweit ein berechtigtes Interesse vorliegt.
-        </p>
+        <p class="text-slate-700 mt-4">Eine weitergehende Übersicht über die von uns intern und im Rahmen unserer B2B-Dienstleistung eingesetzten Auftragsverarbeiter (Verzeichnis von Verarbeitungstätigkeiten nach Art. 30 DSGVO) führen wir gesondert; diese werden auf Anfrage betroffenen Personen offengelegt, soweit ein berechtigtes Interesse vorliegt.</p>
       </section>
 
-      <!-- 11. Änderungen -->
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">11. Änderungen dieser Datenschutzerklärung</h2>
-        <p class="text-slate-700 mb-3">
-          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen (z.B. bei der Einführung neuer Services). Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.
-        </p>
-        <p class="text-slate-700">
-          Die aktuell gültige Fassung ist jederzeit unter <a href="https://logik-agentur.de/datenschutz.html">https://logik-agentur.de/datenschutz.html</a> abrufbar.
-        </p>
+        <p class="text-slate-700 mb-3">Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in der Datenschutzerklärung umzusetzen (z.B. bei der Einführung neuer Services). Für Ihren erneuten Besuch gilt dann die neue Datenschutzerklärung.</p>
+        <p class="text-slate-700 mb-3">Jede Fassung trägt eine Versionsnummer und ein Inkrafttretensdatum. Frühere Fassungen werden archiviert und sind auf Anfrage über die in Abschnitt 1 genannten Kontaktdaten erhältlich.</p>
+        <p class="text-slate-700">Die aktuell gültige Fassung ist jederzeit unter <a href="https://logik-agentur.de/datenschutz.html">https://logik-agentur.de/datenschutz.html</a> abrufbar.</p>
       </section>
+
+      <hr class="my-12 border-slate-200" />
+      <p class="text-sm text-slate-500"><em>Version 1.4 · Stand 31.05.2026</em></p>
 
     </article>
   </main>
 
-  <!-- Footer -->
   <footer class="border-t border-slate-200 bg-slate-50 mt-16">
     <div class="mx-auto max-w-4xl px-6 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-slate-600">
       <p>© 2026 Logik-Agentur · Pantelis Nanis</p>
