@@ -12,3 +12,6 @@ patch_footer.py
 
 index.html.widget.bak
 patch_widget.py
+
+*.bak
+patch_links.py
