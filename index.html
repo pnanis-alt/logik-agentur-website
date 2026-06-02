@@ -666,7 +666,100 @@
        ========================================================================= -->
   <script src="widgets/roi-rechner/dist.js" defer></script>
 
-  <!-- Famulor Chat-Widget (BEK Service GmbH, EWR-Hosting) — Datenschutz: siehe /datenschutz.html §4 -->
-  <script src="https://app.famulor.de/embed.js" data-assistant-id="d0edb1d7-0792-438d-bfef-a1bdb2d33cf4"></script>
+  <!-- =========================================================================
+       Famulor Chat — Consent-Gate (LA Web 06, 2026-06-02)
+       Default AUS: KEIN Kontakt zu Famulor/BEK beim Seitenaufruf.
+       embed.js wird erst nach aktiver Einwilligung geladen.
+       Einwilligung first-party gespeichert; Widerruf via Footer-Link.
+       Eigenes CSS (Tailwind-unabhaengig, uebersteht den spaeteren Tailwind-Umbau).
+       ========================================================================= -->
+  <style>
+    #la-chat-consent { position: fixed; right: 20px; bottom: 20px; z-index: 9998;
+      font-family: 'Inter', system-ui, sans-serif; }
+    #la-chat-launcher { display: inline-flex; align-items: center; gap: 8px;
+      background: var(--color-accent, #4F46E5); color: #fff; border: none;
+      border-radius: 9999px; padding: 12px 18px; font-size: 15px; font-weight: 600;
+      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
+    #la-chat-launcher:hover { background: var(--color-accent-hover, #4338CA); }
+    #la-chat-card { display: none; max-width: 320px; background: #fff;
+      border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
+      padding: 16px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
+    #la-chat-card.open { display: block; }
+    #la-chat-card p { margin: 0 0 12px; font-size: 14px; line-height: 1.5;
+      color: var(--color-text, #18181b); }
+    #la-chat-card a { color: var(--color-accent, #4F46E5); }
+    #la-chat-actions { display: flex; gap: 8px; }
+    #la-chat-load { flex: 1; background: var(--color-accent, #4F46E5); color: #fff;
+      border: none; border-radius: 8px; padding: 10px; font-weight: 600; cursor: pointer; }
+    #la-chat-cancel { background: transparent; color: var(--color-text-muted, #52525b);
+      border: 1px solid var(--color-border, #e4e4e7); border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+  </style>
+
+  <div id="la-chat-consent" hidden>
+    <div id="la-chat-card" role="dialog" aria-label="Chat-Einwilligung">
+      <p>Beim Start des Chats wird eine Verbindung zu unserem Dienstleister
+         <strong>Famulor</strong> (BEK Service GmbH, EWR) aufgebaut. Details in der
+         <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</p>
+      <div id="la-chat-actions">
+        <button id="la-chat-load" type="button">Chat laden</button>
+        <button id="la-chat-cancel" type="button">Abbrechen</button>
+      </div>
+    </div>
+    <button id="la-chat-launcher" type="button" aria-haspopup="dialog">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Chat starten
+    </button>
+  </div>
+
+  <script>
+    (function () {
+      var KEY = 'la_famulor_consent';                          // first-party, nur Ja/Nein
+      var ASSISTANT = 'd0edb1d7-0792-438d-bfef-a1bdb2d33cf4';
+
+      function loadFamulor() {
+        if (document.getElementById('la-famulor-embed')) return;
+        var s = document.createElement('script');
+        s.id = 'la-famulor-embed';
+        s.src = 'https://app.famulor.de/embed.js';
+        s.setAttribute('data-assistant-id', ASSISTANT);
+        document.body.appendChild(s);
+      }
+
+      var consent = null;
+      try { consent = localStorage.getItem(KEY); } catch (e) {}
+      var box = document.getElementById('la-chat-consent');
+
+      if (consent === 'granted') {
+        loadFamulor();
+        var fy = document.getElementById('footer-year');
+        if (fy && fy.parentElement) {
+          var w = document.createElement('a');
+          w.href = '#'; w.textContent = 'Chat-Einwilligung widerrufen';
+          w.style.cssText = 'display:inline-block;margin-top:6px;font-size:11px;text-decoration:underline;color:inherit;';
+          w.addEventListener('click', function (e) {
+            e.preventDefault();
+            try { localStorage.removeItem(KEY); } catch (e) {}
+            location.reload();
+          });
+          fy.parentElement.appendChild(document.createElement('br'));
+          fy.parentElement.appendChild(w);
+        }
+      } else {
+        box.hidden = false;
+        var card = document.getElementById('la-chat-card');
+        document.getElementById('la-chat-launcher').addEventListener('click', function () {
+          card.classList.toggle('open');
+        });
+        document.getElementById('la-chat-cancel').addEventListener('click', function () {
+          card.classList.remove('open');
+        });
+        document.getElementById('la-chat-load').addEventListener('click', function () {
+          try { localStorage.setItem(KEY, 'granted'); } catch (e) {}
+          box.hidden = true;
+          loadFamulor();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
