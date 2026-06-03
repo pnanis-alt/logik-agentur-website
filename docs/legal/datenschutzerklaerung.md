@@ -1,6 +1,6 @@
 # Datenschutzerklärung — Logik-Agentur
 
-**Version 1.4 vom 31.05.2026** | **Rechtsstand:** Deutschland / EU
+**Version 1.5 vom 03.06.2026** | **Rechtsstand:** Deutschland / EU
 
 ---
 
@@ -93,7 +93,9 @@ Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an ei
 
 Auf dieser Website ist ein Chat-Widget des Anbieters **Famulor** eingebunden, betrieben durch die **BEK Service GmbH**, Westendstr. 2A, 87439 Kempten (Allgäu), Deutschland (HRB 14544, Amtsgericht Kempten/Allgäu).
 
-Über das Chat-Widget können Sie als Besucher direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Bei Nutzung des Chat-Widgets werden folgende Daten verarbeitet:
+Das Chat-Widget wird **nicht automatisch beim Aufruf der Website geladen**. Zunächst erscheint lediglich ein lokaler Hinweis mit der Schaltfläche „Chat starten". Erst wenn Sie diese aktiv anklicken, wird das Widget des Anbieters nachgeladen und eine Verbindung zu dessen Servern (app.famulor.de) hergestellt. **Vor diesem Klick werden keinerlei Daten — insbesondere nicht Ihre IP-Adresse — an Famulor übertragen.** Ihre Entscheidung wird ausschließlich lokal in Ihrem Browser gespeichert (First-Party, keine Übermittlung an Dritte) und kann jederzeit widerrufen werden (siehe Abschnitt 8.8).
+
+Sobald Sie das Chat-Widget aktiv starten, können Sie direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Dabei werden folgende Daten verarbeitet:
 
 - Inhalte Ihrer Chat-Nachrichten (Freitext-Eingaben)
 - Ggf. von Ihnen freiwillig eingegebene Kontaktdaten (Name, E-Mail-Adresse, Telefonnummer)
@@ -101,10 +103,12 @@ Auf dieser Website ist ein Chat-Widget des Anbieters **Famulor** eingebunden, be
 
 ### 4.2 Rechtsgrundlage
 
-Die Rechtsgrundlage für die Verarbeitung ist:
+Da das Chat-Widget ausschließlich nach Ihrer aktiven Bestätigung geladen wird, beruhen sowohl der Zugriff auf bzw. die Speicherung von Informationen in Ihrer Endeinrichtung als auch die anschließende Datenverarbeitung auf Ihrer **Einwilligung**:
 
-- **Art. 6 Abs. 1 lit. b DSGVO** (Vertrag / vorvertragliche Maßnahmen), soweit Sie das Widget zur Anbahnung einer Geschäftsbeziehung nutzen
-- **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse) an einer effizienten Erstkontakt-Bearbeitung und Beantwortung von Anfragen außerhalb von Geschäftszeiten
+- **§ 25 Abs. 1 TDDDG** für das Laden des Widgets und den damit verbundenen Zugriff auf bzw. die Speicherung von Informationen in Ihrer Endeinrichtung
+- **Art. 6 Abs. 1 lit. a DSGVO** für die nachfolgende Verarbeitung Ihrer personenbezogenen Daten (Verbindungsdaten, Chat-Inhalte, ggf. Kontaktdaten)
+
+Die Einwilligung erteilen Sie durch das aktive Anklicken der Schaltfläche „Chat starten". Sie ist freiwillig; ohne sie bleibt die übrige Website uneingeschränkt nutzbar. Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen (Art. 7 Abs. 3 DSGVO, siehe Abschnitt 8.8) — die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt. Soweit aus dem Chat eine konkrete Geschäftsanbahnung entsteht und wir Ihre freiwillig übermittelten Kontaktdaten zur persönlichen Rückmeldung verwenden, stützt sich diese weitere Bearbeitung auf **Art. 6 Abs. 1 lit. b DSGVO** (vorvertragliche Maßnahmen).
 
 ### 4.3 Zweck
 
@@ -171,7 +175,7 @@ Datenschutzerklärung von Cal.eu: https://www.cal.eu/privacy
 
 Diese Website (logik-agentur.de) setzt **keine eigenen Cookies** ein, die nicht für den technischen Betrieb zwingend erforderlich sind. Es findet **kein Tracking**, **keine Reichweitenmessung** und **keine Webanalyse** (Google Analytics, Matomo, Plausible o.ä.) statt. Eine Profilbildung Ihres Nutzungsverhaltens findet nicht statt.
 
-**Eingebettete Drittdienste:** Bei aktiver Nutzung der eingebetteten Drittdienste (Famulor-Chat-Widget, Cal.eu-Buchungsseite) können durch diese Anbieter technisch notwendige Cookies oder vergleichbare Speichertechnologien gesetzt werden — etwa Session-Cookies zur Aufrechterhaltung der Chat-Sitzung oder zur Verwaltung des Buchungsvorgangs. Diese sind nach **§ 25 Abs. 2 Nr. 2 TDDDG** (Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz, ehemals TTDSG) einwilligungsfrei zulässig, da sie für das vom Nutzer ausdrücklich gewünschte Telemediendienst-Angebot unbedingt erforderlich sind.
+**Eingebettete bzw. verlinkte Drittdienste:** Das Famulor-Chat-Widget wird — wie in Abschnitt 4 beschrieben — **erst nach Ihrer ausdrücklichen Einwilligung** (aktiver Klick auf „Chat starten") geladen. Vor diesem Klick setzt der Anbieter keine Cookies oder vergleichbaren Speichertechnologien und erhält keine Daten von Ihnen. Erst innerhalb der von Ihnen gestarteten Chat-Sitzung kann Famulor technisch erforderliche Informationen (etwa ein Session-Cookie zur Aufrechterhaltung der Sitzung) in Ihrer Endeinrichtung speichern; Rechtsgrundlage hierfür ist Ihre Einwilligung nach **§ 25 Abs. 1 TDDDG** in Verbindung mit Art. 6 Abs. 1 lit. a DSGVO (siehe Abschnitt 4.2). Die Cal.eu-Buchungsoberfläche rufen Sie über einen Link aktiv auf.
 
 Sollten beim Aufruf der Cal.eu-Buchungsoberfläche darüber hinaus nicht zwingend erforderliche Cookies oder Analyse-Technologien gesetzt werden, erfolgt dies außerhalb unserer Kontrolle auf Verantwortung von Cal.com, Inc. Wir empfehlen einen Blick in die Datenschutzerklärung von Cal.eu (https://www.cal.eu/privacy) vor Nutzung des Buchungsdienstes. Eine Einbettung mit weitergehender Trackingfunktion durch uns findet nicht statt.
 
@@ -429,3 +433,4 @@ Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an ef
 | 1.3 | 31.05.2026 | **Korrektur Cal.com → Cal.eu** (EU-Hosting): §5 komplett auf EU-Datenverarbeitung umgestellt, §5.4 Drittland durch EU-Hosting + CLOUD-Act-Hinweis ersetzt, §6 PostHog-Passage entschärft, §7 auf nur GitHub/Microsoft als US-Transfer reduziert, §10-Tabelle angepasst. §1 Adresse (Am Neuen Wege 5, 31515 Wunstorf) + Telefon (+49 171 8400101) eingesetzt. §9 „Die" → „Der Landesbeauftragte" (Amtsinhaber Denis Lehmkemper seit 09/2023). Verbleibender Platzhalter: [E-MAIL] |
 | 1.4 | 31.05.2026 | §1 E-Mail kontakt@logik-agentur.de eingesetzt. Keine [...]-Platzhalter mehr; verbleibend nur noch Famulor-Hinweise ¹/² (BEK-Anschrift, Chat-Speicherdauer) — vom Famulor-Account abhängig |
 | 1.4-live | 31.05.2026 | LIVE-Schaltung: Entwurfsvermerke entfernt (Anwaltsprüfung bewusst übersprungen, Restrisiko akzeptiert). §4.1 BEK-Anschrift Westendstr. 2A, 87439 Kempten eingesetzt. §4.5 Chat-Speicherdauer 90 Tage. §4 Famulor aktiv (Widget gleichzeitig auf logik-agentur.de eingebunden). Anhang B nicht im gerenderten HTML (nur in MD-SoT als Referenz). Als datenschutz.html via GitHub Pages veröffentlicht. |
+| 1.5 | 03.06.2026 | **Consent-Gate Chat-Widget** (LA Web 06): §4.1 ergänzt — Widget lädt erst nach aktivem Klick („Chat starten"), vor dem Klick keine Datenübertragung und keine IP an Famulor, Einwilligung First-Party im Browser gespeichert, jederzeit widerrufbar. §4.2 Rechtsgrundlage von berechtigtem Interesse/Vertrag (Art. 6 I b/f) auf **Einwilligung** umgestellt (**§ 25 Abs. 1 TDDDG** + **Art. 6 Abs. 1 lit. a DSGVO**; lit. b nur noch für nachgelagerte Rückmeldung). §6 „§ 25 Abs. 2 Nr. 2 / technisch notwendig"-Begründung für das automatische Laden entfernt und auf Einwilligung (§4.2) verwiesen. Hinweis: Google Fonts und Tailwind werden seit LA Web 06 selbst gehostet — beim Seitenaufruf kein Datentransfer an Google/Dritte (technische Umsetzung; im Fließtext bestand hierzu keine anderslautende Aussage). |
