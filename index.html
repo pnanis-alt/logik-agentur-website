@@ -19,79 +19,9 @@
   <link rel="stylesheet" href="assets/fonts.css" />
 
   <!-- Tailwind Play CDN (v3) — vor Production-Traffic durch Tailwind CLI Build ersetzen -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    /* Tailwind-Konfiguration: Aliasing für CSS-Variables aus design-tokens.md v1.0.
-       Aliase vermeiden Kollisionen mit Tailwind-Built-ins (text-text, border-border).
-       CSS-Variablen behalten Original-Namen aus design-tokens.md (Source of Truth). */
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            // Surfaces
-            base:            'var(--color-bg)',
-            subtle:          'var(--color-bg-subtle)',
-            muted:           'var(--color-bg-muted)',
-            // Text (ink-Alias, weil `text` Tailwind-Utility ist)
-            ink:             'var(--color-text)',
-            'ink-muted':     'var(--color-text-muted)',
-            'ink-subtle':    'var(--color-text-subtle)',
-            // Borders (line-Alias, weil `border` Tailwind-Utility ist)
-            line:            'var(--color-border)',
-            'line-strong':   'var(--color-border-strong)',
-            // Accent (Indigo)
-            accent:          'var(--color-accent)',
-            'accent-hover':  'var(--color-accent-hover)',
-            'accent-subtle': 'var(--color-accent-subtle)',
-            'accent-text':   'var(--color-accent-text)',
-            // Semantic
-            success:         'var(--color-success)',
-            warning:         'var(--color-warning)',
-            danger:          'var(--color-danger)',
-            // Loss-Frame
-            'loss-bg':       'var(--color-loss-bg)',
-            'loss-border':   'var(--color-loss-border)',
-            'loss-text':     'var(--color-loss-text)',
-            'loss-value':    'var(--color-loss-value)',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-            mono: ['"JetBrains Mono"', '"SF Mono"', 'Menlo', 'monospace'],
-          },
-          spacing: {
-            'sp-1':  'var(--space-1)',
-            'sp-2':  'var(--space-2)',
-            'sp-3':  'var(--space-3)',
-            'sp-4':  'var(--space-4)',
-            'sp-6':  'var(--space-6)',
-            'sp-8':  'var(--space-8)',
-            'sp-12': 'var(--space-12)',
-            'sp-16': 'var(--space-16)',
-            'sp-24': 'var(--space-24)',
-          },
-          borderRadius: {
-            sm: 'var(--radius-sm)',
-            md: 'var(--radius-md)',
-            lg: 'var(--radius-lg)',
-            xl: 'var(--radius-xl)',
-          },
-          boxShadow: {
-            sm: 'var(--shadow-sm)',
-            md: 'var(--shadow-md)',
-          },
-          maxWidth: {
-            content: '1200px',
-          },
-          letterSpacing: {
-            'h1-hero':    '-0.025em',
-            'h2-section': '-0.02em',
-            'h3-card':    '-0.01em',
-            'micro':      '0.04em',
-          },
-        },
-      },
-    };
-  </script>
+  <!-- Tailwind: lokaler Build (ersetzt Play-CDN). Theme-Quelle: tailwind.config.js + docs/design-tokens.md.
+       Neu bauen: .build/tailwindcss -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --minify -->
+  <link rel="stylesheet" href="assets/tailwind.css" />
 
   <!-- React/ReactDOM/Babel-CDN entfernt (Weg A: esbuild-Bundle).
        Jedes React-Widget bringt sein eigenes React via Bundle mit. Vendor-Extraction
