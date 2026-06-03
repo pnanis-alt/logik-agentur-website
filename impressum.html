@@ -8,28 +8,11 @@
   <title>Impressum — Logik-Agentur</title>
   <link rel="canonical" href="https://logik-agentur.de/impressum.html" />
 
-  <!-- Tailwind via CDN (konsistent mit restlichem Site-Stack) -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Tailwind: lokaler Build (ersetzt Play-CDN), gemeinsames assets/tailwind.css -->
+  <link rel="stylesheet" href="assets/tailwind.css" />
 
   <!-- Fonts self-hosted (kein Aufruf an Google), woff2, latin inkl. Umlaute, font-display: swap -->
   <link rel="stylesheet" href="assets/fonts.css" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'la-navy': '#2E3849',
-            'la-orange': '#E67533',
-            'la-gold': '#F2A93B',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-          },
-        },
-      },
-    };
-  </script>
 
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }

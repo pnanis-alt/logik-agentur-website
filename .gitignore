@@ -15,3 +15,6 @@ patch_widget.py
 
 *.bak
 patch_links.py
+
+# Tailwind Standalone-CLI Binary (~48 MB, nicht committen — bei Bedarf neu laden)
+.build/
