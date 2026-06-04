@@ -1,6 +1,6 @@
 # Datenschutzerklärung — Logik-Agentur
 
-**Version 1.5 vom 03.06.2026** | **Rechtsstand:** Deutschland / EU
+**Version 1.7 vom 04.06.2026** | **Rechtsstand:** Deutschland / EU
 
 ---
 
@@ -18,7 +18,7 @@ Deutschland
 **Telefon:** +49 171 8400101
 **Website:** https://logik-agentur.de
 
-Ein Datenschutzbeauftragter ist nach § 38 BDSG nicht bestellt. Es wurde geprüft, ob eine Bestellpflicht nach Art. 37 DSGVO oder § 38 Abs. 1 S. 2 BDSG (DSFA-pflichtige Verarbeitungen, geschäftsmäßige Übermittlung) besteht. Eine solche Pflicht wurde nach derzeitigem Stand verneint, da für die hier beschriebenen Verarbeitungen auf der Website keine DSFA-pflichtigen Vorgänge i.S.d. Art. 35 DSGVO durchgeführt werden und die 20-Personen-Schwelle nach § 38 Abs. 1 S. 1 BDSG nicht erreicht ist. Bei Erweiterung des Leistungsangebots wird die Prüfung erneut durchgeführt.
+Ein Datenschutzbeauftragter ist nicht bestellt, da die gesetzlichen Voraussetzungen nach Art. 37 DSGVO und § 38 BDSG für die auf dieser Website beschriebenen Verarbeitungen nicht vorliegen. Bei einer Erweiterung des Leistungsangebots wird diese Prüfung erneut vorgenommen.
 
 ---
 
@@ -41,6 +41,20 @@ Ist die Verarbeitung zur Wahrung eines berechtigten Interesses des Verantwortlic
 ### 2.3 Datenlöschung und Speicherdauer
 
 Die personenbezogenen Daten der betroffenen Person werden gelöscht oder gesperrt, sobald der Zweck der Speicherung entfällt. Eine Speicherung kann darüber hinaus erfolgen, wenn dies durch den europäischen oder nationalen Gesetzgeber in unionsrechtlichen Verordnungen, Gesetzen oder sonstigen Vorschriften, denen der Verantwortliche unterliegt, vorgesehen wurde — insbesondere die handels- und steuerrechtlichen Aufbewahrungsfristen nach § 257 HGB und § 147 AO (i.d.R. 6 bzw. 10 Jahre).
+
+---
+
+## 2a. Grundsätze des KI-Einsatzes auf dieser Website
+
+Da der Einsatz künstlicher Intelligenz zu unserem Tätigkeitsfeld gehört, legen wir die Grundsätze, nach denen auf dieser Website KI-gestützte Funktionen arbeiten, vorab transparent offen:
+
+- **Wo KI zum Einsatz kommt:** Auf dieser Website wird KI ausschließlich im Chat-Widget (Abschnitt 4) eingesetzt. Alle übrigen Funktionen (Hosting, Terminbuchung, Kontakt) arbeiten ohne KI-gestützte Verarbeitung Ihrer Daten.
+- **Transparenz:** Sie werden stets darüber informiert, wenn Sie mit einem KI-System interagieren (Art. 50 der Verordnung (EU) 2024/1689 — „EU AI Act").
+- **Keine automatisierten Einzelentscheidungen:** Es findet keine ausschließlich automatisierte Entscheidung mit rechtlicher Wirkung oder vergleichbar erheblicher Beeinträchtigung Ihnen gegenüber statt (Art. 22 DSGVO).
+- **Kein Training mit Ihren Eingaben:** Die im Chat-Widget eingesetzte KI verwendet Ihre Eingaben nicht zum Training von KI-Basismodellen. Der Anbieter des Chat-Widgets (Famulor / BEK Service GmbH) ist hierauf im Auftragsverarbeitungsvertrag vertraglich verpflichtet (No-Training- bzw. Zero-Retention-Zusage, siehe Abschnitt 4.4).
+- **Datensparsamkeit:** Wir verarbeiten über KI-Funktionen nur die Daten, die Sie aktiv eingeben; eine darüber hinausgehende Profilbildung findet nicht statt.
+
+> **Abgrenzung:** Diese Grundsätze beziehen sich auf die Datenverarbeitung **auf dieser Website**. Soweit wir für Geschäftskunden KI-Lösungen (z.B. Sprach- oder Chat-Assistenten) konfigurieren und betreiben, erfolgt dies im Auftrag des jeweiligen Kunden auf Grundlage gesonderter Auftragsverarbeitungsverträge; insoweit ist der jeweilige Kunde datenschutzrechtlich Verantwortlicher.
 
 ---
 
@@ -93,9 +107,7 @@ Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an ei
 
 Auf dieser Website ist ein Chat-Widget des Anbieters **Famulor** eingebunden, betrieben durch die **BEK Service GmbH**, Westendstr. 2A, 87439 Kempten (Allgäu), Deutschland (HRB 14544, Amtsgericht Kempten/Allgäu).
 
-Das Chat-Widget wird **nicht automatisch beim Aufruf der Website geladen**. Zunächst erscheint lediglich ein lokaler Hinweis mit der Schaltfläche „Chat starten". Erst wenn Sie diese aktiv anklicken, wird das Widget des Anbieters nachgeladen und eine Verbindung zu dessen Servern (app.famulor.de) hergestellt. **Vor diesem Klick werden keinerlei Daten — insbesondere nicht Ihre IP-Adresse — an Famulor übertragen.** Ihre Entscheidung wird ausschließlich lokal in Ihrem Browser gespeichert (First-Party, keine Übermittlung an Dritte) und kann jederzeit widerrufen werden (siehe Abschnitt 8.8).
-
-Sobald Sie das Chat-Widget aktiv starten, können Sie direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Dabei werden folgende Daten verarbeitet:
+Über das Chat-Widget können Sie als Besucher direkt mit einem KI-gestützten Assistenten oder mit uns in Kontakt treten. Bei Nutzung des Chat-Widgets werden folgende Daten verarbeitet:
 
 - Inhalte Ihrer Chat-Nachrichten (Freitext-Eingaben)
 - Ggf. von Ihnen freiwillig eingegebene Kontaktdaten (Name, E-Mail-Adresse, Telefonnummer)
@@ -103,7 +115,7 @@ Sobald Sie das Chat-Widget aktiv starten, können Sie direkt mit einem KI-gestü
 
 ### 4.2 Rechtsgrundlage
 
-Da das Chat-Widget ausschließlich nach Ihrer aktiven Bestätigung geladen wird, beruhen sowohl der Zugriff auf bzw. die Speicherung von Informationen in Ihrer Endeinrichtung als auch die anschließende Datenverarbeitung auf Ihrer **Einwilligung**:
+Da das Chat-Widget ausschließlich nach Ihrer aktiven Bestätigung geladen wird, beruhen sowohl der Zugriff auf bzw. die Speicherung von Informationen in Ihrer Endeinrichtung als auch die anschließende Datenverarbeitung auf Ihrer Einwilligung:
 
 - **§ 25 Abs. 1 TDDDG** für das Laden des Widgets und den damit verbundenen Zugriff auf bzw. die Speicherung von Informationen in Ihrer Endeinrichtung
 - **Art. 6 Abs. 1 lit. a DSGVO** für die nachfolgende Verarbeitung Ihrer personenbezogenen Daten (Verbindungsdaten, Chat-Inhalte, ggf. Kontaktdaten)
@@ -118,7 +130,7 @@ Beantwortung Ihrer Anfragen, Erstkontaktqualifizierung, ggf. Weiterleitung Ihrer
 
 Mit der BEK Service GmbH besteht ein Auftragsverarbeitungsvertrag (AVV) nach Art. 28 DSGVO. Famulor hostet die Daten ausschließlich im **Europäischen Wirtschaftsraum (EWR)** — die Telefonie- und Chat-Infrastruktur in Frankfurt am Main (Deutschland), die KI-Verarbeitungsleistung in Schweden (jeweils Microsoft Azure).
 
-Famulor setzt zur Erbringung der Leistung Sub-Auftragsverarbeiter ein, die im AVV vertraglich auf das DSGVO-Schutzniveau und auf Zero-Retention-/No-Training-Garantien verpflichtet sind. Dazu zählen insbesondere Microsoft Azure (Hosting, EWR) sowie ggf. Anbieter von Sprachmodellen (z.B. OpenAI, Anthropic) für die KI-Verarbeitung. Eine aktuelle Liste der Sub-Auftragsverarbeiter stellt Famulor auf Anfrage zur Verfügung; wir reichen diese auf Wunsch weiter (Kontakt siehe Abschnitt 1).
+Famulor setzt zur Erbringung der Leistung Sub-Auftragsverarbeiter ein, die im Auftragsverarbeitungsvertrag vertraglich auf das DSGVO-Schutzniveau sowie auf No-Training- und Zero-Retention-Garantien verpflichtet sind. Eine aktuelle Liste der eingesetzten Sub-Auftragsverarbeiter stellen wir betroffenen Personen auf Anfrage zur Verfügung (Kontakt siehe Abschnitt 1).
 
 ### 4.5 Speicherdauer
 
@@ -126,7 +138,7 @@ Chat-Verläufe werden zur Beweisführung und Qualitätssicherung für die Dauer 
 
 ### 4.6 Hinweis zur KI-Verarbeitung (Art. 13 Abs. 2 lit. f DSGVO, EU AI Act)
 
-Im Chat-Widget kommt ein KI-System (Large Language Model) zum Einsatz. Es handelt sich nicht um eine automatisierte Entscheidung im Sinne von Art. 22 DSGVO mit rechtlicher Wirkung oder vergleichbarer erheblicher Beeinträchtigung Ihnen gegenüber. Sie werden im Chat transparent darüber informiert, dass Sie mit einem KI-System interagieren (Art. 50 EU AI Act).
+Im Chat-Widget kommt ein KI-System (Large Language Model) zum Einsatz. Es gelten die in **Abschnitt 2a** dargestellten Grundsätze des KI-Einsatzes: transparente Kennzeichnung der KI-Interaktion (Art. 50 EU AI Act), keine automatisierte Einzelentscheidung mit Rechtswirkung (Art. 22 DSGVO) und keine Verwendung Ihrer Eingaben zum Training von KI-Basismodellen.
 
 Weitere Informationen zum Datenschutz bei Famulor: https://www.famulor.io/de/datenschutz
 
@@ -155,9 +167,9 @@ Die Buchungsseite ist auf unserer Website verlinkt oder eingebettet. Sobald Sie 
 
 Vereinbarung, Bestätigung, Erinnerung und Verwaltung von Terminen.
 
-### 5.4 Datenverarbeitung in der EU / Hinweis zur US-Muttergesellschaft
+### 5.4 Datenverarbeitung in der EU
 
-Da Cal.eu die Daten ausschließlich innerhalb der Europäischen Union speichert und verarbeitet, findet **keine regelmäßige Übermittlung Ihrer Buchungsdaten in ein Drittland** statt. Betreiber des Dienstes ist jedoch die US-amerikanische Cal.com, Inc. Es kann daher im Ausnahmefall nicht vollständig ausgeschlossen werden, dass US-Behörden auf Grundlage US-amerikanischer Gesetze (z.B. CLOUD Act) Zugriff auf in der EU gespeicherte Daten verlangen. Cal.com, Inc. ist zusätzlich nach dem EU-U.S. Data Privacy Framework (DPF) zertifiziert; für etwaige unvermeidbare Übermittlungen kommen ergänzend Standardvertragsklauseln nach Art. 46 DSGVO zur Anwendung.
+Cal.eu speichert und verarbeitet alle Termin- und Buchungsdaten nach Angaben des Anbieters ausschließlich innerhalb der Europäischen Union. Eine Übermittlung Ihrer Buchungsdaten in ein Drittland findet damit nicht statt. Betreiber des Dienstes ist die Cal.com, Inc. (USA), die zusätzlich nach dem EU-U.S. Data Privacy Framework zertifiziert ist; mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO.
 
 ### 5.5 Speicherdauer
 
@@ -181,15 +193,13 @@ Sollten beim Aufruf der Cal.eu-Buchungsoberfläche darüber hinaus nicht zwingen
 
 ---
 
-## 7. Drittlandtransfer in die USA — Hinweis zur Rechtslage
+## 7. Datenverarbeitung in der EU und Drittlandtransfer
 
-Wie in Abschnitt 3 dargestellt, werden personenbezogene Daten (Server-Logfiles) an den Hosting-Anbieter mit Sitz und Datenverarbeitung in den USA übermittelt (GitHub, Inc. / Microsoft Corporation).
+**Wir setzen bewusst primär auf europäische Infrastruktur**, um Datentransfers in Drittländer auf das technisch Notwendige zu reduzieren. Das Chat-Widget (Famulor) verarbeitet Daten ausschließlich im EWR; die Terminbuchung (Cal.eu) speichert und verarbeitet Daten ausschließlich innerhalb der EU.
 
-Rechtsgrundlage dieser Übermittlung ist der **Angemessenheitsbeschluss der EU-Kommission zum EU-U.S. Data Privacy Framework (DPF)** vom 10.07.2023 (Durchführungsbeschluss (EU) 2023/1795). Der Anbieter hat sich nach dem DPF zertifiziert.
+Eine Übermittlung in die USA findet lediglich im Rahmen des Website-Hostings statt (GitHub, Inc., Microsoft-Konzern, siehe Abschnitt 3). Diese Übermittlung ist abgesichert durch den **Angemessenheitsbeschluss der EU-Kommission zum EU-U.S. Data Privacy Framework (DPF)** vom 10.07.2023 (Durchführungsbeschluss (EU) 2023/1795); der Anbieter ist nach dem DPF zertifiziert. Ergänzend kommen **EU-Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO** zur Anwendung.
 
-Der von uns für die Terminbuchung genutzte Dienst **Cal.eu** speichert und verarbeitet Daten ausschließlich innerhalb der EU; eine regelmäßige Übermittlung in ein Drittland findet dort nicht statt (siehe Abschnitt 5.4 zur US-Muttergesellschaft).
-
-**Wir weisen ausdrücklich darauf hin**, dass trotz Angemessenheitsbeschluss ein Restrisiko des behördlichen Zugriffs durch US-Sicherheitsbehörden (insb. auf Grundlage von FISA 702 und Executive Order 12333) verbleibt, das nach Auffassung von Datenschützern auch durch das DPF nicht vollständig ausgeräumt ist. Gegen den DPF-Angemessenheitsbeschluss sind beim Gerichtshof der Europäischen Union Verfahren anhängig (u.a. Rs. T-553/23, „Latombe"); ein endgültiges Urteil steht zum Zeitpunkt der Erstellung dieser Erklärung aus. Sollte der DPF gekippt werden („Schrems III"), beruht die Datenübermittlung an GitHub/Microsoft ergänzend auf den **EU-Standardvertragsklauseln nach Art. 46 Abs. 2 lit. c DSGVO**.
+Wir weisen transparent darauf hin, dass bei Dienstleistern mit US-Bezug trotz DPF-Zertifizierung ein theoretisches Restrisiko behördlicher Zugriffe nach US-Recht nicht vollständig auszuschließen ist und dass die Wirksamkeit des DPF Gegenstand gerichtlicher Überprüfung auf europäischer Ebene ist. Sollte der Angemessenheitsbeschluss künftig entfallen, bleibt die Übermittlung über die genannten Standardvertragsklauseln abgesichert.
 
 Sie haben das Recht, eine Kopie der zur Verfügung gestellten geeigneten Garantien zu erhalten. Wenden Sie sich hierzu an die in Abschnitt 1 genannten Kontaktdaten.
 
@@ -300,10 +310,9 @@ Zur Erbringung unserer Dienstleistungen setzen wir Auftragsverarbeiter nach Art.
 
 | Anbieter | Sitz | Zweck | Drittland | Rechtsgrundlage Drittland |
 |---|---|---|---|---|
-| GitHub, Inc. | USA | Hosting (GitHub Pages) | Ja, USA | DPF + SCCs |
-| Microsoft Corporation | USA | Konzernmuttergesellschaft GitHub; Infrastruktur- und Sicherheitsleistungen | Ja, USA | DPF + SCCs |
+| GitHub, Inc. (Microsoft-Konzern) | USA | Hosting (GitHub Pages) | Ja, USA | DPF + SCCs |
 | BEK Service GmbH (Famulor) | Deutschland | Chat-Widget | Nein, EWR | — |
-| Cal.com, Inc. (Marke Cal.eu) | USA (Betreiber); Datenverarbeitung in der EU | Terminbuchung | Nein, EU-Hosting (US-Mutter, vgl. §5.4) | DPF + SCCs (nur Auffangnetz) |
+| Cal.com, Inc. (Marke Cal.eu) | USA (Betreiber); Verarbeitung in der EU | Terminbuchung | Nein, EU-Verarbeitung | — |
 
 Eine weitergehende Übersicht über die von uns intern und im Rahmen unserer B2B-Dienstleistung eingesetzten Auftragsverarbeiter (Verzeichnis von Verarbeitungstätigkeiten nach Art. 30 DSGVO) führen wir gesondert; diese werden auf Anfrage betroffenen Personen offengelegt, soweit ein berechtigtes Interesse vorliegt.
 
@@ -319,107 +328,16 @@ Die aktuell gültige Fassung ist jederzeit unter https://logik-agentur.de/datens
 
 ---
 
----
+## Status der Platzhalter
 
-# Anhang B — Optionale Bausteine (NICHT aktiv)
-
-> ⚠️ **Diese Bausteine sind derzeit NICHT Teil der veröffentlichten Datenschutzerklärung.**
-> Sie beschreiben Verarbeitungen, die auf logik-agentur.de **noch nicht** stattfinden. Erst einbinden, wenn das jeweilige Feature **tatsächlich live** ist — eine DSE, die nicht existierende Verarbeitungen beschreibt, ist selbst ein DSGVO-Verstoß (Grundsatz der Richtigkeit, Art. 5 Abs. 1 lit. d). Bei Einbindung: Baustein in den Hauptteil verschieben, durchnummerieren, in AVV-Tabelle §10 ergänzen, Changelog fortschreiben.
-
----
-
-## B1 — KI-Voice-Demo / Telefonsystem auf der Website
-
-*(Einbinden, sobald auf der Website ein Demo-Anruf-Button oder ein Web-Voice-Agent live geht. Anbieter an tatsächlich genutzten Stack anpassen.)*
-
-### B1.1 Umfang der Verarbeitung
-
-Wir setzen ein KI-gestütztes Sprachsystem ein, mit dem Sie zu Demonstrationszwecken sprechen können. Dabei werden verarbeitet:
-
-- Telefonnummer (bei telefonischem Anruf) bzw. technische Verbindungsdaten (bei Web-Demo)
-- Datum und Dauer des Gesprächs
-- Gesprächsinhalt durch automatische Transkription (Audio → Text)
-
-### B1.2 Rechtsgrundlage
-
-**Art. 6 Abs. 1 lit. a DSGVO** (Einwilligung). Vor Beginn des Gesprächs werden Sie durch eine Datenschutzansage informiert; mit Fortsetzung des Gesprächs erteilen Sie Ihre Einwilligung. Diese ist jederzeit mit Wirkung für die Zukunft widerrufbar.
-
-### B1.3 Beteiligte Dienstleister
-
-| Funktion | Anbieter | Sitz | Drittland |
-|---|---|---|---|
-| Telefonie | Twilio Ireland Ltd. | Irland | Nein (EWR) |
-| Stimmerzeugung / Sprachmodell | ElevenLabs Inc. *(bzw. Famulor / BEK Service GmbH)* | USA *(bzw. DE)* | Ja, USA *(bzw. nein)* — DPF + SCCs |
-| KI-Sprachverarbeitung | OpenAI / Anthropic *(je nach Stack)* | USA | Ja, USA — DPF + SCCs |
-
-*Vor Live-Schaltung: tatsächlich eingesetzten Stack eintragen und Anbieter-Datenschutzlinks ergänzen.*
-
-### B1.4 Speicherort und -dauer
-
-Gesprächsaufzeichnungen und Transkripte werden für [SPEICHERDAUER — z.B. 30 Tage] zu Zwecken der Nachvollziehbarkeit, Sicherheit und Fehleranalyse gespeichert und anschließend automatisch gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Speicherort: [Server-Standort eintragen].
-
-### B1.5 Besondere Datenkategorien
-
-Bei automatischer Identifizierbarkeit über die Stimme können Sprachaufnahmen unter Umständen biometrische Daten i.S.d. Art. 9 DSGVO berühren. Wir verarbeiten Stimmdaten ausschließlich zur Bereitstellung der Demo-Funktion und nicht zur eindeutigen Identifizierung einer Person. Bitte teilen Sie im Gespräch keine besonderen Kategorien personenbezogener Daten mit.
-
-### B1.6 Widerruf und Widerspruch
-
-Sie können der Verarbeitung Ihrer Gesprächsdaten jederzeit widersprechen oder eine erteilte Einwilligung widerrufen (Kontakt siehe Abschnitt 1).
-
----
-
-## B2 — Newsletter
-
-*(Einbinden, sobald ein Newsletter angeboten wird. Versanddienstleister konkret eintragen — z.B. Brevo.)*
-
-### B2.1 Umfang und Double-Opt-In
-
-Wenn Sie sich für unseren Newsletter anmelden, verarbeiten wir Ihre E-Mail-Adresse sowie ggf. Ihren Namen. Die Anmeldung erfolgt im Double-Opt-In-Verfahren: Nach der Eintragung erhalten Sie eine Bestätigungs-E-Mail; der Versand beginnt erst nach Ihrer Bestätigung. Wir protokollieren Anmelde- und Bestätigungszeitpunkt sowie die verwendete IP-Adresse zum Nachweis der Einwilligung.
-
-### B2.2 Rechtsgrundlage
-
-**Art. 6 Abs. 1 lit. a DSGVO** (Einwilligung). Sie können den Newsletter jederzeit über den Abmeldelink in jeder E-Mail oder per Mitteilung an uns abbestellen; der Widerruf berührt die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung nicht.
-
-### B2.3 Versanddienstleister
-
-[Versanddienstleister eintragen, z.B. Brevo / Sendinblue GmbH, Köln, Deutschland]. Mit dem Dienstleister besteht ein AVV nach Art. 28 DSGVO.
-
-### B2.4 Speicherdauer
-
-Die Daten werden bis zum Widerruf der Einwilligung gespeichert und danach aus dem Verteiler gelöscht. Die Einwilligungsnachweise werden zur Erfüllung der Rechenschaftspflicht (Art. 5 Abs. 2 DSGVO) aufbewahrt.
-
----
-
-## B3 — Bewerbungen
-
-*(Einbinden, sobald Stellen/Werkstudenten/Freelancer über die Website gesucht werden.)*
-
-Wenn Sie sich bei uns bewerben, verarbeiten wir die übermittelten Daten (z.B. Name, Kontaktdaten, Lebenslauf, Anschreiben, Zeugnisse, gewünschte Position) ausschließlich zur Prüfung und Durchführung des Bewerbungsverfahrens.
-
-Rechtsgrundlagen sind **§ 26 Abs. 1 BDSG** (Anbahnung eines Beschäftigungsverhältnisses) und **Art. 6 Abs. 1 lit. b DSGVO**; soweit Sie freiwillig zusätzliche Angaben machen, **Art. 6 Abs. 1 lit. a DSGVO**. Zugriff erhalten nur am Bewerbungsprozess beteiligte Personen. Kommt kein Beschäftigungsverhältnis zustande, löschen wir Bewerbungsdaten nach Abschluss des Verfahrens (i.d.R. nach 6 Monaten), sofern keine gesetzlichen Pflichten oder berechtigten Interessen (z.B. Verteidigung gegen AGG-Ansprüche) eine längere Speicherung erfordern.
-
----
-
-## B4 — CRM / Geschäftsanbahnung (Lead-Management)
-
-*(Einbinden, sobald ein CRM-System eingesetzt wird — z.B. HubSpot, Pipedrive, Notion.)*
-
-Im Rahmen der B2B-Geschäftsanbahnung verarbeiten wir Kontaktdaten von Interessenten und Ansprechpartnern (Name, Funktion, Unternehmen, geschäftliche E-Mail, Telefonnummer, Gesprächsnotizen) zur Pflege der Geschäftsbeziehung und zur Nachverfolgung von Anfragen.
-
-Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an effizienter Kundenpflege und Vertrieb) bzw. **Art. 6 Abs. 1 lit. b DSGVO** bei konkreter Vertragsanbahnung. Eingesetztes CRM-System: [Anbieter, Sitz, Drittlandbezug eintragen]; AVV nach Art. 28 DSGVO besteht. Daten werden gelöscht, sobald die Geschäftsbeziehung dauerhaft beendet ist und keine Aufbewahrungspflichten entgegenstehen.
-
----
-
-## Hinweise zu Platzhaltern
-
-**Erledigt in V1.4 (Live-Fassung 31.05.2026):**
+**Erledigt (Live-Fassung):**
 - ✅ Adresse: Am Neuen Wege 5, 31515 Wunstorf
 - ✅ Telefon: +49 171 8400101
 - ✅ E-Mail: kontakt@logik-agentur.de
 - ✅ §4.1 BEK Service GmbH: Westendstr. 2A, 87439 Kempten (Allgäu), HRB 14544
-- ✅ §4.5 Chat-Speicherdauer: 90 Tage (analog Voice-Transkripte; mit Famulor-Konfiguration abgleichen)
+- ✅ §4.5 Chat-Speicherdauer: 90 Tage (mit Famulor-Konfiguration abgleichen)
 
-> ⚠️ **Konsistenz-Hinweis:** Die Telefonnummer +49 171 8400101 ist eine Mobilnummer (mit Rufweiterleitung). Sie muss im **Impressum** (§ 5 DDG) identisch angegeben werden. Eine eigene Festnetz-/Geschäftsnummer ist nicht erforderlich, aber empfehlenswert für professionelle Außenwirkung.
+> ⚠️ **Konsistenz-Hinweis (intern):** Die Telefonnummer +49 171 8400101 ist eine Mobilnummer (mit Rufweiterleitung) und muss im **Impressum** (§ 5 DDG) identisch angegeben werden.
 
 ---
 
@@ -432,5 +350,7 @@ Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an ef
 | 1.2 | 31.05.2026 | Benchmark gegen 9 vergleichbare DSE (KI-/Automatisierungsagenturen). AKTIV ergänzt: §3a SSL/TLS-Verschlüsselung; §5.6 Art.-9-Schutzhinweis bei Cal.com; §7b Widerspruch gegen Werbe-E-Mails. NEU Anhang B (inaktiv): optionale Bausteine B1 KI-Voice-Demo, B2 Newsletter, B3 Bewerbungen, B4 CRM/Lead-Management — einzubinden erst bei Feature-Aktivierung |
 | 1.3 | 31.05.2026 | **Korrektur Cal.com → Cal.eu** (EU-Hosting): §5 komplett auf EU-Datenverarbeitung umgestellt, §5.4 Drittland durch EU-Hosting + CLOUD-Act-Hinweis ersetzt, §6 PostHog-Passage entschärft, §7 auf nur GitHub/Microsoft als US-Transfer reduziert, §10-Tabelle angepasst. §1 Adresse (Am Neuen Wege 5, 31515 Wunstorf) + Telefon (+49 171 8400101) eingesetzt. §9 „Die" → „Der Landesbeauftragte" (Amtsinhaber Denis Lehmkemper seit 09/2023). Verbleibender Platzhalter: [E-MAIL] |
 | 1.4 | 31.05.2026 | §1 E-Mail kontakt@logik-agentur.de eingesetzt. Keine [...]-Platzhalter mehr; verbleibend nur noch Famulor-Hinweise ¹/² (BEK-Anschrift, Chat-Speicherdauer) — vom Famulor-Account abhängig |
-| 1.4-live | 31.05.2026 | LIVE-Schaltung: Entwurfsvermerke entfernt (Anwaltsprüfung bewusst übersprungen, Restrisiko akzeptiert). §4.1 BEK-Anschrift Westendstr. 2A, 87439 Kempten eingesetzt. §4.5 Chat-Speicherdauer 90 Tage. §4 Famulor aktiv (Widget gleichzeitig auf logik-agentur.de eingebunden). Anhang B nicht im gerenderten HTML (nur in MD-SoT als Referenz). Als datenschutz.html via GitHub Pages veröffentlicht. |
-| 1.5 | 03.06.2026 | **Consent-Gate Chat-Widget** (LA Web 06): §4.1 ergänzt — Widget lädt erst nach aktivem Klick („Chat starten"), vor dem Klick keine Datenübertragung und keine IP an Famulor, Einwilligung First-Party im Browser gespeichert, jederzeit widerrufbar. §4.2 Rechtsgrundlage von berechtigtem Interesse/Vertrag (Art. 6 I b/f) auf **Einwilligung** umgestellt (**§ 25 Abs. 1 TDDDG** + **Art. 6 Abs. 1 lit. a DSGVO**; lit. b nur noch für nachgelagerte Rückmeldung). §6 „§ 25 Abs. 2 Nr. 2 / technisch notwendig"-Begründung für das automatische Laden entfernt und auf Einwilligung (§4.2) verwiesen. Hinweis: Google Fonts und Tailwind werden seit LA Web 06 selbst gehostet — beim Seitenaufruf kein Datentransfer an Google/Dritte (technische Umsetzung; im Fließtext bestand hierzu keine anderslautende Aussage). |
+| 1.5 | 31.05.2026 | Strukturüberarbeitung nach externer Tonalitäts-/Architektur-Kritik. NEU §2a „Grundsätze des KI-Einsatzes auf dieser Website" (KI-Transparenz prominent nach vorn, scope-begrenzt auf Website + Abgrenzung zum Kundengeschäft); §4.6 auf Verweis gestrafft. §7 Tonalität umgedreht (EU-Schutz zuerst, Restrisiko abstrakt; explizite Nennung FISA 702 / EO 12333 entfernt, rechtliche Substanz via DPF+SCC erhalten). **Anhang B vollständig aus dem Live-Dokument entfernt** und in internes Dokument `dse-playbook-intern.md` ausgelagert (Schutz vor versehentlicher Veröffentlichung inaktiver Klauseln) |
+| 1.6 | 02.06.2026 | Datensparsamkeits-Review (Minimierung freiwilliger Selbstoffenlegung ohne Verlust der Pflichtangaben): §1 DSB-Begründung gestrafft (DSFA-Detail entfernt); §4.4 Sub-Auftragsverarbeiter ohne namentliche Nennung (OpenAI/Anthropic raus, „auf Anfrage"); §5.4 Cal.eu-CLOUD-Act-Passage entfernt, EU-Verarbeitung betont; §10 separate Microsoft-Zeile entfernt (durch GitHub/Microsoft-Konzern abgedeckt), Cal-Zeile gestrafft; §7 Microsoft-Nennung angeglichen. Keine Pflichtangabe nach Art. 13 entfernt |
+| 1.4-live | 31.05.2026 | (Parallel-Branch, separat live geschaltet) LIVE-Schaltung als datenschutz.html: Entwurfsvermerke entfernt (Anwaltsprüfung übersprungen, Restrisiko akzeptiert), §4.1 BEK Westendstr. 2A 87439 Kempten + HRB 14544, §4.5 90 Tage, Famulor-Widget aktiv. **Basierte noch auf V1.4 — ohne §2a/§7-Entschärfung/Datensparsamkeit** |
+| 1.7 | 04.06.2026 | **Merge aller Parallel-Stränge (Desync-Auflösung), HTML + MD synchronisiert.** Aus Live-„V1.5"/03.06. übernommen (rechtlich korrekter): §4.2 + §6 Consent-Gate-Logik (Famulor-Widget lädt erst nach aktivem Klick „Chat starten" → Einwilligung § 25 Abs. 1 TDDDG + Art. 6 Abs. 1 lit. a, statt zuvor lit. b/f), befüllte Famulor-Daten (BEK Kempten + HRB, 90 Tage). Aus interner V1.5: §2a KI-Grundsätze, §7-Tonalität entschärft (FISA/EO raus), Anhang B ausgelagert. Aus V1.6: Datensparsamkeit (§4.4 ohne Anbieter-Namen, §5.4 ohne CLOUD-Act, §10 ohne Microsoft-Zeile). Ergebnis: HTML (datenschutz.html) und MD (SoT) inhaltlich identisch auf V1.7 |
