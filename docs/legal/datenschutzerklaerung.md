@@ -1,6 +1,6 @@
 # Datenschutzerklärung — Logik-Agentur
 
-**Version 1.7 vom 04.06.2026** | **Rechtsstand:** Deutschland / EU
+**Version 1.8 vom 05.06.2026** | **Rechtsstand:** Deutschland / EU
 
 ---
 
@@ -75,7 +75,7 @@ Bei jedem Aufruf der Website durch einen Nutzer erfasst GitHub Pages automatisch
 
 ### 3.2 Rechtsgrundlage
 
-Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist **Art. 6 Abs. 1 lit. f DSGVO**.
+Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist **Art. 6 Abs. 1 lit. f DSGVO**. Unser berechtigtes Interesse liegt im sicheren und stabilen Betrieb des Webservers sowie in der Gewährleistung der Funktionsfähigkeit und Sicherheit unserer informationstechnischen Systeme.
 
 ### 3.3 Zweck der Datenverarbeitung
 
@@ -98,6 +98,12 @@ Weitere Informationen zum Datenschutz bei GitHub: https://docs.github.com/en/sit
 Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte (z.B. Anfragen, die Sie an uns senden) eine SSL- bzw. TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile. Bei aktivierter Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.
 
 Rechtsgrundlage ist **Art. 6 Abs. 1 lit. f DSGVO** (berechtigtes Interesse an einer sicheren Datenübertragung) i.V.m. der Pflicht zu geeigneten technischen Maßnahmen nach Art. 32 DSGVO.
+
+---
+
+## 3b. Interaktiver ROI-Rechner
+
+Auf unserer Website bieten wir einen interaktiven Rechner an, mit dem Sie unverbindlich eine Beispielkalkulation durchführen können. Sämtliche Berechnungen erfolgen **ausschließlich lokal in Ihrem Browser**. Die von Ihnen eingegebenen Werte werden nicht an uns oder an Dritte übermittelt, nicht gespeichert und nicht ausgewertet. Eine Verarbeitung personenbezogener Daten findet hierbei nicht statt.
 
 ---
 
@@ -150,14 +156,16 @@ Weitere Informationen zum Datenschutz bei Famulor: https://www.famulor.io/de/dat
 
 Zur Vereinbarung von Beratungs- und Demo-Terminen nutzen wir den Online-Terminplaner **Cal.eu**, die europäisch gehostete Variante des Dienstes der **Cal.com, Inc.**, 2261 Market Street #4382, San Francisco, CA 94114, USA. Bei Cal.eu werden alle Termin- und Buchungsdaten nach Angaben des Anbieters ausschließlich auf Infrastruktur innerhalb der Europäischen Union gespeichert und verarbeitet.
 
-Die Buchungsseite ist auf unserer Website verlinkt oder eingebettet. Sobald Sie die Buchungsoberfläche aufrufen, wird eine Verbindung zu den EU-Servern von Cal.eu hergestellt. Folgende Daten werden bei der Terminbuchung verarbeitet:
+Die Buchungsseite ist auf unserer Website **ausschließlich verlinkt** (Schaltfläche „Erstgespräch buchen"); sie ist nicht in unsere Seite eingebettet. Beim Klick auf den Buchungslink verlassen Sie unsere Website und werden auf die externe Plattform Cal.eu weitergeleitet. Erst dort — nicht bereits beim Aufruf unserer Seite — werden folgende Daten verarbeitet:
 
 - Name
 - E-Mail-Adresse
 - Ggf. freiwillig angegebene weitere Kontaktdaten (z.B. Telefonnummer, Unternehmen)
 - Anliegen / Nachricht (Freitext, freiwillig)
 - Gewählter Termin (Datum, Uhrzeit, Zeitzone)
-- Technische Verbindungsdaten (IP-Adresse, Browser-Typ, Zeitstempel)
+- Technische Verbindungsdaten, die beim Aufruf der Cal.eu-Seite anfallen (insb. IP-Adresse, Browser-Typ, Zeitstempel)
+
+Beim Aufruf der externen Buchungsseite wird Ihre IP-Adresse an Cal.eu übermittelt; ergänzend gelten die Datenschutzbestimmungen von Cal.eu (siehe unten).
 
 ### 5.2 Rechtsgrundlage
 
@@ -224,6 +232,8 @@ Bei Kontaktaufnahme per E-Mail oder Telefon (siehe Kontaktdaten in Abschnitt 1) 
 ### 7a.3 Zweck
 
 Beantwortung Ihres Anliegens, Anbahnung und Durchführung von Geschäftsbeziehungen, Nachweis der geführten Korrespondenz.
+
+Die Bereitstellung Ihrer Daten erfolgt freiwillig; sie ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne die zur Bearbeitung erforderlichen Angaben (insbesondere eine Kontaktmöglichkeit) können wir Ihre Anfrage jedoch nicht beantworten.
 
 ### 7a.4 Speicherdauer
 
@@ -354,3 +364,4 @@ Die aktuell gültige Fassung ist jederzeit unter https://logik-agentur.de/datens
 | 1.6 | 02.06.2026 | Datensparsamkeits-Review (Minimierung freiwilliger Selbstoffenlegung ohne Verlust der Pflichtangaben): §1 DSB-Begründung gestrafft (DSFA-Detail entfernt); §4.4 Sub-Auftragsverarbeiter ohne namentliche Nennung (OpenAI/Anthropic raus, „auf Anfrage"); §5.4 Cal.eu-CLOUD-Act-Passage entfernt, EU-Verarbeitung betont; §10 separate Microsoft-Zeile entfernt (durch GitHub/Microsoft-Konzern abgedeckt), Cal-Zeile gestrafft; §7 Microsoft-Nennung angeglichen. Keine Pflichtangabe nach Art. 13 entfernt |
 | 1.4-live | 31.05.2026 | (Parallel-Branch, separat live geschaltet) LIVE-Schaltung als datenschutz.html: Entwurfsvermerke entfernt (Anwaltsprüfung übersprungen, Restrisiko akzeptiert), §4.1 BEK Westendstr. 2A 87439 Kempten + HRB 14544, §4.5 90 Tage, Famulor-Widget aktiv. **Basierte noch auf V1.4 — ohne §2a/§7-Entschärfung/Datensparsamkeit** |
 | 1.7 | 04.06.2026 | **Merge aller Parallel-Stränge (Desync-Auflösung), HTML + MD synchronisiert.** Aus Live-„V1.5"/03.06. übernommen (rechtlich korrekter): §4.2 + §6 Consent-Gate-Logik (Famulor-Widget lädt erst nach aktivem Klick „Chat starten" → Einwilligung § 25 Abs. 1 TDDDG + Art. 6 Abs. 1 lit. a, statt zuvor lit. b/f), befüllte Famulor-Daten (BEK Kempten + HRB, 90 Tage). Aus interner V1.5: §2a KI-Grundsätze, §7-Tonalität entschärft (FISA/EO raus), Anhang B ausgelagert. Aus V1.6: Datensparsamkeit (§4.4 ohne Anbieter-Namen, §5.4 ohne CLOUD-Act, §10 ohne Microsoft-Zeile). Ergebnis: HTML (datenschutz.html) und MD (SoT) inhaltlich identisch auf V1.7 |
+| 1.8 | 05.06.2026 | Externe Review-Punkte geprüft und valide Ergänzungen übernommen: §3.2 berechtigtes Interesse konkret benannt (sicherer/stabiler Webserver-Betrieb); NEU §3b ROI-Rechner (rein lokale Browser-Berechnung, keine Datenübermittlung — code-verifiziert); §5.1 präzisiert auf „ausschließlich verlinkt" (kein iframe) + IP-Übermittlung an Cal.eu beim Klick; §7a.3 Art.-13-Abs.-2-lit.-e-Hinweis (Freiwilligkeit + Folgen der Nichtbereitstellung). Nicht übernommen: BEK-Anschrift (bereits seit V1.7 vollständig). Offen extern: Custom-Domain-Aktivierung (DNS, kein DSE-Text) |

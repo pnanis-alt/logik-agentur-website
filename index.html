@@ -13,7 +13,15 @@
   <meta property="og:title" content="Logik-Agentur — KI-Integration für Hotels und DACH-Mittelstand" />
   <meta property="og:description" content="Konfiguration und Integration marktführender Standard-KI-Lösungen. Eigenes Hotel als Live-Proof-of-Concept." />
   <meta property="og:url" content="https://logik-agentur.de/" />
-  <!-- TODO: <meta property="og:image" content="https://logik-agentur.de/assets/og.jpg" /> -->
+  <meta property="og:image" content="https://logik-agentur.de/assets/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:site_name" content="Logik-Agentur" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Logik-Agentur — KI-Integration für Hotels und DACH-Mittelstand" />
+  <meta name="twitter:description" content="Konfiguration und Integration marktführender Standard-KI-Lösungen. Eigenes Hotel als Live-Proof-of-Concept." />
+  <meta name="twitter:image" content="https://logik-agentur.de/assets/og.jpg" />
 
   <!-- Fonts — self-hosted (kein Aufruf an Google), woff2, latin inkl. Umlaute, font-display: swap -->
   <link rel="stylesheet" href="assets/fonts.css" />
@@ -55,6 +63,11 @@
       --color-accent-text:   #7A3A0E;
       /* RGB-Triplet für gezielten Alpha-Bedarf (z. B. Slider-Focus-Ring 15%) */
       --color-accent-rgb:    230 117 51;
+
+      /* Dunklerer Orange-Ton NUR für gefüllte Buttons (weißer Text) — WCAG-AA-Kontrast ~5:1.
+         Icons/Grafiken nutzen weiterhin --color-accent (logo-konsistent). */
+      --color-accent-strong:       #B5500F;
+      --color-accent-strong-hover: #993F08;
 
       /* === Sekundär & Logo-Navy (für konsistente Logo-Akzente) === */
       --color-secondary:        #F2A93B;
@@ -148,7 +161,110 @@
         transition-duration: 0.01ms !important;
       }
     }
+
+    /* === Akzent-Buttons: WCAG-AA-konformer Kontrast (weißer Text auf dunklerem Orange) === */
+    .btn-accent { background-color: var(--color-accent-strong) !important; color: #fff; }
+    .btn-accent:hover { background-color: var(--color-accent-strong-hover) !important; }
+    .btn-accent:focus-visible { outline: 3px solid var(--color-accent-strong); outline-offset: 2px; }
+
+    /* === Orange Textlinks auf Weiß: dunklere, lesbare Variante (AA) === */
+    .link-accent { color: var(--color-accent-text); }
+    .link-accent:hover { color: var(--color-accent-strong-hover); }
+
+    /* === Mobile-Navigation (ohne Tailwind-Rebuild) === */
+    #nav-toggle { display: none; }
+    #mobile-nav { display: none; border-top: 1px solid var(--color-border); background: var(--color-bg); }
+    #mobile-nav .mobile-nav-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px 20px; display: flex; flex-direction: column; gap: 2px; }
+    #mobile-nav a { display: block; padding: 12px; border-radius: var(--radius-md); color: var(--color-text); text-decoration: none; font-size: 16px; }
+    #mobile-nav a:hover { background: var(--color-bg-subtle); }
+    #mobile-nav a.mobile-cta { margin-top: 10px; background: var(--color-accent-strong); color: #fff; text-align: center; font-weight: 600; }
+    #mobile-nav a.mobile-cta:hover { background: var(--color-accent-strong-hover); }
+    @media (max-width: 767px) {
+      #nav-toggle { display: inline-flex; align-items: center; justify-content: center; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text); cursor: pointer; }
+      #header-cta-desktop { display: none; }
+      #mobile-nav.open { display: block; }
+    }
   </style>
+  <!-- =========================================================================
+       Strukturierte Daten (JSON-LD) — Organisation, Website, FAQ.
+       FAQ-Texte müssen mit dem sichtbaren FAQ-Abschnitt übereinstimmen.
+       ========================================================================= -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://logik-agentur.de/#organization",
+        "name": "Logik-Agentur",
+        "description": "KI-Integration für Hotels und DACH-Mittelstand: Konfiguration und Integration marktführender Standard-KI-Lösungen — Voice AI, WhatsApp-Automation, Chatbot, Google-Review-Management, E-Mail-KI und Prozessautomatisierung.",
+        "url": "https://logik-agentur.de/",
+        "email": "kontakt@logik-agentur.de",
+        "telephone": "+491718400101",
+        "logo": "https://logik-agentur.de/assets/logo.svg",
+        "founder": { "@type": "Person", "name": "Pantelis Nanis" },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Am Neuen Wege 5",
+          "postalCode": "31515",
+          "addressLocality": "Wunstorf",
+          "addressRegion": "Niedersachsen",
+          "addressCountry": "DE"
+        },
+        "areaServed": ["DE", "AT", "CH"],
+        "knowsLanguage": ["de"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://logik-agentur.de/#website",
+        "url": "https://logik-agentur.de/",
+        "name": "Logik-Agentur",
+        "inLanguage": "de",
+        "publisher": { "@id": "https://logik-agentur.de/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie schnell ist ein KI-Voice-Agent einsatzbereit?",
+            "acceptedAnswer": { "@type": "Answer", "text": "In der Regel zwei bis drei Wochen ab Vertragsschluss. Eine Woche für Wissensbasis und Dialogprompt, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Integrationen brauchen 4–6 Wochen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet das?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im Preise-Bereich. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie sieht das Onboarding aus?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Du erhältst ein Onboarding-Formular mit allen relevanten Fragen zu deinem Betrieb. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wo werden meine Daten verarbeitet?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Alle eingesetzten Komponenten arbeiten DSGVO-konform mit signierten Auftragsverarbeitungsverträgen. Wo möglich werden EU-Anbieter und EU-Datenresidenz bevorzugt. Gesprächs-Transkripte werden standardmäßig 90 Tage gespeichert, danach automatisch gelöscht. Die eingesetzten Sub-Prozessoren werden im Rahmen des AVV transparent ausgewiesen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was passiert, wenn ich kündige?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Standard-Kündigung mit einem Monat Frist zum Monatsende. Auf Wunsch kostenloser Export deiner Inhalte (Texte, Transkripte, Lead-Daten). Optional ist ein vollständiger IP-Buyout der Konfiguration möglich — du übernimmst dann alle Komponenten und betreibst sie eigenständig oder mit einem anderen Dienstleister weiter." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hat das System Zugriff auf mein Buchungssystem (PMS)?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Optional, ja. Übliche PMS-Systeme lassen sich über Standard-Schnittstellen anbinden — welche konkret in Frage kommt, klären wir im Erstgespräch. Ohne PMS-Anbindung läuft das System mit statischen Verfügbarkeits-Informationen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was passiert, wenn die KI eine Frage nicht beantworten kann?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage strukturiert per E-Mail oder WhatsApp an dein Team. Unklare Fragen landen damit immer bei jemandem, der sie verbindlich beantworten kann." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="bg-base text-ink antialiased">
@@ -170,11 +286,25 @@
         <a href="#roi" class="hover:text-ink">ROI</a>
         <a href="#faq" class="hover:text-ink">FAQ</a>
       </nav>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-         class="inline-flex items-center rounded-md bg-accent text-white text-sm font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
+      <a id="header-cta-desktop" href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
+         class="btn-accent inline-flex items-center rounded-md text-white text-sm font-medium px-6 py-3 shadow-sm transition-colors">
         Termin buchen
       </a>
+      <button id="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
+    <nav id="mobile-nav" aria-label="Mobile Navigation">
+      <div class="mobile-nav-inner">
+        <a href="#hoerproben" data-mnav>Hörproben</a>
+        <a href="#omnichannel" data-mnav>Lösungen</a>
+        <a href="#pricing" data-mnav>Preise</a>
+        <a href="#roi" data-mnav>ROI</a>
+        <a href="#faq" data-mnav>FAQ</a>
+        <a href="tel:+491718400101" data-mnav>Anrufen: 0171 8400101</a>
+        <a class="mobile-cta" href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener" data-mnav>Termin buchen</a>
+      </div>
+    </nav>
   </header>
 
   <main id="main">
@@ -192,13 +322,13 @@
               Live im Hotel Nanis · Steinhuder Meer · seit 2026
             </div>
             <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.1]">
-              Erprobt im eigenen Hotel.<br class="hidden sm:block">Übertragbar auf jede Service-Branche.
+              KI, die Anrufe, WhatsApp, E-Mails<br class="hidden sm:block">und Bewertungen für dich übernimmt.
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-              Voice, WhatsApp, E-Mail, Bewertungen — eine integrierte KI-Konfiguration. Im eigenen Hotelbetrieb täglich live, bevor wir sie bei dir installieren.
+              Erprobt im eigenen Hotel, übertragbar auf jede Service-Branche: eine integrierte KI-Konfiguration für Voice, WhatsApp, E-Mail und Bewertungen — täglich live im eigenen Betrieb, bevor sie zu dir kommt.
             </p>
             <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
+              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                 Erstgespräch buchen
               </a>
@@ -380,7 +510,7 @@
       <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">EU-Stack, dokumentierte Compliance.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">DSGVO-Konformität ist Onboarding-Standard, nicht Sales-Argument. Sub-Prozessoren-Liste, AVV, Datenschutzerklärung — alles vor Vertragsschluss prüfbar.</p></div>
     </div>
   </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Hotel-Alltag konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Hotel-Alltag konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
 </div>
         </div>
       </div>
@@ -465,14 +595,14 @@
   </div>
   <div class="mt-12 divide-y divide-zinc-200 border-y border-zinc-200">
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie schnell ist ein KI-Voice-Agent einsatzbereit?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">In der Regel zwei bis drei Wochen ab Vertragsschluss. Eine Woche für Wissensbasis und Dialogprompt, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Integrationen brauchen 4–6 Wochen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im <a href="#pricing" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Preise-Bereich</a>. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch.</p></details>
+    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im <a href="#pricing" class="font-medium link-accent underline-offset-4 hover:underline">Preise-Bereich</a>. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie sieht das Onboarding aus?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Du erhältst ein Onboarding-Formular mit allen relevanten Fragen zu deinem Betrieb. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wo werden meine Daten verarbeitet?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Alle eingesetzten Komponenten arbeiten DSGVO-konform mit signierten Auftragsverarbeitungsverträgen. Wo möglich werden EU-Anbieter und EU-Datenresidenz bevorzugt. Gesprächs-Transkripte werden standardmäßig 90 Tage gespeichert, danach automatisch gelöscht. Die eingesetzten Sub-Prozessoren werden im Rahmen des AVV transparent ausgewiesen.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn ich kündige?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Standard-Kündigung mit einem Monat Frist zum Monatsende. Auf Wunsch kostenloser Export deiner Inhalte (Texte, Transkripte, Lead-Daten). Optional ist ein vollständiger IP-Buyout der Konfiguration möglich — du übernimmst dann alle Komponenten und betreibst sie eigenständig oder mit einem anderen Dienstleister weiter.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Hat das System Zugriff auf mein Buchungssystem (PMS)?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Optional, ja. Übliche PMS-Systeme lassen sich über Standard-Schnittstellen anbinden — welche konkret in Frage kommt, klären wir im Erstgespräch. Ohne PMS-Anbindung läuft das System mit statischen Verfügbarkeits-Informationen.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn die KI eine Frage nicht beantworten kann?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage strukturiert per E-Mail oder WhatsApp an dein Team. Unklare Fragen landen damit immer bei jemandem, der sie verbindlich beantworten kann.</p></details>
   </div>
-  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="text-[15px] leading-relaxed text-zinc-700"><span class="font-semibold text-zinc-900">Frage nicht dabei?</span> Schreib mir direkt — die meisten Antworten brauchen keine 30-Minuten-Demo.</p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[color:var(--color-accent,#E67533)] hover:text-[color:var(--color-accent-hover,#C45A1A)]">Oder direkt einen Termin finden<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="text-[15px] leading-relaxed text-zinc-700"><span class="font-semibold text-zinc-900">Frage nicht dabei?</span> Schreib mir direkt — die meisten Antworten brauchen keine 30-Minuten-Demo.</p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium link-accent">Oder direkt einen Termin finden<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
 </div>
         </div>
       </div>
@@ -521,7 +651,7 @@
     </p>
     <div class="mt-10 flex flex-col items-center gap-4">
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)] focus:outline-none focus:ring-4 focus:ring-indigo-100">
+         class="inline-flex items-center justify-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
           <line x1="16" x2="16" y1="2" y2="6"/>
@@ -554,6 +684,7 @@
     <div>
       <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Kontakt</div>
       <ul class="mt-3 space-y-2 text-sm text-zinc-700">
+        <li><a href="tel:+491718400101" class="hover:text-[color:var(--color-accent,#E67533)]">+49 171 8400101</a></li>
         <li><a href="mailto:kontakt@logik-agentur.de" class="hover:text-[color:var(--color-accent,#E67533)]">kontakt@logik-agentur.de</a></li>
         <li><a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener" class="hover:text-[color:var(--color-accent,#E67533)]">Erstgespräch buchen →</a></li>
       </ul>
@@ -587,6 +718,26 @@
     document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
 
+  <script>
+    // Mobiles Burger-Menü öffnen/schließen
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      var menu = document.getElementById('mobile-nav');
+      if (!toggle || !menu) return;
+      function setOpen(open) {
+        menu.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+      }
+      toggle.addEventListener('click', function () {
+        setOpen(!menu.classList.contains('open'));
+      });
+      menu.querySelectorAll('[data-mnav]').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+    })();
+  </script>
+
   <!-- =========================================================================
        Widget-Bundles (esbuild) — laden self-mounting auf ihre jeweiligen
        Mount-Points (#roi-rechner-root etc.). Reihenfolge unkritisch wegen defer.
@@ -605,19 +756,19 @@
     #la-chat-consent { position: fixed; right: 20px; bottom: 20px; z-index: 9998;
       font-family: 'Inter', system-ui, sans-serif; }
     #la-chat-launcher { display: inline-flex; align-items: center; gap: 8px;
-      background: var(--color-accent, #4F46E5); color: #fff; border: none;
+      background: var(--color-accent-strong, #B5500F); color: #fff; border: none;
       border-radius: 9999px; padding: 12px 18px; font-size: 15px; font-weight: 600;
       cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
-    #la-chat-launcher:hover { background: var(--color-accent-hover, #4338CA); }
+    #la-chat-launcher:hover { background: var(--color-accent-strong-hover, #993F08); }
     #la-chat-card { display: none; max-width: 320px; background: #fff;
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
       padding: 16px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
     #la-chat-card.open { display: block; }
     #la-chat-card p { margin: 0 0 12px; font-size: 14px; line-height: 1.5;
       color: var(--color-text, #18181b); }
-    #la-chat-card a { color: var(--color-accent, #4F46E5); }
+    #la-chat-card a { color: var(--color-accent-text, #7A3A0E); }
     #la-chat-actions { display: flex; gap: 8px; }
-    #la-chat-load { flex: 1; background: var(--color-accent, #4F46E5); color: #fff;
+    #la-chat-load { flex: 1; background: var(--color-accent-strong, #B5500F); color: #fff;
       border: none; border-radius: 8px; padding: 10px; font-weight: 600; cursor: pointer; }
     #la-chat-cancel { background: transparent; color: var(--color-text-muted, #52525b);
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 8px; padding: 10px 14px; cursor: pointer; }
