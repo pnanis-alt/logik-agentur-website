@@ -5,23 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index,follow" />
 
-  <title>Logik-Agentur — KI-Integration für Hotels und DACH-Mittelstand</title>
+  <title>Logik-Agentur — KI-Integration für Hotels und mittelständische Betriebe</title>
   <meta name="description" content="Logik-Agentur konfiguriert und integriert marktführende Standard-KI-Lösungen für Hotels und KMU: Voice AI, WhatsApp-Automation, Chatbot, Google-Review-Management, E-Mail-KI und Prozessautomatisierung." />
 
   <!-- Open Graph (Slots — bei Go-Live ergänzen) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Logik-Agentur — KI-Integration für Hotels und DACH-Mittelstand" />
+  <meta property="og:title" content="Logik-Agentur — KI-Integration für Hotels und mittelständische Betriebe" />
   <meta property="og:description" content="Konfiguration und Integration marktführender Standard-KI-Lösungen. Eigenes Hotel als Live-Proof-of-Concept." />
   <meta property="og:url" content="https://logik-agentur.de/" />
-  <meta property="og:image" content="https://logik-agentur.de/assets/og.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:locale" content="de_DE" />
-  <meta property="og:site_name" content="Logik-Agentur" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Logik-Agentur — KI-Integration für Hotels und DACH-Mittelstand" />
-  <meta name="twitter:description" content="Konfiguration und Integration marktführender Standard-KI-Lösungen. Eigenes Hotel als Live-Proof-of-Concept." />
-  <meta name="twitter:image" content="https://logik-agentur.de/assets/og.jpg" />
+  <!-- TODO: <meta property="og:image" content="https://logik-agentur.de/assets/og.jpg" /> -->
 
   <!-- Fonts — self-hosted (kein Aufruf an Google), woff2, latin inkl. Umlaute, font-display: swap -->
   <link rel="stylesheet" href="assets/fonts.css" />
@@ -63,11 +55,6 @@
       --color-accent-text:   #7A3A0E;
       /* RGB-Triplet für gezielten Alpha-Bedarf (z. B. Slider-Focus-Ring 15%) */
       --color-accent-rgb:    230 117 51;
-
-      /* Dunklerer Orange-Ton NUR für gefüllte Buttons (weißer Text) — WCAG-AA-Kontrast ~5:1.
-         Icons/Grafiken nutzen weiterhin --color-accent (logo-konsistent). */
-      --color-accent-strong:       #B5500F;
-      --color-accent-strong-hover: #993F08;
 
       /* === Sekundär & Logo-Navy (für konsistente Logo-Akzente) === */
       --color-secondary:        #F2A93B;
@@ -161,110 +148,7 @@
         transition-duration: 0.01ms !important;
       }
     }
-
-    /* === Akzent-Buttons: WCAG-AA-konformer Kontrast (weißer Text auf dunklerem Orange) === */
-    .btn-accent { background-color: var(--color-accent-strong) !important; color: #fff; }
-    .btn-accent:hover { background-color: var(--color-accent-strong-hover) !important; }
-    .btn-accent:focus-visible { outline: 3px solid var(--color-accent-strong); outline-offset: 2px; }
-
-    /* === Orange Textlinks auf Weiß: dunklere, lesbare Variante (AA) === */
-    .link-accent { color: var(--color-accent-text); }
-    .link-accent:hover { color: var(--color-accent-strong-hover); }
-
-    /* === Mobile-Navigation (ohne Tailwind-Rebuild) === */
-    #nav-toggle { display: none; }
-    #mobile-nav { display: none; border-top: 1px solid var(--color-border); background: var(--color-bg); }
-    #mobile-nav .mobile-nav-inner { max-width: 1200px; margin: 0 auto; padding: 12px 24px 20px; display: flex; flex-direction: column; gap: 2px; }
-    #mobile-nav a { display: block; padding: 12px; border-radius: var(--radius-md); color: var(--color-text); text-decoration: none; font-size: 16px; }
-    #mobile-nav a:hover { background: var(--color-bg-subtle); }
-    #mobile-nav a.mobile-cta { margin-top: 10px; background: var(--color-accent-strong); color: #fff; text-align: center; font-weight: 600; }
-    #mobile-nav a.mobile-cta:hover { background: var(--color-accent-strong-hover); }
-    @media (max-width: 767px) {
-      #nav-toggle { display: inline-flex; align-items: center; justify-content: center; padding: 10px; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-bg); color: var(--color-text); cursor: pointer; }
-      #header-cta-desktop { display: none; }
-      #mobile-nav.open { display: block; }
-    }
   </style>
-  <!-- =========================================================================
-       Strukturierte Daten (JSON-LD) — Organisation, Website, FAQ.
-       FAQ-Texte müssen mit dem sichtbaren FAQ-Abschnitt übereinstimmen.
-       ========================================================================= -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "ProfessionalService",
-        "@id": "https://logik-agentur.de/#organization",
-        "name": "Logik-Agentur",
-        "description": "KI-Integration für Hotels und DACH-Mittelstand: Konfiguration und Integration marktführender Standard-KI-Lösungen — Voice AI, WhatsApp-Automation, Chatbot, Google-Review-Management, E-Mail-KI und Prozessautomatisierung.",
-        "url": "https://logik-agentur.de/",
-        "email": "kontakt@logik-agentur.de",
-        "telephone": "+491718400101",
-        "logo": "https://logik-agentur.de/assets/logo.svg",
-        "founder": { "@type": "Person", "name": "Pantelis Nanis" },
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Am Neuen Wege 5",
-          "postalCode": "31515",
-          "addressLocality": "Wunstorf",
-          "addressRegion": "Niedersachsen",
-          "addressCountry": "DE"
-        },
-        "areaServed": ["DE", "AT", "CH"],
-        "knowsLanguage": ["de"]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://logik-agentur.de/#website",
-        "url": "https://logik-agentur.de/",
-        "name": "Logik-Agentur",
-        "inLanguage": "de",
-        "publisher": { "@id": "https://logik-agentur.de/#organization" }
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Wie schnell ist ein KI-Voice-Agent einsatzbereit?",
-            "acceptedAnswer": { "@type": "Answer", "text": "In der Regel zwei bis drei Wochen ab Vertragsschluss. Eine Woche für Wissensbasis und Dialogprompt, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Integrationen brauchen 4–6 Wochen." }
-          },
-          {
-            "@type": "Question",
-            "name": "Was kostet das?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im Preise-Bereich. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch." }
-          },
-          {
-            "@type": "Question",
-            "name": "Wie sieht das Onboarding aus?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Du erhältst ein Onboarding-Formular mit allen relevanten Fragen zu deinem Betrieb. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live." }
-          },
-          {
-            "@type": "Question",
-            "name": "Wo werden meine Daten verarbeitet?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Alle eingesetzten Komponenten arbeiten DSGVO-konform mit signierten Auftragsverarbeitungsverträgen. Wo möglich werden EU-Anbieter und EU-Datenresidenz bevorzugt. Gesprächs-Transkripte werden standardmäßig 90 Tage gespeichert, danach automatisch gelöscht. Die eingesetzten Sub-Prozessoren werden im Rahmen des AVV transparent ausgewiesen." }
-          },
-          {
-            "@type": "Question",
-            "name": "Was passiert, wenn ich kündige?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Standard-Kündigung mit einem Monat Frist zum Monatsende. Auf Wunsch kostenloser Export deiner Inhalte (Texte, Transkripte, Lead-Daten). Optional ist ein vollständiger IP-Buyout der Konfiguration möglich — du übernimmst dann alle Komponenten und betreibst sie eigenständig oder mit einem anderen Dienstleister weiter." }
-          },
-          {
-            "@type": "Question",
-            "name": "Hat das System Zugriff auf mein Buchungssystem (PMS)?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Optional, ja. Übliche PMS-Systeme lassen sich über Standard-Schnittstellen anbinden — welche konkret in Frage kommt, klären wir im Erstgespräch. Ohne PMS-Anbindung läuft das System mit statischen Verfügbarkeits-Informationen." }
-          },
-          {
-            "@type": "Question",
-            "name": "Was passiert, wenn die KI eine Frage nicht beantworten kann?",
-            "acceptedAnswer": { "@type": "Answer", "text": "Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage strukturiert per E-Mail oder WhatsApp an dein Team. Unklare Fragen landen damit immer bei jemandem, der sie verbindlich beantworten kann." }
-          }
-        ]
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body class="bg-base text-ink antialiased">
@@ -286,25 +170,11 @@
         <a href="#roi" class="hover:text-ink">ROI</a>
         <a href="#faq" class="hover:text-ink">FAQ</a>
       </nav>
-      <a id="header-cta-desktop" href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-         class="btn-accent inline-flex items-center rounded-md text-white text-sm font-medium px-6 py-3 shadow-sm transition-colors">
+      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
+         class="inline-flex items-center rounded-md bg-accent text-white text-sm font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
         Termin buchen
       </a>
-      <button id="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobile-nav">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
     </div>
-    <nav id="mobile-nav" aria-label="Mobile Navigation">
-      <div class="mobile-nav-inner">
-        <a href="#hoerproben" data-mnav>Hörproben</a>
-        <a href="#omnichannel" data-mnav>Lösungen</a>
-        <a href="#pricing" data-mnav>Preise</a>
-        <a href="#roi" data-mnav>ROI</a>
-        <a href="#faq" data-mnav>FAQ</a>
-        <a href="tel:+491718400101" data-mnav>Anrufen: 0171 8400101</a>
-        <a class="mobile-cta" href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener" data-mnav>Termin buchen</a>
-      </div>
-    </nav>
   </header>
 
   <main id="main">
@@ -322,13 +192,13 @@
               Live im Hotel Nanis · Steinhuder Meer · seit 2026
             </div>
             <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.1]">
-              KI, die Anrufe, WhatsApp, E-Mails<br class="hidden sm:block">und Bewertungen für dich übernimmt.
+              Erprobt im eigenen Hotel.<br class="hidden sm:block">Übertragbar auf jeden Betrieb mit Kundenkontakt.
             </h1>
             <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-              Erprobt im eigenen Hotel, übertragbar auf jede Service-Branche: eine integrierte KI-Konfiguration für Voice, WhatsApp, E-Mail und Bewertungen — täglich live im eigenen Betrieb, bevor sie zu dir kommt.
+              Voice, WhatsApp, E-Mail, Bewertungen — eine integrierte KI-Konfiguration. Im eigenen Hotelbetrieb täglich live, bevor wir sie bei dir installieren.
             </p>
             <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
+              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                 Erstgespräch buchen
               </a>
@@ -372,12 +242,12 @@
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Inbound-Kommunikation und Reputation — sechs Module aus einem konsistenten Stack. Du wählst, was du brauchst. Nichts ist Pflicht.</p>
   </div>
   <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Voice AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">24/7 Anrufannahme mit natürlicher Konversation. Versteht Dialekt, übergibt strukturierte Anfragen ans Team.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reservierungen &amp; Auskünfte</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>After-Hours-Erreichbarkeit</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachig</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">ElevenLabs · Twilio</p></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">WhatsApp AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Automatische Antworten auf Anfragen mit Booking-Links und sauberer Übergabe an Mensch bei Bedarf.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anfrage-Beantwortung in Sekunden</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Booking-Links automatisch</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Saubere Mensch-Übergabe</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">WhatsApp Business · Twilio</p></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Website-Chatbot</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Antwortet im Browser auf FAQs, qualifiziert Anfragen, übergibt strukturierte Lead-Daten ans CRM.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>FAQ rund um die Uhr</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Lead-Qualifizierung</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>CRM- / E-Mail-Übergabe</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">ElevenLabs Conversational AI</p></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">E-Mail-Assistent</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Liest eingehende Mails, schreibt Antwort-Entwürfe in deinem Ton. Du prüfst, gibst frei, schickst.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Entwürfe statt Antworten</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Threading-bewusst</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Markenkonformer Ton</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">MS Graph · Outlook / M365</p></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Bewertungs-Management</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Überwacht eingehende Google-Bewertungen, generiert markenkonforme Antwort-Entwürfe zur Freigabe.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Auto-Monitoring</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tonalitäts-getreue Entwürfe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Manuelle Freigabe vor Posten</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">Google Business Profile API</p></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Prozess-Automation</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Verbindet Kanäle, PMS, CRM und Tools — Daten fließen automatisch, statt händisch.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tool-Integration &amp; Webhooks</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Automatische Lead-Übergabe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reporting &amp; Daten-Sync</li></ul><p class="mt-5 border-t border-zinc-100 pt-4 font-mono text-xs tracking-tight text-zinc-500">make.com / n8n</p></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Voice AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">24/7 Anrufannahme mit natürlicher Konversation. Versteht Dialekt, übergibt strukturierte Anfragen ans Team.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reservierungen &amp; Auskünfte</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>After-Hours-Erreichbarkeit</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachig</li></ul></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">WhatsApp AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Automatische Antworten auf Anfragen mit Booking-Links und sauberer Übergabe an Mensch bei Bedarf.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anfrage-Beantwortung in Sekunden</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Booking-Links automatisch</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Saubere Mensch-Übergabe</li></ul></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Website-Chatbot</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Antwortet im Browser auf FAQs, qualifiziert Anfragen, übergibt strukturierte Lead-Daten ans CRM.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>FAQ rund um die Uhr</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Lead-Qualifizierung</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>CRM- / E-Mail-Übergabe</li></ul></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">E-Mail-Assistent</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Liest eingehende Mails, schreibt Antwort-Entwürfe in deinem Ton. Du prüfst, gibst frei, schickst.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Entwürfe statt Antworten</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Threading-bewusst</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Markenkonformer Ton</li></ul></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Bewertungs-Management</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Überwacht eingehende Google-Bewertungen, generiert markenkonforme Antwort-Entwürfe zur Freigabe.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Auto-Monitoring</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tonalitäts-getreue Entwürfe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Manuelle Freigabe vor Posten</li></ul></article>
+    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Prozess-Automation</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Verbindet Kanäle, PMS, CRM und Tools — Daten fließen automatisch, statt händisch.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tool-Integration &amp; Webhooks</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Automatische Lead-Übergabe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reporting &amp; Daten-Sync</li></ul></article>
   </div>
 </div>
         </div>
@@ -409,7 +279,7 @@
             <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
               <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.18-9.17 4.18a2 2 0 0 1-1.66 0L2 12.18"/><path d="m22 17.18-9.17 4.18a2 2 0 0 1-1.66 0L2 17.18"/></svg></div>
               <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Standard-KI-Stack</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Standard-APIs marktführender Anbieter (ElevenLabs, Twilio). Keine eigenentwickelte KI, keine Black Box. Du weißt, was läuft.</p>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Standard-APIs marktführender Anbieter. Keine eigenentwickelte KI, keine Black Box. Du weißt, was läuft.</p>
             </article>
             <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
               <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
@@ -445,7 +315,75 @@
     <section id="pricing" class="section section-alt" aria-labelledby="pricing-title" data-section="06-pricing">
       <div class="max-w-content mx-auto px-6">
         <h2 id="pricing-title" class="sr-only">Pricing</h2>
-        <div data-slot="pricing"></div>
+        <div data-slot="pricing">
+<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+  <div class="max-w-3xl">
+    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Preise · Transparent</div>
+    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Klare Pakete, monatlich kündbar.</h2>
+    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Feste Monatspreise statt Black-Box-Angebot. Keine Mindestlaufzeit. Das einmalige Setup richtet sich nach dem Modul-Mix &ndash; das verbindliche Angebot bekommst du nach dem Erstgespr&auml;ch.</p>
+  </div>
+
+  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
+      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Website-Chatbot</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Beantwortet Anfragen auf deiner Website rund um die Uhr.</p>
+      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">99&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
+      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>FAQ-Auskunft rund um die Uhr</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Eine Sprache, Wissensbasis aus deinen Inhalten</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Weitergabe qualifizierter Anfragen</li>
+      </ul>
+      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 499&nbsp;&euro;</p>
+      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
+    </article>
+
+    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
+      <div class="mb-3"><span class="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1 text-xs font-medium text-[color:var(--color-accent,#E67533)]">Meist gew&auml;hlt</span></div>
+      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Voice Starter</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">24/7 Anrufannahme f&uuml;r mittlere Betriebe.</p>
+      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">199&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
+      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>300 Inklusivminuten, danach 0,20&nbsp;&euro; / Min</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anrufannahme rund um die Uhr, mehrsprachig</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Strukturierte &Uuml;bergabe ans Team</li>
+      </ul>
+      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 999&nbsp;&euro;</p>
+      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespr&auml;ch buchen</a>
+    </article>
+
+    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
+      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Voice Professional</h3>
+      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">F&uuml;r Betriebe mit hohem Anrufaufkommen &ndash; inkl. Chatbot.</p>
+      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">399&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
+      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>1.000 Inklusivminuten, danach 0,15&nbsp;&euro; / Min</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Website-Chatbot bereits enthalten</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Vorrangige Betreuung</li>
+      </ul>
+      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 999&nbsp;&euro;</p>
+      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
+    </article>
+
+  </div>
+
+  <p class="mt-6 text-[15px] text-zinc-600">Voice Starter und Website-Chatbot als <span class="font-medium text-zinc-900">Kombi-Paket f&uuml;r 249&nbsp;&euro; / Monat</span> statt einzeln 298&nbsp;&euro;.</p>
+
+  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8">
+    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Add-Ons &middot; Frei zubuchbar</div>
+    <div class="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">WhatsApp KI Agent</span><span class="font-medium text-zinc-900">+99&nbsp;&euro; / Mon</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Bewertungs-Management (Google)</span><span class="font-medium text-zinc-900">+79&nbsp;&euro; / Mon</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">WhatsApp Handoff-Kanal</span><span class="font-medium text-zinc-900">+99&nbsp;&euro; / Mon</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Termin-Booking</span><span class="font-medium text-zinc-900">+49&nbsp;&euro; / Mon</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">E-Mail-Assistent</span><span class="font-medium text-zinc-900">auf Anfrage</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Prozess-Automation</span><span class="font-medium text-zinc-900">auf Anfrage</span></div>
+    </div>
+  </div>
+
+  <p class="mt-8 text-sm text-zinc-500">Monatlich k&uuml;ndbar, keine Mindestlaufzeit. Einmaliges Setup je nach Modul-Mix; Standard-Onboarding enthalten, Sorglos-Variante (vollst&auml;ndige Daten&uuml;bernahme) +400&nbsp;&euro;. Verbindliche Kostenaufstellung nach dem Erstgespr&auml;ch.</p>
+</div>
+</div>
       </div>
     </section>
 
@@ -459,7 +397,7 @@
         <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
              Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
              mountet sich self-acting auf dieses #roi-rechner-root.
-             Pattern wie Cal.com-Embed oder ElevenLabs ConvAI. -->
+             Self-mounting Embed-Pattern. -->
         <div id="roi-rechner-root"
              data-slot="roi-rechner-mount"
              aria-live="polite"></div>
@@ -510,7 +448,7 @@
       <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">EU-Stack, dokumentierte Compliance.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">DSGVO-Konformität ist Onboarding-Standard, nicht Sales-Argument. Sub-Prozessoren-Liste, AVV, Datenschutzerklärung — alles vor Vertragsschluss prüfbar.</p></div>
     </div>
   </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Hotel-Alltag konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Hotel-Alltag konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
 </div>
         </div>
       </div>
@@ -595,21 +533,21 @@
   </div>
   <div class="mt-12 divide-y divide-zinc-200 border-y border-zinc-200">
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie schnell ist ein KI-Voice-Agent einsatzbereit?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">In der Regel zwei bis drei Wochen ab Vertragsschluss. Eine Woche für Wissensbasis und Dialogprompt, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Integrationen brauchen 4–6 Wochen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im <a href="#pricing" class="font-medium link-accent underline-offset-4 hover:underline">Preise-Bereich</a>. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch.</p></details>
+    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im <a href="#pricing" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Preise-Bereich</a>. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie sieht das Onboarding aus?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Du erhältst ein Onboarding-Formular mit allen relevanten Fragen zu deinem Betrieb. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wo werden meine Daten verarbeitet?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Alle eingesetzten Komponenten arbeiten DSGVO-konform mit signierten Auftragsverarbeitungsverträgen. Wo möglich werden EU-Anbieter und EU-Datenresidenz bevorzugt. Gesprächs-Transkripte werden standardmäßig 90 Tage gespeichert, danach automatisch gelöscht. Die eingesetzten Sub-Prozessoren werden im Rahmen des AVV transparent ausgewiesen.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn ich kündige?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Standard-Kündigung mit einem Monat Frist zum Monatsende. Auf Wunsch kostenloser Export deiner Inhalte (Texte, Transkripte, Lead-Daten). Optional ist ein vollständiger IP-Buyout der Konfiguration möglich — du übernimmst dann alle Komponenten und betreibst sie eigenständig oder mit einem anderen Dienstleister weiter.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Hat das System Zugriff auf mein Buchungssystem (PMS)?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Optional, ja. Übliche PMS-Systeme lassen sich über Standard-Schnittstellen anbinden — welche konkret in Frage kommt, klären wir im Erstgespräch. Ohne PMS-Anbindung läuft das System mit statischen Verfügbarkeits-Informationen.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn die KI eine Frage nicht beantworten kann?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage strukturiert per E-Mail oder WhatsApp an dein Team. Unklare Fragen landen damit immer bei jemandem, der sie verbindlich beantworten kann.</p></details>
   </div>
-  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="text-[15px] leading-relaxed text-zinc-700"><span class="font-semibold text-zinc-900">Frage nicht dabei?</span> Schreib mir direkt — die meisten Antworten brauchen keine 30-Minuten-Demo.</p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium link-accent">Oder direkt einen Termin finden<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="text-[15px] leading-relaxed text-zinc-700"><span class="font-semibold text-zinc-900">Frage nicht dabei?</span> Schreib mir direkt — die meisten Antworten brauchen keine 30-Minuten-Demo.</p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[color:var(--color-accent,#E67533)] hover:text-[color:var(--color-accent-hover,#C45A1A)]">Oder direkt einen Termin finden<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
 </div>
         </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         12. INTEGRATIONEN (ElevenLabs · Twilio · make.com · eviivo · Google · Brevo · …)
+         12. INTEGRATIONEN (Kompetenz-Kategorien, ohne Anbieternamen)
          ==================================================================== -->
     <section id="integrationen" class="section section-alt" aria-labelledby="integrationen-title" data-section="12-integrationen">
       <div class="max-w-content mx-auto px-6">
@@ -622,12 +560,12 @@
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Module der Logik-Agentur basieren auf marktführenden Standard-Diensten — alle DSGVO-konform anbindbar, jede Komponente austauschbar. Du bekommst eine Konfiguration, keine Plattform-Bindung.</p>
   </div>
   <div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Voice &amp; Telephony</div><p class="mt-2 text-sm text-zinc-600">Sprachsynthese, Conversational AI, Telefonie</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">ElevenLabs</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Twilio</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Famulor</span></div></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messaging</div><p class="mt-2 text-sm text-zinc-600">Kanalanbindung, transaktionale E-Mails</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">WhatsApp Business</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Brevo</span></div></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>Automation</div><p class="mt-2 text-sm text-zinc-600">Workflow-Orchestrierung, API-Verkettung</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">make.com</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">n8n</span></div></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>LLM</div><p class="mt-2 text-sm text-zinc-600">Sprachverarbeitung, Drafting, Klassifikation</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Anthropic Claude</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">OpenAI</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Google Gemini</span></div></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>Hosting &amp; Infrastruktur</div><p class="mt-2 text-sm text-zinc-600">Hosting, EU-Server, Versionierung</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Cloudflare</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Hetzner</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">GitHub</span></div></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>Booking &amp; PMS</div><p class="mt-2 text-sm text-zinc-600">Terminvereinbarung, Hotel-Buchungssysteme</p><div class="mt-4 flex flex-wrap gap-2"><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Cal.eu</span><span class="inline-flex items-center rounded-lg border border-zinc-200 bg-white px-3 py-2 text-sm font-medium text-zinc-900">Standard-PMS-Schnittstellen</span></div></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Voice &amp; Telephony</div><p class="mt-2 text-sm text-zinc-600">Sprachsynthese, Conversational AI, Telefonie</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messaging</div><p class="mt-2 text-sm text-zinc-600">Kanalanbindung, transaktionale E-Mails</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>Automation</div><p class="mt-2 text-sm text-zinc-600">Workflow-Orchestrierung, API-Verkettung</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>LLM</div><p class="mt-2 text-sm text-zinc-600">Sprachverarbeitung, Drafting, Klassifikation</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>Hosting &amp; Infrastruktur</div><p class="mt-2 text-sm text-zinc-600">Hosting, EU-Server, Versionierung</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>Booking &amp; PMS</div><p class="mt-2 text-sm text-zinc-600">Terminvereinbarung, Hotel-Buchungssysteme</p></div>
   </div>
   <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><div class="flex items-start gap-4"><div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M12 17v-3"/></svg></div><div><p class="text-[15px] font-semibold tracking-tight text-zinc-900">Standard-Stack heißt: Kein Plattform-Lock-in.</p><p class="mt-1 text-[15px] leading-relaxed text-zinc-600">Jede Komponente ist ein eigenständiger Standard-Dienst mit eigenem Vertrag, eigenem Datenexport und eigenem Wartungsmodell.</p></div></div></div>
 </div>
@@ -651,7 +589,7 @@
     </p>
     <div class="mt-10 flex flex-col items-center gap-4">
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 rounded-lg btn-accent bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
+         class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)] focus:outline-none focus:ring-4 focus:ring-indigo-100">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
           <line x1="16" x2="16" y1="2" y2="6"/>
@@ -678,13 +616,12 @@
   <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 md:gap-12">
     <div>
       <div class="text-sm font-semibold tracking-tight text-zinc-900">Logik-Agentur</div>
-      <p class="mt-3 text-sm leading-relaxed text-zinc-600">KI-Integration für Hotels und DACH-Mittelstand. Konfiguration und Integration marktführender Standard-KI-Lösungen.</p>
+      <p class="mt-3 text-sm leading-relaxed text-zinc-600">KI-Integration für Hotels und mittelständische Betriebe. Konfiguration und Integration marktführender Standard-KI-Lösungen.</p>
       <p class="mt-3 text-sm text-zinc-500">Wunstorf · Niedersachsen</p>
     </div>
     <div>
       <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Kontakt</div>
       <ul class="mt-3 space-y-2 text-sm text-zinc-700">
-        <li><a href="tel:+491718400101" class="hover:text-[color:var(--color-accent,#E67533)]">+49 171 8400101</a></li>
         <li><a href="mailto:kontakt@logik-agentur.de" class="hover:text-[color:var(--color-accent,#E67533)]">kontakt@logik-agentur.de</a></li>
         <li><a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener" class="hover:text-[color:var(--color-accent,#E67533)]">Erstgespräch buchen →</a></li>
       </ul>
@@ -718,26 +655,6 @@
     document.getElementById('footer-year').textContent = new Date().getFullYear();
   </script>
 
-  <script>
-    // Mobiles Burger-Menü öffnen/schließen
-    (function () {
-      var toggle = document.getElementById('nav-toggle');
-      var menu = document.getElementById('mobile-nav');
-      if (!toggle || !menu) return;
-      function setOpen(open) {
-        menu.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        toggle.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
-      }
-      toggle.addEventListener('click', function () {
-        setOpen(!menu.classList.contains('open'));
-      });
-      menu.querySelectorAll('[data-mnav]').forEach(function (link) {
-        link.addEventListener('click', function () { setOpen(false); });
-      });
-    })();
-  </script>
-
   <!-- =========================================================================
        Widget-Bundles (esbuild) — laden self-mounting auf ihre jeweiligen
        Mount-Points (#roi-rechner-root etc.). Reihenfolge unkritisch wegen defer.
@@ -756,19 +673,19 @@
     #la-chat-consent { position: fixed; right: 20px; bottom: 20px; z-index: 9998;
       font-family: 'Inter', system-ui, sans-serif; }
     #la-chat-launcher { display: inline-flex; align-items: center; gap: 8px;
-      background: var(--color-accent-strong, #B5500F); color: #fff; border: none;
+      background: var(--color-accent, #4F46E5); color: #fff; border: none;
       border-radius: 9999px; padding: 12px 18px; font-size: 15px; font-weight: 600;
       cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
-    #la-chat-launcher:hover { background: var(--color-accent-strong-hover, #993F08); }
+    #la-chat-launcher:hover { background: var(--color-accent-hover, #4338CA); }
     #la-chat-card { display: none; max-width: 320px; background: #fff;
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
       padding: 16px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
     #la-chat-card.open { display: block; }
     #la-chat-card p { margin: 0 0 12px; font-size: 14px; line-height: 1.5;
       color: var(--color-text, #18181b); }
-    #la-chat-card a { color: var(--color-accent-text, #7A3A0E); }
+    #la-chat-card a { color: var(--color-accent, #4F46E5); }
     #la-chat-actions { display: flex; gap: 8px; }
-    #la-chat-load { flex: 1; background: var(--color-accent-strong, #B5500F); color: #fff;
+    #la-chat-load { flex: 1; background: var(--color-accent, #4F46E5); color: #fff;
       border: none; border-radius: 8px; padding: 10px; font-weight: 600; cursor: pointer; }
     #la-chat-cancel { background: transparent; color: var(--color-text-muted, #52525b);
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 8px; padding: 10px 14px; cursor: pointer; }
