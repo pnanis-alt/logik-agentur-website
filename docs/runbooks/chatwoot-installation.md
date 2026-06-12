@@ -4,10 +4,10 @@
 **Architektur-Quelle:** DEC-010.
 **Bezug:** Mandantenmodell = Modell 1 (geteilte Instanz, vorläufig) — noch als DEC-011 festzuschreiben.
 
-**Version:** 1.0
-**Stand:** 10.06.2026
+**Version:** 1.1
+**Stand:** 12.06.2026
 **Status Phase 1 (VM-Basis):** abgeschlossen & verifiziert.
-**Status Phase 2 (Chatwoot + SSL):** offen — siehe Abschnitt „Offene Folgeschritte".
+**Status Phase 2 (Chatwoot + SSL):** abgeschlossen & verifiziert (Abschnitte 8–13).
 
 ---
 
@@ -162,17 +162,135 @@ Hinweis Mandantenmodell: `inbox` (neutral, Maschine) statt kundenspezifischem Na
 
 ---
 
-## Offene Folgeschritte (Phase 2 — NICHT erledigt)
+## Phase 2 — Chatwoot CE + SSL (abgeschlossen & verifiziert, 12.06.2026)
 
-Nächster Chat, frischer Kontext. Reihenfolge:
+Arbeitsverzeichnis auf dem Server: `/opt/chatwoot` (Compose, `.env`, Caddyfile dort). Alle Server-Befehle via SSH-Lesezeichen `ssh chatwoot`.
 
-1. **Lizenzsauberer CE-Pfad** (DEC-010): sicherstellen, dass Community Edition läuft (Enterprise-Features deaktiviert) — vor dem Compose-Start klären.
-2. **Telemetrie aus** (DEC-010): `DISABLE_TELEMETRY=true` in der Chatwoot-Konfiguration.
-3. **Chatwoot via Docker Compose** installieren — inkl. OOM-Resilienz aus DEC-010 P5 (Memory-Limits + OOM-Priorität: OOM-Killer trifft Rails/Sidekiq, nie Postgres; `restart: always`).
-4. **SSL** via Reverse-Proxy (Caddy empfohlen, automatisches Let's Encrypt) auf `inbox.logik-agentur.de`.
-5. **`conversation_status_changed`-Account-Webhook** auf Verfügbarkeit prüfen (DEC-010 Re-Activation).
+**Recherche-Befund vorab (offizielle Doku, Confidence hoch):**
+- Offizieller Weg: `.env.example` + `docker-compose.production.yaml` vom `develop`-Branch holen, anpassen, `db:chatwoot_prepare`, dann `up -d`. Versionen NICHT über die Vorlage, sondern über den **gepinnten Image-Tag** fixieren.
+- **Lizenzsauberer CE-Pfad (doppelt abgesichert):** (1) Image-Tag `-ce` = FOSS-Build, Enterprise-Code physisch NICHT im Image (Standard-`:latest` enthält ihn). (2) Zusätzlich `DISABLE_ENTERPRISE=true` in der `.env`. Aktuell stabile Version bei Bau: **`v4.14.1-ce`** (eine Version unter dem tagesfrischen `v4.14.2`, bewusst für Burn-in).
 
-Spätere Folge-Chats (nicht Phase 2): Backup-Cron + Snapshots, Monitoring (UptimeRobot), Staging-VM, n8n-Anbindung, WhatsApp-Inbox, Brain/Handoff-Logik, Auto-Löschung.
+### 8. Arbeitsverzeichnis + Vorlagen
+```
+mkdir -p /opt/chatwoot && chmod 700 /opt/chatwoot
+cd /opt/chatwoot
+curl -fsSL -o .env https://raw.githubusercontent.com/chatwoot/chatwoot/develop/.env.example
+curl -fsSL -o docker-compose.yaml https://raw.githubusercontent.com/chatwoot/chatwoot/develop/docker-compose.production.yaml
+```
+`chmod 700`, weil hier gleich die `.env` mit Secrets liegt.
+
+### 9. Secrets — Handhabung (NIE in Chat/Repo/Logs)
+**Prinzip:** Serverseitig generierbare Secrets direkt in die `.env` erzeugen (nie anzeigen). Vom Menschen gelieferte Secrets (z. B. Brevo-Key) als `PLATZHALTER` setzen, dann vom Menschen selbst per `read -s` ersetzen lassen — der Wert läuft nie durch den Chat.
+
+Serverseitig generieren (Werte werden nie ausgegeben):
+```
+SKB=$(openssl rand -hex 64)   # SECRET_KEY_BASE (128 Hex-Zeichen, keine Sonderzeichen — Chatwoot-Vorgabe)
+PGP=$(openssl rand -hex 32)   # POSTGRES_PASSWORD (64 Hex-Zeichen)
+sed -i "s|^SECRET_KEY_BASE=.*|SECRET_KEY_BASE=$SKB|" .env
+sed -i "s|^POSTGRES_PASSWORD=.*|POSTGRES_PASSWORD=$PGP|" .env
+unset SKB PGP
+```
+Vom Menschen geliefertes Secret (Muster, läuft auf dem Server, verdeckte Eingabe):
+```
+read -rp "Brevo SMTP login: " U && read -rsp "Brevo SMTP key: " K && echo && \
+sed -i "s|^SMTP_USERNAME=.*|SMTP_USERNAME=${U}|" /opt/chatwoot/.env && \
+sed -i "s|^SMTP_PASSWORD=PLATZHALTER$|SMTP_PASSWORD=${K}|" /opt/chatwoot/.env && \
+unset U K
+```
+Verifikation nur über Längen/Platzhalter-Zähler, **nie** Wert ausgeben: `grep -c PLATZHALTER .env` → 0.
+
+**Lesson:** `grep -c` liefert bei 0 Treffern Exit-Code 1 → bricht `&&`-Ketten ab und kann Folge-Checks fälschlich auf „LEER" laufen lassen. Verifikation mit `awk`/`length()` oder `|| true` absichern.
+
+### 10. `.env` — gesetzte Schlüssel (Secrets redigiert)
+| Schlüssel | Wert | Zweck |
+|---|---|---|
+| `RAILS_ENV` | `production` | Produktivmodus (Vorlage stand auf `development`!) |
+| `FRONTEND_URL` | `https://inbox.logik-agentur.de` | öffentliche Adresse |
+| `SECRET_KEY_BASE` | *(serverseitig, redigiert)* | Sitzungs-/Cookie-Verschlüsselung |
+| `POSTGRES_DATABASE` | `chatwoot` | MUSS zur Compose `POSTGRES_DB` passen |
+| `POSTGRES_HOST` / `POSTGRES_USERNAME` | `postgres` / `postgres` | Container-Netzwerk (Vorlage schon korrekt) |
+| `POSTGRES_PASSWORD` | *(serverseitig, redigiert)* | DB-Zugang |
+| `REDIS_URL` / `REDIS_PASSWORD` | `redis://redis:6379` / *(leer)* | bewusst ohne Redis-Auth: nur intern + an 127.0.0.1 gebunden, Firewall lässt nur 22/80/443 |
+| `ENABLE_ACCOUNT_SIGNUP` | `false` | kein öffentliches Signup (Modell 1) |
+| `DISABLE_TELEMETRY` | `true` | DEC-010: keine Nutzungsdaten an Chatwoot |
+| `DISABLE_ENTERPRISE` | `true` | DEC-010: CE-only (Gürtel zum `-ce`-Image) |
+| `SMTP_ADDRESS` / `SMTP_PORT` | `smtp-relay.brevo.com` / `587` | Brevo (STARTTLS) |
+| `SMTP_DOMAIN` / `SMTP_AUTHENTICATION` | `logik-agentur.de` / `login` | Brevo-Standard |
+| `SMTP_USERNAME` | *(Brevo-Versand-Kennung, redigiert)* | Brevo-Versand-Login (NICHT die Konto-E-Mail; Brevo → SMTP & API → SMTP → „Anmeldung") |
+| `SMTP_PASSWORD` | *(Brevo SMTP-Key, redigiert)* | vom Menschen per `read -s` gesetzt |
+| `MAILER_SENDER_EMAIL` | `Logik Agentur <noreply@logik-agentur.de>` | Absender |
+
+SMTP-Hinweis: Konfiguration ist gesetzt, aber erst eine echte Test-Mail (z. B. Agent-Invite) beweist den Versand. Offen für Folge-Session.
+
+### 11. Compose härten (`docker-compose.yaml`)
+Drei Änderungen ggü. der Vorlage:
+1. **Image-Pin:** `chatwoot/chatwoot:latest` → `chatwoot/chatwoot:v4.14.1-ce`.
+2. **DB-Zugang aus `.env`** statt inline (Secret nicht im Compose): Postgres-`environment` nutzt `${POSTGRES_DATABASE:-chatwoot}`, `${POSTGRES_USERNAME:-postgres}`, `${POSTGRES_PASSWORD}` (Compose interpoliert automatisch aus `.env` im Projektordner).
+3. **OOM-Resilienz (DEC-010 P5):** `mem_limit` + `oom_score_adj` pro Dienst. `restart: always` bei allen.
+
+| Dienst | `mem_limit` | `oom_score_adj` | Wirkung |
+|---|---|---|---|
+| `rails` | 2500m | **+800** | wird bei Speichernot zuerst geopfert, startet via `restart: always` neu |
+| `sidekiq` | 2g | **+700** | als Nächstes |
+| `postgres` | — | **−800** | praktisch unantastbar → kein Korruptionsrisiko |
+| `redis` | 512m | 0 | neutral |
+| `caddy` | 256m | +200 | s. Abschnitt 13 |
+
+**Lesson — `base`-Container:** Die offizielle Vorlage nutzt `base` gleichzeitig als YAML-Anchor UND listet es unter `services:` → Docker startet einen überflüssigen `irb`-Leerlauf-Container (lädt unnötig die `.env`/Secrets). Fix: `base`-Definition aus `services:` heraus in ein Top-Level-Extension-Feld `x-base: &base` verschieben (Anchor `*base` bleibt funktional, Compose startet es nicht). Danach `docker compose up -d --remove-orphans`.
+
+Validierung ohne Secret-Leak: `docker compose config --quiet` (prüft, druckt nichts). `docker compose config` (ohne `-q`) würde aufgelöste Secrets ausgeben → nicht nutzen bzw. nur mit `awk length()`.
+
+### 12. Swap + DB-Init + Stack-Start
+**Swap (DEC-010 P5, Puffer ZUSÄTZLICH zur OOM-Priorität — ersetzt sie nicht):** VM hatte 0 Swap.
+```
+dd if=/dev/zero of=/swapfile bs=1M count=2048 status=none   # dd, nicht fallocate (keine Loch-Probleme)
+chmod 600 /swapfile && mkswap /swapfile && swapon /swapfile
+grep -q '^/swapfile ' /etc/fstab || echo '/swapfile none swap sw 0 0' >> /etc/fstab   # neustart-fest
+echo 'vm.swappiness=10' > /etc/sysctl.d/99-swappiness.conf && sysctl -p /etc/sysctl.d/99-swappiness.conf
+```
+`swappiness=10` = Swap nur als Notnagel, nicht im Normalbetrieb.
+
+**DB-Schema:** `docker compose run --rm rails bundle exec rails db:chatwoot_prepare` (zieht zuerst die Images, ~700 MB; 3–6 Min). Eine `ERROR: relation "installation_configs" does not exist`-Zeile während des Laufs ist harmlos (Init-Check vor Migration); maßgeblich ist Exit-Code 0 + „Loading Installation config". Verifiziert: 91 Tabellen, `accounts`/`users`/`installation_configs` vorhanden.
+
+**Start:** `docker compose up -d`. Verifikation: `docker compose ps` (alle `Up`), Rails-Log „Listening on http://0.0.0.0:3000" + „Environment: production", intern `curl -I http://localhost:3000` → 302 (Redirect auf `/installation/onboarding`).
+
+### 13. SSL via Caddy (Reverse-Proxy, automatisches Let's Encrypt)
+Caddy als fünfter Container, terminiert TLS auf 80/443, proxyt intern auf `rails:3000`.
+
+`/opt/chatwoot/Caddyfile`:
+```
+{
+	email pnanis@me.com
+}
+
+inbox.logik-agentur.de {
+	reverse_proxy rails:3000
+}
+```
+Compose-Service: `image: caddy:2-alpine`, Ports `80:80`+`443:443`, `restart: always`, Volumes `./Caddyfile:/etc/caddy/Caddyfile:ro` + `caddy_data:/data` + `caddy_config:/config` (Zertifikate überleben Neustart). Voraussetzungen erfüllt: DNS → Server, Firewall 80/443 offen, `FRONTEND_URL=https://…`.
+
+Verifikation vom Mac (echter Außen-Test): `curl -I https://inbox.logik-agentur.de` → `HTTP/2 302`, `via: 1.1 Caddy`, **ohne** `-k` (= Zertifikat gültig/vertrauenswürdig). Caddy-Log: `certificate obtained successfully` (http-01-Challenge, Produktiv-CA Let's Encrypt).
+
+### Super-Admin (Onboarding statt Rails-Konsole)
+Abweichung vom ursprünglichen Plan, bewusst: Chatwoot leitet beim Erst-Aufruf selbst auf `/installation/onboarding`. Dieser **Browser-Assistent** ist der offizielle Erst-Einrichtungsweg — robuster als die Konsole, und das Admin-Passwort vergibt der Mensch selbst im Browser (läuft nie durch den Assistenten/Chat). Rails-Konsole bleibt Notnagel.
+
+Verifiziert (serverseitig, ohne Passwort): User `Pantelis Nanis` / `pantelis.nanis@logik-agentur.de` ist `type=SuperAdmin` (Plattform-Ebene, `/super_admin`-Konsole) UND `administrator` des Accounts `Logik Agentur` (account_users.role=1). Genau **ein** Account, **ein** User. Mandant: Account-Name = Betreiber „Logik Agentur"; Hotels kommen später als **separate Accounts** über `/super_admin` (Modell 1, DEC-011 pending) — nichts kundenspezifisch hart verdrahtet.
+
+---
+
+## Offene Folgeschritte
+
+**Aus Phase 2 erledigt (12.06.2026):**
+1. ✅ Lizenzsauberer CE-Pfad — Image `v4.14.1-ce` + `DISABLE_ENTERPRISE=true`.
+2. ✅ Telemetrie aus — `DISABLE_TELEMETRY=true`.
+3. ✅ Chatwoot via Docker Compose inkl. OOM-Resilienz (DEC-010 P5) + Swap-Puffer.
+4. ✅ SSL via Caddy (Let's Encrypt) auf `inbox.logik-agentur.de`.
+
+**Noch offen:**
+5. **`conversation_status_changed`-Account-Webhook** auf Verfügbarkeit prüfen (DEC-010 Re-Activation) — bewusst NICHT in Phase 2, gehört zur WhatsApp/Brain-Phase.
+6. **SMTP-Sendetest** (Brevo): echte Test-Mail (z. B. Agent-Invite) — Konfig ist gesetzt, Versand noch unbewiesen.
+
+Spätere Folge-Chats: Backup-Cron + Snapshots, Monitoring (UptimeRobot), Staging-VM, n8n-Anbindung, WhatsApp-Inbox, Brain/Handoff-Logik, Auto-Löschung.
 
 ---
 
@@ -191,4 +309,5 @@ Aus diesem und dem vorigen Chat offen, in einem eigenen Doku-Chat festzuschreibe
 
 ## Changelog
 
+- **v1.1 (12.06.2026):** Phase 2 (Chatwoot CE + SSL) dokumentiert & verifiziert — Abschnitte 8–13. Lizenzsauberer CE-Pfad (`v4.14.1-ce` + `DISABLE_ENTERPRISE=true`), Telemetrie aus, OOM-Resilienz (DEC-010 P5) + 2-GB-Swap, Brevo-SMTP (Secret-Handling via Platzhalter + `read -s`), Caddy/Let's-Encrypt-SSL, Super-Admin per Browser-Onboarding. Folgeschritte 1–4 abgehakt; Webhook-Check + SMTP-Sendetest offen. Lessons: `base`-Leerlauf-Container (`x-base`-Fix), `grep -c`-Exit-Code-Falle, `docker compose config` leakt Secrets ohne `-q`.
 - **v1.0 (10.06.2026):** Phase 1 (VM-Basis bis Docker + DNS) dokumentiert. Verifizierter Stand. Abweichungen ggü. DEC-010 (Falkenstein, Ubuntu 26.04) mit Begründung vermerkt.
