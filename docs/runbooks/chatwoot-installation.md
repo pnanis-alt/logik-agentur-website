@@ -220,7 +220,13 @@ Verifikation nur über Längen/Platzhalter-Zähler, **nie** Wert ausgeben: `grep
 | `SMTP_PASSWORD` | *(Brevo SMTP-Key, redigiert)* | vom Menschen per `read -s` gesetzt |
 | `MAILER_SENDER_EMAIL` | `Logik Agentur <noreply@logik-agentur.de>` | Absender |
 
-SMTP-Hinweis: Konfiguration ist gesetzt, aber erst eine echte Test-Mail (z. B. Agent-Invite) beweist den Versand. Offen für Folge-Session.
+SMTP-Sendetest (12.06.2026, Rails-Konsole): `delivery_method=smtp`, `smtp_address=smtp-relay.brevo.com`, Login (Länge 24) + Key (Länge 90) geladen; `ActionMailer::Base.mail(...).deliver_now` → **von Brevo angenommen, keine Exception** = SMTP-Übergabe verifiziert. Test-Befehl (Werte nie ausgeben — Passwort NICHT printen):
+```
+docker compose exec -T rails bundle exec rails runner -   # Ruby-Script via stdin:
+#   ActionMailer::Base.mail(to: "...", from: ENV["MAILER_SENDER_EMAIL"], subject: "...", body: "...").deliver_now
+#   rescue => e  → e.class/e.message zeigt SMTP-Fehler
+```
+**Postfach-Zustellung bestätigt** (12.06.2026): Test-Mail kam im Posteingang von `pantelis.nanis@logik-agentur.de` an (nicht Spam) → komplette Kette Chatwoot → Brevo → Postfach funktioniert.
 
 ### 11. Compose härten (`docker-compose.yaml`)
 Drei Änderungen ggü. der Vorlage:
@@ -286,9 +292,10 @@ Verifiziert (serverseitig, ohne Passwort): User `Pantelis Nanis` / `pantelis.nan
 3. ✅ Chatwoot via Docker Compose inkl. OOM-Resilienz (DEC-010 P5) + Swap-Puffer.
 4. ✅ SSL via Caddy (Let's Encrypt) auf `inbox.logik-agentur.de`.
 
+5. ✅ SMTP-Sendetest (Brevo): SMTP-Übergabe verifiziert **und** Postfach-Zustellung bestätigt (12.06.2026 — Test-Mail kam im Posteingang an, nicht Spam; s. Abschnitt 10). Komplette Kette Chatwoot → Brevo → Postfach funktioniert.
+
 **Noch offen:**
-5. **`conversation_status_changed`-Account-Webhook** auf Verfügbarkeit prüfen (DEC-010 Re-Activation) — bewusst NICHT in Phase 2, gehört zur WhatsApp/Brain-Phase.
-6. **SMTP-Sendetest** (Brevo): echte Test-Mail (z. B. Agent-Invite) — Konfig ist gesetzt, Versand noch unbewiesen.
+- **`conversation_status_changed`-Account-Webhook** auf Verfügbarkeit prüfen (DEC-010 Re-Activation) — bewusst NICHT in Phase 2, gehört zur WhatsApp/Brain-Phase.
 
 Spätere Folge-Chats: Backup-Cron + Snapshots, Monitoring (UptimeRobot), Staging-VM, n8n-Anbindung, WhatsApp-Inbox, Brain/Handoff-Logik, Auto-Löschung.
 
@@ -309,5 +316,5 @@ Aus diesem und dem vorigen Chat offen, in einem eigenen Doku-Chat festzuschreibe
 
 ## Changelog
 
-- **v1.1 (12.06.2026):** Phase 2 (Chatwoot CE + SSL) dokumentiert & verifiziert — Abschnitte 8–13. Lizenzsauberer CE-Pfad (`v4.14.1-ce` + `DISABLE_ENTERPRISE=true`), Telemetrie aus, OOM-Resilienz (DEC-010 P5) + 2-GB-Swap, Brevo-SMTP (Secret-Handling via Platzhalter + `read -s`), Caddy/Let's-Encrypt-SSL, Super-Admin per Browser-Onboarding. Folgeschritte 1–4 abgehakt; Webhook-Check + SMTP-Sendetest offen. Lessons: `base`-Leerlauf-Container (`x-base`-Fix), `grep -c`-Exit-Code-Falle, `docker compose config` leakt Secrets ohne `-q`.
+- **v1.1 (12.06.2026):** Phase 2 (Chatwoot CE + SSL) dokumentiert & verifiziert — Abschnitte 8–13. Lizenzsauberer CE-Pfad (`v4.14.1-ce` + `DISABLE_ENTERPRISE=true`), Telemetrie aus, OOM-Resilienz (DEC-010 P5) + 2-GB-Swap, Brevo-SMTP (Secret-Handling via Platzhalter + `read -s`), Caddy/Let's-Encrypt-SSL, Super-Admin per Browser-Onboarding, Brevo-SMTP-Sendetest verifiziert (Mail im Posteingang). Folgeschritte 1–5 abgehakt; nur `conversation_status_changed`-Webhook-Check offen. Lessons: `base`-Leerlauf-Container (`x-base`-Fix), `grep -c`-Exit-Code-Falle, `docker compose config` leakt Secrets ohne `-q`.
 - **v1.0 (10.06.2026):** Phase 1 (VM-Basis bis Docker + DNS) dokumentiert. Verifizierter Stand. Abweichungen ggü. DEC-010 (Falkenstein, Ubuntu 26.04) mit Begründung vermerkt.
