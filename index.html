@@ -1,763 +1,245 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="index,follow" />
-
-  <title>Logik-Agentur — KI-Integration für Hotels und mittelständische Betriebe</title>
-  <meta name="description" content="Logik-Agentur konfiguriert und integriert marktführende Standard-KI-Lösungen für Hotels und KMU: Voice AI, WhatsApp-Automation, Chatbot, Google-Review-Management, E-Mail-KI und Prozessautomatisierung." />
-
-  <!-- Open Graph (Slots — bei Go-Live ergänzen) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Logik-Agentur — KI-Integration für Hotels und mittelständische Betriebe" />
-  <meta property="og:description" content="Konfiguration und Integration marktführender Standard-KI-Lösungen. Eigenes Hotel als Live-Proof-of-Concept." />
-  <meta property="og:url" content="https://logik-agentur.de/" />
-  <!-- TODO: <meta property="og:image" content="https://logik-agentur.de/assets/og.jpg" /> -->
-
-  <!-- Fonts — self-hosted (kein Aufruf an Google), woff2, latin inkl. Umlaute, font-display: swap -->
-  <link rel="stylesheet" href="assets/fonts.css" />
-
-  <!-- Tailwind Play CDN (v3) — vor Production-Traffic durch Tailwind CLI Build ersetzen -->
-  <!-- Tailwind: lokaler Build (ersetzt Play-CDN). Theme-Quelle: tailwind.config.js + docs/design-tokens.md.
-       Neu bauen: .build/tailwindcss -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --minify -->
-  <link rel="stylesheet" href="assets/tailwind.css" />
-
-  <!-- React/ReactDOM/Babel-CDN entfernt (Weg A: esbuild-Bundle).
-       Jedes React-Widget bringt sein eigenes React via Bundle mit. Vendor-Extraction
-       bei 5+ Widgets nachrüsten. Bundle-Scripts werden am Ende des <body> geladen. -->
-
-  <!-- =========================================================================
-       Design-Tokens v1.0 — Source of Truth: docs/design-tokens.md
-       1:1 übernommen. Bei Änderungen ZUERST design-tokens.md (Version+Changelog),
-       DANN hier synchronisieren. Keine Token-Werte irgendwo anders im HTML.
-       ========================================================================= -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Logik Agentur — Bald verfügbar</title>
+  <meta name="description" content="Logik Agentur — wir bringen KI dorthin, wo sie wirkt: in Ihr Unternehmen. Kommunikation, Automatisierung und Prozesse, strategisch geplant, sauber implementiert und getestet. Bald verfügbar.">
+  <meta name="theme-color" content="#08090D">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Logik Agentur — Bald verfügbar">
+  <meta property="og:description" content="System statt Hype. Wir bringen KI dorthin, wo sie wirkt: in Ihr Unternehmen.">
+  <meta property="og:locale" content="de_DE">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%2308090D'/><rect x='6' y='14' width='4' height='12' rx='2' fill='%23E67533'/><rect x='13' y='8' width='4' height='18' rx='2' fill='%23F2ECE1'/><rect x='20' y='11' width='4' height='15' rx='2' fill='%23F2A93B'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      /* === Surfaces === */
-      --color-bg:          #FFFFFF;
-      --color-bg-subtle:   #FAFAFA;
-      --color-bg-muted:    #F4F4F5;
-
-      /* === Text === */
-      --color-text:        #18181B;
-      --color-text-muted:  #52525B;
-      --color-text-subtle: #71717A;
-
-      /* === Borders === */
-      --color-border:        #E4E4E7;
-      --color-border-strong: #D4D4D8;
-
-      /* === Accent — Logik-Agentur Signature (Orange, Logo-konsistent) === */
-      --color-accent:        #E67533;
-      --color-accent-hover:  #C45A1A;
-      --color-accent-subtle: #FDF1E7;
-      --color-accent-text:   #7A3A0E;
-      /* RGB-Triplet für gezielten Alpha-Bedarf (z. B. Slider-Focus-Ring 15%) */
-      --color-accent-rgb:    230 117 51;
-
-      /* === Sekundär & Logo-Navy (für konsistente Logo-Akzente) === */
-      --color-secondary:        #F2A93B;
-      --color-secondary-subtle: #FEF6E4;
-      --color-logo-navy:        #2E3849;
-
-      /* === Semantic === */
-      --color-success:        #059669;
-      --color-warning:        #D97706;
-      --color-danger:         #DC2626;
-      --color-loss-bg:        #FEF3F2;
-      --color-loss-border:    #FECDCA;
-      --color-loss-text:      #B42318;
-      --color-loss-value:     #7A271A;
-
-      /* === Typography === */
-      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
-
-      /* === Spacing (4px scale) === */
-      --space-1:  0.25rem;
-      --space-2:  0.5rem;
-      --space-3:  0.75rem;
-      --space-4:  1rem;
-      --space-6:  1.5rem;
-      --space-8:  2rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-24: 6rem;
-
-      /* === Radii === */
-      --radius-sm: 6px;
-      --radius-md: 8px;
-      --radius-lg: 12px;
-      --radius-xl: 16px;
-
-      /* === Shadows === */
-      --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.05);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.05);
-
-      /* === Layout (Skelett-Zusatz, nicht in design-tokens.md) === */
-      --section-py: clamp(64px, 8vw, 112px);
-    }
-
-    /* Globale Resets über Tailwind-Preflight hinaus */
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font-sans);
-      color: var(--color-text);
-      background: var(--color-bg);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-    .font-mono, code, kbd, samp { font-family: var(--font-mono); }
-
-    /* Tabular-Numerals für Zahlen-Animation (Slider-Werte) */
-    .tabular { font-variant-numeric: tabular-nums; }
-
-    /* Skip-Link (A11y) */
-    .skip-link {
-      position: absolute; left: -9999px; top: 8px;
-      background: var(--color-accent); color: #fff;
-      padding: 8px 14px; border-radius: var(--radius-md);
-      font-weight: 600;
-    }
-    .skip-link:focus { left: 8px; z-index: 100; }
-
-    /* Section-Container */
-    .section { padding-block: var(--section-py); }
-    .section-alt { background: var(--color-bg-subtle); }
-
-    /* Slot-Marker (nur in Dev sichtbar — bei Befüllung entfernen) */
-    [data-slot]:empty::before {
-      content: 'SLOT: ' attr(data-slot);
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      color: var(--color-text-subtle);
-      background: var(--color-bg-muted);
-      border: 1px dashed var(--color-border);
-      border-radius: var(--radius-sm);
-      padding: 6px 10px;
-    }
-
-    /* Reduzierte Bewegung respektieren (max 250ms-Vorgabe aus design-tokens.md) */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%}
+    body{background:#08090D;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    @keyframes cin-bloom{0%{opacity:0;transform:scale(.55)}100%{opacity:1;transform:scale(1)}}
+    @keyframes cin-breathe-a{0%,100%{transform:translate(-4%,-3%) scale(1)}50%{transform:translate(5%,5%) scale(1.16)}}
+    @keyframes cin-breathe-b{0%,100%{transform:translate(4%,3%) scale(1.08)}50%{transform:translate(-6%,-4%) scale(.96)}}
+    @keyframes cin-up{0%{opacity:0;transform:translateY(30px)}100%{opacity:1;transform:translateY(0)}}
+    @keyframes cin-logo{0%{opacity:0;transform:translateY(26px) scale(.92);filter:blur(10px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
+    @keyframes lk-bar{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1)}}
+    @keyframes lk-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.75)}}
+    [data-rv-root] footer a{color:inherit;text-decoration:none;transition:color .2s ease}
+    [data-rv-root] footer a:hover{color:var(--accent,#E67533)}
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none !important; transition:none !important}
     }
   </style>
 </head>
+<body>
 
-<body class="bg-base text-ink antialiased">
+<div data-rv-root style="--accent:#E67533; --rv-delay:-10s; position:relative; min-height:100vh; width:100%; overflow:hidden; background:radial-gradient(130% 120% at 50% 8%, #11151E 0%, #0A0C11 48%, #07080B 100%); color:#F2ECE1; font-family:'Manrope',sans-serif; display:flex; flex-direction:column">
 
-  <a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+  <!-- ATMOSPHERE -->
+  <div style="position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden">
+    <div style="position:absolute; top:-18%; left:50%; width:70vw; height:70vw; margin-left:-35vw; border-radius:50%; background:radial-gradient(circle at center, rgba(230,117,51,.32), rgba(230,117,51,0) 60%); filter:blur(20px); animation:cin-bloom 1.8s ease both, cin-breathe-a 16s ease-in-out 1.8s infinite"></div>
+    <div style="position:absolute; bottom:-30%; left:-12%; width:60vw; height:60vw; border-radius:50%; background:radial-gradient(circle at center, rgba(242,169,59,.22), rgba(242,169,59,0) 62%); filter:blur(22px); animation:cin-bloom 2s ease .15s both, cin-breathe-b 20s ease-in-out 2s infinite"></div>
+    <div style="position:absolute; top:24%; right:-16%; width:46vw; height:46vw; border-radius:50%; background:radial-gradient(circle at center, rgba(82,108,150,.20), rgba(82,108,150,0) 65%); filter:blur(20px); animation:cin-bloom 2.2s ease .3s both, cin-breathe-a 24s ease-in-out 2.2s infinite"></div>
+  </div>
+  <!-- vignette -->
+  <div style="position:absolute; inset:0; z-index:1; pointer-events:none; background:radial-gradient(120% 100% at 50% 42%, rgba(7,8,11,0) 40%, rgba(7,8,11,.55) 100%)"></div>
 
-  <!-- =========================================================================
-       HEADER / NAV
-       ========================================================================= -->
-  <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
-    <div class="max-w-content mx-auto px-6 h-36 sm:h-44 lg:h-56 flex items-center justify-between">
-      <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur — Startseite">
-        <img src="assets/logo.svg" alt="Logik-Agentur — KI für Kommunikation und Automation" class="h-28 sm:h-36 lg:h-48 w-auto" />
-      </a>
-      <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-7 text-sm text-ink-muted">
-        <a href="#hoerproben" class="hover:text-ink">Hörproben</a>
-        <a href="#omnichannel" class="hover:text-ink">Lösungen</a>
-        <a href="#pricing" class="hover:text-ink">Preise</a>
-        <a href="#roi" class="hover:text-ink">ROI</a>
-        <a href="#faq" class="hover:text-ink">FAQ</a>
-      </nav>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-         class="inline-flex items-center rounded-md bg-accent text-white text-sm font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
-        Termin buchen
-      </a>
+  <!-- TOP BAR -->
+  <header style="position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:clamp(24px,3.2vw,44px) clamp(26px,4.4vw,72px); flex-wrap:wrap; animation:cin-up .9s ease calc(var(--rv-delay) + .15s) both">
+    <div style="display:flex; align-items:center; gap:14px">
+      <div style="display:flex; align-items:flex-end; gap:4px; height:20px">
+        <div style="width:4px; height:60%; border-radius:3px; background:#E67533; transform-origin:bottom; animation:lk-bar 1.7s ease-in-out infinite"></div>
+        <div style="width:4px; height:100%; border-radius:3px; background:#F2ECE1; transform-origin:bottom; animation:lk-bar 1.7s ease-in-out .22s infinite"></div>
+        <div style="width:4px; height:78%; border-radius:3px; background:#F2A93B; transform-origin:bottom; animation:lk-bar 1.7s ease-in-out .44s infinite"></div>
+        <div style="width:4px; height:92%; border-radius:3px; background:#E67533; transform-origin:bottom; animation:lk-bar 1.7s ease-in-out .66s infinite"></div>
+        <div style="width:4px; height:48%; border-radius:3px; background:#F2ECE1; transform-origin:bottom; animation:lk-bar 1.7s ease-in-out .88s infinite"></div>
+      </div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:rgba(242,236,225,.8)">Logik Agentur</span>
+    </div>
+    <div style="display:flex; align-items:center; gap:10px; font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:rgba(242,236,225,.45)">
+      <span style="display:inline-block; width:7px; height:7px; border-radius:50%; background:var(--accent,#E67533); box-shadow:0 0 12px var(--accent,#E67533); animation:lk-dot 2.4s ease-in-out infinite"></span>
+      <span>KI-Agentur &middot; 2026</span>
     </div>
   </header>
 
-  <main id="main">
+  <!-- HERO -->
+  <main style="position:relative; z-index:3; flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:clamp(10px,1.6vw,18px) clamp(24px,5vw,72px); gap:clamp(10px,1.3vw,16px)">
 
-    <!-- ====================================================================
-         1. HERO
-         ==================================================================== -->
-    <section id="hero" class="section" aria-labelledby="hero-title" data-section="01-hero">
-      <div class="max-w-content mx-auto px-6">
-        <h1 id="hero-title" class="sr-only">Hero</h1>
-        <div data-slot="hero">
-          <div class="mx-auto max-w-6xl px-6 pt-20 pb-24 sm:pt-24 sm:pb-28">
-            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium tracking-wide text-zinc-600">
-              <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
-              Live im Hotel Nanis · Steinhuder Meer · seit 2026
-            </div>
-            <h1 class="max-w-3xl text-4xl font-semibold tracking-tight text-zinc-900 sm:text-5xl sm:leading-[1.1]">
-              Erprobt im eigenen Hotel.<br class="hidden sm:block">Übertragbar auf jeden Betrieb mit Kundenkontakt.
-            </h1>
-            <p class="mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-              Voice, WhatsApp, E-Mail, Bewertungen — eine integrierte KI-Konfiguration. Im eigenen Hotelbetrieb täglich live, bevor wir sie bei dir installieren.
-            </p>
-            <div class="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-                Erstgespräch buchen
-              </a>
-              <a href="#roi" class="inline-flex items-center gap-1.5 text-[15px] font-medium text-zinc-700 transition hover:text-[color:var(--color-accent,#E67533)]">
-                ROI in 60 Sekunden berechnen
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-              </a>
-            </div>
-            <p class="mt-4 max-w-2xl text-sm text-zinc-500">30 Minuten, kostenlos, ohne Vorkenntnisse — wir analysieren ehrlich, ob KI für deinen Betrieb passt.</p>
-            <ul class="mt-12 flex flex-col flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-700 sm:flex-row">
-              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>DSGVO-konform · EU-Stack</li>
-              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Standard-Stack · kein Plattform-Lock-in</li>
-              <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Solo-betrieben aus Niedersachsen · direkte Ansprache, keine Reseller</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         2. AUDIO-HÖRPROBEN
-         ==================================================================== -->
-    <section id="hoerproben" class="section section-alt" aria-labelledby="hoerproben-title" data-section="02-hoerproben">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="hoerproben-title" class="sr-only">Audio-Hörproben</h2>
-        <div data-slot="audio-hoerproben"></div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         3. OMNICHANNEL-GRID  (Voice · Chat · WhatsApp · E-Mail · Reviews · Prozesse)
-         ==================================================================== -->
-    <section id="omnichannel" class="section" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="omnichannel-title" class="sr-only">Omnichannel-Grid</h2>
-        <div data-slot="omnichannel-grid">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Module · Frei kombinierbar</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Alle Kanäle. Eine Konfiguration.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Inbound-Kommunikation und Reputation — sechs Module aus einem konsistenten Stack. Du wählst, was du brauchst. Nichts ist Pflicht.</p>
-  </div>
-  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Voice AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">24/7 Anrufannahme mit natürlicher Konversation. Versteht Dialekt, übergibt strukturierte Anfragen ans Team.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reservierungen &amp; Auskünfte</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>After-Hours-Erreichbarkeit</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Mehrsprachig</li></ul></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">WhatsApp AI</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Automatische Antworten auf Anfragen mit Booking-Links und sauberer Übergabe an Mensch bei Bedarf.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anfrage-Beantwortung in Sekunden</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Booking-Links automatisch</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Saubere Mensch-Übergabe</li></ul></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Website-Chatbot</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Antwortet im Browser auf FAQs, qualifiziert Anfragen, übergibt strukturierte Lead-Daten ans CRM.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>FAQ rund um die Uhr</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Lead-Qualifizierung</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>CRM- / E-Mail-Übergabe</li></ul></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">E-Mail-Assistent</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Liest eingehende Mails, schreibt Antwort-Entwürfe in deinem Ton. Du prüfst, gibst frei, schickst.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Entwürfe statt Antworten</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Threading-bewusst</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Markenkonformer Ton</li></ul></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Bewertungs-Management</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Überwacht eingehende Google-Bewertungen, generiert markenkonforme Antwort-Entwürfe zur Freigabe.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Auto-Monitoring</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tonalitäts-getreue Entwürfe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Manuelle Freigabe vor Posten</li></ul></article>
-    <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8"><div class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg></div><h3 class="mt-5 text-xl font-semibold tracking-tight text-zinc-900">Prozess-Automation</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Verbindet Kanäle, PMS, CRM und Tools — Daten fließen automatisch, statt händisch.</p><ul class="mt-4 space-y-2 text-sm text-zinc-700"><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Tool-Integration &amp; Webhooks</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Automatische Lead-Übergabe</li><li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Reporting &amp; Daten-Sync</li></ul></article>
-  </div>
-</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         4. VALUE-QUADRANT
-         ==================================================================== -->
-    <section id="value" class="section section-alt" aria-labelledby="value-title" data-section="04-value-quadrant">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="value-title" class="sr-only">Value-Quadrant</h2>
-        <div data-slot="value-quadrant">
-          <div class="text-center mb-12">
-            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Warum Logik-Agentur</h2>
-            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Vier Punkte, die wir konsequent leben — und an denen wir uns messen lassen.</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v8h4"/><path d="M18 9h2a2 2 0 0 1 2 2v11h-4"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Hotelier-Perspektive</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Wir betreiben das eigene Hotel Nanis am Steinhuder Meer. Jede Konfiguration entsteht aus operativer Erfahrung, nicht aus Spec-Lektüre.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H3v-7Z"/><path d="M18 18h3v-7h-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 11a9 9 0 0 1 18 0"/><path d="M21 17a3 3 0 0 1-3 3h-2"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Hands-on-Betreuung</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Content-Änderungen per E-Mail in zwei Werktagen. Kein Self-Service-Sheet, kein Ticket-System, kein Callcenter.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.18-9.17 4.18a2 2 0 0 1-1.66 0L2 12.18"/><path d="m22 17.18-9.17 4.18a2 2 0 0 1-1.66 0L2 17.18"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Standard-KI-Stack</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Standard-APIs marktführender Anbieter. Keine eigenentwickelte KI, keine Black Box. Du weißt, was läuft.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">DACH-Compliance</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">EU-AI-Act-Deployer-Status dokumentiert. Auftragsverarbeitungs-Verträge mit allen Sub-Prozessoren wirksam geprüft.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         5. KPI-STREIFEN
-         ==================================================================== -->
-    <section id="kpi" class="section" aria-labelledby="kpi-title" data-section="05-kpi-streifen">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="kpi-title" class="sr-only">KPI-Streifen</h2>
-        <div data-slot="kpi-streifen">
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">30+</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Sprachen automatisch erkannt</div></div>
-            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">24/7</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Annahme-Bereitschaft</div></div>
-            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">&lt;&thinsp;4&thinsp;h</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Reaktion bei kritischem Ausfall<span class="block text-[0.8125rem] font-normal text-ink-subtle mt-1">Mo–Fr 9–18 Uhr</span></div></div>
-            <div class="text-center py-4"><div class="text-[2.5rem] font-bold tracking-[-0.025em] text-accent leading-none tabular mb-2">4&thinsp;/&thinsp;4</div><div class="text-[0.9375rem] font-medium text-ink leading-snug">Sub-Prozessor-AVVs DSGVO-konform</div></div>
-          </div>
-          <p class="mt-8 text-center text-[0.8125rem] text-ink-subtle leading-relaxed">Stand: Mai 2026 · belegt durch Anbieter-Spezifikation und interne Service-Selbstverpflichtungen.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         6. PRICING  (Starter 199 · Professional 399 · Enterprise)
-         ==================================================================== -->
-    <section id="pricing" class="section section-alt" aria-labelledby="pricing-title" data-section="06-pricing">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="pricing-title" class="sr-only">Pricing</h2>
-        <div data-slot="pricing">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Preise · Transparent</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Klare Pakete, monatlich kündbar.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Feste Monatspreise statt Black-Box-Angebot. Keine Mindestlaufzeit. Das einmalige Setup richtet sich nach dem Modul-Mix &ndash; das verbindliche Angebot bekommst du nach dem Erstgespr&auml;ch.</p>
-  </div>
-
-  <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-
-    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
-      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Website-Chatbot</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Beantwortet Anfragen auf deiner Website rund um die Uhr.</p>
-      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">99&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
-      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>FAQ-Auskunft rund um die Uhr</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Eine Sprache, Wissensbasis aus deinen Inhalten</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Weitergabe qualifizierter Anfragen</li>
-      </ul>
-      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 299&nbsp;&euro;</p>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
-    </article>
-
-    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
-      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Voice Starter</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">24/7 Anrufannahme f&uuml;r mittlere Betriebe.</p>
-      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">199&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
-      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>400 Inklusivminuten, danach 0,20&nbsp;&euro; / Min</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anrufannahme rund um die Uhr, mehrsprachig</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Strukturierte &Uuml;bergabe ans Team</li>
-      </ul>
-      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 999&nbsp;&euro;</p>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
-    </article>
-
-    <article class="flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-8">
-      <div class="mb-3"><span class="inline-flex items-center rounded-full bg-accent-subtle px-3 py-1 text-xs font-medium text-[color:var(--color-accent,#E67533)]">Meist gew&auml;hlt</span></div>
-      <h3 class="text-xl font-semibold tracking-tight text-zinc-900">Voice Professional</h3>
-      <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">F&uuml;r Betriebe mit hohem Anrufaufkommen &ndash; inkl. Chatbot.</p>
-      <div class="mt-5"><span class="text-3xl font-semibold tracking-tight text-zinc-900">399&nbsp;&euro;</span><span class="text-[15px] font-medium text-zinc-500"> / Monat</span></div>
-      <ul class="mt-6 space-y-2 text-sm text-zinc-700">
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>1.000 Inklusivminuten, danach 0,15&nbsp;&euro; / Min</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Website-Chatbot bereits enthalten</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Vorrangige Betreuung</li>
-      </ul>
-      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup ab 999&nbsp;&euro;</p>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespr&auml;ch buchen</a>
-    </article>
-
-  </div>
-
-  <p class="mt-6 text-[15px] text-zinc-600">Voice Starter und Website-Chatbot als <span class="font-medium text-zinc-900">Kombi-Paket f&uuml;r 249&nbsp;&euro; / Monat</span> statt einzeln 298&nbsp;&euro;.</p>
-  <p class="mt-2 text-[15px] text-zinc-600"><span class="font-medium text-zinc-900">Jahres-Abo:</span> Bei j&auml;hrlicher Vorauszahlung zahlst du nur 10 statt 12 Monate &ndash; 2 Monate geschenkt.</p>
-
-  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Add-Ons &middot; Frei zubuchbar</div>
-    <div class="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">WhatsApp KI Agent</span><span class="font-medium text-zinc-900">+99&nbsp;&euro; / Mon</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Bewertungs-Management (Google)</span><span class="font-medium text-zinc-900">+79&nbsp;&euro; / Mon</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">WhatsApp Handoff-Kanal</span><span class="font-medium text-zinc-900">+99&nbsp;&euro; / Mon</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Termin-Booking</span><span class="font-medium text-zinc-900">+49&nbsp;&euro; / Mon</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Chatbot Aktiv-Funktionen</span><span class="font-medium text-zinc-900">+49&nbsp;&euro; / Mon</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">E-Mail-Assistent</span><span class="font-medium text-zinc-900">auf Anfrage</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Prozess-Automation</span><span class="font-medium text-zinc-900">auf Anfrage</span></div>
+    <div style="display:flex; align-items:center; gap:14px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.4s) both">
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.42em; text-transform:uppercase; color:rgba(242,236,225,.45)">Status:</span>
+      <span style="width:24px; height:1px; background:rgba(242,236,225,.3)"></span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:12px; letter-spacing:.42em; text-transform:uppercase; color:var(--accent,#E67533)">In Vorbereitung</span>
     </div>
-  </div>
 
-  <p class="mt-8 text-sm text-zinc-500">Monatlich k&uuml;ndbar, keine Mindestlaufzeit. Einmaliges Setup je nach Modul-Mix &ndash; wir richten alles f&uuml;r dich ein, du musst nichts selbst bef&uuml;llen. Verbindliche Kostenaufstellung nach dem Erstgespr&auml;ch.</p>
-</div>
-</div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         7. ROI-RECHNER (Mount-Point — Loader-Strategie offen, siehe TODO)
-         ==================================================================== -->
-    <section id="roi" class="section" aria-labelledby="roi-title" data-section="07-roi-rechner">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="roi-title" class="sr-only">ROI-Rechner</h2>
-
-        <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
-             Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
-             mountet sich self-acting auf dieses #roi-rechner-root.
-             Self-mounting Embed-Pattern. -->
-        <div id="roi-rechner-root"
-             data-slot="roi-rechner-mount"
-             aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         8. TESTIMONIALS
-         ==================================================================== -->
-    <section id="testimonials" class="section section-alt" aria-labelledby="testimonials-title" data-section="08-testimonials">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="testimonials-title" class="sr-only">Testimonials</h2>
-        <div data-slot="testimonials"></div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         9. ÜBER MICH
-         ==================================================================== -->
-    <section id="ueber-mich" class="section" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
-        <div data-slot="ueber-mich">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Über mich</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hotelier am Steinhuder Meer.<br class="hidden sm:block">Operator hinter der Logik-Agentur.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Ich betreibe die KI-Konfigurationen, die ich verkaufe — täglich im eigenen Hotelbetrieb. Was hier nicht funktioniert, kommt nicht zu dir.</p>
-  </div>
-  <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
-    <div>
-      <picture><source srcset="assets/portrait.webp" type="image/webp"><img src="assets/portrait.jpg" alt="Pantelis Nanis — Gründer Logik-Agentur" width="800" height="800" class="mb-6 h-40 w-40 rounded-2xl object-cover shadow-sm ring-1 ring-zinc-100 sm:h-48 sm:w-48" loading="lazy" /></picture>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Wer ich bin</div>
-      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Pantelis Nanis</p>
-      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Hotelier am Steinhuder Meer. Mitinhaber des Hotel Nanis. Aktive KI-Weiterbildung über KI-Campus, openHPI und die KI-Wirtschaftsregion Hannover.</p>
+    <div style="position:relative; display:flex; align-items:center; justify-content:center; animation:cin-logo 1.3s cubic-bezier(.2,.7,.2,1) calc(var(--rv-delay) + .55s) both">
+      <div style="position:absolute; width:150%; height:240%; background:radial-gradient(ellipse at center, rgba(230,117,51,.26), rgba(242,169,59,.10) 42%, rgba(230,117,51,0) 68%); filter:blur(12px); pointer-events:none"></div>
+      <img src="logo-light.svg" alt="Logik Agentur" style="position:relative; display:block; width:clamp(232px,22vw,326px); height:auto; filter:drop-shadow(0 20px 72px rgba(230,117,51,.34))">
     </div>
-    <div>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Warum das relevant ist</div>
-      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Praxis statt Theorie.</p>
-      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Jede Konfiguration läuft zuerst im eigenen Hotelbetrieb, bevor ich sie Kunden empfehle. Voice-Agent, WhatsApp-Automation, Bewertungs-Management — alles im laufenden 24/7-Live-Einsatz.</p>
-    </div>
-  </div>
-  <div class="mt-16 border-t border-zinc-200 pt-12">
-    <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Was ich anders mache</div>
-    <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">01</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Konfiguration statt Plattform.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich verkaufe keine eigene Software, sondern die Konfiguration und Integration marktführender Standard-Tools — alle einzeln dokumentiert, alle einzeln austauschbar.</p></div>
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">02</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Onboarding mit Branchenkenntnis.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich kenne den Druck im operativen Tagesgeschäft selbst — knappe Zeit, anspruchsvolle Gäste, schwankende Auslastung. Briefings kurz, Reporting sachlich.</p></div>
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">EU-Stack, dokumentierte Compliance.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">DSGVO-Konformität ist Onboarding-Standard, nicht Sales-Argument. Sub-Prozessoren-Liste, AVV, Datenschutzerklärung — alles vor Vertragsschluss prüfbar.</p></div>
-    </div>
-  </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Hotel-Alltag konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-</div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ====================================================================
-         10. COMPLIANCE-BADGES (DSGVO · EU AI Act Deployer · AVV · Sub-Provider)
-         ==================================================================== -->
-    <section id="compliance" class="section section-alt" aria-labelledby="compliance-title" data-section="10-compliance-badges">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="compliance-title" class="sr-only">Compliance-Badges</h2>
-        <div data-slot="compliance-badges">
-  <div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-    <div class="max-w-3xl">
-      <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Compliance &amp; Recht</div>
-      <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Vier Anker statt schöner Worte.</h2>
-      <p class="mt-4 text-lg leading-relaxed text-zinc-600">DSGVO und EU AI Act sind Onboarding-Standard, nicht Sales-Argument. Hier die wichtigsten Punkte transparent.</p>
+    <h1 style="font-weight:800; font-size:clamp(33px,4.8vw,66px); line-height:1.03; letter-spacing:-.04em; color:#F6F1E9; max-width:16ch; text-wrap:balance; animation:cin-up 1.05s cubic-bezier(.2,.7,.2,1) calc(var(--rv-delay) + .95s) both">System statt <span style="background:linear-gradient(96deg,#F2A93B,#E67533); -webkit-background-clip:text; background-clip:text; color:transparent">Hype</span>.</h1>
+
+    <div style="max-width:580px; display:flex; flex-direction:column; gap:8px; animation:cin-up 1s ease calc(var(--rv-delay) + 1.2s) both">
+      <p style="font-size:clamp(14px,1vw,16.5px); line-height:1.6; color:rgba(242,236,225,.74)">Wir bringen KI dorthin, wo sie wirkt: in Ihr Unternehmen. Kommunikation, Automatisierung und Prozesse, strategisch geplant, sauber implementiert und getestet.</p>
     </div>
-    <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
-      <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div class="flex items-start gap-4">
-          <div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold tracking-tight text-zinc-900">DSGVO-konform</h3>
-            <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Auftragsverarbeitungs-Verträge nach Art. 28 DSGVO mit allen Sub-Prozessoren wirksam geprüft. Datenschutzerklärung und Sub-Prozessoren-Liste vor Vertragsschluss einsehbar.</p>
-          </div>
-        </div>
-      </div>
-      <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div class="flex items-start gap-4">
-          <div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold tracking-tight text-zinc-900">EU AI Act — Deployer-Status</h3>
-            <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Logik-Agentur ist Deployer (Art. 3 Nr. 4 VO 2024/1689), nicht Provider. Wir entwickeln keine eigenen KI-Modelle, sondern konfigurieren Standard-Lösungen Dritter.</p>
-          </div>
-        </div>
-      </div>
-      <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div class="flex items-start gap-4">
-          <div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Sub-Prozessoren transparent</h3>
-            <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Vollständige Liste der eingesetzten Drittanbieter inkl. Datenkategorien, Speicherorten und AVV-Stand. Änderungen werden vorab kommuniziert, kein verdecktes Sub-Processing.</p>
-          </div>
-        </div>
-      </div>
-      <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <div class="flex items-start gap-4">
-          <div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          </div>
-          <div>
-            <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Standard-Stack, kein Lock-in</h3>
-            <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Alle eingesetzten Komponenten sind eigenständige Standard-Dienste mit eigenen Verträgen und Datenexport-Mechanismen. Bei IP-Buyout übernimmst du die komplette Konfiguration.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         11. FAQ
-         ==================================================================== -->
-    <section id="faq" class="section" aria-labelledby="faq-title" data-section="11-faq">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="faq-title" class="sr-only">FAQ</h2>
-        <div data-slot="faq">
-<div class="mx-auto max-w-4xl px-6 py-20 sm:py-24">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">FAQ</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Häufige Fragen aus Erstgesprächen.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Wenn deine Frage hier nicht steht, schreib mir direkt — ich antworte schneller als jedes Kontaktformular.</p>
-  </div>
-  <div class="mt-12 divide-y divide-zinc-200 border-y border-zinc-200">
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie schnell ist ein KI-Voice-Agent einsatzbereit?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">In der Regel zwei bis drei Wochen ab Vertragsschluss. Eine Woche für Wissensbasis und Dialogprompt, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Integrationen brauchen 4–6 Wochen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die Setup-Kosten richten sich nach dem benötigten Modul-Mix und der Komplexität deiner Anbindungen. Die monatlichen Modul-Preise findest du im <a href="#pricing" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Preise-Bereich</a>. Verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie sieht das Onboarding aus?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Du erhältst ein Onboarding-Formular mit allen relevanten Fragen zu deinem Betrieb. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wo werden meine Daten verarbeitet?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Alle eingesetzten Komponenten arbeiten DSGVO-konform mit signierten Auftragsverarbeitungsverträgen. Wo möglich werden EU-Anbieter und EU-Datenresidenz bevorzugt. Gesprächs-Transkripte werden standardmäßig 90 Tage gespeichert, danach automatisch gelöscht. Die eingesetzten Sub-Prozessoren werden im Rahmen des AVV transparent ausgewiesen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn ich kündige?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Standard-Kündigung mit einem Monat Frist zum Monatsende. Auf Wunsch kostenloser Export deiner Inhalte (Texte, Transkripte, Lead-Daten). Optional ist ein vollständiger IP-Buyout der Konfiguration möglich — du übernimmst dann alle Komponenten und betreibst sie eigenständig oder mit einem anderen Dienstleister weiter.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Hat das System Zugriff auf mein Buchungssystem (PMS)?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Optional, ja. Übliche PMS-Systeme lassen sich über Standard-Schnittstellen anbinden — welche konkret in Frage kommt, klären wir im Erstgespräch. Ohne PMS-Anbindung läuft das System mit statischen Verfügbarkeits-Informationen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn die KI eine Frage nicht beantworten kann?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage strukturiert per E-Mail oder WhatsApp an dein Team. Unklare Fragen landen damit immer bei jemandem, der sie verbindlich beantworten kann.</p></details>
-  </div>
-  <div class="mt-12 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="text-[15px] leading-relaxed text-zinc-700"><span class="font-semibold text-zinc-900">Frage nicht dabei?</span> Schreib mir direkt — die meisten Antworten brauchen keine 30-Minuten-Demo.</p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-4 inline-flex items-center gap-1.5 text-[15px] font-medium text-[color:var(--color-accent,#E67533)] hover:text-[color:var(--color-accent-hover,#C45A1A)]">Oder direkt einen Termin finden<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         12. INTEGRATIONEN (Kompetenz-Kategorien, ohne Anbieternamen)
-         ==================================================================== -->
-    <section id="integrationen" class="section section-alt" aria-labelledby="integrationen-title" data-section="12-integrationen">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
-        <div data-slot="integrationen">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Integrationen · Standard-Stack</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Best-of-Breed, nicht Black Box.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Module der Logik-Agentur basieren auf marktführenden Standard-Diensten — alle DSGVO-konform anbindbar, jede Komponente austauschbar. Du bekommst eine Konfiguration, keine Plattform-Bindung.</p>
-  </div>
-  <div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Voice &amp; Telephony</div><p class="mt-2 text-sm text-zinc-600">Sprachsynthese, Conversational AI, Telefonie</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Messaging</div><p class="mt-2 text-sm text-zinc-600">Kanalanbindung, transaktionale E-Mails</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>Automation</div><p class="mt-2 text-sm text-zinc-600">Workflow-Orchestrierung, API-Verkettung</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>LLM</div><p class="mt-2 text-sm text-zinc-600">Sprachverarbeitung, Drafting, Klassifikation</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>Hosting &amp; Infrastruktur</div><p class="mt-2 text-sm text-zinc-600">Hosting, EU-Server, Versionierung</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>Booking &amp; PMS</div><p class="mt-2 text-sm text-zinc-600">Terminvereinbarung, Hotel-Buchungssysteme</p></div>
-  </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><div class="flex items-start gap-4"><div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M12 17v-3"/></svg></div><div><p class="text-[15px] font-semibold tracking-tight text-zinc-900">Standard-Stack heißt: Kein Plattform-Lock-in.</p><p class="mt-1 text-[15px] leading-relaxed text-zinc-600">Jede Komponente ist ein eigenständiger Standard-Dienst mit eigenem Vertrag, eigenem Datenexport und eigenem Wartungsmodell.</p></div></div></div>
-</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         13. FINAL CTA
-         ==================================================================== -->
-    <section id="final-cta" class="section" aria-labelledby="cta-title" data-section="13-final-cta">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="cta-title" class="sr-only">Final Call-to-Action</h2>
-        <div data-slot="final-cta">
-  <div class="mx-auto max-w-4xl px-6 py-20 sm:py-24 text-center">
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">
-      30 Minuten reichen,<br class="hidden sm:block">um eine fundierte Entscheidung zu treffen.
-    </h2>
-    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-      Kein Pitch-Deck, kein Verkaufsdruck. Wir schauen gemeinsam auf deinen Betrieb und besprechen ehrlich, ob und wie KI sinnvoll integrierbar ist.
-    </p>
-    <div class="mt-10 flex flex-col items-center gap-4">
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)] focus:outline-none focus:ring-4 focus:ring-indigo-100">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
-          <line x1="16" x2="16" y1="2" y2="6"/>
-          <line x1="8" x2="8" y1="2" y2="6"/>
-          <line x1="3" x2="21" y1="10" y2="10"/>
-        </svg>
-        Erstgespräch buchen — kostenlos
-      </a>
-      <p class="text-sm text-zinc-500">30 Minuten · Online via Video · ohne Vorkenntnisse</p>
-    </div>
-  </div>
-</div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ====================================================================
-       14. FOOTER
-       ==================================================================== -->
-  <footer id="footer" class="border-t border-line bg-subtle" data-section="14-footer">
-    <div class="max-w-content mx-auto px-6 py-12">
-      <div data-slot="footer">
-  <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 md:gap-12">
-    <div>
-      <div class="text-sm font-semibold tracking-tight text-zinc-900">Logik-Agentur</div>
-      <p class="mt-3 text-sm leading-relaxed text-zinc-600">KI-Integration für Hotels und mittelständische Betriebe. Konfiguration und Integration marktführender Standard-KI-Lösungen.</p>
-      <p class="mt-3 text-sm text-zinc-500">Wunstorf · Niedersachsen</p>
+  <!-- PRODUCTS -->
+  <section style="position:relative; z-index:3; padding:0 clamp(24px,5vw,72px) clamp(8px,1.4vw,20px); width:100%; max-width:1180px; margin:0 auto">
+    <div style="display:flex; align-items:center; gap:14px; margin-bottom:clamp(14px,1.6vw,20px); animation:cin-up 1s ease calc(var(--rv-delay) + 1.5s) both">
+      <span style="flex:1; height:1px; background:rgba(242,236,225,.14)"></span>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:rgba(242,236,225,.45)">Was entsteht</span>
+      <span style="flex:1; height:1px; background:rgba(242,236,225,.14)"></span>
     </div>
-    <div>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Kontakt</div>
-      <ul class="mt-3 space-y-2 text-sm text-zinc-700">
-        <li><a href="mailto:kontakt@logik-agentur.de" class="hover:text-[color:var(--color-accent,#E67533)]">kontakt@logik-agentur.de</a></li>
-        <li><a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener" class="hover:text-[color:var(--color-accent,#E67533)]">Erstgespräch buchen →</a></li>
-      </ul>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr))">
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.55s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">01</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">KI-Kommunikation</div>
+      </div>
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.63s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">02</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">KI-Automatisierung</div>
+      </div>
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.71s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">03</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">Prozess-Workflows</div>
+      </div>
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.79s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">04</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">Implementierung</div>
+      </div>
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.87s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">05</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">Mail-Agenten</div>
+      </div>
+
+      <div style="text-align:center; padding:clamp(12px,1.4vw,20px) 12px; animation:cin-up .9s ease calc(var(--rv-delay) + 1.95s) both">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--accent,#E67533); letter-spacing:.1em; margin-bottom:8px">06</div>
+        <div style="font-size:clamp(13px,1vw,15px); font-weight:600; color:#F2ECE1">Onboarding-Agenten</div>
+      </div>
+
     </div>
-    <div>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Schnellnavigation</div>
-      <ul class="mt-3 space-y-2 text-sm text-zinc-700">
-        <li><a href="#omnichannel" class="hover:text-[color:var(--color-accent,#E67533)]">Lösungen</a></li>
-        <li><a href="#roi" class="hover:text-[color:var(--color-accent,#E67533)]">ROI-Rechner</a></li>
-        <li><a href="#faq" class="hover:text-[color:var(--color-accent,#E67533)]">FAQ</a></li>
-        <li><a href="#ueber-mich" class="hover:text-[color:var(--color-accent,#E67533)]">Über mich</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Rechtliches</div>
-      <ul class="mt-3 space-y-2 text-sm text-zinc-700">
-        <li><a href="impressum.html" class="hover:text-[color:var(--color-accent,#E67533)]">Impressum</a></li>
-        <li><a href="datenschutz.html" class="hover:text-[color:var(--color-accent,#E67533)]">Datenschutz</a></li>
-      </ul>
-    </div>
-  </div>
-</div>
-      <p class="mt-8 text-xs text-ink-subtle font-mono">
-        © <span id="footer-year"></span> Logik-Agentur · Pantelis Nanis
-      </p>
-    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; padding:clamp(16px,2vw,26px) clamp(26px,4.4vw,72px); font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:rgba(242,236,225,.4); animation:cin-up 1s ease calc(var(--rv-delay) + 1.8s) both">
+    <span>&copy; 2026 Logik Agentur</span>
+    <span style="display:flex; align-items:center; gap:18px; flex-wrap:wrap">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <span>Bald verf&uuml;gbar &middot; Launching this year</span>
+    </span>
   </footer>
 
-  <script>
-    // Footer-Jahr dynamisch
-    document.getElementById('footer-year').textContent = new Date().getFullYear();
-  </script>
-
-  <!-- =========================================================================
-       Widget-Bundles (esbuild) — laden self-mounting auf ihre jeweiligen
-       Mount-Points (#roi-rechner-root etc.). Reihenfolge unkritisch wegen defer.
-       Build: `npm run build:roi` (siehe widgets/roi-rechner/README.md).
-       ========================================================================= -->
-  <script src="widgets/roi-rechner/dist.js" defer></script>
-
-  <!-- =========================================================================
-       Famulor Chat — Consent-Gate (LA Web 06, 2026-06-02)
-       Default AUS: KEIN Kontakt zu Famulor/BEK beim Seitenaufruf.
-       embed.js wird erst nach aktiver Einwilligung geladen.
-       Einwilligung first-party gespeichert; Widerruf via Footer-Link.
-       Eigenes CSS (Tailwind-unabhaengig, uebersteht den spaeteren Tailwind-Umbau).
-       ========================================================================= -->
-  <style>
-    #la-chat-consent { position: fixed; right: 20px; bottom: 20px; z-index: 9998;
-      font-family: 'Inter', system-ui, sans-serif; }
-    #la-chat-launcher { display: inline-flex; align-items: center; gap: 8px;
-      background: var(--color-accent, #4F46E5); color: #fff; border: none;
-      border-radius: 9999px; padding: 12px 18px; font-size: 15px; font-weight: 600;
-      cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
-    #la-chat-launcher:hover { background: var(--color-accent-hover, #4338CA); }
-    #la-chat-card { display: none; max-width: 320px; background: #fff;
-      border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
-      padding: 16px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
-    #la-chat-card.open { display: block; }
-    #la-chat-card p { margin: 0 0 12px; font-size: 14px; line-height: 1.5;
-      color: var(--color-text, #18181b); }
-    #la-chat-card a { color: var(--color-accent, #4F46E5); }
-    #la-chat-actions { display: flex; gap: 8px; }
-    #la-chat-load { flex: 1; background: var(--color-accent, #4F46E5); color: #fff;
-      border: none; border-radius: 8px; padding: 10px; font-weight: 600; cursor: pointer; }
-    #la-chat-cancel { background: transparent; color: var(--color-text-muted, #52525b);
-      border: 1px solid var(--color-border, #e4e4e7); border-radius: 8px; padding: 10px 14px; cursor: pointer; }
-  </style>
-
-  <div id="la-chat-consent" hidden>
-    <div id="la-chat-card" role="dialog" aria-label="Chat-Einwilligung">
-      <p>Beim Start des Chats wird eine Verbindung zu unserem Dienstleister
-         <strong>Famulor</strong> (BEK Service GmbH, EWR) aufgebaut. Details in der
-         <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</p>
-      <div id="la-chat-actions">
-        <button id="la-chat-load" type="button">Chat laden</button>
-        <button id="la-chat-cancel" type="button">Abbrechen</button>
-      </div>
+  <!-- CINEMATIC REVEAL OVERLAY (additive, removes itself; page below is always rendered) -->
+  <div data-rv-overlay aria-hidden="true" style="position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; overflow:hidden; pointer-events:none">
+    <div data-rv-bg style="position:absolute; inset:0; background:radial-gradient(130% 120% at 50% 8%, #11151E 0%, #0A0C11 48%, #07080B 100%)"></div>
+    <div data-rv-bars style="position:relative; display:flex; align-items:flex-end; gap:clamp(12px,1.8vw,26px); height:clamp(150px,38vh,340px); filter:drop-shadow(0 0 34px rgba(230,117,51,.55)); will-change:transform">
+      <div style="width:clamp(14px,2vw,26px); border-radius:10px; height:100%; background:#E67533; transform-origin:bottom; transform:scaleY(.3)"></div>
+      <div style="width:clamp(14px,2vw,26px); border-radius:10px; height:100%; background:#F2A93B; transform-origin:bottom; transform:scaleY(.3)"></div>
+      <div style="width:clamp(14px,2vw,26px); border-radius:10px; height:100%; background:#F2ECE1; transform-origin:bottom; transform:scaleY(.3)"></div>
+      <div style="width:clamp(14px,2vw,26px); border-radius:10px; height:100%; background:#F2A93B; transform-origin:bottom; transform:scaleY(.3)"></div>
+      <div style="width:clamp(14px,2vw,26px); border-radius:10px; height:100%; background:#E67533; transform-origin:bottom; transform:scaleY(.3)"></div>
     </div>
-    <button id="la-chat-launcher" type="button" aria-haspopup="dialog">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-      Chat starten
-    </button>
   </div>
 
-  <script>
-    (function () {
-      var KEY = 'la_famulor_consent';                          // first-party, nur Ja/Nein
-      var ASSISTANT = 'd0edb1d7-0792-438d-bfef-a1bdb2d33cf4';
+</div>
 
-      function loadFamulor() {
-        if (document.getElementById('la-famulor-embed')) return;
-        var s = document.createElement('script');
-        s.id = 'la-famulor-embed';
-        s.src = 'https://app.famulor.de/embed.js';
-        s.setAttribute('data-assistant-id', ASSISTANT);
-        document.body.appendChild(s);
+<script>
+(function(){
+  function runReveal(){
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var seen = false;
+    try { seen = sessionStorage.getItem('lk-reveal-seen') === '1'; } catch (e) {}
+    var root = document.querySelector('[data-rv-root]');
+    var overlay = document.querySelector('[data-rv-overlay]');
+    // No reveal: page stays instantly visible (--rv-delay keeps entrances pre-finished).
+    if (reduce || seen || !root || !overlay) return;
+    try { sessionStorage.setItem('lk-reveal-seen', '1'); } catch (e) {}
+
+    root.style.setProperty('--rv-delay', '-10s');
+    overlay.style.display = 'flex';
+
+    var bg = overlay.querySelector('[data-rv-bg]');
+    var bars = overlay.querySelector('[data-rv-bars]');
+    var barEls = bars ? Array.prototype.slice.call(bars.children) : [];
+    var logo = root.querySelector('img');
+    var flyEls = Array.prototype.slice.call(root.querySelectorAll('[style*="cin-up"]'));
+
+    var vw = window.innerWidth, vh = window.innerHeight, diag = Math.hypot(vw, vh);
+    var SWEEP = 1250, DOCK_AT = 1300, SCATTER_AT = 1320;
+
+    // logo crossfades in as the bars dock onto its position
+    if (logo) logo.animate([{ opacity: 0 }, { opacity: 1 }],
+      { duration: 440, delay: DOCK_AT + 240, easing: 'ease-out', fill: 'both' });
+
+    // every text block flies in from a random direction and settles on its spot
+    flyEls.forEach(function (el, i) {
+      var ang = Math.random() * Math.PI * 2;
+      var dist = diag * (0.55 + Math.random() * 0.5);
+      var sx = Math.cos(ang) * dist, sy = Math.sin(ang) * dist;
+      var rot = (Math.random() * 36 - 18);
+      el.animate([
+        { transform: 'translate(' + sx.toFixed(0) + 'px,' + sy.toFixed(0) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(.55)', opacity: 0 },
+        { transform: 'translate(0,0) rotate(0deg) scale(1)', opacity: 1 }
+      ], { duration: 760, delay: SCATTER_AT + i * 55, easing: 'cubic-bezier(.18,.75,.2,1)', fill: 'both' });
+    });
+
+    // PHASE 1 — Knight-Rider bounce: a peak sweeps back and forth across the bars
+    var stop = { v: false };
+    var N = barEls.length;
+    var t0 = performance.now();
+    var raf;
+
+    function dock() {
+      var rest = [0.6, 1, 0.78, 0.92, 0.48];
+      barEls.forEach(function (b, i) { b.style.transform = 'scaleY(' + (rest[i] || 0.6) + ')'; });
+
+      if (bg) bg.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 440, easing: 'ease', fill: 'forwards' });
+
+      var dx = 0, dy = -Math.min(window.innerHeight * 0.06, 60), s = 0.18;
+      if (logo) {
+        var lr = logo.getBoundingClientRect();
+        dx = (lr.left + lr.width / 2) - window.innerWidth / 2;
+        dy = (lr.top + lr.height / 2) - window.innerHeight / 2;
+        var clusterH = (bars.getBoundingClientRect().height) || 240;
+        s = Math.max(0.12, (lr.height * 0.8) / clusterH);
       }
+      var d = bars.animate([
+        { transform: 'translate(0px,0px) scale(1)', opacity: 1 },
+        { transform: 'translate(' + dx.toFixed(0) + 'px,' + dy.toFixed(0) + 'px) scale(' + s.toFixed(3) + ')', opacity: 1, offset: 0.7 },
+        { transform: 'translate(' + dx.toFixed(0) + 'px,' + dy.toFixed(0) + 'px) scale(' + s.toFixed(3) + ')', opacity: 0 }
+      ], { duration: 780, easing: 'cubic-bezier(.5,0,.15,1)', fill: 'forwards' });
+      d.onfinish = function () { stop.v = true; overlay.style.display = 'none'; };
+    }
 
-      var consent = null;
-      try { consent = localStorage.getItem(KEY); } catch (e) {}
-      var box = document.getElementById('la-chat-consent');
-
-      if (consent === 'granted') {
-        loadFamulor();
-        var fy = document.getElementById('footer-year');
-        if (fy && fy.parentElement) {
-          var w = document.createElement('a');
-          w.href = '#'; w.textContent = 'Chat-Einwilligung widerrufen';
-          w.style.cssText = 'display:inline-block;margin-top:6px;font-size:11px;text-decoration:underline;color:inherit;';
-          w.addEventListener('click', function (e) {
-            e.preventDefault();
-            try { localStorage.removeItem(KEY); } catch (e) {}
-            location.reload();
-          });
-          fy.parentElement.appendChild(document.createElement('br'));
-          fy.parentElement.appendChild(w);
-        }
-      } else {
-        box.hidden = false;
-        var card = document.getElementById('la-chat-card');
-        document.getElementById('la-chat-launcher').addEventListener('click', function () {
-          card.classList.toggle('open');
-        });
-        document.getElementById('la-chat-cancel').addEventListener('click', function () {
-          card.classList.remove('open');
-        });
-        document.getElementById('la-chat-load').addEventListener('click', function () {
-          try { localStorage.setItem(KEY, 'granted'); } catch (e) {}
-          box.hidden = true;
-          loadFamulor();
-        });
+    function sweep(now) {
+      if (stop.v) return;
+      var t = (now - t0) / 1000;
+      var pos = (N - 1) / 2 * (1 + Math.sin(t * 3.4)); // bounces 0..N-1
+      for (var i = 0; i < N; i++) {
+        var dd = Math.abs(i - pos);
+        var h = Math.max(0.22, 1 - dd * 0.42);
+        barEls[i].style.transform = 'scaleY(' + h.toFixed(3) + ')';
       }
-    })();
-  </script>
+      if (now - t0 < SWEEP) raf = requestAnimationFrame(sweep);
+      else dock();
+    }
+
+    raf = requestAnimationFrame(sweep);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runReveal);
+  } else {
+    runReveal();
+  }
+})();
+</script>
 </body>
 </html>
