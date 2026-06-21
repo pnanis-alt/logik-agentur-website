@@ -28,6 +28,9 @@
     @keyframes lk-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.75)}}
     [data-rv-root] footer a{color:inherit;text-decoration:none;transition:color .2s ease}
     [data-rv-root] footer a:hover{color:var(--accent,#E67533)}
+    [data-rv-root] .cta{display:inline-flex;align-items:center;gap:9px;padding:13px 26px;border:1px solid rgba(230,117,51,.55);border-radius:999px;color:#F6F1E9;text-decoration:none;font-family:'Manrope',sans-serif;font-weight:600;font-size:14px;letter-spacing:.01em;background:rgba(230,117,51,.06);transition:background .2s ease,border-color .2s ease,transform .2s ease,box-shadow .2s ease}
+    [data-rv-root] .cta:hover{background:var(--accent,#E67533);border-color:var(--accent,#E67533);color:#0A0C11;transform:translateY(-1px);box-shadow:0 10px 30px rgba(230,117,51,.28)}
+    [data-rv-root] .cta svg{width:15px;height:15px}
     @media (prefers-reduced-motion: reduce){
       *{animation:none !important; transition:none !important}
     }
@@ -83,6 +86,11 @@
     <div style="max-width:580px; display:flex; flex-direction:column; gap:8px; animation:cin-up 1s ease calc(var(--rv-delay) + 1.2s) both">
       <p style="font-size:clamp(14px,1vw,16.5px); line-height:1.6; color:rgba(242,236,225,.74)">Wir bringen KI dorthin, wo sie wirkt: in Ihr Unternehmen. Kommunikation, Automatisierung und Prozesse, strategisch geplant, sauber implementiert und getestet.</p>
     </div>
+
+    <a class="cta" href="mailto:kontakt@logik-agentur.de?subject=Anfrage%20%E2%80%93%20Logik%20Agentur" style="margin-top:clamp(6px,1vw,12px); animation:cin-up 1s ease calc(var(--rv-delay) + 1.3s) both">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+      Kontakt aufnehmen
+    </a>
   </main>
 
   <!-- PRODUCTS -->
