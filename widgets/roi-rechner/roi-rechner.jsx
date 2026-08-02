@@ -130,7 +130,7 @@ export default function ROIRechner() {
               marginBottom: '0.75rem',
             }}
           >
-            Was kosten dich verpasste Anrufe wirklich?
+            Was können dich nicht angenommene Anrufe kosten?
           </h1>
           <p
             style={{
@@ -140,7 +140,7 @@ export default function ROIRechner() {
               marginBottom: 0,
             }}
           >
-            Berechne den potenziellen Mehrumsatz für dein Hotel in 10 Sekunden — transparent, ohne E-Mail-Eingabe.
+            Rechne mit deinen eigenen Zahlen durch, was nicht angenommene Anrufe kosten können. Ohne E-Mail-Eingabe.
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export default function ROIRechner() {
               max={30}
               step={1}
               onChange={setAnrufeProTag}
-              hint="Schätzung: Anrufe außerhalb Rezeptionszeiten oder bei besetzt"
+              hint="Schätzung: Anrufe außerhalb der Erreichbarkeit oder bei besetzter Leitung"
             />
 
             {/* Slider 2 */}
@@ -192,7 +192,7 @@ export default function ROIRechner() {
               max={800}
               step={10}
               onChange={setBuchungswert}
-              hint="Typischer Aufenthaltswert (Zimmer × Nächte)"
+              hint="Typischer Wert eines Auftrags oder Aufenthalts"
             />
           </div>
 
@@ -226,7 +226,7 @@ export default function ROIRechner() {
               }}
             >
               <Sparkles size={14} strokeWidth={2} />
-              Potenzieller Mehrumsatz
+              Rechnerisches Potenzial
             </div>
             <div
               style={{
@@ -259,6 +259,17 @@ export default function ROIRechner() {
               }}
             >
               = {fmtEUR(calc.mehrumsatzJahr)} pro Jahr
+            </div>
+            <div
+              style={{
+                fontSize: '0.9375rem',
+                color: '#7A3A0E',
+                fontWeight: 500,
+                marginTop: '0.75rem',
+                lineHeight: 1.5,
+              }}
+            >
+              Ergebnis der oben eingestellten Annahmen. Keine Prognose und keine Zusage.
             </div>
           </div>
 
@@ -305,7 +316,7 @@ export default function ROIRechner() {
             onMouseEnter={(e) => (e.currentTarget.style.background = '#F4F4F5')}
             onMouseLeave={(e) => (e.currentTarget.style.background = '#FAFAFA')}
           >
-            <span>So wird gerechnet — transparent und nachvollziehbar</span>
+            <span>So wird gerechnet</span>
             <ChevronDown
               size={16}
               strokeWidth={2}
@@ -344,7 +355,7 @@ export default function ROIRechner() {
                 = {fmtNum(calc.verpassteAnrufeMonat)} × {anteilBuchung}% × 50% = <strong style={{ color: '#18181B' }}>{fmtNum(calc.verpassteBuchungenMonat)}</strong>
               </div>
               <div style={{ marginBottom: '0.75rem' }}>
-                <span style={{ color: '#71717A' }}>Mehrumsatz / Monat</span>
+                <span style={{ color: '#71717A' }}>Rechnerisches Potenzial / Monat</span>
                 <br />
                 = {fmtNum(calc.verpassteBuchungenMonat)} × {fmtEUR(buchungswert)} = <strong style={{ color: '#E67533' }}>{fmtEUR(calc.mehrumsatzMonat)}</strong>
               </div>
@@ -359,7 +370,7 @@ export default function ROIRechner() {
                   lineHeight: 1.5,
                 }}
               >
-                <strong>Annahmen:</strong> 50% der Buchungsanfragen führen erfahrungsgemäß zur Buchung (Conversion-Rate). 30 Tage pro Monat. Werte basieren auf Branchendurchschnitt für KMU-Hotels in DACH.
+                <strong>Annahmen:</strong> Fest hinterlegt sind zwei Werte: 50% der Anfragen führen zu einem Abschluss, und ein Monat wird mit 30 Tagen gerechnet. Beides sind gesetzte Rechengrößen, keine gemessenen Werte. Alle übrigen Zahlen stellst du selbst ein.
               </div>
             </div>
           )}
@@ -388,7 +399,7 @@ export default function ROIRechner() {
                 marginBottom: '0.25rem',
               }}
             >
-              Diese Zahlen lassen sich realisieren.
+              Sehen wollen, was davon für deinen Betrieb gilt?
             </div>
             <div
               style={{
@@ -396,7 +407,7 @@ export default function ROIRechner() {
                 color: '#A1A1AA',
               }}
             >
-              Kostenloses Erstgespräch — unverbindlich, 30 Minuten.
+              Kostenloses Erstgespräch, unverbindlich, 30 Minuten.
             </div>
           </div>
           <a
@@ -435,9 +446,10 @@ export default function ROIRechner() {
             lineHeight: 1.5,
           }}
         >
-          Werte sind Schätzungen auf Basis von Branchendurchschnitten.
+          Der Rechner multipliziert die von dir eingestellten Werte. Er greift auf keine
+          Statistik und auf keine Erfahrungswerte anderer Betriebe zurück.
           <br />
-          Individuelle Ergebnisse können abweichen — gerne erstellen wir eine individuelle Analyse für dein Hotel.
+          Was davon in deinem Betrieb tatsächlich eintritt, hängt von deinen Zahlen ab.
         </p>
       </div>
     </div>
