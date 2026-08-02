@@ -61,7 +61,7 @@
 | 28 | 🟡 Famulor: „EWR" ist kein Sitzland | ja | |
 | 33 | 🔴 „DSGVO-konform" in Einzelaussagen auflösen | ja | |
 | 41 | 🔴 Sub-Prozessoren-Tabelle verlinken | nein | **Geprüft: keine Pflicht zur Veröffentlichung.** Art. 28 verlangt Offenlegung gegenüber dem Kunden, nicht öffentlich. Statt einer öffentlichen Liste sagt die Seite zu, dass die Übersicht vor Vertragsschluss übergeben wird |
-| 45 | 🟡 „Testimonials" → „Betriebsnachweis: Hotel Nanis" | ja | |
+| 45 | 🟡 „Testimonials" → „Betriebsnachweis: Hotel Nanis" | anders | Der Abschnitt war leer und wurde entfernt. **Kein Betriebsnachweis-Abschnitt** (Entscheidung 02.08.2026). Begründung Pantelis: Wer sich überzeugen will, findet das Hotel Nanis über Google und kann den Agenten selbst anrufen. Die vier bestehenden Erwähnungen des eigenen Betriebs bleiben |
 | 48 | 🟡 AGB verlinken | ja | |
 
 ## Block 5 — Versprechen und ROI-Rechner
@@ -93,7 +93,7 @@
 | Nr | Was | Entscheidung | Notiz |
 |---|---|---|---|
 | 39 | 🔴 Hörprobe + anonymisiertes Transkript | nein | **Entschieden 01.08.2026: weder Hörproben noch Transkript-Beispiele auf der Website.** Folge: Betriebsnachweis stützt sich allein auf Punkt 40 und 45 |
-| 40 | 🟡 Betriebszahlen | prüfen | |
+| 40 | 🟡 Betriebszahlen | nein | Entfällt mit der Entscheidung zu Punkt 45. Ohne Betriebsnachweis-Abschnitt gibt es keinen Ort für Zahlen |
 | 42 | 🟡 PMS-Systeme namentlich | anders | Nicht alle PMS prüfbar. Formulierung: nicht ahnungslos klingen, aber auch nicht „alle funktionieren" zusagen |
 | 43 | 🔴 Testfallbasierte Abnahme | nein | Komplett raus, auch die abgespeckte Nachbesserungs-Zusage. Zu unscharf für jetzt, später erneut aufgreifen. **Folge: die Seite enthält keine Risikoumkehr** |
 | 44 | 🔴 Ausfall- und Vertretungskonzept | nein | Komplett entfernen |
@@ -102,10 +102,10 @@
 
 | Nr | Was | Entscheidung | Notiz |
 |---|---|---|---|
-| 49 | 🔴 KI-Ansage vor der Interaktion | anders | Fester Wortlaut: *„Hallo, dies ist der KI-Sprachassistent von Hotel Nanis. Dieses Gespräch wird zur Qualitätssicherung transkribiert. Wie kann ich Ihnen helfen?"* |
-| 50 | 🔴 Art. 4 KI-VO (KI-Kompetenz) | prüfen | „Muss ich das wirklich?" — an offiziellen Quellen prüfen |
+| 49 | 🔴 KI-Ansage vor der Interaktion | **teilweise erledigt** | **Website-Teil erledigt 02.08.2026:** Der Chat auf logik-agentur.de sagte nicht, dass eine KI antwortet. Ergänzt im Einwilligungsdialog („Hier antwortet ein KI-Assistent, keine Person.") und am Auslöser-Button („KI-Chat starten"). Hier ist Logik-Agentur selbst Betreiber. **Offen: Voice-Agent Hotel Nanis** — die KI-Ansage steht bereits in `system-prompt-voice-v4_2.md`, der beschlossene Transkriptionssatz fehlt noch. Anderes Repo, und im ElevenLabs-Dashboard zu prüfen |
+| 50 | 🔴 Art. 4 KI-VO (KI-Kompetenz) | ja | **Geprüft 02.08.2026:** Gilt seit 02.02.2025 für Anbieter und Betreiber, vom Digital Omnibus nicht geändert. Es ist eine Bemühenspflicht („nach besten Kräften") und **nicht unmittelbar bußgeldbewehrt**; sie wirkt über die zivilrechtliche Sorgfaltspflicht und die Haftung im Schadensfall. Entscheidend ist die Dokumentation. Umgesetzt als `ki-kompetenz.html` |
 | 51 | 🟡⚖️ Impressum und Cookie-Consent der eigenen Seite | ja | |
-| 52 | ⚪ Art. 50 Abs. 2: Kennzeichnung synthetischer Audioinhalte | prüfen | |
+| 52 | ⚪ Art. 50 Abs. 2: Kennzeichnung synthetischer Audioinhalte | ja | **Geprüft 02.08.2026:** Art. 50 gilt seit 02.08.2026 und wurde vom Digital Omnibus **nicht** verschoben. Für die maschinenlesbare Kennzeichnung bereits im Markt befindlicher Systeme gilt eine Übergangsfrist **bis 02.12.2026**. Betrifft die Agent-Konfiguration, nicht die Website |
 | 54 | ⚪ Gesprächsaufzeichnung § 201 StGB | anders | **Keine Audio-Aufzeichnung, nur Transkript.** Rechtsfolge trotzdem prüfen |
 
 ## Nach Launch
@@ -191,6 +191,14 @@ Vibe Coding 101 with Replit (DeepLearning.AI) — Kursname wirkt im B2B-Kontext 
 
 ---
 
+## Neue Abschnitte
+
+| Abschnitt | Status |
+|---|---|
+| „Wie es abläuft" (Ablauf, fünf Schritte) | **gebaut 02.08.2026.** Jeder Schritt deckt sich mit einer Vertragspflicht: 02 = AGB § 4 Abs. 1, 04 = Abnahme § 4 Abs. 3, 05 = Monatsbericht SLA § 7 |
+| Betriebsnachweis | **entfällt** (siehe Punkt 45) |
+| Zertifikatsseite | **gebaut 02.08.2026** als `ki-kompetenz.html`. Neun Programme mit Bezeichnung, Anbieter und Datum; keine Logos, kein Harvard-Wappen, Hinweis „Weiterbildungsprogramme, keine akademischen Abschlüsse". Zweiter Abschnitt erklärt die Pflicht des Kunden und verweist auf AGB § 16. Footer-Link auf allen fünf Seiten |
+
 ## Zum Anwalt, gebündelt
 
 Punkte 1, 33 und 51 plus die fünf offenen Gates aus dem Juni-Audit.
@@ -242,8 +250,8 @@ Alle sieben Antworten geprüft, sieben Korrekturen. Zwei davon aus der externen 
 - Lieferzeit läuft jetzt ab Eingang des ausgefüllten Fragenkatalogs, nicht ab Vertragsschluss.
 - Übergabe unklarer Fragen an die vereinbarte Übergaberegel gebunden statt pauschal zugesagt.
 - **IP-Buyout** stand in der FAQ noch, nachdem es aus dem Compliance-Abschnitt entfernt war (Punkt 25) — entfernt.
-| 5 Versprechen und ROI | 4 von 5 · 1 offen | — | — |
-| 6 Querschnitt | 6 von 6 | — | — |
+| 5 Versprechen und ROI | 5 von 5 | **ja, 02.08.2026** | `554d911` |
+| 6 Querschnitt | 6 von 6 | **ja, 02.08.2026** | `958f717` ff. |
 | Material | 2 von 5 · 2 prüfen · 1 offen | — | — |
 | Recht | 2 von 5 · 3 prüfen | — | — |
 | Nach Launch | 1 von 2 · 1 offen | — | — |
