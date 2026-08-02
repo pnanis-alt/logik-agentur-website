@@ -123,15 +123,21 @@ Anlass: Wettbewerbsanalyse peter-krause.net (`ai-agency-clients-/docs/recherche/
 
 | Neu | Herkunft | Status |
 |---|---|---|
-| 1 Hero (Problem zuerst) | Hero, umgebaut | Punkt 34 |
-| 2 Was es kann | Modul-Grid | unverändert |
-| 3 Wie es abläuft | **neuer Text** | entschieden: wird geschrieben; speist sich aus Punkt 46 + 47 |
-| 4 Betriebsnachweis Hotel Nanis | „Testimonials" + drei Sätze aus „Über mich" | Punkt 45 |
-| 5 Compliance und Nachweise | „Vier Anker" + KPI-Reste + „Integrationen" + Zertifikate | Punkt 33, 41 |
-| 6 Preise | Preisblock | fertig entschieden, Freigabe steht aus |
-| 7 ROI-Rechner | unverändert, entschärft | Punkt 27 |
-| 8 FAQ | unverändert | Punkt 11 |
-| 9 Kontakt | Schluss-CTA + Footer | — |
+| 1 Hero | umgebaut, Abgrenzung statt Selbstlob | erledigt |
+| 2 Was es kann | Modul-Grid | erledigt |
+| 3 Wie es abläuft | neuer Text, fünf Schritte | erledigt |
+| 4 Vier prüfbare Unterschiede | früher „Warum Logik-Agentur" | erledigt |
+| 5 Über mich | Person und Betrieb | erledigt |
+| 6 Integrationen | welche Technik eingesetzt wird | erledigt |
+| 7 Datenschutz | früher „Compliance-Badges", neu gefasst | erledigt |
+| 8 Preise | Preisblock | erledigt |
+| 9 ROI-Rechner | entschärft | erledigt |
+| 10 FAQ | sieben Antworten geprüft | erledigt |
+| 11 Kontakt | Schluss-CTA | erledigt |
+
+**Umbau ausgeführt 02.08.2026.** Der Preisblock stand vorher an Position 5 von 11 und steht jetzt an Position 8. Alles, womit ein Interessent prüfen kann (Ablauf, Unterschiede, Person, Technik, Datenschutz), steht davor. Der ROI-Rechner ist von Position 6 auf 9 gewandert und aus dem Hero verlinkt worden.
+
+Mitgezogen: die abwechselnden Hintergründe waren nach dem Umsortieren dreimal hintereinander gleich, jetzt strikt alternierend. Kopfnavigation führt „ROI" nicht mehr, dafür „Ablauf". Die Schnellnavigation im Footer folgt der Seitenreihenfolge.
 
 *„Für wen es nicht passt" war als Position 5 vorgesehen und wurde mit Punkt 38 verworfen. Die Seite hat damit neun Abschnitte statt bisher dreizehn.*
 
