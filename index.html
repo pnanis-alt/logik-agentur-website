@@ -104,7 +104,7 @@
       --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.05);
 
       /* === Layout (Skelett-Zusatz, nicht in design-tokens.md) === */
-      --section-py: clamp(64px, 8vw, 112px);
+      --section-py: clamp(48px, 5vw, 80px);
     }
 
     /* Globale Resets über Tailwind-Preflight hinaus */
@@ -133,6 +133,8 @@
     /* Section-Container */
     .section { padding-block: var(--section-py); }
     .section-alt { background: var(--color-bg-subtle); }
+    /* Hero sitzt direkt unter der Kopfzeile und braucht dort weniger Luft */
+    #hero { padding-block-start: clamp(28px, 3vw, 48px); }
 
     /* Slot-Marker (nur in Dev sichtbar — bei Befüllung entfernen) */
     [data-slot]:empty::before {
@@ -149,7 +151,212 @@
     }
 
     /* Reduzierte Bewegung respektieren (max 250ms-Vorgabe aus design-tokens.md) */
+
+    /* ======================================================================
+       GESTALTUNG v2 — Kontrast, Textur, Zustaende, Bewegung
+       Reines CSS, keine neuen Tailwind-Klassen, kein Neubau noetig.
+       ====================================================================== */
+
+    /* Sichtbarer Bandwechsel statt 1,6 % Helligkeitsunterschied */
+    :root { --color-bg-band: #F7F5F2; }
+    .section-alt { background: var(--color-bg-band); border-block: 1px solid var(--color-border); }
+    #footer { background: var(--color-bg-band); }
+
+    /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
+    /* Sprungmarke exakt auf Unterkante der Kopfzeile: h-36 / sm:h-44 / lg:h-56 */
+    :where(section[id]) { scroll-margin-top: 9rem; }
+    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 11rem; } }
+    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 14rem; } }
+
+    /* Vorspannzeilen in der zweiten Hausschrift, mit Akzentstrich */
+    main .uppercase.tracking-wider,
+    #footer .uppercase.tracking-wider {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      color: var(--color-text-subtle);
+    }
+    main div.uppercase.tracking-wider:not(.flex) {
+      display: flex; align-items: center; gap: 10px;
+    }
+    main div.uppercase.tracking-wider:not(.flex)::before {
+      content: ""; width: 18px; height: 2px; flex: none;
+      background: var(--color-accent); border-radius: 2px;
+    }
+
+    /* Feines Raster im Hero, 0 Byte, kein zusaetzlicher Abruf */
+    #hero { position: relative; isolation: isolate; }
+    #hero::before {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        linear-gradient(to right,  rgba(46,56,73,0.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(46,56,73,0.055) 1px, transparent 1px);
+      background-size: 40px 40px;
+      -webkit-mask-image: radial-gradient(120% 90% at 15% 0%, #000 0%, transparent 72%);
+              mask-image: radial-gradient(120% 90% at 15% 0%, #000 0%, transparent 72%);
+    }
+    @media (min-width: 768px) { #hero::before { background-size: 56px 56px; } }
+
+    /* Der Live-Punkt pulsiert, weil er einen Zustand anzeigt */
+    #hero .bg-emerald-500 { animation: la-pulse 2.6s ease-out infinite; }
+    @keyframes la-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.55); }
+      55%      { box-shadow: 0 0 0 7px rgba(16,185,129,0); }
+    }
+
+    /* Navigation: mitwachsende Unterstreichung */
+    #header nav a { position: relative; padding-block: 6px; }
+    #header nav a::after {
+      content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
+      border-radius: 2px; background: var(--color-accent);
+      transform: scaleX(0); transform-origin: left center;
+      transition: transform 200ms cubic-bezier(0.22,0.61,0.36,1);
+    }
+    #header nav a:hover::after, #header nav a:focus-visible::after { transform: scaleX(1); }
+
+    /* Karten: ein einheitlicher Zustand statt drei verschiedener */
+    #omnichannel article, #value article, #pricing article, #compliance .grid > div {
+      transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      #omnichannel article:hover, #value article:hover,
+      #pricing article:hover, #compliance .grid > div:hover {
+        transform: translateY(-2px);
+        border-color: var(--color-border-strong);
+        box-shadow: 0 12px 28px -18px rgba(46,56,73,0.45);
+      }
+    }
+
+    /* Ein Fokusring fuer die ganze Seite, in der Markenfarbe */
+    :where(a, button, summary, input, [tabindex]):focus-visible {
+      outline: 2px solid var(--color-accent); outline-offset: 3px; border-radius: 6px;
+    }
+
+    /* Schaltflaechen bekommen einen warmen Schatten statt eines grauen */
+    a[href*="cal.eu"] {
+      transition: background-color 180ms ease, border-color 180ms ease,
+                  box-shadow 180ms ease, transform 180ms ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      a[href*="cal.eu"][class*="text-white"]:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px -10px rgba(230,117,51,0.65);
+      }
+      a[href*="cal.eu"][class*="text-zinc-900"]:hover {
+        background: var(--color-accent-subtle);
+        border-color: var(--color-accent);
+        color: var(--color-accent-text);
+      }
+    }
+    a[href*="cal.eu"]:active { transform: translateY(0); }
+
+    /* FAQ: Akzentkante beim Oeffnen, gefuehrtes Aufklappen */
+    #faq details { position: relative; padding-left: 16px; transition: background-color 180ms ease; }
+    #faq details::before {
+      content: ""; position: absolute; left: 0; top: 12px; bottom: 12px; width: 2px;
+      border-radius: 2px; background: var(--color-accent); opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    #faq details[open]::before { opacity: 1; }
+    @media (hover: hover) and (pointer: fine) {
+      #faq details:hover { background: rgba(46,56,73,0.025); }
+    }
+    #faq details[open] > p { animation: la-answer 240ms cubic-bezier(0.22,0.61,0.36,1) both; }
+    @keyframes la-answer {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* Preise: Zahlen im Raster, das Hauptpaket sichtbar hervorgehoben */
+    #pricing article .text-3xl { font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+    #pricing article:nth-child(3) {
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 1px var(--color-accent), 0 18px 36px -24px rgba(46,56,73,0.55);
+    }
+    #pricing article:nth-child(3):hover { border-color: var(--color-accent); }
+
+    /* Das dunkle Abschlussband: die einzige Kontrastflaeche der Seite */
+    #final-cta { position: relative; isolation: isolate; background: var(--color-logo-navy); }
+    #final-cta::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: radial-gradient(70% 120% at 50% 0%, rgba(230,117,51,0.16) 0%, transparent 65%);
+    }
+    #final-cta h2, #final-cta .text-zinc-900 { color: #FFFFFF; }
+    #final-cta p { color: rgba(255,255,255,0.74); }
+    #final-cta .text-sm, #final-cta .text-zinc-500, #final-cta .text-zinc-600 { color: rgba(255,255,255,0.66); }
+    #final-cta a[href*="cal.eu"]:focus-visible { outline-color: #FFFFFF; }
+
+    /* Sanftes Einblenden beim Scrollen. Ohne JavaScript ist alles sichtbar. */
+    html.js :is(
+      #omnichannel .max-w-3xl, #ablauf .max-w-3xl, #ueber-mich .max-w-3xl,
+      #integrationen .max-w-3xl, #compliance .max-w-3xl, #pricing .max-w-3xl,
+      #faq .max-w-3xl, #value .text-center,
+      #omnichannel article, #value article, #pricing article,
+      #ablauf .grid > div, #compliance .grid > div,
+      #integrationen .grid > div, #ueber-mich .grid > div
+    ) {
+      opacity: 0; transform: translateY(10px);
+      transition: opacity 240ms cubic-bezier(0.22,0.61,0.36,1),
+                  transform 240ms cubic-bezier(0.22,0.61,0.36,1);
+    }
+    html.js .is-in { opacity: 1 !important; transform: none !important; }
+
+    /* Hero: zweispaltig ab Notebook, Protokollkarte als Blickfang */
+    .hero-grid { display: grid; gap: 40px; align-items: start; }
+    @media (min-width: 1024px) {
+      .hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: 56px; align-items: center; }
+      .hero-copy h1 { max-width: none; }
+      .hero-copy p, .hero-copy ul { max-width: 34rem; }
+    }
+    .hero-proof {
+      background: #FFFFFF;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 24px 48px -32px rgba(46,56,73,0.55);
+      overflow: hidden;
+    }
+    .hp-head {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--color-logo-navy); color: rgba(255,255,255,0.92);
+      padding: 12px 18px;
+      font-family: var(--font-mono); font-size: 12px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hp-time { margin-left: auto; color: rgba(255,255,255,0.6); }
+    .hp-dot {
+      width: 8px; height: 8px; flex: none; border-radius: 999px;
+      background: var(--color-accent); animation: hp-pulse 2.6s ease-out infinite;
+    }
+    @keyframes hp-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(230,117,51,0.55); }
+      55%      { box-shadow: 0 0 0 7px rgba(230,117,51,0); }
+    }
+    .hp-log { margin: 0; padding: 18px; list-style: none; display: grid; gap: 14px; }
+    .hp-log li { display: grid; gap: 4px; }
+    .hp-who {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--color-text-subtle);
+    }
+    .hp-who.hp-agent { color: var(--color-accent-text); }
+    .hp-log p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--color-text); }
+    .hp-log li:has(.hp-agent) p {
+      background: var(--color-accent-subtle); border-radius: var(--radius-md); padding: 10px 12px;
+    }
+    .hp-foot {
+      display: flex; align-items: center; gap: 8px;
+      border-top: 1px solid var(--color-border); padding: 14px 18px;
+      font-size: 13px; line-height: 1.45; color: var(--color-text-muted);
+    }
+    .hp-foot svg { flex: none; color: var(--color-accent); }
+    .hp-note {
+      margin: 0; padding: 0 18px 14px;
+      font-family: var(--font-mono); font-size: 11px; color: var(--color-text-subtle);
+    }
+
     @media (prefers-reduced-motion: reduce) {
+      html.js .max-w-3xl, html.js article, html.js .grid > div,
+      html.js .text-center { opacity: 1 !important; transform: none !important; }
+
       html { scroll-behavior: auto; }
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -157,6 +364,8 @@
       }
     }
   </style>
+
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body class="bg-base text-ink antialiased">
@@ -171,16 +380,18 @@
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
         <img src="assets/logo.svg" alt="Logik-Agentur, KI für Kommunikation und Automation" class="h-28 sm:h-36 lg:h-48 w-auto" />
       </a>
-      <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-7 text-sm text-ink-muted">
-        <a href="#omnichannel" class="hover:text-ink">Lösungen</a>
-        <a href="#ablauf" class="hover:text-ink">Ablauf</a>
-        <a href="#pricing" class="hover:text-ink">Preise</a>
-        <a href="#faq" class="hover:text-ink">FAQ</a>
-      </nav>
-      <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-         class="inline-flex items-center rounded-md bg-accent text-white text-sm font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
-        Termin buchen
-      </a>
+      <div class="flex items-center gap-10">
+        <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
+          <a href="#omnichannel" class="hover:text-accent transition-colors">Lösungen</a>
+          <a href="#ablauf" class="hover:text-accent transition-colors">Ablauf</a>
+          <a href="#pricing" class="hover:text-accent transition-colors">Preise</a>
+          <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
+        </nav>
+        <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
+           class="inline-flex items-center rounded-md bg-accent text-white text-[15px] font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
+          Termin buchen
+        </a>
+      </div>
     </div>
   </header>
 
@@ -192,7 +403,8 @@
     <section id="hero" class="section" aria-labelledby="hero-title" data-section="01-hero">
       <div class="max-w-content mx-auto px-6">
         <div data-slot="hero">
-          <div class="mx-auto max-w-6xl px-6 pt-20 pb-24 sm:pt-24 sm:pb-28">
+          <div class="mx-auto max-w-6xl px-6 hero-grid">
+            <div class="hero-copy">
             <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-white px-3 py-1 text-xs font-medium tracking-wide text-zinc-600">
               <span class="inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" aria-hidden="true"></span>
               Live im Hotel Nanis · Steinhuder Meer · seit 2026
@@ -215,6 +427,25 @@
               <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Standard-Dienste, keine Plattform-Bindung</li>
               <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Individuell anpassbar an Branche und Anwendungsfall</li>
             </ul>
+            </div>
+
+            <aside class="hero-proof" aria-label="Beispielhafter Gesprächsverlauf">
+              <div class="hp-head">
+                <span class="hp-dot" aria-hidden="true"></span>
+                <span>Eingehender Anruf</span>
+                <span class="hp-time">21:47</span>
+              </div>
+              <ol class="hp-log">
+                <li><span class="hp-who">Anrufer</span><p>Haben Sie am Samstag noch ein Doppelzimmer frei?</p></li>
+                <li><span class="hp-who hp-agent">Assistent</span><p>Für Samstag, zwei Personen. Ich nehme die Anfrage auf, verbindlich bestätigt sie Ihnen das Haus. Unter welcher Nummer erreichen wir Sie?</p></li>
+                <li><span class="hp-who">Anrufer</span><p>0511 &hellip;</p></li>
+              </ol>
+              <div class="hp-foot">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                Übergabe ans Team mit Anliegen, Rückrufnummer und Zusammenfassung
+              </div>
+              <p class="hp-note">Beispielhafte Darstellung, kein aufgezeichnetes Gespräch.</p>
+            </aside>
           </div>
         </div>
       </div>
@@ -227,7 +458,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="omnichannel-title" class="sr-only">Module</h2>
         <div data-slot="omnichannel-grid">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+<div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Module · Frei kombinierbar</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Sechs Module. Eine Konfiguration.</h2>
@@ -252,7 +483,7 @@
     <section id="ablauf" class="section" aria-labelledby="ablauf-title" data-section="ablauf">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ablauf-title" class="sr-only">Wie es abläuft</h2>
-        <div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+        <div class="mx-auto max-w-6xl px-6">
           <div class="max-w-3xl">
             <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Ablauf</div>
             <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Von der ersten Frage bis zum ersten Anruf.</h2>
@@ -313,7 +544,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
         <div data-slot="ueber-mich">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+<div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Über mich</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hotelier am Steinhuder Meer.<br class="hidden sm:block">Und die Person hinter der Logik-Agentur.</h2>
@@ -353,7 +584,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
         <div data-slot="integrationen">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+<div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Integrationen · Standard-Dienste</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Standard-Dienste, jede Komponente austauschbar.</h2>
@@ -380,7 +611,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="compliance-title" class="sr-only">Datenschutz</h2>
         <div data-slot="compliance-badges">
-  <div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+  <div class="mx-auto max-w-6xl px-6">
     <div class="max-w-3xl">
       <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Datenschutz</div>
       <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Klare Datenwege. Klare Verantwortung.</h2>
@@ -446,7 +677,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="pricing-title" class="sr-only">Preise</h2>
         <div data-slot="pricing">
-<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24">
+<div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Preise · Transparent</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Klare Pakete, monatlich kündbar.</h2>
@@ -545,7 +776,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="faq-title" class="sr-only">FAQ</h2>
         <div data-slot="faq">
-<div class="mx-auto max-w-4xl px-6 py-20 sm:py-24">
+<div class="mx-auto max-w-4xl px-6">
   <div class="max-w-3xl">
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">FAQ</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Häufige Fragen aus Erstgesprächen.</h2>
@@ -573,7 +804,7 @@
       <div class="max-w-content mx-auto px-6">
         <h2 id="cta-title" class="sr-only">Erstgespräch vereinbaren</h2>
         <div data-slot="final-cta">
-  <div class="mx-auto max-w-4xl px-6 py-20 sm:py-24 text-center">
+  <div class="mx-auto max-w-4xl px-6 text-center">
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">
       30 Minuten reichen,<br class="hidden sm:block">um eine fundierte Entscheidung zu treffen.
     </h2>
@@ -582,7 +813,7 @@
     </p>
     <div class="mt-10 flex flex-col items-center gap-4">
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)] focus:outline-none focus:ring-4 focus:ring-indigo-100">
+         class="inline-flex items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-8 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
           <line x1="16" x2="16" y1="2" y2="6"/>
@@ -670,19 +901,19 @@
     #la-chat-consent { position: fixed; right: 20px; bottom: 20px; z-index: 9998;
       font-family: 'Inter', system-ui, sans-serif; }
     #la-chat-launcher { display: inline-flex; align-items: center; gap: 8px;
-      background: var(--color-accent, #4F46E5); color: #fff; border: none;
+      background: var(--color-accent, #E67533); color: #fff; border: none;
       border-radius: 9999px; padding: 12px 18px; font-size: 15px; font-weight: 600;
       cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.18); }
-    #la-chat-launcher:hover { background: var(--color-accent-hover, #4338CA); }
+    #la-chat-launcher:hover { background: var(--color-accent-hover, #C45A1A); }
     #la-chat-card { display: none; max-width: 320px; background: #fff;
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
       padding: 16px; margin-bottom: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.18); }
     #la-chat-card.open { display: block; }
     #la-chat-card p { margin: 0 0 12px; font-size: 14px; line-height: 1.5;
       color: var(--color-text, #18181b); }
-    #la-chat-card a { color: var(--color-accent, #4F46E5); }
+    #la-chat-card a { color: var(--color-accent, #E67533); }
     #la-chat-actions { display: flex; gap: 8px; }
-    #la-chat-load { flex: 1; background: var(--color-accent, #4F46E5); color: #fff;
+    #la-chat-load { flex: 1; background: var(--color-accent, #E67533); color: #fff;
       border: none; border-radius: 8px; padding: 10px; font-weight: 600; cursor: pointer; }
     #la-chat-cancel { background: transparent; color: var(--color-text-muted, #52525b);
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 8px; padding: 10px 14px; cursor: pointer; }
@@ -757,5 +988,28 @@
   <!-- Reichweitenmessung: Umami, selbst gehostet auf eigenem Server, cookielos.
        Siehe docs/runbooks/umami-installation.md und datenschutz.html Abschnitt Reichweitenmessung. -->
   <script defer src="https://stats.logik-agentur.de/script.js" data-website-id="5981dae0-1ad6-4c3a-a36e-c8c22c982030" data-do-not-track="true"></script>
+  <script>
+    (function () {
+      if (!('IntersectionObserver' in window)) { document.documentElement.classList.remove('js'); return; }
+      var sel = '#omnichannel .max-w-3xl, #ablauf .max-w-3xl, #ueber-mich .max-w-3xl,'
+              + '#integrationen .max-w-3xl, #compliance .max-w-3xl, #pricing .max-w-3xl,'
+              + '#faq .max-w-3xl, #value .text-center,'
+              + '#omnichannel article, #value article, #pricing article,'
+              + '#ablauf .grid > div, #compliance .grid > div,'
+              + '#integrationen .grid > div, #ueber-mich .grid > div';
+      var els = [].slice.call(document.querySelectorAll(sel));
+      els.forEach(function (el) {
+        var i = [].indexOf.call(el.parentNode.children, el);
+        el.style.transitionDelay = Math.min(i, 4) * 55 + 'ms';
+      });
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+        });
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
 </body>
 </html>

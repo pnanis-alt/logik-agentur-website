@@ -49,9 +49,6 @@ export default function ROIRechner() {
     <div
       style={{
         fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
-        background: '#FAFAFA',
-        padding: '3rem 1rem',
-        minHeight: '100vh',
       }}
     >
       {/* Custom Slider Styling */}
@@ -91,7 +88,7 @@ export default function ROIRechner() {
           cursor: pointer;
         }
         .lg-slider:focus {
-          box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+          box-shadow: 0 0 0 4px rgba(230,117,51,0.18);
         }
       `}</style>
 
