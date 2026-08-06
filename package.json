@@ -4,8 +4,9 @@
   "description": "Logik-Agentur Marketing-Website — statisches HTML mit gebündelten React-Widgets",
   "private": true,
   "scripts": {
-    "build": "npm run build:roi",
-    "build:roi": "esbuild widgets/roi-rechner/mount.jsx --bundle --minify --outfile=widgets/roi-rechner/dist.js --target=es2020 --jsx=automatic --log-level=info"
+    "build": "npm run build:roi && npm run build:css",
+    "build:roi": "esbuild widgets/roi-rechner/mount.jsx --bundle --minify --outfile=widgets/roi-rechner/dist.js --target=es2020 --jsx=automatic --log-level=info",
+    "build:css": "npx tailwindcss@3 -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --minify"
   },
   "dependencies": {
     "react": "^18.3.1",
