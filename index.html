@@ -345,12 +345,6 @@
       font-style: normal; font-size: 10.5px; letter-spacing: 0.04em;
       color: rgba(255,255,255,0.58); text-transform: none;
     }
-    .hp-live {
-      margin-left: auto; flex: none;
-      font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--color-accent);
-      border: 1px solid rgba(230,117,51,0.5); border-radius: 999px; padding: 2px 8px;
-    }
     .hp-log { margin: 0; padding: 18px; list-style: none; display: grid; gap: 14px; }
     .hp-log li { display: grid; gap: 4px; }
     .hp-who {
@@ -462,18 +456,17 @@
             <aside class="hero-proof" aria-label="Beispielhafter Gesprächsverlauf">
               <div class="hp-head">
                 <span class="hp-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
-                <span class="hp-title">Eingehender Anruf<em>Dienstag, 21:47 &middot; ausserhalb der Öffnungszeiten</em></span>
-                <span class="hp-live" aria-hidden="true">Live</span>
+                <span class="hp-title">Eingehender Anruf<em>Dienstag, 21:47 &middot; außerhalb der Öffnungszeiten</em></span>
               </div>
               <ol class="hp-log">
                 <li><span class="hp-who">Kunde</span><p>Ich wollte fragen, ob bei Ihnen nächste Woche noch was frei ist. Am liebsten nachmittags.</p></li>
-                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Nachmittags, nächste Woche. Da ist Mittwoch und Donnerstag am meisten Spielraum. Worum geht es denn, damit ich das gleich mitgebe?</p></li>
-                <li><span class="hp-who">Kunde</span><p>Um eine Erstberatung.</p></li>
-                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Notiert. Den Termin bestätigt Ihnen das Büro verbindlich. Unter welcher Nummer sind Sie erreichbar?</p></li>
+                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Nachmittags nächste Woche, verstanden. Damit ich es richtig weitergebe: Geht es um einen neuen Termin oder um eine Verschiebung?</p></li>
+                <li><span class="hp-who">Kunde</span><p>Neu. Eine Erstberatung. Kostet die was?</p></li>
+                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Die Erstberatung ist kostenfrei und dauert eine Stunde. Bestätigen kann den Termin nur das Büro, ich gebe die Anfrage weiter. Wie erreicht es Sie am besten?</p></li>
               </ol>
               <div class="hp-foot">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                Übergabe ans Team: Anliegen, Wunschzeitraum, Rückrufnummer, Zusammenfassung
+                Übergabe ans Team: neue Anfrage, Anliegen, Wunschzeitraum, Rückrufnummer
               </div>
               <p class="hp-note"><span>Dauer 0:52</span><span>Deutsch</span><span>Übergabe per E-Mail</span></p>
               <p class="hp-legal">Beispielhafte Darstellung, kein aufgezeichnetes Gespräch.</p>
