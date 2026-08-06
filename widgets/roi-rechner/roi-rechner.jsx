@@ -396,7 +396,7 @@ export default function ROIRechner() {
                 marginBottom: '0.25rem',
               }}
             >
-              Sehen wollen, was davon für deinen Betrieb gilt?
+              Wissen, was davon auf deinen Betrieb zutrifft?
             </div>
             <div
               style={{
