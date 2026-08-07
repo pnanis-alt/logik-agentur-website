@@ -4,15 +4,17 @@
  *      borderRadius, boxShadow, maxWidth, letterSpacing
  *    - impressum.html / datenschutz.html: la-navy / la-orange / la-gold
  *  Tokens-Quelle: docs/design-tokens.md + :root in index.html.
- *  Build: .build/tailwindcss -c tailwind.config.js -i assets/tailwind.input.css -o assets/tailwind.css --minify
+ *  Build: npm run build:css   (nie assets/tailwind.css von Hand bearbeiten, sie wird ueberschrieben)
  */
 module.exports = {
-  // content MUSS alle 3 HTML-Seiten UND die Widget-Quellen/Builds erfassen,
+  // content MUSS alle 5 HTML-Seiten UND die Widget-Quellen/Builds erfassen,
   // sonst räumt der JIT-Scan zur Laufzeit gemountete Widget-Klassen weg.
   content: [
     './index.html',
     './impressum.html',
     './datenschutz.html',
+    './agb.html',
+    './ki-kompetenz.html',
     './widgets/**/*.{js,jsx}',
   ],
   theme: {
