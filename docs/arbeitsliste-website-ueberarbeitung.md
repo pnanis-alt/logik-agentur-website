@@ -1,6 +1,6 @@
 # Arbeitsliste Website-Überarbeitung
 
-**Stand:** 01.08.2026 · **Arbeitsort:** `website-vollseite/index.html` (Branch `website-final`)
+**Stand:** 07.08.2026 · **Arbeitsort:** `website-vollseite/index.html` (Branch `website-final`)
 **Grundlage:** Website-Audit vom 29.07.2026 (`fuer-chatgpt/MASSNAHMEN.md`) — dort steht die Begründung je Punkt.
 
 > Die Punkte aus dem Audit sind Vorschläge. Verbindlich ist die Spalte „Entscheidung".
@@ -233,9 +233,11 @@ Nicht übernommen wurde die vorgeschlagene Endfassung im Wortlaut: sprachlich Ve
 
 Ebenfalls korrigiert: Die Begründung „Werbung mit gesetzlichen Selbstverständlichkeiten ist irreführend" war zu absolut. Tragendes Argument gegen „DSGVO-konform" ist die **Reichweite** der Aussage — sie umfasst Stack und Kundenkonfiguration und müsste dauerhaft belegbar sein.
 
-### Vor dem Livegang zwingend erforderlich
+### Vor dem ersten Kundenvertrag zwingend erforderlich
 
-Die Seite sagt Unterlagen zu, die es kundenfertig noch nicht gibt. Erst veröffentlichen, wenn erfüllt:
+> **Korrigiert am 07.08.2026 (Entscheidung Pantelis).** Diese Liste hieß bis dahin „Vor dem Livegang zwingend erforderlich" und widersprach damit dem Handoff, der dieselben Punkte als nicht livegang-blockierend einstuft. Maßgeblich ist die Einstufung im Handoff: Die Punkte betreffen den ersten zahlenden **Kunden**, nicht den ersten **Leser**. Die Website verspricht die Anbieterübersicht an keiner Stelle öffentlich, sondern auf Nachfrage beziehungsweise vor Vertragsschluss. Der AVV zwischen Hotel Nanis und der Logik-Agentur blockiert den Livegang ausdrücklich nicht.
+
+Erfüllt sein müssen sie, bevor der erste Vertrag geschlossen wird:
 
 1. **AVV Hotel Nanis ↔ Logik Agentur abgeschlossen** — in `stack-uebersicht-und-vvt.md` als KRITISCH geführt, bislang nicht erfolgt.
 2. Jeder Anbieter mit **exakter juristischer Vertragspartei und Rolle** erfasst (Auftragsverarbeiter, Unterauftragsverarbeiter oder eigener Verantwortlicher — Twilio und Meta sind Hybridrollen).
@@ -261,3 +263,37 @@ Alle sieben Antworten geprüft, sieben Korrekturen. Zwei davon aus der externen 
 | Material | 2 von 5 · 2 prüfen · 1 offen | — | — |
 | Recht | 2 von 5 · 3 prüfen | — | — |
 | Nach Launch | 1 von 2 · 1 offen | — | — |
+
+---
+
+## Durchgang 06./07.08.2026 (Protokollkarte, Rücklaufliste, Prüfungen)
+
+**Protokollkarte im Hero (06.08.).** Der Assistent nannte im Beispiel konkrete freie Tage. Verfügbarkeitsauskunft ist als Grundleistung zugesagt, „welche Tage nächste Woche am meisten Spielraum haben" ist aber eine tagesaktuelle Kapazitätsauskunft und damit konkreter als das ohne Datenanbindung Mögliche. Neue Fassung: Der Assistent stellt die Rückfrage, die zur Weitergabe fehlt, beantwortet eine eingeworfene Preisfrage aus der Wissensbasis und nimmt den Termin auf. Das Abzeichen „Live" ist entfallen, es widersprach dem Hinweis „kein aufgezeichnetes Gespräch".
+
+**Rücklaufliste 07.08.** Pantelis ist die Seite Abschnitt für Abschnitt durchgegangen, 46 Änderungswünsche, alle umgesetzt. Kernpunkte:
+
+- „ohne Vorkenntnisse" an drei Stellen entfernt, es unterstellt dem Leser Ahnungslosigkeit.
+- Der Assistent lehnt in der Protokollkarte den Termin nicht mehr ab, sondern nimmt ihn auf. Begründung: Termin-Buchung ist als Add-on anbindbar, die alte Fassung verkaufte das Produkt unter Wert.
+- Voice-Agent behauptet keine Mehrsprachigkeit mehr. Chatbot ist als derselbe Assistent in schriftlicher Form beschrieben, vorher war er schwächer dargestellt, obwohl er dasselbe kann.
+- **Neues Modul: Einarbeitungs-Assistent** (Firmenwissen für neue Mitarbeiter). Deutscher Name, weil „Onboarding" auf der Seite bereits für das Onboarding des Kunden belegt ist. Als vollwertiges Modul dargestellt, ohne Hinweis auf Vorbereitung.
+- **Bewertungs-Management** aus dem Modul-Raster in die Add-ons verschoben, damit sechs Karten in zwei vollen Reihen stehen.
+- **WhatsApp-Agent** bleibt Modul und ist nicht mehr als Add-on gelistet.
+- Datenschutz-Abschnitt von vier Karten auf zwei Absätze gekürzt. Begründung Pantelis: Der Abschnitt setzte den Anbieter unter Druck und bot Angriffsfläche, wo ein Vertrauenshinweis genügt.
+- Anbieterübersicht durchgängig „auf Nachfrage" statt „vor Vertragsschluss", an vier Fundstellen.
+- Datumsspalte auf `ki-kompetenz.html` entfernt, dafür steht die jahrzehntelange IT-Praxis vor der Kursliste. **Ändert die Entscheidung vom 01.08.** (Kursname, Anbieter, Jahr). Folge: Die Aktualität der Weiterbildung ist auf der Seite nicht mehr belegt, die Nachweise liegen aber vor.
+- openHPI („Digitale Gerechtigkeit") als zehntes Programm aufgenommen. **Ändert die Entscheidung vom 01.08.**, die es als „thematisch abseits" ausgeschlossen hatte. Anlass: Der Personen-Abschnitt nannte openHPI, die Programmliste nicht.
+- Telefonnummer auf allen Seiten und in der Datenschutz-Quelle auf die Festnetznummer +49 5031 9779116 umgestellt.
+- Konstruktionsraster von einem auf alle elf Abschnitte ausgeweitet, im dunklen Schlussabschnitt mit heller Linienfarbe.
+
+**Drei Zusagen, die geprüft und angepasst wurden:**
+
+- „Vorrang bei Support-Anfragen" beim Voice Professional gestrichen. Das SLA staffelt nur nach Störungsklassen und kennt keine Bevorzugung nach Paket.
+- „EU-Server" bei den Integrationen gestrichen, ersetzt durch „EU-Anbieter bevorzugt". Es war dieselbe Aussage wie der bereits entfernte „EU-Stack": Die Website selbst liegt bei GitHub in den USA.
+- Der WhatsApp-Agent steht nicht mehr in der Aufzählung dessen, was täglich im eigenen Hotelbetrieb läuft. Pantelis hat am 07.08. bestätigt, dass er sich im Aufbau befindet. Als Modul wird er unverändert angeboten.
+
+**AGB, vierzehn Befunde abgearbeitet** (in `agb.html` und `AGB_Logik_Agentur_v1_2.md` gleichlautend). Inhaltlich: E-Mail-Assistent und Einarbeitungs-Assistent in den Modulkatalog aufgenommen, Famulor und Mistral in die Drittanbieterliste, „Netto-Vergütung" als Haftungsgrenze entfernt (bei Kleinunternehmerstatus identisch mit brutto), Steuerhinweis auf die Fassung ab 2025 gebracht. Dazu zwei Punkte, die eine Abwägung erforderten:
+
+- **§ 8:** Die Gutschrift knüpfte an eine „zugesagte" Verfügbarkeit, die es nicht gab. Gewählt wurde die kleinste Änderung: Sie knüpft jetzt an die Zielverfügbarkeit. Damit entsteht keine harte Verfügbarkeitszusage.
+- **§ 15:** Wahlrecht des Kunden zwischen Rückgabe und Löschung aufgenommen. Grundlage ist Art. 28 Abs. 3 lit. g DSGVO, wonach die Wahl dem Verantwortlichen zusteht. Die AGB zogen der Website nach, nicht umgekehrt.
+
+**Offen und nur von Pantelis zu beantworten:** ob der E-Mail-Assistent im eigenen Hotelbetrieb wirklich täglich läuft. Die Stack-Unterlagen führen das Szenario als „nicht scharfgeschaltet", die Seite nennt ihn in der Einsatzliste.
