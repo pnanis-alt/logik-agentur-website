@@ -171,7 +171,7 @@ export default function ROIRechner() {
               icon={<TrendingUp size={16} strokeWidth={2} />}
               label="Anteil Buchungsanfragen"
               value={anteilBuchung}
-              displayValue={`${anteilBuchung}%`}
+              displayValue={`${anteilBuchung} %`}
               min={10}
               max={80}
               step={5}
@@ -349,7 +349,7 @@ export default function ROIRechner() {
               <div style={{ marginBottom: '0.5rem' }}>
                 <span style={{ color: '#71717A' }}>Verpasste Buchungen / Monat</span>
                 <br />
-                = {fmtNum(calc.verpassteAnrufeMonat)} × {anteilBuchung}% × 50% = <strong style={{ color: '#18181B' }}>{fmtNum(calc.verpassteBuchungenMonat)}</strong>
+                = {fmtNum(calc.verpassteAnrufeMonat)} × {anteilBuchung} % × 50 % = <strong style={{ color: '#18181B' }}>{fmtNum(calc.verpassteBuchungenMonat)}</strong>
               </div>
               <div style={{ marginBottom: '0.75rem' }}>
                 <span style={{ color: '#71717A' }}>Rechnerisches Potenzial / Monat</span>
@@ -367,7 +367,7 @@ export default function ROIRechner() {
                   lineHeight: 1.5,
                 }}
               >
-                <strong>Annahmen:</strong> Fest hinterlegt sind zwei Werte: 50% der Anfragen führen zu einem Abschluss, und ein Monat wird mit 30 Tagen gerechnet. Beides sind gesetzte Rechengrößen, keine gemessenen Werte. Alle übrigen Zahlen stellst du selbst ein.
+                <strong>Annahmen:</strong> Fest hinterlegt sind zwei Werte: 50 % der Buchungsanfragen führen zu einem Abschluss, und ein Monat wird mit 30 Tagen gerechnet. Beides sind gesetzte Rechengrößen, keine gemessenen Werte. Alle übrigen Zahlen stellst du selbst ein.
               </div>
             </div>
           )}
@@ -396,7 +396,7 @@ export default function ROIRechner() {
                 marginBottom: '0.25rem',
               }}
             >
-              Wissen, was davon auf deinen Betrieb zutrifft?
+              Was davon trifft auf deinen Betrieb zu?
             </div>
             <div
               style={{
@@ -446,7 +446,7 @@ export default function ROIRechner() {
           Der Rechner multipliziert die von dir eingestellten Werte. Er greift auf keine
           Statistik und auf keine Erfahrungswerte anderer Betriebe zurück.
           <br />
-          Was davon in deinem Betrieb tatsächlich eintritt, hängt von deinen Zahlen ab.
+          Was davon in deinem Betrieb tatsächlich eintritt, hängt davon ab, wie belastbar deine Schätzungen sind.
         </p>
       </div>
     </div>
