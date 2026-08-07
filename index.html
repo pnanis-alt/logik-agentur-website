@@ -185,9 +185,11 @@
       background: var(--color-accent); border-radius: 2px;
     }
 
-    /* Feines Raster im Hero, 0 Byte, kein zusaetzlicher Abruf */
-    #hero { position: relative; isolation: isolate; }
-    #hero::before {
+    /* Feines Konstruktionsraster hinter jedem Abschnitt, reines CSS, 0 Byte.
+       Der dunkle Schlussabschnitt ist ausgenommen, er bekommt weiter unten
+       sein eigenes Raster in heller Linienfarbe. */
+    .section { position: relative; isolation: isolate; }
+    .section:not(#final-cta)::before {
       content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background-image:
         linear-gradient(to right,  rgba(46,56,73,0.055) 1px, transparent 1px),
@@ -196,7 +198,13 @@
       -webkit-mask-image: radial-gradient(120% 90% at 15% 0%, #000 0%, transparent 72%);
               mask-image: radial-gradient(120% 90% at 15% 0%, #000 0%, transparent 72%);
     }
-    @media (min-width: 768px) { #hero::before { background-size: 56px 56px; } }
+    /* Jeder zweite Abschnitt spiegelt den Verlauf, sonst wirkt die Seite wie
+       Millimeterpapier. Die Spiegelung laeuft mit dem Bandwechsel mit. */
+    .section:nth-of-type(even):not(#final-cta)::before {
+      -webkit-mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
+              mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
+    }
+    @media (min-width: 768px) { .section:not(#final-cta)::before { background-size: 56px 56px; } }
 
     /* Der Live-Punkt pulsiert, weil er einen Zustand anzeigt */
     #hero .bg-emerald-500 { animation: la-pulse 2.6s ease-out infinite; }
@@ -282,6 +290,16 @@
       content: ""; position: absolute; inset: 0; z-index: -1;
       background: radial-gradient(70% 120% at 50% 0%, rgba(230,117,51,0.16) 0%, transparent 65%);
     }
+    #final-cta::after {
+      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        linear-gradient(to right,  rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      -webkit-mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
+              mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
+    }
+    @media (min-width: 768px) { #final-cta::after { background-size: 56px 56px; } }
     #final-cta h2, #final-cta .text-zinc-900 { color: #FFFFFF; }
     #final-cta p { color: rgba(255,255,255,0.74); }
     #final-cta .text-sm, #final-cta .text-zinc-500, #final-cta .text-zinc-600 { color: rgba(255,255,255,0.66); }
