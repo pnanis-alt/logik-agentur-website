@@ -121,7 +121,7 @@ export default function ROIRechner() {
             style={{
               fontSize: '2.25rem',
               fontWeight: 600,
-              color: '#18181B',
+              color: 'var(--roi-kopf, #18181B)',
               letterSpacing: '-0.025em',
               lineHeight: 1.15,
               marginBottom: '0.75rem',
@@ -132,7 +132,7 @@ export default function ROIRechner() {
           <p
             style={{
               fontSize: '1.0625rem',
-              color: '#52525B',
+              color: 'var(--roi-kopf-muted, #52525B)',
               lineHeight: 1.6,
               marginBottom: 0,
             }}

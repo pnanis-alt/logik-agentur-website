@@ -164,10 +164,12 @@
     #footer { background: var(--color-bg-band); }
 
     /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
-    /* Sprungmarke exakt auf Unterkante der Kopfzeile: h-28 / sm:h-32 / lg:h-40 */
-    :where(section[id]) { scroll-margin-top: 7rem; }
-    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 8rem; } }
-    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 10rem; } }
+    /* Sprungmarke exakt auf Unterkante der Kopfzeile inklusive Naht.
+       Gemessen: 121 / 157 / 177 px. Aendert sich die Logogroesse, das
+       Innenmass der Kopfzeile oder die Nahthoehe, muss dieser Wert mit. */
+    :where(section[id]) { scroll-margin-top: 121px; }
+    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 157px; } }
+    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 177px; } }
 
     /* Vorspannzeilen in der zweiten Hausschrift, mit Akzentstrich */
     main .uppercase.tracking-wider,
@@ -189,7 +191,7 @@
        Der dunkle Schlussabschnitt ist ausgenommen, er bekommt weiter unten
        sein eigenes Raster in heller Linienfarbe. */
     .section { position: relative; isolation: isolate; }
-    .section:not(#final-cta)::before {
+    .section:not(.section-dark)::before {
       content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background-image:
         linear-gradient(to right,  rgba(46,56,73,0.055) 1px, transparent 1px),
@@ -200,11 +202,11 @@
     }
     /* Jeder zweite Abschnitt spiegelt den Verlauf, sonst wirkt die Seite wie
        Millimeterpapier. Die Spiegelung laeuft mit dem Bandwechsel mit. */
-    .section:nth-of-type(even):not(#final-cta)::before {
+    .section:nth-of-type(even):not(.section-dark)::before {
       -webkit-mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
               mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
     }
-    @media (min-width: 768px) { .section:not(#final-cta)::before { background-size: 56px 56px; } }
+    @media (min-width: 768px) { .section:not(.section-dark)::before { background-size: 56px 56px; } }
 
     /* Der Live-Punkt pulsiert, weil er einen Zustand anzeigt */
     #hero .bg-emerald-500 { animation: la-pulse 2.6s ease-out infinite; }
@@ -214,6 +216,107 @@
     }
 
     /* Navigation: mitwachsende Unterstreichung */
+    /* Kopfzeile dunkel, damit sie mit dem Hero zu einem Block verschmilzt.
+       Sie bleibt durchscheinend mit Weichzeichner, beim Scrollen ueber die
+       weissen Abschnitte liegt sie damit als dunkle Leiste darueber. */
+    /* ================================================================
+       Kopfzeile nach Design-Handoff "Header-Trennung 7a".
+       Heller, kuehler Grund mit isometrischem Wuerfelrelief, darunter die
+       Waveform-Naht, erst dann beginnt der dunkle Hero. Reines CSS.
+       ================================================================ */
+    :root {
+      --header-bg: #EDEFF3;
+      --cube-light: rgba(255,255,255,.92);
+      --cube-dark: rgba(47,54,72,.16);
+      --seam-ink: #1d2432;
+      --hero-top: #3A4256;
+      --hero-bottom: #2F3648;
+    }
+    #header {
+      position: sticky; background: var(--header-bg);
+      overflow: hidden; border-bottom-color: transparent;
+    }
+    #header::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(30deg,  var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(150deg, var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(30deg,  var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(150deg, var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(60deg,  var(--cube-dark) 25%, transparent 25.5%, transparent 75%, var(--cube-dark) 75%, var(--cube-dark)),
+        linear-gradient(60deg,  var(--cube-dark) 25%, transparent 25.5%, transparent 75%, var(--cube-dark) 75%, var(--cube-dark));
+      background-size: 72px 126px;
+      background-position: 0 0, 0 0, 36px 63px, 36px 63px, 0 0, 36px 63px;
+      -webkit-mask-image: linear-gradient(205deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.15) 100%);
+              mask-image: linear-gradient(205deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.15) 100%);
+    }
+    #header::after {
+      content: ""; position: absolute; top: -170px; right: -120px;
+      width: 720px; height: 460px; pointer-events: none;
+      background: radial-gradient(circle at 68% 32%, rgba(47,54,72,.20) 0%, rgba(47,54,72,.06) 42%, rgba(47,54,72,0) 72%);
+      animation: breathe 9s ease-in-out infinite;
+    }
+    @keyframes breathe { 0%,100% { opacity: .55 } 50% { opacity: 1 } }
+    /* Masse der Kopfzeile bewusst hier und nicht als Hilfsklassen: So haengen
+       sie nicht am erzeugten Stylesheet. Faellt dieses veraltet aus dem
+       Zwischenspeicher zurueck, bleibt die Kopfzeile trotzdem massvoll,
+       statt das Logo auf seine Originalgroesse aufzublaehen. */
+    #header .header-inner { position: relative; z-index: 1; padding-block: 12px 14px; }
+    #header .brand-logo { height: 64px; width: auto; }
+    @media (min-width: 640px)  { #header .brand-logo { height: 80px; } }
+    @media (min-width: 1024px) { #header .brand-logo { height: 112px; } }
+
+    /* Waveform-Naht, sitzt noch auf dem hellen Grund */
+    .seam {
+      position: relative; z-index: 1; height: 20px; background: var(--header-bg);
+      display: flex; align-items: center; justify-content: center; gap: 5px; overflow: hidden;
+    }
+    .seam::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+      background: linear-gradient(90deg, rgba(47,54,72,0) 0%, rgba(47,54,72,.14) 30%,
+                  rgba(47,54,72,.14) 70%, rgba(47,54,72,0) 100%);
+    }
+    .seam b {
+      display: block; width: 3px; border-radius: 2px; transform-origin: center;
+      animation-name: eq; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
+    }
+    @keyframes eq { 0%,100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+    @media (prefers-reduced-motion: reduce) { .seam b, #header::after { animation: none } }
+    /* Schmalere Fenster: weniger Balken, flachere Naht (Handoff, Abschnitt Responsive) */
+    @media (max-width: 1023px) {
+      .seam { height: 18px; }
+      .seam b:nth-child(-n+12), .seam b:nth-child(n+53) { display: none; }
+    }
+    @media (max-width: 639px) {
+      .seam { height: 16px; }
+      .seam b:nth-child(-n+18), .seam b:nth-child(n+47) { display: none; }
+    }
+
+    /* Kopfzeileninhalt auf hellem Grund */
+    #header nav a { color: var(--hero-bottom); font-weight: 600; }
+    #header nav a:hover, #header nav a:focus-visible { color: var(--color-accent); }
+    #header .brand-claim {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; color: var(--seam-ink);
+    }
+
+    /* Hero-Anfang nach Handoff: Badge und Ueberschrift */
+    #hero .rounded-full {
+      border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04);
+      padding: 8px 16px; font-size: 14px; color: #cfd6e4; gap: 9px;
+    }
+    #hero .rounded-full .rounded-full { width: 8px; height: 8px; background: #3ecf8e; padding: 0; border: 0; }
+    #hero-title { font-weight: 800; letter-spacing: -.02em; line-height: 1.08; font-size: 32px; }
+    @media (min-width: 640px)  { #hero-title { font-size: 38px; } }
+    @media (min-width: 1024px) { #hero-title { font-size: 48px; } }
+
+    /* Hero: Verlauf statt Vollton, dazu der helle Abglanz der Naht */
+    #hero { background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%); }
+    #hero::before {
+      content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 82%; height: 150px; z-index: -1; pointer-events: none;
+      background: radial-gradient(ellipse at top, rgba(237,239,243,.14) 0%, rgba(237,239,243,0) 70%);
+    }
+
     #header nav a { position: relative; padding-block: 6px; }
     #header nav a::after {
       content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
@@ -284,13 +387,53 @@
     }
     #pricing article:nth-child(3):hover { border-color: var(--color-accent); }
 
+    /* ================================================================
+       Dunkle Abschnitte im Wechsel mit weissen.
+       Die Seite ist hell gebaut, deshalb kehren diese Regeln Textfarben,
+       Kartenflaechen und Linien um. Helle Karten, die ihre eigene Flaeche
+       mitbringen, sind unten ausdruecklich ausgenommen.
+       ================================================================ */
+    .section-dark { background: var(--color-logo-navy); }
+    .section-dark h1, .section-dark h2, .section-dark h3,
+    .section-dark strong,
+    .section-dark .text-zinc-900, .section-dark .text-ink { color: #FFFFFF; }
+    .section-dark p, .section-dark li,
+    .section-dark .text-zinc-600, .section-dark .text-zinc-700,
+    .section-dark .text-ink-muted { color: rgba(255,255,255,0.76); }
+    .section-dark .text-zinc-500 { color: rgba(255,255,255,0.58); }
+    .section-dark .bg-white { background: rgba(255,255,255,0.05); }
+    .section-dark [class*="--color-bg-subtle"] { background: rgba(255,255,255,0.05); }
+    .section-dark .border-zinc-100,
+    .section-dark .border-zinc-200,
+    .section-dark .border-line { border-color: rgba(255,255,255,0.15); }
+    .section-dark .ring-zinc-100 { --tw-ring-color: rgba(255,255,255,0.15); }
+    .section-dark .bg-accent-subtle { background: rgba(230,117,51,0.20); color: #F6BC8C; }
+    .section-dark .bg-accent-subtle svg { color: #F6BC8C; }
+    .section-dark .uppercase.tracking-wider { color: rgba(255,255,255,0.62); }
+
+    /* Der ROI-Rechner ist ein React-Bauteil mit fest gesetzten Farben.
+       Ueber diese beiden Variablen laesst sich seine Kopfzeile umschalten,
+       der Rest des Rechners liegt auf einer eigenen weissen Karte. */
+    .section-dark #roi-rechner-root { --roi-kopf: #FFFFFF; --roi-kopf-muted: rgba(255,255,255,0.76); }
+
+    /* Ausnahme: Die Protokollkarte bleibt eine weisse Flaeche und behaelt
+       ihre dunklen Schriftfarben. Ohne diese Regeln stuende weiss auf weiss. */
+    .section-dark .hero-proof { background: #FFFFFF; }
+    .section-dark .hero-proof p { color: var(--color-text); }
+    .section-dark .hero-proof .hp-who { color: var(--color-text-subtle); }
+    .section-dark .hero-proof .hp-who.hp-agent { color: var(--color-accent-text); }
+    .section-dark .hero-proof .hp-foot { color: var(--color-text-muted); }
+    .section-dark .hero-proof .hp-note,
+    .section-dark .hero-proof .hp-legal { color: var(--color-text-subtle); }
+    .section-dark .hero-proof .hp-title { color: rgba(255,255,255,0.94); }
+
     /* Das dunkle Abschlussband: die einzige Kontrastflaeche der Seite */
     #final-cta { position: relative; isolation: isolate; background: var(--color-logo-navy); }
     #final-cta::before {
       content: ""; position: absolute; inset: 0; z-index: -1;
       background: radial-gradient(70% 120% at 50% 0%, rgba(230,117,51,0.16) 0%, transparent 65%);
     }
-    #final-cta::after {
+    .section-dark::after {
       content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background-image:
         linear-gradient(to right,  rgba(255,255,255,0.05) 1px, transparent 1px),
@@ -299,7 +442,7 @@
       -webkit-mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
               mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
     }
-    @media (min-width: 768px) { #final-cta::after { background-size: 56px 56px; } }
+    @media (min-width: 768px) { .section-dark::after { background-size: 56px 56px; } }
     #final-cta h2, #final-cta .text-zinc-900 { color: #FFFFFF; }
     #final-cta p { color: rgba(255,255,255,0.74); }
     #final-cta .text-sm, #final-cta .text-zinc-500, #final-cta .text-zinc-600 { color: rgba(255,255,255,0.66); }
@@ -419,9 +562,9 @@
        HEADER / NAV
        ========================================================================= -->
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
-    <div class="max-w-content mx-auto px-12 h-28 sm:h-32 lg:h-40 flex items-center justify-between">
+    <div class="header-inner max-w-content mx-auto px-12 flex items-center justify-between">
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
-        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="h-16 sm:h-20 lg:h-28 w-auto" /><span class="hidden text-[9.5px] font-medium uppercase tracking-[0.06em] text-zinc-500 sm:block sm:text-[10.5px]">KI für Kommunikation und Automation</span></span>
+        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-10">
         <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
@@ -436,6 +579,7 @@
         </a>
       </div>
     </div>
+        <div class="seam" aria-hidden="true"><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:0.0s"></b><b style="height:6px;background:#1d2432;opacity:0.12;animation-duration:2.68s;animation-delay:0.055s"></b><b style="height:9px;background:#1d2432;opacity:0.12;animation-duration:2.96s;animation-delay:0.11s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.24s;animation-delay:0.165s"></b><b style="height:8px;background:#1d2432;opacity:0.216;animation-duration:3.52s;animation-delay:0.22s"></b><b style="height:10px;background:#1d2432;opacity:0.265;animation-duration:3.8s;animation-delay:0.275s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:4.08s;animation-delay:0.33s"></b><b style="height:9px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:0.385s"></b><b style="height:12px;background:#1d2432;opacity:0.401;animation-duration:2.68s;animation-delay:0.44s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:2.96s;animation-delay:0.495s"></b><b style="height:10px;background:#1d2432;opacity:0.482;animation-duration:3.24s;animation-delay:0.55s"></b><b style="height:13px;background:#1d2432;opacity:0.52;animation-duration:3.52s;animation-delay:0.605s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:3.8s;animation-delay:0.66s"></b><b style="height:12px;background:#1d2432;opacity:0.591;animation-duration:4.08s;animation-delay:0.715s"></b><b style="height:14px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:0.77s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:2.68s;animation-delay:0.825s"></b><b style="height:13px;background:#1d2432;opacity:0.683;animation-duration:2.96s;animation-delay:0.88s"></b><b style="height:16px;background:#1d2432;opacity:0.71;animation-duration:3.24s;animation-delay:0.935s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.52s;animation-delay:0.99s"></b><b style="height:14px;background:#1d2432;opacity:0.759;animation-duration:3.8s;animation-delay:1.045s"></b><b style="height:17px;background:#1d2432;opacity:0.78;animation-duration:4.08s;animation-delay:1.1s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:1.155s"></b><b style="height:16px;background:#1d2432;opacity:0.818;animation-duration:2.68s;animation-delay:1.21s"></b><b style="height:18px;background:#E67533;opacity:0.835;animation-duration:2.96s;animation-delay:1.265s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.24s;animation-delay:1.32s"></b><b style="height:17px;background:#E67533;opacity:0.862;animation-duration:3.52s;animation-delay:1.375s"></b><b style="height:20px;background:#E67533;opacity:0.873;animation-duration:3.8s;animation-delay:1.43s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:4.08s;animation-delay:1.485s"></b><b style="height:18px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.54s"></b><b style="height:21px;background:#E67533;opacity:0.894;animation-duration:2.68s;animation-delay:1.595s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:2.96s;animation-delay:1.65s"></b><b style="height:20px;background:#E67533;opacity:0.9;animation-duration:3.24s;animation-delay:1.705s"></b><b style="height:22px;background:#E67533;opacity:0.9;animation-duration:3.52s;animation-delay:1.76s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:3.8s;animation-delay:1.815s"></b><b style="height:19px;background:#E67533;opacity:0.894;animation-duration:4.08s;animation-delay:1.87s"></b><b style="height:20px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.925s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:2.68s;animation-delay:1.98s"></b><b style="height:18px;background:#E67533;opacity:0.873;animation-duration:2.96s;animation-delay:2.035s"></b><b style="height:19px;background:#E67533;opacity:0.862;animation-duration:3.24s;animation-delay:2.09s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.52s;animation-delay:2.145s"></b><b style="height:16px;background:#E67533;opacity:0.835;animation-duration:3.8s;animation-delay:2.2s"></b><b style="height:18px;background:#1d2432;opacity:0.818;animation-duration:4.08s;animation-delay:2.255s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:2.31s"></b><b style="height:15px;background:#1d2432;opacity:0.78;animation-duration:2.68s;animation-delay:2.365s"></b><b style="height:16px;background:#1d2432;opacity:0.759;animation-duration:2.96s;animation-delay:2.42s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.24s;animation-delay:2.475s"></b><b style="height:14px;background:#1d2432;opacity:0.71;animation-duration:3.52s;animation-delay:2.53s"></b><b style="height:15px;background:#1d2432;opacity:0.683;animation-duration:3.8s;animation-delay:2.585s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:4.08s;animation-delay:2.64s"></b><b style="height:12px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:2.695s"></b><b style="height:14px;background:#1d2432;opacity:0.591;animation-duration:2.68s;animation-delay:2.75s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:2.96s;animation-delay:2.805s"></b><b style="height:11px;background:#1d2432;opacity:0.52;animation-duration:3.24s;animation-delay:2.86s"></b><b style="height:12px;background:#1d2432;opacity:0.482;animation-duration:3.52s;animation-delay:2.915s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:3.8s;animation-delay:2.97s"></b><b style="height:10px;background:#1d2432;opacity:0.401;animation-duration:4.08s;animation-delay:3.025s"></b><b style="height:11px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:3.08s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:2.68s;animation-delay:3.135s"></b><b style="height:8px;background:#1d2432;opacity:0.265;animation-duration:2.96s;animation-delay:3.19s"></b><b style="height:10px;background:#1d2432;opacity:0.216;animation-duration:3.24s;animation-delay:3.245s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.52s;animation-delay:3.3s"></b><b style="height:7px;background:#1d2432;opacity:0.12;animation-duration:3.8s;animation-delay:3.355s"></b><b style="height:8px;background:#1d2432;opacity:0.12;animation-duration:4.08s;animation-delay:3.41s"></b><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:3.465s"></b></div>
   </header>
 
   <main id="main">
@@ -443,7 +587,7 @@
     <!-- ====================================================================
          1. HERO
          ==================================================================== -->
-    <section id="hero" class="section" aria-labelledby="hero-title" data-section="01-hero">
+    <section id="hero" class="section section-dark" aria-labelledby="hero-title" data-section="01-hero">
       <div class="max-w-content mx-auto px-6">
         <div data-slot="hero">
           <div class="mx-auto max-w-6xl px-6 hero-grid">
@@ -498,7 +642,7 @@
     <!-- ====================================================================
          3. OMNICHANNEL-GRID  (Voice · Chat · WhatsApp · E-Mail · Reviews · Prozesse)
          ==================================================================== -->
-    <section id="omnichannel" class="section section-alt" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
+    <section id="omnichannel" class="section" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
       <div class="max-w-content mx-auto px-6">
         <h2 id="omnichannel-title" class="sr-only">Module</h2>
         <div data-slot="omnichannel-grid">
@@ -524,7 +668,7 @@
     <!-- ====================================================================
          ABLAUF
          ==================================================================== -->
-    <section id="ablauf" class="section" aria-labelledby="ablauf-title" data-section="ablauf">
+    <section id="ablauf" class="section section-dark" aria-labelledby="ablauf-title" data-section="ablauf">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ablauf-title" class="sr-only">Wie es abläuft</h2>
         <div class="mx-auto max-w-6xl px-6">
@@ -547,7 +691,7 @@
     <!-- ====================================================================
          4. VALUE-QUADRANT
          ==================================================================== -->
-    <section id="value" class="section section-alt" aria-labelledby="value-title" data-section="04-value-quadrant">
+    <section id="value" class="section" aria-labelledby="value-title" data-section="04-value-quadrant">
       <div class="max-w-content mx-auto px-6">
         <h2 id="value-title" class="sr-only">Vier prüfbare Unterschiede</h2>
         <div data-slot="value-quadrant">
@@ -584,7 +728,7 @@
     <!-- ====================================================================
          9. ÜBER MICH
          ==================================================================== -->
-    <section id="ueber-mich" class="section" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
+    <section id="ueber-mich" class="section section-dark" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
         <div data-slot="ueber-mich">
@@ -624,7 +768,7 @@
     <!-- ====================================================================
          12. INTEGRATIONEN (Kompetenz-Kategorien, ohne Anbieternamen)
          ==================================================================== -->
-    <section id="integrationen" class="section section-alt" aria-labelledby="integrationen-title" data-section="12-integrationen">
+    <section id="integrationen" class="section" aria-labelledby="integrationen-title" data-section="12-integrationen">
       <div class="max-w-content mx-auto px-6">
         <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
         <div data-slot="integrationen">
@@ -652,7 +796,7 @@
     <!-- ====================================================================
          10. COMPLIANCE-BADGES (DSGVO · AVV · Sub-Prozessoren · Standard-Dienste)
          ==================================================================== -->
-    <section id="compliance" class="section" aria-labelledby="compliance-title" data-section="10-compliance-badges">
+    <section id="compliance" class="section section-dark" aria-labelledby="compliance-title" data-section="10-compliance-badges">
       <div class="max-w-content mx-auto px-6">
         <h2 id="compliance-title" class="sr-only">Datenschutz</h2>
         <div data-slot="compliance-badges">
@@ -671,7 +815,7 @@
     <!-- ====================================================================
          6. PRICING  (Starter 199 · Professional 399 · Enterprise)
          ==================================================================== -->
-    <section id="pricing" class="section section-alt" aria-labelledby="pricing-title" data-section="06-pricing">
+    <section id="pricing" class="section" aria-labelledby="pricing-title" data-section="06-pricing">
       <div class="max-w-content mx-auto px-6">
         <h2 id="pricing-title" class="sr-only">Preise</h2>
         <div data-slot="pricing">
@@ -758,7 +902,7 @@
     <!-- ====================================================================
          7. ROI-RECHNER (Mount-Point — Loader-Strategie offen, siehe TODO)
          ==================================================================== -->
-    <section id="roi" class="section" aria-labelledby="roi-title" data-section="07-roi-rechner">
+    <section id="roi" class="section section-dark" aria-labelledby="roi-title" data-section="07-roi-rechner">
       <div class="max-w-content mx-auto px-6">
         <h2 id="roi-title" class="sr-only">ROI-Rechner</h2>
 
@@ -775,7 +919,7 @@
     <!-- ====================================================================
          11. FAQ
          ==================================================================== -->
-    <section id="faq" class="section section-alt" aria-labelledby="faq-title" data-section="11-faq">
+    <section id="faq" class="section" aria-labelledby="faq-title" data-section="11-faq">
       <div class="max-w-content mx-auto px-6">
         <h2 id="faq-title" class="sr-only">FAQ</h2>
         <div data-slot="faq">
@@ -803,7 +947,7 @@
     <!-- ====================================================================
          13. FINAL CTA
          ==================================================================== -->
-    <section id="final-cta" class="section" aria-labelledby="cta-title" data-section="13-final-cta">
+    <section id="final-cta" class="section section-dark" aria-labelledby="cta-title" data-section="13-final-cta">
       <div class="max-w-content mx-auto px-6">
         <h2 id="cta-title" class="sr-only">Erstgespräch vereinbaren</h2>
         <div data-slot="final-cta">
