@@ -214,6 +214,14 @@
     }
 
     /* Navigation: mitwachsende Unterstreichung */
+    /* Kopfzeile dunkel, damit sie mit dem Hero zu einem Block verschmilzt.
+       Sie bleibt durchscheinend mit Weichzeichner, beim Scrollen ueber die
+       weissen Abschnitte liegt sie damit als dunkle Leiste darueber. */
+    #header { background: var(--color-logo-navy); border-bottom-color: transparent; }
+    #header nav a { color: rgba(255,255,255,0.86); }
+    #header nav a:hover, #header nav a:focus-visible { color: #FFFFFF; }
+    #header .text-zinc-500 { color: rgba(255,255,255,0.62); }
+
     #header nav a { position: relative; padding-block: 6px; }
     #header nav a::after {
       content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px;
@@ -461,7 +469,7 @@
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
     <div class="max-w-content mx-auto px-12 h-28 sm:h-32 lg:h-40 flex items-center justify-between">
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
-        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="h-16 sm:h-20 lg:h-28 w-auto" /><span class="hidden text-[9.5px] font-medium uppercase tracking-[0.06em] text-zinc-500 sm:block sm:text-[10.5px]">KI für Kommunikation und Automation</span></span>
+        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke-hell.svg" alt="Logik-Agentur" class="h-16 sm:h-20 lg:h-28 w-auto" /><span class="hidden text-[9.5px] font-medium uppercase tracking-[0.06em] text-zinc-500 sm:block sm:text-[10.5px]">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-10">
         <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
