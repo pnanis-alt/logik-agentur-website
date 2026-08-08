@@ -164,10 +164,12 @@
     #footer { background: var(--color-bg-band); }
 
     /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
-    /* Sprungmarke exakt auf Unterkante der Kopfzeile: h-28 / sm:h-32 / lg:h-40 */
-    :where(section[id]) { scroll-margin-top: 7rem; }
-    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 8rem; } }
-    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 10rem; } }
+    /* Sprungmarke exakt auf Unterkante der Kopfzeile inklusive Naht.
+       Gemessen: 137 / 171 / 181 px. Aendert sich die Logogroesse, das
+       Innenmass der Kopfzeile oder die Nahthoehe, muss dieser Wert mit. */
+    :where(section[id]) { scroll-margin-top: 137px; }
+    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 171px; } }
+    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 181px; } }
 
     /* Vorspannzeilen in der zweiten Hausschrift, mit Akzentstrich */
     main .uppercase.tracking-wider,
@@ -217,37 +219,96 @@
     /* Kopfzeile dunkel, damit sie mit dem Hero zu einem Block verschmilzt.
        Sie bleibt durchscheinend mit Weichzeichner, beim Scrollen ueber die
        weissen Abschnitte liegt sie damit als dunkle Leiste darueber. */
-    /* Kopfzeile: vier zurueckhaltende Ebenen statt einer Farbflaeche.
-       1. leichter Verlauf von oben nach unten, damit sie kein Brett ist
-       2. das Konstruktionsraster laeuft durch, wie in den Abschnitten
-       3. ein warmer Lichtpunkt hinter dem Logo, Motiv aus dem Schluss-CTA
-       4. eine Abschlusskante, die zu den Raendern hin ausblendet */
+    /* ================================================================
+       Kopfzeile nach Design-Handoff "Header-Trennung 7a".
+       Heller, kuehler Grund mit isometrischem Wuerfelrelief, darunter die
+       Waveform-Naht, erst dann beginnt der dunkle Hero. Reines CSS.
+       ================================================================ */
+    :root {
+      --header-bg: #EDEFF3;
+      --cube-light: rgba(255,255,255,.92);
+      --cube-dark: rgba(47,54,72,.16);
+      --seam-ink: #1d2432;
+      --hero-top: #3A4256;
+      --hero-bottom: #2F3648;
+    }
     #header {
-      background: linear-gradient(180deg, #38445C 0%, var(--color-logo-navy) 78%);
-      border-bottom-color: transparent;
-      position: sticky; isolation: isolate;
+      position: sticky; background: var(--header-bg);
+      overflow: hidden; border-bottom-color: transparent;
     }
     #header::before {
-      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+      content: ""; position: absolute; inset: 0; pointer-events: none;
       background-image:
-        linear-gradient(to right,  rgba(255,255,255,0.055) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px);
-      background-size: 40px 40px;
-      -webkit-mask-image: radial-gradient(130% 150% at 18% 0%, #000 0%, transparent 78%);
-              mask-image: radial-gradient(130% 150% at 18% 0%, #000 0%, transparent 78%);
+        linear-gradient(30deg,  var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(150deg, var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(30deg,  var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(150deg, var(--cube-light) 12%, transparent 12.5%, transparent 87%, var(--cube-light) 87.5%, var(--cube-light)),
+        linear-gradient(60deg,  var(--cube-dark) 25%, transparent 25.5%, transparent 75%, var(--cube-dark) 75%, var(--cube-dark)),
+        linear-gradient(60deg,  var(--cube-dark) 25%, transparent 25.5%, transparent 75%, var(--cube-dark) 75%, var(--cube-dark));
+      background-size: 72px 126px;
+      background-position: 0 0, 0 0, 36px 63px, 36px 63px, 0 0, 36px 63px;
+      -webkit-mask-image: linear-gradient(205deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.15) 100%);
+              mask-image: linear-gradient(205deg, rgba(0,0,0,1) 0%, rgba(0,0,0,.6) 50%, rgba(0,0,0,.15) 100%);
     }
     #header::after {
-      content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
-      background:
-        linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.14) 18%,
-                        rgba(230,117,51,0.55) 50%, rgba(255,255,255,0.14) 82%, transparent 100%)
-          bottom / 100% 1px no-repeat,
-        radial-gradient(46% 120% at 24% 34%, rgba(230,117,51,0.15) 0%, transparent 68%);
+      content: ""; position: absolute; top: -170px; right: -120px;
+      width: 720px; height: 460px; pointer-events: none;
+      background: radial-gradient(circle at 68% 32%, rgba(47,54,72,.20) 0%, rgba(47,54,72,.06) 42%, rgba(47,54,72,0) 72%);
+      animation: breathe 9s ease-in-out infinite;
     }
-    @media (min-width: 768px) { #header::before { background-size: 56px 56px; } }
-    #header nav a { color: rgba(255,255,255,0.86); }
-    #header nav a:hover, #header nav a:focus-visible { color: #FFFFFF; }
-    #header .text-zinc-500 { color: rgba(255,255,255,0.62); }
+    @keyframes breathe { 0%,100% { opacity: .55 } 50% { opacity: 1 } }
+    #header .header-inner { position: relative; z-index: 1; }
+
+    /* Waveform-Naht, sitzt noch auf dem hellen Grund */
+    .seam {
+      position: relative; z-index: 1; height: 28px; background: var(--header-bg);
+      display: flex; align-items: center; justify-content: center; gap: 5px; overflow: hidden;
+    }
+    .seam::before {
+      content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px;
+      background: linear-gradient(90deg, rgba(47,54,72,0) 0%, rgba(47,54,72,.14) 30%,
+                  rgba(47,54,72,.14) 70%, rgba(47,54,72,0) 100%);
+    }
+    .seam b {
+      display: block; width: 3px; border-radius: 2px; transform-origin: center;
+      animation-name: eq; animation-timing-function: ease-in-out; animation-iteration-count: infinite;
+    }
+    @keyframes eq { 0%,100% { transform: scaleY(.35) } 50% { transform: scaleY(1) } }
+    @media (prefers-reduced-motion: reduce) { .seam b, #header::after { animation: none } }
+    /* Schmalere Fenster: weniger Balken, flachere Naht (Handoff, Abschnitt Responsive) */
+    @media (max-width: 1023px) {
+      .seam { height: 24px; }
+      .seam b:nth-child(-n+12), .seam b:nth-child(n+53) { display: none; }
+    }
+    @media (max-width: 639px) {
+      .seam { height: 20px; }
+      .seam b:nth-child(-n+18), .seam b:nth-child(n+47) { display: none; }
+    }
+
+    /* Kopfzeileninhalt auf hellem Grund */
+    #header nav a { color: var(--hero-bottom); font-weight: 600; }
+    #header nav a:hover, #header nav a:focus-visible { color: var(--color-accent); }
+    #header .brand-claim {
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; color: #828a99;
+    }
+
+    /* Hero-Anfang nach Handoff: Badge und Ueberschrift */
+    #hero .rounded-full {
+      border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.04);
+      padding: 8px 16px; font-size: 14px; color: #cfd6e4; gap: 9px;
+    }
+    #hero .rounded-full .rounded-full { width: 8px; height: 8px; background: #3ecf8e; padding: 0; border: 0; }
+    #hero-title { font-weight: 800; letter-spacing: -.02em; line-height: 1.08; font-size: 32px; }
+    @media (min-width: 640px)  { #hero-title { font-size: 38px; } }
+    @media (min-width: 1024px) { #hero-title { font-size: 52px; } }
+
+    /* Hero: Verlauf statt Vollton, dazu der helle Abglanz der Naht */
+    #hero { background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%); }
+    #hero::before {
+      content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 82%; height: 150px; z-index: -1; pointer-events: none;
+      background: radial-gradient(ellipse at top, rgba(237,239,243,.14) 0%, rgba(237,239,243,0) 70%);
+    }
 
     #header nav a { position: relative; padding-block: 6px; }
     #header nav a::after {
@@ -494,9 +555,9 @@
        HEADER / NAV
        ========================================================================= -->
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
-    <div class="max-w-content mx-auto px-12 h-28 sm:h-32 lg:h-40 flex items-center justify-between">
+    <div class="header-inner max-w-content mx-auto px-12 pt-[26px] pb-[34px] flex items-center justify-between">
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
-        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke-hell.svg" alt="Logik-Agentur" class="h-16 sm:h-20 lg:h-28 w-auto" /><span class="hidden text-[9.5px] font-medium uppercase tracking-[0.06em] text-zinc-500 sm:block sm:text-[10.5px]">KI für Kommunikation und Automation</span></span>
+        <span class="inline-flex flex-col items-center gap-2"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="h-14 sm:h-16 lg:h-[70px] w-auto" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-10">
         <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
@@ -511,6 +572,7 @@
         </a>
       </div>
     </div>
+        <div class="seam" aria-hidden="true"><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:0.0s"></b><b style="height:6px;background:#1d2432;opacity:0.12;animation-duration:2.68s;animation-delay:0.055s"></b><b style="height:9px;background:#1d2432;opacity:0.12;animation-duration:2.96s;animation-delay:0.11s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.24s;animation-delay:0.165s"></b><b style="height:8px;background:#1d2432;opacity:0.216;animation-duration:3.52s;animation-delay:0.22s"></b><b style="height:10px;background:#1d2432;opacity:0.265;animation-duration:3.8s;animation-delay:0.275s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:4.08s;animation-delay:0.33s"></b><b style="height:9px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:0.385s"></b><b style="height:12px;background:#1d2432;opacity:0.401;animation-duration:2.68s;animation-delay:0.44s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:2.96s;animation-delay:0.495s"></b><b style="height:10px;background:#1d2432;opacity:0.482;animation-duration:3.24s;animation-delay:0.55s"></b><b style="height:13px;background:#1d2432;opacity:0.52;animation-duration:3.52s;animation-delay:0.605s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:3.8s;animation-delay:0.66s"></b><b style="height:12px;background:#1d2432;opacity:0.591;animation-duration:4.08s;animation-delay:0.715s"></b><b style="height:14px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:0.77s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:2.68s;animation-delay:0.825s"></b><b style="height:13px;background:#1d2432;opacity:0.683;animation-duration:2.96s;animation-delay:0.88s"></b><b style="height:16px;background:#1d2432;opacity:0.71;animation-duration:3.24s;animation-delay:0.935s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.52s;animation-delay:0.99s"></b><b style="height:14px;background:#1d2432;opacity:0.759;animation-duration:3.8s;animation-delay:1.045s"></b><b style="height:17px;background:#1d2432;opacity:0.78;animation-duration:4.08s;animation-delay:1.1s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:1.155s"></b><b style="height:16px;background:#1d2432;opacity:0.818;animation-duration:2.68s;animation-delay:1.21s"></b><b style="height:18px;background:#E67533;opacity:0.835;animation-duration:2.96s;animation-delay:1.265s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.24s;animation-delay:1.32s"></b><b style="height:17px;background:#E67533;opacity:0.862;animation-duration:3.52s;animation-delay:1.375s"></b><b style="height:20px;background:#E67533;opacity:0.873;animation-duration:3.8s;animation-delay:1.43s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:4.08s;animation-delay:1.485s"></b><b style="height:18px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.54s"></b><b style="height:21px;background:#E67533;opacity:0.894;animation-duration:2.68s;animation-delay:1.595s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:2.96s;animation-delay:1.65s"></b><b style="height:20px;background:#E67533;opacity:0.9;animation-duration:3.24s;animation-delay:1.705s"></b><b style="height:22px;background:#E67533;opacity:0.9;animation-duration:3.52s;animation-delay:1.76s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:3.8s;animation-delay:1.815s"></b><b style="height:19px;background:#E67533;opacity:0.894;animation-duration:4.08s;animation-delay:1.87s"></b><b style="height:20px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.925s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:2.68s;animation-delay:1.98s"></b><b style="height:18px;background:#E67533;opacity:0.873;animation-duration:2.96s;animation-delay:2.035s"></b><b style="height:19px;background:#E67533;opacity:0.862;animation-duration:3.24s;animation-delay:2.09s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.52s;animation-delay:2.145s"></b><b style="height:16px;background:#E67533;opacity:0.835;animation-duration:3.8s;animation-delay:2.2s"></b><b style="height:18px;background:#1d2432;opacity:0.818;animation-duration:4.08s;animation-delay:2.255s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:2.31s"></b><b style="height:15px;background:#1d2432;opacity:0.78;animation-duration:2.68s;animation-delay:2.365s"></b><b style="height:16px;background:#1d2432;opacity:0.759;animation-duration:2.96s;animation-delay:2.42s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.24s;animation-delay:2.475s"></b><b style="height:14px;background:#1d2432;opacity:0.71;animation-duration:3.52s;animation-delay:2.53s"></b><b style="height:15px;background:#1d2432;opacity:0.683;animation-duration:3.8s;animation-delay:2.585s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:4.08s;animation-delay:2.64s"></b><b style="height:12px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:2.695s"></b><b style="height:14px;background:#1d2432;opacity:0.591;animation-duration:2.68s;animation-delay:2.75s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:2.96s;animation-delay:2.805s"></b><b style="height:11px;background:#1d2432;opacity:0.52;animation-duration:3.24s;animation-delay:2.86s"></b><b style="height:12px;background:#1d2432;opacity:0.482;animation-duration:3.52s;animation-delay:2.915s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:3.8s;animation-delay:2.97s"></b><b style="height:10px;background:#1d2432;opacity:0.401;animation-duration:4.08s;animation-delay:3.025s"></b><b style="height:11px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:3.08s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:2.68s;animation-delay:3.135s"></b><b style="height:8px;background:#1d2432;opacity:0.265;animation-duration:2.96s;animation-delay:3.19s"></b><b style="height:10px;background:#1d2432;opacity:0.216;animation-duration:3.24s;animation-delay:3.245s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.52s;animation-delay:3.3s"></b><b style="height:7px;background:#1d2432;opacity:0.12;animation-duration:3.8s;animation-delay:3.355s"></b><b style="height:8px;background:#1d2432;opacity:0.12;animation-duration:4.08s;animation-delay:3.41s"></b><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:3.465s"></b></div>
   </header>
 
   <main id="main">
