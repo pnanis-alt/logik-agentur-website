@@ -189,7 +189,7 @@
        Der dunkle Schlussabschnitt ist ausgenommen, er bekommt weiter unten
        sein eigenes Raster in heller Linienfarbe. */
     .section { position: relative; isolation: isolate; }
-    .section:not(#final-cta)::before {
+    .section:not(.section-dark)::before {
       content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background-image:
         linear-gradient(to right,  rgba(46,56,73,0.055) 1px, transparent 1px),
@@ -200,11 +200,11 @@
     }
     /* Jeder zweite Abschnitt spiegelt den Verlauf, sonst wirkt die Seite wie
        Millimeterpapier. Die Spiegelung laeuft mit dem Bandwechsel mit. */
-    .section:nth-of-type(even):not(#final-cta)::before {
+    .section:nth-of-type(even):not(.section-dark)::before {
       -webkit-mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
               mask-image: radial-gradient(120% 90% at 85% 0%, #000 0%, transparent 72%);
     }
-    @media (min-width: 768px) { .section:not(#final-cta)::before { background-size: 56px 56px; } }
+    @media (min-width: 768px) { .section:not(.section-dark)::before { background-size: 56px 56px; } }
 
     /* Der Live-Punkt pulsiert, weil er einen Zustand anzeigt */
     #hero .bg-emerald-500 { animation: la-pulse 2.6s ease-out infinite; }
@@ -284,13 +284,53 @@
     }
     #pricing article:nth-child(3):hover { border-color: var(--color-accent); }
 
+    /* ================================================================
+       Dunkle Abschnitte im Wechsel mit weissen.
+       Die Seite ist hell gebaut, deshalb kehren diese Regeln Textfarben,
+       Kartenflaechen und Linien um. Helle Karten, die ihre eigene Flaeche
+       mitbringen, sind unten ausdruecklich ausgenommen.
+       ================================================================ */
+    .section-dark { background: var(--color-logo-navy); }
+    .section-dark h1, .section-dark h2, .section-dark h3,
+    .section-dark strong,
+    .section-dark .text-zinc-900, .section-dark .text-ink { color: #FFFFFF; }
+    .section-dark p, .section-dark li,
+    .section-dark .text-zinc-600, .section-dark .text-zinc-700,
+    .section-dark .text-ink-muted { color: rgba(255,255,255,0.76); }
+    .section-dark .text-zinc-500 { color: rgba(255,255,255,0.58); }
+    .section-dark .bg-white { background: rgba(255,255,255,0.05); }
+    .section-dark [class*="--color-bg-subtle"] { background: rgba(255,255,255,0.05); }
+    .section-dark .border-zinc-100,
+    .section-dark .border-zinc-200,
+    .section-dark .border-line { border-color: rgba(255,255,255,0.15); }
+    .section-dark .ring-zinc-100 { --tw-ring-color: rgba(255,255,255,0.15); }
+    .section-dark .bg-accent-subtle { background: rgba(230,117,51,0.20); color: #F6BC8C; }
+    .section-dark .bg-accent-subtle svg { color: #F6BC8C; }
+    .section-dark .uppercase.tracking-wider { color: rgba(255,255,255,0.62); }
+
+    /* Der ROI-Rechner ist ein React-Bauteil mit fest gesetzten Farben.
+       Ueber diese beiden Variablen laesst sich seine Kopfzeile umschalten,
+       der Rest des Rechners liegt auf einer eigenen weissen Karte. */
+    .section-dark #roi-rechner-root { --roi-kopf: #FFFFFF; --roi-kopf-muted: rgba(255,255,255,0.76); }
+
+    /* Ausnahme: Die Protokollkarte bleibt eine weisse Flaeche und behaelt
+       ihre dunklen Schriftfarben. Ohne diese Regeln stuende weiss auf weiss. */
+    .section-dark .hero-proof { background: #FFFFFF; }
+    .section-dark .hero-proof p { color: var(--color-text); }
+    .section-dark .hero-proof .hp-who { color: var(--color-text-subtle); }
+    .section-dark .hero-proof .hp-who.hp-agent { color: var(--color-accent-text); }
+    .section-dark .hero-proof .hp-foot { color: var(--color-text-muted); }
+    .section-dark .hero-proof .hp-note,
+    .section-dark .hero-proof .hp-legal { color: var(--color-text-subtle); }
+    .section-dark .hero-proof .hp-title { color: rgba(255,255,255,0.94); }
+
     /* Das dunkle Abschlussband: die einzige Kontrastflaeche der Seite */
     #final-cta { position: relative; isolation: isolate; background: var(--color-logo-navy); }
     #final-cta::before {
       content: ""; position: absolute; inset: 0; z-index: -1;
       background: radial-gradient(70% 120% at 50% 0%, rgba(230,117,51,0.16) 0%, transparent 65%);
     }
-    #final-cta::after {
+    .section-dark::after {
       content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
       background-image:
         linear-gradient(to right,  rgba(255,255,255,0.05) 1px, transparent 1px),
@@ -299,7 +339,7 @@
       -webkit-mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
               mask-image: radial-gradient(110% 100% at 50% 0%, #000 0%, transparent 70%);
     }
-    @media (min-width: 768px) { #final-cta::after { background-size: 56px 56px; } }
+    @media (min-width: 768px) { .section-dark::after { background-size: 56px 56px; } }
     #final-cta h2, #final-cta .text-zinc-900 { color: #FFFFFF; }
     #final-cta p { color: rgba(255,255,255,0.74); }
     #final-cta .text-sm, #final-cta .text-zinc-500, #final-cta .text-zinc-600 { color: rgba(255,255,255,0.66); }
@@ -443,7 +483,7 @@
     <!-- ====================================================================
          1. HERO
          ==================================================================== -->
-    <section id="hero" class="section" aria-labelledby="hero-title" data-section="01-hero">
+    <section id="hero" class="section section-dark" aria-labelledby="hero-title" data-section="01-hero">
       <div class="max-w-content mx-auto px-6">
         <div data-slot="hero">
           <div class="mx-auto max-w-6xl px-6 hero-grid">
@@ -498,7 +538,7 @@
     <!-- ====================================================================
          3. OMNICHANNEL-GRID  (Voice · Chat · WhatsApp · E-Mail · Reviews · Prozesse)
          ==================================================================== -->
-    <section id="omnichannel" class="section section-alt" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
+    <section id="omnichannel" class="section" aria-labelledby="omnichannel-title" data-section="03-omnichannel">
       <div class="max-w-content mx-auto px-6">
         <h2 id="omnichannel-title" class="sr-only">Module</h2>
         <div data-slot="omnichannel-grid">
@@ -524,7 +564,7 @@
     <!-- ====================================================================
          ABLAUF
          ==================================================================== -->
-    <section id="ablauf" class="section" aria-labelledby="ablauf-title" data-section="ablauf">
+    <section id="ablauf" class="section section-dark" aria-labelledby="ablauf-title" data-section="ablauf">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ablauf-title" class="sr-only">Wie es abläuft</h2>
         <div class="mx-auto max-w-6xl px-6">
@@ -547,7 +587,7 @@
     <!-- ====================================================================
          4. VALUE-QUADRANT
          ==================================================================== -->
-    <section id="value" class="section section-alt" aria-labelledby="value-title" data-section="04-value-quadrant">
+    <section id="value" class="section" aria-labelledby="value-title" data-section="04-value-quadrant">
       <div class="max-w-content mx-auto px-6">
         <h2 id="value-title" class="sr-only">Vier prüfbare Unterschiede</h2>
         <div data-slot="value-quadrant">
@@ -584,7 +624,7 @@
     <!-- ====================================================================
          9. ÜBER MICH
          ==================================================================== -->
-    <section id="ueber-mich" class="section" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
+    <section id="ueber-mich" class="section section-dark" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
       <div class="max-w-content mx-auto px-6">
         <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
         <div data-slot="ueber-mich">
@@ -624,7 +664,7 @@
     <!-- ====================================================================
          12. INTEGRATIONEN (Kompetenz-Kategorien, ohne Anbieternamen)
          ==================================================================== -->
-    <section id="integrationen" class="section section-alt" aria-labelledby="integrationen-title" data-section="12-integrationen">
+    <section id="integrationen" class="section" aria-labelledby="integrationen-title" data-section="12-integrationen">
       <div class="max-w-content mx-auto px-6">
         <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
         <div data-slot="integrationen">
@@ -652,7 +692,7 @@
     <!-- ====================================================================
          10. COMPLIANCE-BADGES (DSGVO · AVV · Sub-Prozessoren · Standard-Dienste)
          ==================================================================== -->
-    <section id="compliance" class="section" aria-labelledby="compliance-title" data-section="10-compliance-badges">
+    <section id="compliance" class="section section-dark" aria-labelledby="compliance-title" data-section="10-compliance-badges">
       <div class="max-w-content mx-auto px-6">
         <h2 id="compliance-title" class="sr-only">Datenschutz</h2>
         <div data-slot="compliance-badges">
@@ -671,7 +711,7 @@
     <!-- ====================================================================
          6. PRICING  (Starter 199 · Professional 399 · Enterprise)
          ==================================================================== -->
-    <section id="pricing" class="section section-alt" aria-labelledby="pricing-title" data-section="06-pricing">
+    <section id="pricing" class="section" aria-labelledby="pricing-title" data-section="06-pricing">
       <div class="max-w-content mx-auto px-6">
         <h2 id="pricing-title" class="sr-only">Preise</h2>
         <div data-slot="pricing">
@@ -758,7 +798,7 @@
     <!-- ====================================================================
          7. ROI-RECHNER (Mount-Point — Loader-Strategie offen, siehe TODO)
          ==================================================================== -->
-    <section id="roi" class="section" aria-labelledby="roi-title" data-section="07-roi-rechner">
+    <section id="roi" class="section section-dark" aria-labelledby="roi-title" data-section="07-roi-rechner">
       <div class="max-w-content mx-auto px-6">
         <h2 id="roi-title" class="sr-only">ROI-Rechner</h2>
 
@@ -775,7 +815,7 @@
     <!-- ====================================================================
          11. FAQ
          ==================================================================== -->
-    <section id="faq" class="section section-alt" aria-labelledby="faq-title" data-section="11-faq">
+    <section id="faq" class="section" aria-labelledby="faq-title" data-section="11-faq">
       <div class="max-w-content mx-auto px-6">
         <h2 id="faq-title" class="sr-only">FAQ</h2>
         <div data-slot="faq">
@@ -803,7 +843,7 @@
     <!-- ====================================================================
          13. FINAL CTA
          ==================================================================== -->
-    <section id="final-cta" class="section" aria-labelledby="cta-title" data-section="13-final-cta">
+    <section id="final-cta" class="section section-dark" aria-labelledby="cta-title" data-section="13-final-cta">
       <div class="max-w-content mx-auto px-6">
         <h2 id="cta-title" class="sr-only">Erstgespräch vereinbaren</h2>
         <div data-slot="final-cta">
