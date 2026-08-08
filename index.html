@@ -165,11 +165,11 @@
 
     /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
     /* Sprungmarke exakt auf Unterkante der Kopfzeile inklusive Naht.
-       Gemessen: 105 / 141 / 153 px. Aendert sich die Logogroesse, das
+       Gemessen: 121 / 157 / 177 px. Aendert sich die Logogroesse, das
        Innenmass der Kopfzeile oder die Nahthoehe, muss dieser Wert mit. */
-    :where(section[id]) { scroll-margin-top: 105px; }
-    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 141px; } }
-    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 153px; } }
+    :where(section[id]) { scroll-margin-top: 121px; }
+    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 157px; } }
+    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 177px; } }
 
     /* Vorspannzeilen in der zweiten Hausschrift, mit Akzentstrich */
     main .uppercase.tracking-wider,
@@ -261,11 +261,10 @@
        sie nicht am erzeugten Stylesheet. Faellt dieses veraltet aus dem
        Zwischenspeicher zurueck, bleibt die Kopfzeile trotzdem massvoll,
        statt das Logo auf seine Originalgroesse aufzublaehen. */
-    #header .header-inner { position: relative; z-index: 1; padding-block: 18px 22px; }
-    #header .brand-logo { height: 48px; width: auto; }
-    @media (min-width: 640px)  { #header .header-inner { padding-block: 20px 24px; }
-                                 #header .brand-logo { height: 56px; } }
-    @media (min-width: 1024px) { #header .brand-logo { height: 66px; } }
+    #header .header-inner { position: relative; z-index: 1; padding-block: 12px 14px; }
+    #header .brand-logo { height: 64px; width: auto; }
+    @media (min-width: 640px)  { #header .brand-logo { height: 80px; } }
+    @media (min-width: 1024px) { #header .brand-logo { height: 112px; } }
 
     /* Waveform-Naht, sitzt noch auf dem hellen Grund */
     .seam {
@@ -297,7 +296,7 @@
     #header nav a { color: var(--hero-bottom); font-weight: 600; }
     #header nav a:hover, #header nav a:focus-visible { color: var(--color-accent); }
     #header .brand-claim {
-      font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; color: #828a99;
+      font-family: var(--font-mono); font-size: 9px; letter-spacing: .14em; color: var(--seam-ink);
     }
 
     /* Hero-Anfang nach Handoff: Badge und Ueberschrift */
@@ -565,7 +564,7 @@
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
     <div class="header-inner max-w-content mx-auto px-12 flex items-center justify-between">
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
-        <span class="inline-flex flex-col items-center gap-2"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
+        <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-10">
         <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
