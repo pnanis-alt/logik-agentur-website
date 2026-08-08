@@ -356,7 +356,7 @@ Alle übrigen Stufen stehen auf „auf Anfrage". Erfunden wurde keine Zahl.
 
 ### Weiterhin offen
 
-1. Läuft der **E-Mail-Assistent** wirklich täglich im eigenen Hotelbetrieb? Die Seite nennt ihn in der Einsatzliste, die Stack-Unterlagen führen das Szenario als „nicht scharfgeschaltet".
+1. ~~Läuft der E-Mail-Assistent täglich im eigenen Hotelbetrieb?~~ **Beantwortet am 08.08.2026:** Er läuft in der Logik-Agentur selbst und wird im gleichen Aufbau für Hotel Nanis eingerichtet. Die Seite nennt ihn deshalb nicht mehr unter dem, was im Hotel läuft, sondern getrennt als Einsatz in der Agentur.
 2. Darf der **Alt-Text des Portraits** den Namen nennen?
 3. Soll **Mistral** auch in der Drittanbieterliste der AGB stehen? (Erledigt am 07.08., hier nur als Prüfhinweis für weitere Anbieter.)
 4. **Kostenkalkulation** für die neue Staffel, siehe Prompt im Dokumenten-Repo.
