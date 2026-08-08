@@ -165,11 +165,11 @@
 
     /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
     /* Sprungmarke exakt auf Unterkante der Kopfzeile inklusive Naht.
-       Gemessen: 137 / 171 / 181 px. Aendert sich die Logogroesse, das
+       Gemessen: 105 / 141 / 153 px. Aendert sich die Logogroesse, das
        Innenmass der Kopfzeile oder die Nahthoehe, muss dieser Wert mit. */
-    :where(section[id]) { scroll-margin-top: 137px; }
-    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 171px; } }
-    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 181px; } }
+    :where(section[id]) { scroll-margin-top: 105px; }
+    @media (min-width: 640px)  { :where(section[id]) { scroll-margin-top: 141px; } }
+    @media (min-width: 1024px) { :where(section[id]) { scroll-margin-top: 153px; } }
 
     /* Vorspannzeilen in der zweiten Hausschrift, mit Akzentstrich */
     main .uppercase.tracking-wider,
@@ -257,11 +257,19 @@
       animation: breathe 9s ease-in-out infinite;
     }
     @keyframes breathe { 0%,100% { opacity: .55 } 50% { opacity: 1 } }
-    #header .header-inner { position: relative; z-index: 1; }
+    /* Masse der Kopfzeile bewusst hier und nicht als Hilfsklassen: So haengen
+       sie nicht am erzeugten Stylesheet. Faellt dieses veraltet aus dem
+       Zwischenspeicher zurueck, bleibt die Kopfzeile trotzdem massvoll,
+       statt das Logo auf seine Originalgroesse aufzublaehen. */
+    #header .header-inner { position: relative; z-index: 1; padding-block: 18px 22px; }
+    #header .brand-logo { height: 48px; width: auto; }
+    @media (min-width: 640px)  { #header .header-inner { padding-block: 20px 24px; }
+                                 #header .brand-logo { height: 56px; } }
+    @media (min-width: 1024px) { #header .brand-logo { height: 66px; } }
 
     /* Waveform-Naht, sitzt noch auf dem hellen Grund */
     .seam {
-      position: relative; z-index: 1; height: 28px; background: var(--header-bg);
+      position: relative; z-index: 1; height: 20px; background: var(--header-bg);
       display: flex; align-items: center; justify-content: center; gap: 5px; overflow: hidden;
     }
     .seam::before {
@@ -277,11 +285,11 @@
     @media (prefers-reduced-motion: reduce) { .seam b, #header::after { animation: none } }
     /* Schmalere Fenster: weniger Balken, flachere Naht (Handoff, Abschnitt Responsive) */
     @media (max-width: 1023px) {
-      .seam { height: 24px; }
+      .seam { height: 18px; }
       .seam b:nth-child(-n+12), .seam b:nth-child(n+53) { display: none; }
     }
     @media (max-width: 639px) {
-      .seam { height: 20px; }
+      .seam { height: 16px; }
       .seam b:nth-child(-n+18), .seam b:nth-child(n+47) { display: none; }
     }
 
@@ -300,7 +308,7 @@
     #hero .rounded-full .rounded-full { width: 8px; height: 8px; background: #3ecf8e; padding: 0; border: 0; }
     #hero-title { font-weight: 800; letter-spacing: -.02em; line-height: 1.08; font-size: 32px; }
     @media (min-width: 640px)  { #hero-title { font-size: 38px; } }
-    @media (min-width: 1024px) { #hero-title { font-size: 52px; } }
+    @media (min-width: 1024px) { #hero-title { font-size: 48px; } }
 
     /* Hero: Verlauf statt Vollton, dazu der helle Abglanz der Naht */
     #hero { background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%); }
@@ -555,9 +563,9 @@
        HEADER / NAV
        ========================================================================= -->
   <header id="header" class="sticky top-0 z-50 bg-base/80 backdrop-blur border-b border-line">
-    <div class="header-inner max-w-content mx-auto px-12 pt-[26px] pb-[34px] flex items-center justify-between">
+    <div class="header-inner max-w-content mx-auto px-12 flex items-center justify-between">
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
-        <span class="inline-flex flex-col items-center gap-2"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="h-14 sm:h-16 lg:h-[70px] w-auto" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
+        <span class="inline-flex flex-col items-center gap-2"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-10">
         <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
