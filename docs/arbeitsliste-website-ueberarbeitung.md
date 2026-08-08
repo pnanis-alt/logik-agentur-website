@@ -1,6 +1,6 @@
 # Arbeitsliste Website-Überarbeitung
 
-**Stand:** 07.08.2026 · **Arbeitsort:** `website-vollseite/index.html` (Branch `website-final`)
+**Stand:** 08.08.2026 · **Arbeitsort:** `website-vollseite/index.html` (Branch `website-final`)
 **Grundlage:** Website-Audit vom 29.07.2026 (`fuer-chatgpt/MASSNAHMEN.md`) — dort steht die Begründung je Punkt.
 
 > Die Punkte aus dem Audit sind Vorschläge. Verbindlich ist die Spalte „Entscheidung".
@@ -297,3 +297,67 @@ Alle sieben Antworten geprüft, sieben Korrekturen. Zwei davon aus der externen 
 - **§ 15:** Wahlrecht des Kunden zwischen Rückgabe und Löschung aufgenommen. Grundlage ist Art. 28 Abs. 3 lit. g DSGVO, wonach die Wahl dem Verantwortlichen zusteht. Die AGB zogen der Website nach, nicht umgekehrt.
 
 **Offen und nur von Pantelis zu beantworten:** ob der E-Mail-Assistent im eigenen Hotelbetrieb wirklich täglich läuft. Die Stack-Unterlagen führen das Szenario als „nicht scharfgeschaltet", die Seite nennt ihn in der Einsatzliste.
+
+---
+
+## Durchgang 08.08.2026 (Livegang, dunkles Design, neue Preisstaffel)
+
+Die Seite ist seit dem 07.08.2026 unter `logik-agentur.de` öffentlich. Alle folgenden Änderungen sind live.
+
+### ⚠️ Entscheidungen, die frühere Entscheidungen AUFHEBEN
+
+Dieser Abschnitt ist der wichtigste der ganzen Liste. Ohne ihn wendet der nächste Durchgang die alten Entscheidungen erneut an und macht die neuen rückgängig.
+
+| Alte Entscheidung | Neue Entscheidung vom 08.08.2026 | Begründung |
+|---|---|---|
+| **Punkt 33:** „DSGVO-konform" wird in Einzelaussagen aufgelöst und verschwindet von der Seite | „DSGVO-konform" steht auf allen Paketkarten, elf Fundstellen | Pantelis wollte den Punkt als Merkmal auf den Karten. Der Einwand wurde vorgetragen und nach Kenntnisnahme verworfen. **Das Risiko besteht unverändert:** Die Aussage umfasst Stack und Kundenkonfiguration und müsste dauerhaft belegbar sein. Gehört in den Anwaltstermin. |
+| **Punkt 22:** Der Kunde wählt die Sprachen aus, Mehrsprachigkeit wird nicht pauschal behauptet | „Mehrsprachige Kommunikation" ist Bestandteil der Voice- und Chat-Pakete | Entscheidung Pantelis. Folge: Das Add-on „weitere Sprachen" für 49 € entfällt als Einnahmequelle, die laufenden Kosten je Kunde steigen. Muss in die Kostenkalkulation. |
+| **Portraitbild (01.08.):** Das KI-generierte Bild kommt auf die Seite, Alt-Text bewusst ohne Identitätsbehauptung | Echtes Foto am Empfangstresen | Damit entfallen beide damaligen Einwände: die Kennzeichnungsfrage nach Art. 50 KI-VO und die irreführende Angabe nach § 5 UWG. **Offen:** Der Alt-Text ist weiterhin neutral formuliert; ob der Name genannt werden darf, ist nicht entschieden. |
+| **Zertifikate (01.08.):** exakte Bezeichnungen mit Kursname, Anbieter und **Jahr** | Datumsspalte auf `ki-kompetenz.html` entfernt | Die Seite wirkte wie eine Kursserie aus einem halben Jahr. Preis: Die Aktualität der Weiterbildung ist auf der Seite nicht mehr belegt, das war für Art. 4 KI-VO das stärkste Argument. Nachweise liegen vor. |
+| **Zertifikate (01.08.):** „Digitale Gerechtigkeit" (openHPI) nicht aufnehmen, thematisch abseits | Als zehntes Programm aufgenommen | Der Personen-Abschnitt nannte openHPI, die Programmliste nicht. Zwei nachprüfbare Angaben liefen auseinander. |
+| **Reihenfolge (02.08.):** Kopfnavigation führt „ROI" nicht mehr, dafür „Ablauf" | Kopfnavigation führt „ROI" statt „FAQ" | Entscheidung Pantelis. Die FAQ bleibt über die Schnellnavigation im Fußbereich erreichbar. |
+| **Modul-Raster:** sechs Module inklusive Bewertungs-Management | Bewertungs-Management ist Add-on, dafür neu der Einarbeitungs-Assistent | Mit dem siebten Modul standen sieben Karten in einem Dreierraster. Bewertungs-Management war ohnehin als Add-on bepreist. |
+
+### Neue Preisstaffel
+
+Der Preisblock ist vollständig umgebaut. Statt drei fester Karten gibt es eine Umschaltleiste mit vier Kategorien: **Voice, Chat, WhatsApp, Prozesse & Wissen**. Stufen heißen **Solo, Team, Scale**. „Scale" statt „Enterprise", damit der Begriff Enterprise für das Angebot mit mehreren Standorten frei bleibt.
+
+| Stufe | Preis | Inklusiv | Danach |
+|---|---|---|---|
+| Voice Solo | 99 € | 300 Min | 0,20 € / Min |
+| Voice Team | 149 € | 1.000 Min | 0,20 € / Min |
+| Voice Scale | 449 € | 3.000 Min | 0,15 € / Min |
+| Chat Solo | 99 € | offen | offen |
+| WhatsApp Solo | 99 € | offen | offen |
+
+Alle übrigen Stufen stehen auf „auf Anfrage". Erfunden wurde keine Zahl.
+
+> 🔴 **Das Preismodell widerspricht der Website.** `ai-agency-clients-/docs/preise/preismodell-v1_6.md` führt weiter Starter 199 € für 400 Minuten und Professional 399 € für 1.000. Solange es nicht nachgezogen ist, werden Angebote nach anderen Zahlen kalkuliert, als die Seite zeigt. Dafür ist der Prompt `docs/preise/prompt-kostenkalkulation-2026-08-08.md` abgelegt; die Kalkulation läuft in einem eigenen Chat.
+
+**Neue Merkmale auf den Karten:** Anbindung der Unternehmensinformationen, eigenes Dashboard, Gesprächszusammenfassung, DSGVO-konform, mehrsprachige Kommunikation. Verteilt nach Kanal; die Stufen auf Anfrage bekommen nur DSGVO-konform, weitere Merkmale wären eine Zusage über einen unbestimmten Umfang.
+
+**Offen:** Der E-Mail-Assistent hat keine Kategorie und steht nur als Fußnote. Das Kombi-Angebot nennt keinen Preis mehr, weil 249 € bei zweimal 99 € keinen Sinn ergeben.
+
+### Gestaltung
+
+- **Abschnitte wechseln zwischen dunkel und weiß.** Dunkel: Hero, Ablauf, Über mich, Datenschutz, ROI, Schluss. Der warme Bandton entfällt, `section-alt` wird nicht mehr benutzt. Kontrast maschinell über alle Abschnitte geprüft, keine neuen Unterschreitungen.
+- **Kopfzeile nach dem Design-Handoff „Header-Trennung 7a"** (`fuer-chatgpt`-Bündel aus Claude Design): heller Grund mit isometrischem Würfelrelief, atmender Schimmer, darunter eine Waveform-Naht aus 64 Balken mit fester Formel. Vier bewusste Abweichungen vom Handoff sind in der Commit-Nachricht begründet, darunter die Akzentfarbe (#E67533 statt #E8763A) und die Kopfzeilenbreite.
+- **Aussageband** zwischen Hero und Modulen: „Bereit für die Zukunft der Kundenkommunikation?" in JetBrains Mono, dahinter ein Knotennetz mit wandernden Impulsen. Bewusst kein `section`-Element, sonst kippt die Zählung der abwechselnden Bänder.
+  > Anmerkung: Der Satz ist nicht belegbar und liegt quer zur Leitlinie belegen statt behaupten. Pantelis kennt den Einwand und hat sich bewusst dafür entschieden. Als Frage in einem eigenen Band, nach dem Hero mit seinem Betriebsnachweis, ist er schwächer exponiert als in einer Überschrift.
+- **Über mich** neu aufgeteilt: beide Textblöcke links untereinander, Foto rechts im Originalformat.
+- **Sprungmarken** wurden bei jeder Änderung der Kopfzeilenhöhe neu gemessen. Aktuell 121 / 157 / 177 px. Wer die Kopfzeile ändert, muss diesen Wert mitziehen.
+
+### Betrieb
+
+- **Chat-Assistent gewechselt.** Der bisherige Assistent `d0edb1d7` wurde gelöscht, weil darin noch eine Famulor-Beispielvorlage steckte. Seitdem lieferte die Widget-Konfiguration 404, es erschien kein Chat mehr. Neu: `aa2ea7ba`, „Logik-Agentur Demo Chat", Famulor-ID 18730. Nachgemessen: alte Kennung 404, neue 200.
+- **`patch_widget.py` ist überholt und gefährlich.** Das Skript liegt nur lokal im `main`-Arbeitsordner und steht in `.gitignore`. Es fügt ein Chat-Widget **ohne Einwilligungsdialog** ein. Würde es je greifen, läge auf der Seite ein Widget, das ohne Einwilligung lädt, entgegen Abschnitt 4 der Datenschutzerklärung. Sollte gelöscht oder als überholt gekennzeichnet werden.
+- **Telefonnummer** auf allen Seiten und in der Datenschutz-Quelle auf die Festnetznummer +49 5031 9779116 umgestellt.
+- **AGB § 8 und § 15** geändert, siehe Durchgang 07.08.
+
+### Weiterhin offen
+
+1. Läuft der **E-Mail-Assistent** wirklich täglich im eigenen Hotelbetrieb? Die Seite nennt ihn in der Einsatzliste, die Stack-Unterlagen führen das Szenario als „nicht scharfgeschaltet".
+2. Darf der **Alt-Text des Portraits** den Namen nennen?
+3. Soll **Mistral** auch in der Drittanbieterliste der AGB stehen? (Erledigt am 07.08., hier nur als Prüfhinweis für weitere Anbieter.)
+4. **Kostenkalkulation** für die neue Staffel, siehe Prompt im Dokumenten-Repo.
+5. **Anwaltstermin**, jetzt zusätzlich mit „DSGVO-konform" auf den Paketkarten.
