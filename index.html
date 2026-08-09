@@ -361,9 +361,12 @@
       padding: 8px 16px; font-size: 14px; color: #cfd6e4; gap: 9px;
     }
     #hero .rounded-full .rounded-full { width: 8px; height: 8px; background: #3ecf8e; padding: 0; border: 0; }
-    #hero-title { font-weight: 800; letter-spacing: -.02em; line-height: 1.08; font-size: 32px; }
-    @media (min-width: 640px)  { #hero-title { font-size: 38px; } }
-    @media (min-width: 1024px) { #hero-title { font-size: 48px; } }
+    /* Groesse wie die Abschnittsueberschriften der uebrigen Seite:
+       text-3xl (30px), ab 640px text-4xl (36px). Gewicht, Laufweite und
+       Zeilenabstand bleiben wie im Design-Handoff, geaendert ist nur die
+       Groesse. */
+    #hero-title { font-weight: 800; letter-spacing: -.02em; line-height: 1.08; font-size: 30px; }
+    @media (min-width: 640px) { #hero-title { font-size: 36px; } }
 
     /* Hero: Verlauf statt Vollton, dazu der helle Abglanz der Naht */
     #hero { background: linear-gradient(180deg, var(--hero-top) 0%, var(--hero-bottom) 100%); }
