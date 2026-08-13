@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Logik Agentur">
+  <title>Logik Agentur — Chat-Avatar</title>
+  <!-- Quadratisches Symbol fuer den Widget-Avatar (Famulor, Web-Widget-Konfiguration > Button).
+       Hintergrund ist die Widget-Farbe #312f66. Die Wellenform stammt aus assets/logo.svg;
+       die beiden dunklen Balken (#2E3849) sind auf Weiss gesetzt, weil Dunkelblau auf Violett
+       nicht lesbar waere. Die Marke liegt innerhalb des einbeschriebenen Kreises, damit ein
+       runder Zuschnitt nichts abschneidet. -->
+  <rect width="512" height="512" fill="#312f66"/>
+  <g transform="translate(256 256) scale(0.72) translate(-500 -199.5)">
+    <rect x="312" y="125" width="56" height="150" rx="28" ry="28" fill="#E67533"/>
+    <rect x="392" y="57"  width="56" height="285" rx="28" ry="28" fill="#FFFFFF"/>
+    <rect x="472" y="107" width="56" height="185" rx="28" ry="28" fill="#E67533"/>
+    <rect x="552" y="77"  width="56" height="245" rx="28" ry="28" fill="#F2A93B"/>
+    <rect x="632" y="142" width="56" height="115" rx="28" ry="28" fill="#FFFFFF"/>
+  </g>
+</svg>
