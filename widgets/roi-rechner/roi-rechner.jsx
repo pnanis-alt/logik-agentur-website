@@ -398,14 +398,6 @@ export default function ROIRechner() {
             >
               Was davon trifft auf deinen Betrieb zu?
             </div>
-            <div
-              style={{
-                fontSize: '0.875rem',
-                color: '#A1A1AA',
-              }}
-            >
-              Kostenloses Erstgespräch, unverbindlich, 30 Minuten.
-            </div>
           </div>
           <a
             href="https://cal.eu/pantelis-nanis-m54voh/30min"
