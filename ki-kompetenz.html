@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#2E3849" />
   <meta name="description" content="KI-Kompetenz nach Art. 4 EU-KI-Verordnung: laufende Weiterbildung der Logik-Agentur, mit Programm und Anbieter." />
   <meta name="robots" content="index, follow" />
   <title>KI-Kompetenz | Logik-Agentur</title>
@@ -14,6 +16,10 @@
   <meta property="og:locale" content="de_DE" />
   <meta property="og:site_name" content="Logik-Agentur" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:description" content="KI-Kompetenz nach Art. 4 EU-KI-Verordnung: laufende Weiterbildung der Logik-Agentur, mit Programm und Anbieter." />
+  <meta name="twitter:title" content="KI-Kompetenz nach Art. 4 EU-KI-Verordnung | Logik-Agentur" />
+  <meta name="twitter:description" content="KI-Kompetenz nach Art. 4 EU-KI-Verordnung: laufende Weiterbildung der Logik-Agentur, mit Programm und Anbieter." />
+  <meta name="twitter:image" content="https://logik-agentur.de/assets/og.jpg" />
 
   <link rel="stylesheet" href="assets/tailwind.css" />
   <link rel="stylesheet" href="assets/fonts.css" />
@@ -89,7 +95,7 @@
 
   <footer class="border-t border-slate-200 bg-slate-50 mt-16">
     <div class="mx-auto max-w-4xl px-6 py-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 text-sm text-slate-600">
-      <p>&copy; 2026 Logik-Agentur &middot; Pantelis Nanis</p>
+      <p>&copy; <span id="footer-year">2026</span> Logik-Agentur &middot; Pantelis Nanis</p>
       <nav class="flex gap-6">
         <a href="index.html" class="hover:text-[#E67533] transition-colors">Start</a>
         <a href="impressum.html" class="hover:text-[#E67533] transition-colors">Impressum</a>
@@ -103,5 +109,9 @@
   <!-- Reichweitenmessung: Umami, selbst gehostet auf eigenem Server, cookielos.
        Siehe docs/runbooks/umami-installation.md und datenschutz.html Abschnitt Reichweitenmessung. -->
   <script defer src="https://stats.logik-agentur.de/script.js" data-website-id="5981dae0-1ad6-4c3a-a36e-c8c22c982030" data-do-not-track="true"></script>
+  <script>
+    // Jahr im Fussbereich automatisch halten; 2026 im HTML ist der Rueckfallwert ohne JavaScript.
+    document.getElementById('footer-year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
