@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#2E3849" />
   <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://logik-agentur.de/" />
 
   <title>Logik-Agentur | KI-Assistenten für kleine und mittlere Betriebe</title>
-  <meta name="description" content="Logik-Agentur konfiguriert und integriert etablierte Standard-KI-Dienste für kleine und mittlere Betriebe: Voice-Agent, WhatsApp-Agent, Website-Chatbot, Bewertungs-Management, E-Mail-Assistent, Prozess-Automatisierung und Onboarding-Assistent." />
+  <meta name="description" content="Logik-Agentur konfiguriert und integriert etablierte Standard-KI-Dienste für kleine und mittlere Betriebe: Voice-Agent, WhatsApp-Agent, Website-Chatbot, E-Mail-Assistent, Prozess-Automatisierung und Onboarding-Assistent." />
 
   <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
@@ -24,6 +27,38 @@
   <meta name="twitter:image" content="https://logik-agentur.de/assets/og.jpg" />
 
   <!-- Fonts — self-hosted (kein Aufruf an Google), woff2, latin inkl. Umlaute, font-display: swap -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Logik-Agentur",
+  "description": "Konfiguration und Integration etablierter Standard-KI-Dienste für kleine und mittlere Betriebe.",
+  "url": "https://logik-agentur.de/",
+  "logo": "https://logik-agentur.de/assets/logo-wortmarke.svg",
+  "image": "https://logik-agentur.de/assets/og.jpg",
+  "email": "kontakt@logik-agentur.de",
+  "telephone": "+4950319779116",
+  "founder": {
+    "@type": "Person",
+    "name": "Pantelis Nanis"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Am Neuen Wege 5",
+    "postalCode": "31515",
+    "addressLocality": "Wunstorf",
+    "addressRegion": "Niedersachsen",
+    "addressCountry": "DE"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Deutschland"
+  },
+  "availableLanguage": [
+    "de"
+  ]
+}
+  </script>
   <link rel="stylesheet" href="assets/fonts.css" />
 
   <!-- Tailwind: lokal gebautes Stylesheet. Theme-Quelle: tailwind.config.js + docs/design-tokens.md.
@@ -136,20 +171,6 @@
     .section-alt { background: var(--color-bg-subtle); }
     /* Hero sitzt direkt unter der Kopfzeile und braucht dort weniger Luft */
     #hero { padding-block-start: clamp(28px, 3vw, 48px); }
-
-    /* Slot-Marker (nur in Dev sichtbar — bei Befüllung entfernen) */
-    [data-slot]:empty::before {
-      content: 'SLOT: ' attr(data-slot);
-      display: inline-block;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      letter-spacing: 0.04em;
-      color: var(--color-text-subtle);
-      background: var(--color-bg-muted);
-      border: 1px dashed var(--color-border);
-      border-radius: var(--radius-sm);
-      padding: 6px 10px;
-    }
 
     /* Reduzierte Bewegung respektieren (max 250ms-Vorgabe aus design-tokens.md) */
 
@@ -728,7 +749,7 @@
                 <li><span class="hp-who">Kunde</span><p>Ich wollte fragen, ob bei Ihnen nächste Woche noch was frei ist. Am liebsten nachmittags.</p></li>
                 <li><span class="hp-who hp-agent">KI-Assistent</span><p>Nachmittags nächste Woche, verstanden. Damit ich es richtig weitergebe: Geht es um einen neuen Termin oder um eine Verschiebung?</p></li>
                 <li><span class="hp-who">Kunde</span><p>Neu. Eine Erstberatung. Kostet die was?</p></li>
-                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Die Erstberatung ist kostenfrei und dauert eine Stunde. Den Termin nehme ich gleich für Sie auf. Soll ich Ihnen den Link per E-Mail schicken, oder möchten Sie jemanden aus dem Team sprechen?</p></li>
+                <li><span class="hp-who hp-agent">KI-Assistent</span><p>Das Erstgespr&auml;ch ist kostenfrei und dauert 30 Minuten. Den Termin nehme ich gleich für Sie auf. Soll ich Ihnen den Link per E-Mail schicken, oder möchten Sie jemanden aus dem Team sprechen?</p></li>
               </ol>
               <div class="hp-foot">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
@@ -895,7 +916,7 @@
          ==================================================================== -->
     <section id="value" class="section" aria-labelledby="value-title" data-section="04-value-quadrant">
       <div class="max-w-content mx-auto px-6">
-        <h2 id="value-title" class="sr-only">Vier prüfbare Unterschiede</h2>
+        <h2 id="value-title" class="sr-only">Woran du die Zusammenarbeit messen kannst</h2>
         <div data-slot="value-quadrant">
           <div class="text-center mb-12">
             <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Vier prüfbare Unterschiede</h2>
@@ -920,7 +941,7 @@
             <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
               <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
               <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Verträge mit allen Dienstleistern</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Auftragsverarbeitungsverträge mit allen eingesetzten Dienstleistern, offengelegt in einer vollständigen Anbieterübersicht.</p>
+              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Auftragsverarbeitungsverträge mit allen eingesetzten Dienstleistern. Die vollständige Anbieterübersicht bekommst du auf Nachfrage.</p>
             </article>
           </div>
         </div>
@@ -944,7 +965,7 @@
     <div>
       <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Wer ich bin</div>
       <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Pantelis Nanis</p>
-      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Hotelier am Steinhuder Meer. Mitinhaber des Hotel Nanis. Der Umgang mit Computern und IT reicht bis in die Jugend zurück und begleitet die Arbeit seit Jahrzehnten. Aktive KI-Weiterbildung über KI-Campus, openHPI, Harvard Online und die KI-Wirtschaftsregion Hannover.</p>
+      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Hotelier am Steinhuder Meer. Mitinhaber des Hotels Nanis. Der Umgang mit Computern und IT reicht bis in die Jugend zurück und begleitet die Arbeit seit Jahrzehnten. Aktive KI-Weiterbildung über KI-Campus, openHPI, Harvard Online und die KI-Wirtschaftsregion Hannover.</p>
       <div class="mt-10 text-xs font-medium uppercase tracking-wider text-zinc-500">Warum das relevant ist</div>
       <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Praxis statt Theorie.</p>
       <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Was ich anbiete, ist vorher im eigenen Betrieb gelaufen. Ich empfehle nichts, was ich nicht selbst im Tagesgeschäft einsetze.</p>
@@ -958,7 +979,7 @@
     <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
       <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">01</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Konfiguration statt Plattform.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich verkaufe keine eigene Software, sondern die Konfiguration und Integration etablierter Standard-Dienste, alle einzeln dokumentiert und einzeln austauschbar.</p></div>
       <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">02</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Zusammenarbeit ohne Umwege.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich kenne den Druck im operativen Tagesgeschäft selbst: knappe Zeit, anspruchsvolle Kunden, schwankende Auslastung. Absprachen kurz, R&uuml;ckmeldungen sachlich.</p></div>
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Dokumentierte Auftragsverarbeitung.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Datenschutz ist Onboarding-Standard, nicht Sales-Argument. Auftragsverarbeitungsvertrag und Datenschutzerklärung bekommst du vor Vertragsschluss, die Dienstleisterliste auf Nachfrage.</p></div>
+      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Dokumentierte Auftragsverarbeitung.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Den Datenschutz kl&auml;re ich beim Start, nicht erst im Verkaufsgespr&auml;ch. Auftragsverarbeitungsvertrag und Datenschutzerklärung bekommst du vor Vertragsschluss, die Dienstleisterliste auf Nachfrage.</p></div>
     </div>
   </div>
   <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Alltag deines Betriebs konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
@@ -1023,7 +1044,7 @@
           <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
             <div class="max-w-3xl">
               <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Testanruf</div>
-              <h2 id="testanruf-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hör ihn dir selbst an.</h2>
+              <h2 id="testanruf-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hör dir den Assistenten selbst an.</h2>
               <p class="mt-4 text-lg leading-relaxed text-zinc-600">Bevor du über Preise nachdenkst, ruf an und sprich mit dem Assistenten. Er stellt das Angebot vor und führt dabei genau das vor, worum es geht. Der Anruf kostet dich nur die Gebühren deines Anbieters.</p>
               <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                 <a href="tel:+4950319439008" class="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
@@ -1039,7 +1060,7 @@
     </section>
 
     <!-- ====================================================================
-         6. PRICING  (Starter 199 · Professional 399 · Enterprise)
+         6. PRICING  (Voice, Chat, WhatsApp jeweils Solo/Team/Scale)
          ==================================================================== -->
     <section id="pricing" class="section" aria-labelledby="pricing-title" data-section="06-pricing">
       <div class="max-w-content mx-auto px-6">
@@ -1069,7 +1090,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anbindung deiner Unternehmensinformationen</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Gespr&auml;chszusammenfassung und &Uuml;bergabe ans Team</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Eigener Zugang zu deinem Dashboard</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen einmal im Quartal, Support per E-Mail</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen einmal im Quartal. St&ouml;rungen werden immer behoben, Support per E-Mail</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 799&nbsp;&euro;</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
@@ -1082,9 +1103,8 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">650 Inklusivminuten</strong>. Jede weitere Minute 0,19&nbsp;&euro;</span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Voice Solo</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Bis zu 2 deutsche Rufnummern, die 5&nbsp;Anrufe gleichzeitig annehmen</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">Terminbuchung</strong> direkt in deinen Kalender<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a></span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Uuml;bergabe an dein System per Tabelle oder Schnittstelle</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen monatlich, Support per E-Mail</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen monatlich. St&ouml;rungen werden immer behoben, Support per E-Mail</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 799&nbsp;&euro;. Kalender- und Systemanbindung nach Aufwand.</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespr&auml;ch buchen</a>
@@ -1099,9 +1119,9 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Bis zu 5 deutsche Rufnummern, die 10&nbsp;Anrufe gleichzeitig annehmen</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">Terminbuchung</strong> direkt in deinen Kalender<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a></span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Individuelle Abl&auml;ufe nach Absprache</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen jederzeit, Support per E-Mail und Telefon</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen jederzeit. St&ouml;rungen werden immer behoben, Support per E-Mail und Telefon</li>
       </ul>
-      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 799&nbsp;&euro;. Kalender- und Systemanbindung nach Aufwand.</p>
+      <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 799&nbsp;&euro;. Die Kalenderanbindung ist enthalten, sofern dein Kalender- oder Buchungssystem eine Schnittstelle bietet; das pr&uuml;fe ich vorab kostenlos. Weitere Systemanbindungen nach Aufwand.</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
     </article>
     <div class="rounded-2xl border-2 border-[color:var(--color-accent,#E67533)] bg-[color:var(--color-accent,#E67533)]/5 p-6 sm:col-span-2 sm:p-8 lg:col-span-3">
@@ -1111,7 +1131,7 @@
         <span class="text-sm font-medium text-zinc-500">nur mit Voice Team oder Voice Scale</span>
       </div>
       <p class="mt-3 max-w-3xl text-[15px] leading-relaxed text-zinc-700">Der Assistent pr&uuml;ft w&auml;hrend des Gespr&auml;chs live die Verf&uuml;gbarkeit in deinem Buchungssystem, nennt Preise und schickt dem Gast auf Wunsch den Buchungslink mit genau den angefragten Daten. <strong class="font-semibold text-zinc-900">Gebucht wird in deinem System, nicht durch die KI</strong>, so kann kein falscher Preis und keine falsche Verf&uuml;gbarkeit zu einer Buchung f&uuml;hren.</p>
-      <p class="mt-4 border-t border-[color:var(--color-accent,#E67533)]/20 pt-4 text-sm text-zinc-600">Preis nach Aufwand. Ob dein System sich anbinden l&auml;sst, pr&uuml;fen wir vorab kostenlos.</p>
+      <p class="mt-4 border-t border-[color:var(--color-accent,#E67533)]/20 pt-4 text-sm text-zinc-600">Preis nach Aufwand. Ob dein System sich anbinden l&auml;sst, pr&uuml;fe ich vorab kostenlos.</p>
     </div>
   </div>
 
@@ -1126,7 +1146,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Anbindung deiner Unternehmensinformationen</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Gespr&auml;chszusammenfassung und &Uuml;bergabe ans Team</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Eigener Zugang zu deinem Dashboard</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen einmal im Quartal, Support per E-Mail</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen einmal im Quartal. St&ouml;rungen werden immer behoben, Support per E-Mail</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 299&nbsp;&euro;</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
@@ -1139,7 +1159,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">750 Gespr&auml;che</strong> im Monat<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a>, jedes weitere 0,16&nbsp;&euro;</span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Chat Solo</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Uuml;bergabe an dein System per Tabelle oder Schnittstelle</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen monatlich, Support per E-Mail</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen monatlich. St&ouml;rungen werden immer behoben, Support per E-Mail</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 299&nbsp;&euro;</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespr&auml;ch buchen</a>
@@ -1152,7 +1172,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">2.000 Gespr&auml;che</strong> im Monat<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a>, jedes weitere 0,14&nbsp;&euro;</span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Alles aus Chat Team</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Individuelle Abl&auml;ufe nach Absprache</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen jederzeit, Support per E-Mail und Telefon</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen jederzeit. St&ouml;rungen werden immer behoben, Support per E-Mail und Telefon</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmalige Einrichtung 299&nbsp;&euro;</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
@@ -1187,7 +1207,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">650 Gespr&auml;che</strong> im Monat<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a>, jedes weitere 0,20&nbsp;&euro;</span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Alles aus WhatsApp Solo</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Gemeinsamer Posteingang, dein Team &uuml;bernimmt jederzeit</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen monatlich, Support per E-Mail</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen monatlich. St&ouml;rungen werden immer behoben, Support per E-Mail</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup nach Aufwand</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-3 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespr&auml;ch buchen</a>
@@ -1200,7 +1220,7 @@
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg><span><strong class="font-semibold text-zinc-900">1.650 Gespr&auml;che</strong> im Monat<a href="#preis-hinweise" class="text-zinc-400 no-underline">*</a>, jedes weitere 0,17&nbsp;&euro;</span></li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Alles aus WhatsApp Team</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Uuml;bergabe an dein System per Tabelle oder Schnittstelle</li>
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;nderungen jederzeit, Support per E-Mail und Telefon</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Inhaltliche Anpassungen jederzeit. St&ouml;rungen werden immer behoben, Support per E-Mail und Telefon</li>
       </ul>
       <p class="mt-5 border-t border-zinc-100 pt-4 text-sm text-zinc-500">Einmaliges Setup nach Aufwand</p>
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-white px-6 py-3 text-[15px] font-medium text-zinc-900 transition hover:border-zinc-300">Erstgespr&auml;ch buchen</a>
@@ -1229,7 +1249,7 @@
       <p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Das Wissen deines Betriebs, jederzeit abrufbar f&uuml;r dein Team.</p>
       <div class="mt-5"><span class="text-2xl font-semibold tracking-tight text-zinc-900">nach Aufwand</span></div>
       <ul class="mt-6 space-y-2 text-sm text-zinc-700">
-        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Antworten aus euren Abl&auml;ufen, Regeln und Unterlagen</li>
+        <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Antworten aus deinen Abl&auml;ufen, Regeln und Unterlagen</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Verf&uuml;gbar rund um die Uhr</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>Entlastet erfahrene Kollegen, die sonst jede R&uuml;ckfrage beantworten</li>
         <li class="flex items-start gap-2"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 shrink-0 text-[color:var(--color-accent,#E67533)]"><polyline points="20 6 9 17 4 12"/></svg>&Auml;ndert sich etwas, ist es sofort f&uuml;r alle hinterlegt, nicht nur f&uuml;r die Neuen</li>
@@ -1247,7 +1267,7 @@
     <dl class="mt-5 grid gap-x-10 gap-y-5 text-[15px] leading-relaxed text-zinc-600 sm:grid-cols-2">
       <div>
         <dt class="font-medium text-zinc-900">Kalenderanbindung</dt>
-        <dd class="mt-1">Google Calendar, Microsoft&nbsp;365 und Outlook sowie Cal.eu. Andere Systeme pr&uuml;fen wir auf Anfrage.</dd>
+        <dd class="mt-1">Google Calendar, Microsoft&nbsp;365 und Outlook sowie Cal.eu. Andere Systeme pr&uuml;fe ich auf Anfrage. Bei Voice Scale ist die Anbindung im Paket enthalten, in den kleineren Paketen wird sie nach Aufwand berechnet.</dd>
       </div>
       <div>
         <dt class="font-medium text-zinc-900">Was ein Gespr&auml;ch ist</dt>
@@ -1255,19 +1275,19 @@
       </div>
       <div class="sm:col-span-2">
         <dt class="font-medium text-zinc-900">Geb&uuml;hren von WhatsApp kommen dazu</dt>
-        <dd class="mt-1">WhatsApp geh&ouml;rt Meta, und Meta berechnet die Nachrichten selbst. Diese Geb&uuml;hr reichen wir <strong class="font-semibold text-zinc-900">zum Einkaufspreis</strong> an dich weiter, wir schlagen nichts darauf. Sie steht getrennt auf deiner Rechnung. Heute sind Antworten innerhalb von 24&nbsp;Stunden nach einer Kundennachricht kostenlos; <strong class="font-semibold text-zinc-900">ab dem 1.&nbsp;Oktober 2026 berechnet Meta sie wieder.</strong> Nach heutiger Sch&auml;tzung sind das rund 0,046&nbsp;&euro; je Nachricht, die der Assistent verschickt. Beispiel: 250&nbsp;Gespr&auml;che mit je vier Antworten ergeben etwa 46&nbsp;&euro; im Monat zus&auml;tzlich zum Paketpreis. Die endg&uuml;ltigen S&auml;tze ver&ouml;ffentlicht Meta bis zum 1.&nbsp;September 2026; sobald sie feststehen, rechnen wir dir deinen Fall konkret vor.</dd>
+        <dd class="mt-1">WhatsApp geh&ouml;rt Meta, und Meta berechnet die Nachrichten selbst. Diese Geb&uuml;hr reiche ich <strong class="font-semibold text-zinc-900">zum Einkaufspreis</strong> an dich weiter, ich schlage nichts darauf. Sie steht getrennt auf deiner Rechnung. Heute sind Antworten innerhalb von 24&nbsp;Stunden nach einer Kundennachricht kostenlos; <strong class="font-semibold text-zinc-900">ab dem 1.&nbsp;Oktober 2026 berechnet Meta sie wieder.</strong> Nach heutiger Sch&auml;tzung sind das rund 0,046&nbsp;&euro; je Nachricht, die der Assistent verschickt. Beispiel: 250&nbsp;Gespr&auml;che mit je vier Antworten ergeben etwa 46&nbsp;&euro; im Monat zus&auml;tzlich zum Paketpreis. Die endg&uuml;ltigen S&auml;tze ver&ouml;ffentlicht Meta bis zum 1.&nbsp;September 2026; sobald sie feststehen, rechne ich dir deinen Fall konkret vor.</dd>
       </div>
       <div>
         <dt class="font-medium text-zinc-900">Wie Minuten gez&auml;hlt werden</dt>
-        <dd class="mt-1">Nach tats&auml;chlicher Gespr&auml;chsdauer, am Monatsende auf volle Minuten aufgerundet. Anrufe unter zehn Sekunden berechnen wir nicht.</dd>
+        <dd class="mt-1">Nach tats&auml;chlicher Gespr&auml;chsdauer, am Monatsende auf volle Minuten aufgerundet. Anrufe unter zehn Sekunden berechne ich nicht.</dd>
       </div>
       <div>
         <dt class="font-medium text-zinc-900">Nicht genutzte Minuten und Gespr&auml;che</dt>
-        <dd class="mt-1">Sie verfallen zum Monatsende. Daf&uuml;r wei&szlig;t du am Ersten, was der Monat kostet. Das Paket l&auml;sst sich jederzeit wechseln, nach oben wie nach unten.</dd>
+        <dd class="mt-1">Sie verfallen zum Monatsende. Das Paket l&auml;sst sich jederzeit wechseln, nach oben wie nach unten.</dd>
       </div>
       <div class="sm:col-span-2">
         <dt class="font-medium text-zinc-900">Umsatzsteuer</dt>
-        <dd class="mt-1">Alle genannten Preise sind Endpreise. Als Kleinunternehmen im Sinne des &sect;&nbsp;19&nbsp;UStG weisen wir keine Umsatzsteuer aus, auf der Rechnung steht der Betrag, der hier steht. Ob sich daraus f&uuml;r dich ein Preisvorteil gegen&uuml;ber Anbietern mit Nettopreisen ergibt, h&auml;ngt davon ab, ob du zum Vorsteuerabzug berechtigt bist.</dd>
+        <dd class="mt-1">Alle genannten Preise sind Endpreise. Als Kleinunternehmer im Sinne des &sect;&nbsp;19&nbsp;UStG weise ich keine Umsatzsteuer aus. Auf der Rechnung steht genau der Betrag, den du hier siehst. Ob sich daraus f&uuml;r dich ein Preisvorteil gegen&uuml;ber Anbietern mit Nettopreisen ergibt, h&auml;ngt davon ab, ob du zum Vorsteuerabzug berechtigt bist.</dd>
       </div>
     </dl>
   </div>
@@ -1276,12 +1296,13 @@
     <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Add-ons &middot; Frei zubuchbar</div>
     <div class="grid grid-cols-1 gap-x-12 gap-y-3 sm:grid-cols-2">
       <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Bewertungs-Management <span class="text-zinc-500">&middot; neue Google-Bewertungen erfassen, Antwort-Entw&uuml;rfe zur Freigabe</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">+49&nbsp;&euro; / Monat</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Chatbot, der mehr kann als antworten <span class="text-zinc-500">&middot; Buchungslink im Chat, Kontaktdaten erfassen, weitere Sprachen</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">+49&nbsp;&euro; / Monat</span></div>
-      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Buchungsanfrage mit Verf&uuml;gbarkeitspr&uuml;fung <span class="text-zinc-500">&middot; nur mit Voice Team oder Voice Scale</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">nach Aufwand</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Terminbuchung im Kalender <span class="text-zinc-500">&middot; bei Voice Scale enthalten &middot; Anbindung vorab gepr&uuml;ft</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">nach Aufwand</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Chatbot, der mehr kann als antworten <span class="text-zinc-500">&middot; Buchungslink im Chat, Kontaktdaten erfassen, aktives Nachfragen</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">+49&nbsp;&euro; / Monat</span></div>
+      <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Buchungsanfrage mit Verf&uuml;gbarkeitspr&uuml;fung <span class="text-zinc-500">&middot; f&uuml;r Betriebe, bei denen eine Buchung Geld kostet, etwa Hotels, Ferienwohnungen und Restaurants &middot; nur mit Voice Team oder Voice Scale</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">nach Aufwand</span></div>
       <div class="flex items-baseline justify-between gap-4 text-sm"><span class="text-zinc-700">Schnittstelle zu einem weiteren System <span class="text-zinc-500">&middot; Kundenverwaltung, Warenwirtschaft und andere</span></span><span class="font-medium text-zinc-900 whitespace-nowrap">nach Aufwand</span></div>
     </div>
-    <p class="mt-6 border-t border-zinc-200 pt-5 text-[15px] leading-relaxed text-zinc-600">Alle Assistenten geben Auskunft: Zeiten, Leistungen, Anfahrt, Ausstattung und Verf&uuml;gbarkeit im Rahmen der hinterlegten Informationen. <span class="font-medium text-zinc-900">Termine direkt in deinen Kalender buchen</span> kann der Assistent ab Voice Team, das ist im Paket enthalten.</p>
-    <p class="mt-3 text-[15px] leading-relaxed text-zinc-600">Soll er dar&uuml;ber hinaus in einem anderen System etwas tun oder abfragen, etwa eine Anfrage ans Buchungssystem senden oder einen Kontakt in der Kundenverwaltung anlegen, steckt dahinter eine Schnittstelle, die richten wir ein und rechnen den Aufwand gesondert ab.</p>
+    <p class="mt-6 border-t border-zinc-200 pt-5 text-[15px] leading-relaxed text-zinc-600">Alle Assistenten geben Auskunft: Zeiten, Leistungen, Anfahrt, Ausstattung und Verf&uuml;gbarkeit im Rahmen der hinterlegten Informationen. <span class="font-medium text-zinc-900">Termine direkt in deinen Kalender buchen</span> kann der Assistent bei Voice Scale, dort ist die Anbindung enthalten. In den kleineren Paketen ist sie als Zusatz nach Aufwand m&ouml;glich. Voraussetzung ist in beiden F&auml;llen, dass dein Kalender- oder Buchungssystem eine Schnittstelle bietet; das pr&uuml;fe ich vorab kostenlos.</p>
+    <p class="mt-3 text-[15px] leading-relaxed text-zinc-600">Soll er dar&uuml;ber hinaus in einem anderen System etwas tun oder abfragen, etwa eine Anfrage ans Buchungssystem senden oder einen Kontakt in der Kundenverwaltung anlegen, steckt dahinter eine Schnittstelle. Die richte ich ein, den Aufwand rechne ich gesondert ab.</p>
     <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Der <span class="font-medium text-zinc-900">E-Mail-Assistent</span> hat keine eigene Staffel. Er wird nach Aufwand kalkuliert und im Erstgespr&auml;ch besprochen.</p>
   </div>
 
@@ -1294,7 +1315,7 @@
     </section>
 
     <!-- ====================================================================
-         7. ROI-RECHNER (Mount-Point — Loader-Strategie offen, siehe TODO)
+         7. ROI-RECHNER (Mount-Point fuer das gebaute Widget-Bundle)
          ==================================================================== -->
     <section id="roi" class="section section-dark" aria-labelledby="roi-title" data-section="07-roi-rechner">
       <div class="max-w-content mx-auto px-6">
@@ -1307,6 +1328,10 @@
         <div id="roi-rechner-root"
              data-slot="roi-rechner-mount"
              aria-live="polite"></div>
+        <noscript>
+          <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Was kosten nicht angenommene Anrufe?</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">An dieser Stelle steht ein Rechner, mit dem du mit deinen eigenen Zahlen durchspielen kannst, was verpasste Anrufe kosten k&ouml;nnen. Er braucht JavaScript. Ist das in deinem Browser abgeschaltet, rechnen wir das im Erstgespr&auml;ch gemeinsam durch.</p>
+        </noscript>
       </div>
     </section>
 
@@ -1325,9 +1350,9 @@
   </div>
   <div class="mt-12 divide-y divide-zinc-200 border-y border-zinc-200">
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie schnell ist ein Voice-Agent einsatzbereit?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">In der Regel zwei bis drei Wochen, gerechnet ab dem Moment, in dem deine Angaben und Zugänge vorliegen. Eine Woche für Wissensbasis und Dialogführung, eine Woche Testphase, dann Live-Schaltung. Aufwendigere Anbindungen brauchen vier bis sechs Wochen.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die einmalige Einrichtung kostet 299&nbsp;€ für den Website-Chat und 799&nbsp;€ für ein Voice-Paket. Darin ist der fertig eingerichtete Assistent enthalten. Soll dein Kalender oder ein anderes System angebunden werden, schätzen wir den Aufwand vorher und rechnen ihn gesondert ab. Die monatlichen Preise findest du im <a href="#pricing" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Preise-Bereich</a>, die Einzelheiten unter <a href="#preis-hinweise" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Hinweise zu den Preisen</a>. Eine verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch. Alle Preise sind Endpreise: Als Kleinunternehmen im Sinne des &sect;&nbsp;19 UStG weisen wir keine Umsatzsteuer aus.</p></details>
+    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was kostet das?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Die einmalige Einrichtung kostet 299&nbsp;€ für den Website-Chat und 799&nbsp;€ für ein Voice-Paket. Darin ist der fertig eingerichtete Assistent enthalten. Soll dein Kalender oder ein anderes System angebunden werden, schätze ich den Aufwand vorher und rechne ihn gesondert ab. Die monatlichen Preise findest du im <a href="#pricing" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Preise-Bereich</a>, die Einzelheiten unter <a href="#preis-hinweise" class="font-medium text-[color:var(--color-accent,#E67533)] underline-offset-4 hover:underline">Hinweise zu den Preisen</a>. Eine verbindliche Kostenaufstellung erhältst du nach dem Erstgespräch. Alle Preise sind Endpreise: Als Kleinunternehmer im Sinne des &sect;&nbsp;19 UStG weise ich keine Umsatzsteuer aus.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wie sieht das Onboarding aus?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Du erhältst den Fragenkatalog. Er fragt alles ab, was der Assistent über deinen Betrieb wissen muss. Auf dieser Basis konfiguriere ich die Module, du prüfst Testanrufe und gibst frei. Erst dann geht das System live.</p></details>
-    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wo werden meine Daten verarbeitet?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Welche Dienste beteiligt sind, wo sie hosten und wem sie rechtlich gehören, steht in der Anbieterübersicht, die du auf Nachfrage bekommst, einschließlich der Stellen, an denen Daten das EU-Ausland berühren, und der Grundlage dafür. EU-Anbieter und EU-Hosting werden bevorzugt, wo es sie für die jeweilige Leistung gibt. Für Gesprächs-Transkripte ist eine Speicherdauer von 90 Tagen vorgesehen; die konkrete Frist je Dienst steht ebenfalls in dieser Anbieterübersicht.</p></details>
+    <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Wo werden meine Daten verarbeitet?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Welche Dienste beteiligt sind, wo ihre Server stehen und wem sie rechtlich gehören, steht in der Anbieterübersicht, die du auf Nachfrage bekommst, einschließlich der Stellen, an denen Daten das EU-Ausland berühren, und der Grundlage dafür. EU-Anbieter und EU-Hosting werden bevorzugt, wo es sie für die jeweilige Leistung gibt. Für Gesprächs-Transkripte ist eine Speicherdauer von 90 Tagen vorgesehen; die konkrete Frist je Dienst steht ebenfalls in dieser Anbieterübersicht.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn ich kündige?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Standard-Kündigung mit einem Monat Frist zum Monatsende. Nach Vertragsende werden die personenbezogenen Daten nach deiner Wahl zurückgegeben oder gelöscht, soweit keine gesetzlichen Aufbewahrungspflichten entgegenstehen. Eine gesonderte Löschgebühr fällt nicht an.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Kann der Agent auf mein Buchungs- oder Terminsystem zugreifen?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Optional, ja. Ob dein Reservierungs-, Termin- oder Warenwirtschaftssystem angebunden werden kann, hängt davon ab, welche Schnittstelle es bereitstellt. Vor dem Angebot wird das konkret für dein System geprüft, mit Aufwand und Kosten, statt es pauschal zuzusagen. Ohne direkte Anbindung arbeitet der Agent mit den Informationen, die du bereitstellst und pflegst. Was sich täglich ändert, kann er nur nennen, wenn dafür eine Datenquelle angebunden oder regelmäßig aktualisiert wird: freie Termine, aktuelle Preise, Lagerbestände oder Kapazitäten. Eintragen kann er etwas erst, wenn die Schnittstelle dafür steht.</p></details>
     <details class="group py-5"><summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left"><span class="text-[17px] font-semibold tracking-tight text-zinc-900">Was passiert, wenn die KI eine Frage nicht beantworten kann?</span><span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span></summary><p class="mt-3 pr-8 text-[15px] leading-relaxed text-zinc-600">Solche Fälle sind in der Konfiguration vorgesehen. Der Agent gibt eine sachliche Antwort und übergibt die Anfrage an dein Team, so wie die Übergabe vereinbart ist.</p></details>
@@ -1350,7 +1375,7 @@
       30 Minuten reichen,<br class="hidden sm:block">um eine fundierte Entscheidung zu treffen.
     </h2>
     <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-600">
-      Keine Verkaufspräsentation, kein Verkaufsdruck. Wir schauen gemeinsam auf deinen Betrieb und besprechen ehrlich, ob und wie KI sinnvoll integrierbar ist.
+      Keine Verkaufspräsentation, kein Verkaufsdruck. Wir schauen uns gemeinsam deinen Betrieb an und besprechen ehrlich, ob und wie KI sinnvoll integrierbar ist.
     </p>
     <div class="mt-10 flex flex-col items-center gap-4">
       <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener noreferrer"
@@ -1415,7 +1440,7 @@
   </div>
 </div>
       <p class="mt-8 text-xs text-ink-subtle font-mono">
-        © <span id="footer-year"></span> Logik-Agentur · Pantelis Nanis
+        © <span id="footer-year">2026</span> Logik-Agentur · Pantelis Nanis
       </p>
     </div>
   </footer>
