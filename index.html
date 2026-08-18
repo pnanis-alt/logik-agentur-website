@@ -726,7 +726,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
                 Erstgespräch buchen
               </a>
-              <a href="tel:+4950319439008" class="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-accent-subtle px-6 py-3 text-[15px] font-medium text-[color:var(--color-accent,#E67533)] shadow-sm transition hover:border-zinc-300">
+              <a href="tel:+4950319439008" data-la-call-open aria-haspopup="dialog" class="inline-flex items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-accent-subtle px-6 py-3 text-[15px] font-medium text-[color:var(--color-accent,#E67533)] shadow-sm transition hover:border-zinc-300">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                 Testanruf starten
               </a>
@@ -1047,7 +1047,7 @@
               <h2 id="testanruf-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hör dir den Assistenten selbst an.</h2>
               <p class="mt-4 text-lg leading-relaxed text-zinc-600">Bevor du über Preise nachdenkst, ruf an und sprich mit dem Assistenten. Er stellt das Angebot vor und führt dabei genau das vor, worum es geht. Der Anruf kostet dich nur die Gebühren deines Anbieters.</p>
               <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
-                <a href="tel:+4950319439008" class="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
+                <a href="tel:+4950319439008" data-la-call-open aria-haspopup="dialog" class="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                   Testanruf starten
                 </a>
@@ -1456,6 +1456,218 @@
        Build: `npm run build:roi` (siehe widgets/roi-rechner/README.md).
        ========================================================================= -->
   <script src="widgets/roi-rechner/dist.js" defer></script>
+
+  <!-- =========================================================================
+       Testanruf-Dialog (LA Web 07, 2026-08-19)
+       Die Testanruf-Buttons oeffnen ein Fenster statt sofort zu waehlen.
+       Grund: `tel:`-Links laufen am Desktop haeufig ins Leere.
+       Progressive Enhancement: ohne JavaScript bleibt der `tel:`-Link aktiv.
+       Kein Backend, keine Datenerfassung, kein externer Request (QR ist inline).
+       Eigenes CSS (Tailwind-unabhaengig, uebersteht den spaeteren Tailwind-Umbau).
+       ========================================================================= -->
+  <style>
+    #la-call-dialog {
+      width: min(680px, calc(100vw - 32px));
+      padding: 0; border: none; border-radius: var(--radius-xl, 16px);
+      background: var(--color-bg, #fff); color: var(--color-text, #18181b);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      box-shadow: 0 24px 60px -12px rgba(24,24,27,.28), 0 0 0 1px var(--color-border, #e4e4e7);
+      overflow: hidden;
+    }
+    #la-call-dialog::backdrop { background: rgba(24,24,27,.55); backdrop-filter: blur(3px); }
+    #la-call-dialog[open] { animation: la-call-in .22s cubic-bezier(.16,1,.3,1); }
+    #la-call-dialog[open]::backdrop { animation: la-call-fade .22s ease-out; }
+    @keyframes la-call-in { from { opacity: 0; transform: translateY(12px) scale(.97); } }
+    @keyframes la-call-fade { from { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      #la-call-dialog[open], #la-call-dialog[open]::backdrop { animation: none; }
+    }
+
+    .la-call-inner { position: relative; padding: 32px; }
+    @media (max-width: 640px) { .la-call-inner { padding: 24px 20px 28px; } }
+
+    .la-call-close {
+      position: absolute; top: 14px; right: 14px; display: inline-flex;
+      align-items: center; justify-content: center; width: 34px; height: 34px;
+      border: none; border-radius: 8px; background: transparent;
+      color: var(--color-text-subtle, #71717a); cursor: pointer; transition: background .15s, color .15s;
+    }
+    .la-call-close:hover { background: var(--color-bg-muted, #f4f4f5); color: var(--color-text, #18181b); }
+
+    .la-call-eyebrow {
+      font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--color-text-subtle, #71717a);
+    }
+    #la-call-title {
+      margin: 10px 0 0; font-size: 26px; line-height: 1.2; font-weight: 600;
+      letter-spacing: -.02em; color: var(--color-text, #18181b);
+    }
+    .la-call-sub {
+      margin: 10px 0 0; font-size: 15px; line-height: 1.6; color: var(--color-text-muted, #52525b);
+      max-width: 46ch;
+    }
+
+    .la-call-grid {
+      display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center;
+      margin-top: 24px; padding: 22px; border-radius: var(--radius-lg, 12px);
+      border: 1px solid var(--color-border, #e4e4e7); background: var(--color-bg-subtle, #fafafa);
+    }
+    @media (max-width: 640px) { .la-call-grid { grid-template-columns: 1fr; gap: 18px; padding: 18px; } }
+
+    .la-call-number {
+      display: block; font-family: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+      font-size: 27px; font-weight: 600; letter-spacing: -.01em; line-height: 1.2;
+      color: var(--color-text, #18181b); text-decoration: none;
+    }
+    .la-call-number:hover { color: var(--color-accent, #E67533); }
+    @media (max-width: 400px) { .la-call-number { font-size: 23px; } }
+
+    .la-call-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    @media (max-width: 640px) {
+      .la-call-actions { flex-direction: column; }
+      .la-call-actions .la-call-btn { width: 100%; }
+    }
+    .la-call-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      border-radius: var(--radius-md, 8px); padding: 11px 18px;
+      font-size: 15px; font-weight: 500; font-family: inherit;
+      cursor: pointer; text-decoration: none; transition: background .15s, border-color .15s, color .15s;
+    }
+    .la-call-btn-primary {
+      background: var(--color-accent, #E67533); color: #fff; border: 1px solid transparent;
+      box-shadow: var(--shadow-sm, 0 1px 2px 0 rgba(0,0,0,.05));
+    }
+    .la-call-btn-primary:hover { background: var(--color-accent-hover, #C45A1A); }
+    .la-call-btn-ghost {
+      background: var(--color-bg, #fff); color: var(--color-text-muted, #52525b);
+      border: 1px solid var(--color-border, #e4e4e7);
+    }
+    .la-call-btn-ghost:hover { border-color: var(--color-border-strong, #d4d4d8); color: var(--color-text, #18181b); }
+    .la-call-btn-ghost[data-copied="true"],
+    .la-call-btn-ghost[data-copied="true"]:hover { color: var(--color-success, #059669); border-color: var(--color-success, #059669); }
+    .la-call-btn-ghost .la-call-ico-done { display: none; }
+    .la-call-btn-ghost[data-copied="true"] .la-call-ico-copy { display: none; }
+    .la-call-btn-ghost[data-copied="true"] .la-call-ico-done { display: inline; }
+
+    .la-call-qr { display: flex; flex-direction: column; align-items: center; gap: 9px; }
+    .la-call-qr svg {
+      width: 108px; height: 108px; display: block; padding: 9px;
+      background: #fff; border: 1px solid var(--color-border, #e4e4e7); border-radius: var(--radius-md, 8px);
+      shape-rendering: crispEdges;
+    }
+    .la-call-qr span {
+      font-size: 12px; line-height: 1.4; text-align: center; color: var(--color-text-subtle, #71717a);
+    }
+    @media (max-width: 640px) { .la-call-qr { display: none; } }
+
+    .la-call-notes { margin: 22px 0 0; padding: 0; list-style: none; display: grid; gap: 9px; }
+    .la-call-notes li {
+      display: flex; gap: 9px; align-items: flex-start;
+      font-size: 13.5px; line-height: 1.55; color: var(--color-text-muted, #52525b);
+    }
+    .la-call-notes svg { flex: 0 0 auto; margin-top: 3px; color: var(--color-accent, #E67533); }
+
+    #la-call-dialog :focus-visible { outline: 2px solid var(--color-accent, #E67533); outline-offset: 2px; border-radius: 6px; }
+  </style>
+
+  <dialog id="la-call-dialog" aria-labelledby="la-call-title">
+    <div class="la-call-inner">
+      <button type="button" class="la-call-close" data-la-call-close aria-label="Fenster schlie&szlig;en">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+
+      <div class="la-call-eyebrow">Testanruf</div>
+      <h2 id="la-call-title">Sprich mit dem Assistenten.</h2>
+      <p class="la-call-sub">W&auml;hl die Nummer an deinem Telefon oder starte den Anruf direkt. Der Assistent stellt das Angebot vor und f&uuml;hrt dabei genau das vor, worum es geht.</p>
+
+      <div class="la-call-grid">
+        <div>
+          <a class="la-call-number" href="tel:+4950319439008">+49 5031 9439008</a>
+          <div class="la-call-actions">
+            <a class="la-call-btn la-call-btn-primary" href="tel:+4950319439008">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Jetzt anrufen
+            </a>
+            <button type="button" class="la-call-btn la-call-btn-ghost" data-la-call-copy data-number="+49 5031 9439008">
+              <svg class="la-call-ico-copy" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="13" height="13" x="9" y="9" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <svg class="la-call-ico-done" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <span data-la-call-copy-label>Nummer kopieren</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="la-call-qr">
+          <svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR-Code zur Demo-Rufnummer" viewBox="0 0 29 29"><path stroke="#18181b" d="M2 2.5h7m2 0h1m1 0h4m3 0h7m-25 1h1m5 0h1m1 0h3m3 0h1m3 0h1m5 0h1m-25 1h1m1 0h3m1 0h1m1 0h6m2 0h1m1 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m3 0h2m3 0h2m1 0h1m1 0h3m1 0h1m-25 1h1m1 0h3m1 0h1m5 0h1m1 0h2m2 0h1m1 0h3m1 0h1m-25 1h1m5 0h1m2 0h3m1 0h1m2 0h1m1 0h1m5 0h1m-25 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-16 1h2m1 0h1m1 0h1m-14 1h3m1 0h2m2 0h1m1 0h3m8 0h2m-22 1h2m1 0h1m1 0h1m1 0h1m1 0h3m3 0h1m4 0h1m-21 1h1m3 0h5m2 0h1m2 0h2m2 0h1m-21 1h3m2 0h1m1 0h1m2 0h2m4 0h4m2 0h2m-22 1h2m1 0h2m1 0h1m1 0h3m1 0h1m1 0h1m1 0h3m1 0h3m-22 1h2m4 0h1m4 0h2m2 0h1m1 0h1m1 0h3m-24 1h1m2 0h4m1 0h1m1 0h1m1 0h1m9 0h1m-24 1h1m1 0h1m1 0h1m2 0h2m1 0h2m2 0h1m2 0h3m1 0h1m2 0h1m-21 1h6m2 0h3m1 0h5m1 0h1m-15 1h1m1 0h1m1 0h1m1 0h3m3 0h1m2 0h2m-25 1h7m2 0h1m2 0h1m3 0h1m1 0h1m1 0h1m1 0h3m-25 1h1m5 0h1m1 0h1m2 0h2m3 0h1m3 0h1m2 0h2m-25 1h1m1 0h3m1 0h1m5 0h2m2 0h6m-22 1h1m1 0h3m1 0h1m1 0h2m4 0h2m2 0h3m2 0h2m-25 1h1m1 0h3m1 0h1m1 0h1m3 0h2m1 0h1m2 0h1m1 0h1m2 0h1m-24 1h1m5 0h1m1 0h2m3 0h1m1 0h1m2 0h1m3 0h1m-23 1h7m3 0h2m1 0h3m1 0h2m1 0h1m1 0h3"/></svg>
+          <span>Mit dem Handy scannen<br>und direkt anrufen</span>
+        </div>
+      </div>
+
+      <ul class="la-call-notes">
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Rund um die Uhr erreichbar</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Der Assistent sagt im ersten Satz, dass du mit einer KI sprichst</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Keine Tonaufnahme, nur ein Text-Transkript</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Der Anruf kostet dich nur die Geb&uuml;hren deines Anbieters</li>
+      </ul>
+    </div>
+  </dialog>
+
+  <script>
+    (function () {
+      var dlg = document.getElementById('la-call-dialog');
+      if (!dlg || typeof dlg.showModal !== 'function') return;   // ohne dialog-Support bleibt der tel:-Link
+
+      var opener = null;
+
+      document.querySelectorAll('[data-la-call-open]').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          opener = el;
+          dlg.showModal();
+        });
+      });
+
+      dlg.querySelectorAll('[data-la-call-close]').forEach(function (el) {
+        el.addEventListener('click', function () { dlg.close(); });
+      });
+
+      // Klick auf die Flaeche neben dem Inhalt schliesst das Fenster
+      dlg.addEventListener('click', function (e) {
+        if (e.target === dlg) dlg.close();
+      });
+
+      dlg.addEventListener('close', function () {
+        if (opener) { opener.focus(); opener = null; }
+      });
+
+      var copyBtn = dlg.querySelector('[data-la-call-copy]');
+      if (copyBtn) {
+        var label = copyBtn.querySelector('[data-la-call-copy-label]');
+        var reset = null;
+        copyBtn.addEventListener('click', function () {
+          var nr = copyBtn.getAttribute('data-number');
+          var done = function () {
+            copyBtn.setAttribute('data-copied', 'true');
+            if (label) label.textContent = 'Kopiert';
+            clearTimeout(reset);
+            reset = setTimeout(function () {
+              copyBtn.removeAttribute('data-copied');
+              if (label) label.textContent = 'Nummer kopieren';
+            }, 2200);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(nr).then(done, function () {});
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = nr; ta.setAttribute('readonly', '');
+            ta.style.cssText = 'position:absolute;left:-9999px;';
+            document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); done(); } catch (err) {}
+            document.body.removeChild(ta);
+          }
+        });
+      }
+    })();
+  </script>
 
   <!-- =========================================================================
        Famulor Chat — Consent-Gate (LA Web 06, 2026-06-02)
