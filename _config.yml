@@ -1,0 +1,30 @@
+# Konfiguration fuer GitHub Pages.
+#
+# Zweck: GitHub Pages liefert standardmaessig JEDE Datei aus dem Repo aus, also
+# auch interne Notizen und Quelldateien. Diese Liste haelt sie zurueck; die
+# Seite selbst bleibt unveraendert.
+#
+# Wichtig: Diese Liste ersetzt die Standardliste von Jekyll vollstaendig.
+# Wer hier etwas ergaenzt, muss die bereits vorhandenen Eintraege stehen lassen.
+# Nach jeder Aenderung mit curl pruefen, ob die Datei wirklich 404 liefert.
+
+exclude:
+  # Interne Arbeitsunterlagen
+  - docs/
+  - README.md
+  - widgets/roi-rechner/README.md
+
+  # Quelldateien und Build-Werkzeuge (ausgeliefert wird nur das Ergebnis)
+  - package.json
+  - package-lock.json
+  - tailwind.config.js
+  - assets/tailwind.input.css
+  - widgets/roi-rechner/roi-rechner.jsx
+  - widgets/roi-rechner/mount.jsx
+
+  # Ordner, die Jekyll ohnehin nicht veroeffentlichen soll
+  - node_modules/
+  - .build/
+  - vendor/
+  - Gemfile
+  - Gemfile.lock
