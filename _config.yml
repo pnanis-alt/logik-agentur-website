@@ -12,6 +12,7 @@ exclude:
   # Interne Arbeitsunterlagen
   - docs/
   - README.md
+  - CLAUDE.md
   - widgets/roi-rechner/README.md
 
   # Quelldateien und Build-Werkzeuge (ausgeliefert wird nur das Ergebnis)
