@@ -275,7 +275,13 @@ Wir: `lang="de"`, saubere Hierarchie, Sprunglink zum Inhalt, `prefers-reduced-mo
 - `/~flock.js` enthält `document.cookie`, `r.cookie` und `session-id`
 - Dateigrößen der Startseite
 
-**Korrektur am 24.08.2026:** Die Teilanalyse Recht empfahl zu prüfen, ob ElevenLabs in Abschnitt 4a unserer Datenschutzerklärung noch stimmt. Nachgezählt: In `datenschutz.html` kommt ElevenLabs kein einziges Mal vor. Genannt sind Famulor, Twilio, Hetzner, Cal.eu, Umami, Microsoft, Google und make.com. Der Punkt war falsch und ist gestrichen. Damit gilt auch: Wir nennen unsere Unterauftragnehmer in der Datenschutzerklärung namentlich, genau wie er.
+**Korrektur am 24.08.2026, zweiter Anlauf:** Ich hatte hier zwischenzeitlich behauptet, ElevenLabs komme in `datenschutz.html` nicht vor. Das war ein Suchfehler: Der Anbieter steht dort als **"Eleven Labs, Inc."** mit Leerzeichen, vier Mal, unter anderem in der Auftragsverarbeiter-Tabelle für Spracherkennung, Sprachausgabe und Gesprächssteuerung mit USA-Transfer und DPF plus SCC. Die Datenschutzerklärung ist an dieser Stelle richtig und aktuell.
+
+Damit gilt die Arbeitsteilung, die auch der Stand vom 24.08.2026 ist: **Telefonassistent läuft auf Eleven Labs, nur der Chatbot der Logik Agentur läuft noch auf Famulor.** Beides steht so in der Datenschutzerklärung, Abschnitt 4 für den Chat, Abschnitt 4a für das Telefon.
+
+Wir nennen unsere Unterauftragnehmer damit namentlich, genau wie er.
+
+**Offener Punkt:** Brevo (Brevo SA, Paris, EU-Hosting, transaktionale Mails ans Hotel-Team im Kundenprojekt) kommt in `datenschutz.html` nicht vor. Das ist vermutlich korrekt, weil diese Seite nur die Verarbeitung auf der Website und über die Demo-Rufnummer abdeckt und Brevo dort nicht mitspielt. Zu bestätigen: ob Brevo irgendwo für Website- oder Agentur-eigene Mails eingesetzt wird. Falls ja, gehört es in die Erklärung.
 
 **Nicht geprüft:**
 - Echte Ladezeiten unter realen Bedingungen
