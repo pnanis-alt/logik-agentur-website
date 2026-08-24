@@ -287,6 +287,40 @@
     @media (min-width: 640px)  { #header .brand-logo { height: 80px; } }
     @media (min-width: 1024px) { #header .brand-logo { height: 112px; } }
 
+    /* Aufklapp-Menue (Handy und Tablet) */
+    .menu-toggle {
+      align-items: center; justify-content: center;
+      width: 44px; height: 44px; margin-right: -6px;
+      border: 1px solid var(--color-line, #E4E4E7); border-radius: 8px;
+      background: transparent; cursor: pointer;
+    }
+    .menu-toggle-bars { display: flex; flex-direction: column; gap: 4px; width: 20px; }
+    .menu-toggle-bars b { display: block; height: 2px; border-radius: 2px; background: currentColor; transition: transform .18s ease, opacity .18s ease; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bars b:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bars b:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-toggle-bars b:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    .menu-panel { position: relative; z-index: 1; background: var(--header-bg); border-top: 1px solid var(--color-line, #E4E4E7); }
+    .menu-panel[hidden] { display: none; }
+    .menu-list { display: grid; gap: 2px; }
+    .menu-list a {
+      display: block; padding: 12px 4px; font-size: 17px; font-weight: 500;
+      color: var(--color-ink, #1d2432); text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--color-line, #E4E4E7) 70%, transparent);
+    }
+    .menu-list a:hover, .menu-list a:focus-visible { color: var(--color-accent, #E67533); }
+    @media (prefers-reduced-motion: reduce) { .menu-toggle-bars b { transition: none; } }
+
+    /* Branchen-Auswahl */
+    .branchen-select {
+      appearance: none; -webkit-appearance: none;
+      padding: 10px 40px 10px 14px; border: 1px solid var(--color-line, #E4E4E7); border-radius: 10px;
+      background-color: #fff; font-size: 15px; color: var(--color-ink, #1d2432); cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center;
+    }
+    .branchen-select:focus-visible { outline: 2px solid var(--color-accent, #E67533); outline-offset: 2px; }
+    .branche-karte[hidden] { display: none; }
+
     /* Waveform-Naht, sitzt noch auf dem hellen Grund */
     .seam {
       position: relative; z-index: 1; height: 20px; background: var(--header-bg);
@@ -407,12 +441,12 @@
     #header nav a:hover::after, #header nav a:focus-visible::after { transform: scaleX(1); }
 
     /* Karten: ein einheitlicher Zustand statt drei verschiedener */
-    #omnichannel article, #value article, #pricing article, #compliance .grid > div {
+    #omnichannel article, #pricing article {
       transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
     }
     @media (hover: hover) and (pointer: fine) {
-      #omnichannel article:hover, #value article:hover,
-      #pricing article:hover, #compliance .grid > div:hover {
+      #omnichannel article:hover,
+      #pricing article:hover {
         transform: translateY(-2px);
         border-color: var(--color-border-strong);
         box-shadow: 0 12px 28px -18px rgba(46,56,73,0.45);
@@ -562,11 +596,11 @@
     /* Sanftes Einblenden beim Scrollen. Ohne JavaScript ist alles sichtbar. */
     html.js :is(
       #omnichannel .max-w-3xl, #ablauf .max-w-3xl, #ueber-mich .max-w-3xl,
-      #integrationen .max-w-3xl, #compliance .max-w-3xl, #pricing .max-w-3xl,
-      #faq .max-w-3xl, #value .text-center,
-      #omnichannel article, #value article, #pricing article,
-      #ablauf .grid > div, #compliance .grid > div,
-      #integrationen .grid > div, #ueber-mich .grid > div
+      #technik .max-w-3xl, #ausprobieren .max-w-3xl, #pricing .max-w-3xl,
+      #faq .max-w-3xl,
+      #omnichannel article, #pricing article,
+      #ablauf .grid > div,
+      #technik .grid > div, #ueber-mich .grid > div
     ) {
       opacity: 0; transform: translateY(10px);
       transition: opacity 240ms cubic-bezier(0.22,0.61,0.36,1),
@@ -677,19 +711,44 @@
       <a href="#hero" class="inline-flex items-center" aria-label="Logik-Agentur, Startseite">
         <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
-      <div class="flex items-center gap-10">
-        <nav aria-label="Hauptnavigation" class="hidden md:flex items-center gap-8 text-[15px] font-medium text-ink">
+      <div class="flex items-center gap-6 lg:gap-10">
+        <nav aria-label="Hauptnavigation" class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-ink">
           <a href="#omnichannel" class="hover:text-accent transition-colors">Leistungen</a>
-            <a href="#branchen" class="hover:text-accent transition-colors">Branchen</a>
+          <a href="#branchen" class="hover:text-accent transition-colors">Branchen</a>
           <a href="#ablauf" class="hover:text-accent transition-colors">Umsetzung</a>
+          <a href="#ausprobieren" class="hover:text-accent transition-colors">Ausprobieren</a>
           <a href="#pricing" class="hover:text-accent transition-colors">Preise</a>
-          <a href="#roi" class="hover:text-accent transition-colors">Potenzial</a>
+          <a href="#faq" class="hover:text-accent transition-colors">Fragen</a>
         </nav>
         <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-           class="inline-flex items-center rounded-md bg-accent text-white text-[15px] font-medium px-6 py-3 shadow-sm hover:bg-accent-hover transition-colors">
+           class="hidden sm:inline-flex items-center rounded-md bg-accent text-white text-[15px] font-medium px-5 py-3 shadow-sm hover:bg-accent-hover transition-colors lg:px-6">
           Erstgespr&auml;ch buchen
         </a>
+        <button type="button" id="menu-toggle" class="menu-toggle inline-flex lg:hidden" aria-expanded="false" aria-controls="menu-panel">
+          <span class="menu-toggle-bars" aria-hidden="true"><b></b><b></b><b></b></span>
+          <span class="sr-only">Men&uuml; &ouml;ffnen</span>
+        </button>
       </div>
+    </div>
+
+    <!-- Aufklapp-Menue fuer Handy und Tablet -->
+    <div id="menu-panel" class="menu-panel lg:hidden" hidden>
+      <nav aria-label="Men&uuml;" class="max-w-content mx-auto px-4 sm:px-12 py-3">
+        <ul class="menu-list">
+          <li><a href="#omnichannel">Leistungen</a></li>
+          <li><a href="#branchen">Branchen</a></li>
+          <li><a href="#ablauf">Umsetzung</a></li>
+          <li><a href="#ausprobieren">Ausprobieren</a></li>
+          <li><a href="#pricing">Preise</a></li>
+          <li><a href="#ueber-mich">&Uuml;ber mich</a></li>
+          <li><a href="#technik">Technik &amp; Datenschutz</a></li>
+          <li><a href="#faq">H&auml;ufige Fragen</a></li>
+        </ul>
+        <a href="https://cal.eu/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
+           class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-[15px] font-medium text-white shadow-sm transition-colors hover:bg-accent-hover">
+          Erstgespr&auml;ch buchen
+        </a>
+      </nav>
     </div>
         <div class="seam" aria-hidden="true"><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:0.0s"></b><b style="height:6px;background:#1d2432;opacity:0.12;animation-duration:2.68s;animation-delay:0.055s"></b><b style="height:9px;background:#1d2432;opacity:0.12;animation-duration:2.96s;animation-delay:0.11s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.24s;animation-delay:0.165s"></b><b style="height:8px;background:#1d2432;opacity:0.216;animation-duration:3.52s;animation-delay:0.22s"></b><b style="height:10px;background:#1d2432;opacity:0.265;animation-duration:3.8s;animation-delay:0.275s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:4.08s;animation-delay:0.33s"></b><b style="height:9px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:0.385s"></b><b style="height:12px;background:#1d2432;opacity:0.401;animation-duration:2.68s;animation-delay:0.44s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:2.96s;animation-delay:0.495s"></b><b style="height:10px;background:#1d2432;opacity:0.482;animation-duration:3.24s;animation-delay:0.55s"></b><b style="height:13px;background:#1d2432;opacity:0.52;animation-duration:3.52s;animation-delay:0.605s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:3.8s;animation-delay:0.66s"></b><b style="height:12px;background:#1d2432;opacity:0.591;animation-duration:4.08s;animation-delay:0.715s"></b><b style="height:14px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:0.77s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:2.68s;animation-delay:0.825s"></b><b style="height:13px;background:#1d2432;opacity:0.683;animation-duration:2.96s;animation-delay:0.88s"></b><b style="height:16px;background:#1d2432;opacity:0.71;animation-duration:3.24s;animation-delay:0.935s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.52s;animation-delay:0.99s"></b><b style="height:14px;background:#1d2432;opacity:0.759;animation-duration:3.8s;animation-delay:1.045s"></b><b style="height:17px;background:#1d2432;opacity:0.78;animation-duration:4.08s;animation-delay:1.1s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:1.155s"></b><b style="height:16px;background:#1d2432;opacity:0.818;animation-duration:2.68s;animation-delay:1.21s"></b><b style="height:18px;background:#E67533;opacity:0.835;animation-duration:2.96s;animation-delay:1.265s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.24s;animation-delay:1.32s"></b><b style="height:17px;background:#E67533;opacity:0.862;animation-duration:3.52s;animation-delay:1.375s"></b><b style="height:20px;background:#E67533;opacity:0.873;animation-duration:3.8s;animation-delay:1.43s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:4.08s;animation-delay:1.485s"></b><b style="height:18px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.54s"></b><b style="height:21px;background:#E67533;opacity:0.894;animation-duration:2.68s;animation-delay:1.595s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:2.96s;animation-delay:1.65s"></b><b style="height:20px;background:#E67533;opacity:0.9;animation-duration:3.24s;animation-delay:1.705s"></b><b style="height:22px;background:#E67533;opacity:0.9;animation-duration:3.52s;animation-delay:1.76s"></b><b style="height:17px;background:#E67533;opacity:0.898;animation-duration:3.8s;animation-delay:1.815s"></b><b style="height:19px;background:#E67533;opacity:0.894;animation-duration:4.08s;animation-delay:1.87s"></b><b style="height:20px;background:#E67533;opacity:0.889;animation-duration:2.4s;animation-delay:1.925s"></b><b style="height:16px;background:#E67533;opacity:0.882;animation-duration:2.68s;animation-delay:1.98s"></b><b style="height:18px;background:#E67533;opacity:0.873;animation-duration:2.96s;animation-delay:2.035s"></b><b style="height:19px;background:#E67533;opacity:0.862;animation-duration:3.24s;animation-delay:2.09s"></b><b style="height:15px;background:#E67533;opacity:0.849;animation-duration:3.52s;animation-delay:2.145s"></b><b style="height:16px;background:#E67533;opacity:0.835;animation-duration:3.8s;animation-delay:2.2s"></b><b style="height:18px;background:#1d2432;opacity:0.818;animation-duration:4.08s;animation-delay:2.255s"></b><b style="height:13px;background:#1d2432;opacity:0.8;animation-duration:2.4s;animation-delay:2.31s"></b><b style="height:15px;background:#1d2432;opacity:0.78;animation-duration:2.68s;animation-delay:2.365s"></b><b style="height:16px;background:#1d2432;opacity:0.759;animation-duration:2.96s;animation-delay:2.42s"></b><b style="height:12px;background:#1d2432;opacity:0.735;animation-duration:3.24s;animation-delay:2.475s"></b><b style="height:14px;background:#1d2432;opacity:0.71;animation-duration:3.52s;animation-delay:2.53s"></b><b style="height:15px;background:#1d2432;opacity:0.683;animation-duration:3.8s;animation-delay:2.585s"></b><b style="height:11px;background:#1d2432;opacity:0.654;animation-duration:4.08s;animation-delay:2.64s"></b><b style="height:12px;background:#1d2432;opacity:0.623;animation-duration:2.4s;animation-delay:2.695s"></b><b style="height:14px;background:#1d2432;opacity:0.591;animation-duration:2.68s;animation-delay:2.75s"></b><b style="height:9px;background:#1d2432;opacity:0.556;animation-duration:2.96s;animation-delay:2.805s"></b><b style="height:11px;background:#1d2432;opacity:0.52;animation-duration:3.24s;animation-delay:2.86s"></b><b style="height:12px;background:#1d2432;opacity:0.482;animation-duration:3.52s;animation-delay:2.915s"></b><b style="height:8px;background:#1d2432;opacity:0.442;animation-duration:3.8s;animation-delay:2.97s"></b><b style="height:10px;background:#1d2432;opacity:0.401;animation-duration:4.08s;animation-delay:3.025s"></b><b style="height:11px;background:#1d2432;opacity:0.357;animation-duration:2.4s;animation-delay:3.08s"></b><b style="height:7px;background:#1d2432;opacity:0.312;animation-duration:2.68s;animation-delay:3.135s"></b><b style="height:8px;background:#1d2432;opacity:0.265;animation-duration:2.96s;animation-delay:3.19s"></b><b style="height:10px;background:#1d2432;opacity:0.216;animation-duration:3.24s;animation-delay:3.245s"></b><b style="height:5px;background:#1d2432;opacity:0.166;animation-duration:3.52s;animation-delay:3.3s"></b><b style="height:7px;background:#1d2432;opacity:0.12;animation-duration:3.8s;animation-delay:3.355s"></b><b style="height:8px;background:#1d2432;opacity:0.12;animation-duration:4.08s;animation-delay:3.41s"></b><b style="height:4px;background:#1d2432;opacity:0.12;animation-duration:2.4s;animation-delay:3.465s"></b></div>
   </header>
@@ -801,8 +860,23 @@
             <h2 id="branchen-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Wof&uuml;r Betriebe den Assistenten einsetzen.</h2>
             <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Anliegen unterscheiden sich je Betrieb, der Ablauf dahinter ist derselbe: annehmen, verstehen, aufnehmen, an dein Team &uuml;bergeben.</p>
           </div>
-          <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+          <div class="branchen-filter mt-8 flex flex-wrap items-center gap-3">
+            <label for="branchen-auswahl" class="text-[15px] font-medium text-zinc-900">Deine Branche</label>
+            <select id="branchen-auswahl" class="branchen-select">
+              <option value="alle">Alle Branchen anzeigen</option>
+              <option value="hotel">Hotels, Pensionen &amp; Ferienwohnungen</option>
+              <option value="gastro">Restaurants, Caf&eacute;s &amp; Lieferdienste</option>
+              <option value="handwerk">Handwerk &amp; Notdienste</option>
+              <option value="kfz">Autohaus &amp; Kfz-Werkstatt</option>
+              <option value="immobilien">Immobilien &amp; Hausverwaltung</option>
+              <option value="fitness">Fitness- &amp; Sportstudios</option>
+              <option value="beauty">Kosmetik, Friseur &amp; Wellness</option>
+              <option value="handel">Einzelhandel &amp; Onlineshops</option>
+              <option value="bildung">Fahrschulen &amp; Bildungsanbieter</option>
+            </select>
+          </div>
+          <div id="branchen-grid" class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="hotel">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Hotels, Pensionen &amp; Ferienwohnungen</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Buchungen &amp; G&auml;steservice</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -811,7 +885,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Sonderw&uuml;nsche ans Team weitergeben</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="gastro">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Restaurants, Caf&eacute;s &amp; Lieferdienste</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Reservierungen &amp; Auskunft</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -820,7 +894,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Nimmt das Telefon ab, w&auml;hrend dein Team am Gast ist</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="handwerk">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Handwerk &amp; Notdienste</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Termine &amp; St&ouml;rungen</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -829,7 +903,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Terminwunsch und R&uuml;ckrufnummer aufnehmen</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="kfz">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Autohaus &amp; Kfz-Werkstatt</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Werkstatt &amp; Anfragen</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -838,7 +912,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Fahrzeuganfragen ans Verkaufsteam</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="immobilien">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Immobilien &amp; Hausverwaltung</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Anfragen &amp; Meldungen</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -847,7 +921,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Sch&auml;den und St&ouml;rungen melden</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="fitness">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Fitness- &amp; Sportstudios</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Kurse &amp; Mitglieder</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -856,7 +930,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Vertrags- und Mitgliedsfragen ans Team</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="beauty">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Kosmetik, Friseur &amp; Wellness</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Termine &amp; Beratung</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -865,7 +939,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Absagen und Verschiebungen aufnehmen</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="handel">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Einzelhandel &amp; Onlineshops</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Service &amp; Bestellungen</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -874,7 +948,7 @@
         <li class="flex items-start gap-2.5"><span class="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-[color:var(--color-accent,#E67533)]" aria-hidden="true"></span>Beratungsw&uuml;nsche ans Team</li>
         </ul>
       </article>
-      <article class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7">
+      <article class="branche-karte rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition hover:border-zinc-300 sm:p-7" data-branche="bildung">
         <h3 class="text-lg font-semibold tracking-tight text-zinc-900">Fahrschulen &amp; Bildungsanbieter</h3>
         <div class="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">Anmeldungen &amp; Auskunft</div>
         <ul class="mt-4 space-y-2 text-sm text-zinc-600">
@@ -884,6 +958,9 @@
         </ul>
       </article>
           </div>
+          <p id="branchen-mehr-zeile" class="mt-6" hidden>
+            <button type="button" id="branchen-mehr" class="text-[15px] font-medium text-[color:var(--color-accent,#E67533)] underline underline-offset-4">Alle neun Branchen anzeigen</button>
+          </p>
           <p class="mt-8 max-w-3xl text-[15px] leading-relaxed text-zinc-600">Deine Branche ist nicht dabei? Der Assistent wird ohnehin f&uuml;r jeden Betrieb einzeln eingerichtet.<br class="hidden sm:block"> Sag im Erstgespr&auml;ch, worum es bei dir geht.</p>
         </div>
       </div>
@@ -913,139 +990,22 @@
     </section>
 
     <!-- ====================================================================
-         4. VALUE-QUADRANT
+         AUSPROBIEREN  (Testanruf + ROI-Rechner, zusammengelegt 2026-08-24)
          ==================================================================== -->
-    <section id="value" class="section" aria-labelledby="value-title" data-section="04-value-quadrant">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="value-title" class="sr-only">Woran du die Zusammenarbeit messen kannst</h2>
-        <div data-slot="value-quadrant">
-          <div class="text-center mb-12">
-            <h2 class="text-[1.75rem] font-semibold tracking-[-0.02em] text-ink leading-snug mb-3">Vier prüfbare Unterschiede</h2>
-            <p class="text-[1.0625rem] text-ink-muted leading-relaxed max-w-[36rem] mx-auto">Vier Punkte, an denen du die Zusammenarbeit messen kannst.</p>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v8h4"/><path d="M18 9h2a2 2 0 0 1 2 2v11h-4"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Aus dem eigenen Betrieb</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Jede Konfiguration entsteht im laufenden Betrieb des eigenen Hotels. Sie wird dort im Alltag erprobt, bevor sie zu dir kommt.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h3a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H3v-7Z"/><path d="M18 18h3v-7h-3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1Z"/><path d="M3 11a9 9 0 0 1 18 0"/><path d="M21 17a3 3 0 0 1-3 3h-2"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Kein Ticketsystem, kein Callcenter</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Änderungen meldest du per E-Mail oder WhatsApp an eine Person, die deinen Betrieb kennt. Kleinigkeiten sind meist am selben Tag erledigt.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 12.18-9.17 4.18a2 2 0 0 1-1.66 0L2 12.18"/><path d="m22 17.18-9.17 4.18a2 2 0 0 1-1.66 0L2 17.18"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Erprobte Technik etablierter Anbieter</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Standard-Schnittstellen etablierter Anbieter. Keine eigenentwickelte KI und keine Bastellösung, die nur einer versteht.</p>
-            </article>
-            <article class="bg-base border border-line rounded-xl p-8 shadow-sm transition-transform duration-150 hover:-translate-y-0.5">
-              <div class="w-12 h-12 flex items-center justify-center bg-accent-subtle text-accent rounded-md mb-4" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
-              <h3 class="text-[1.125rem] font-semibold tracking-[-0.01em] text-ink mb-3">Verträge mit allen Dienstleistern</h3>
-              <p class="text-[0.9375rem] text-ink-muted leading-relaxed">Auftragsverarbeitungsverträge mit allen eingesetzten Dienstleistern. Die vollständige Anbieterübersicht bekommst du auf Nachfrage.</p>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         9. ÜBER MICH
-         ==================================================================== -->
-    <section id="ueber-mich" class="section section-dark" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
-        <div data-slot="ueber-mich">
-<div class="mx-auto max-w-6xl px-6">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Über mich</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hotelier am Steinhuder Meer.<br class="hidden sm:block">Und die Person hinter der Logik-Agentur.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Was hier angeboten wird, läuft täglich im eigenen Betrieb.</p>
-  </div>
-  <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-12">
-    <div>
-      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Wer ich bin</div>
-      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Pantelis Nanis</p>
-      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Hotelier am Steinhuder Meer. Mitinhaber des Hotels Nanis. Der Umgang mit Computern und IT reicht bis in die Jugend zurück und begleitet die Arbeit seit Jahrzehnten. Aktive KI-Weiterbildung über KI-Campus, openHPI, Harvard Online und die KI-Wirtschaftsregion Hannover.</p>
-      <div class="mt-10 text-xs font-medium uppercase tracking-wider text-zinc-500">Warum das relevant ist</div>
-      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Praxis statt Theorie.</p>
-      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Was ich anbiete, ist vorher im eigenen Betrieb gelaufen. Ich empfehle nichts, was ich nicht selbst im Tagesgeschäft einsetze.</p>
-    </div>
-    <div>
-      <picture><source srcset="assets/portrait.webp" type="image/webp"><img src="assets/portrait.jpg" alt="Porträtfoto an einem Empfangstresen" width="557" height="912" class="w-full max-w-[14.7rem] rounded-2xl shadow-sm ring-1 ring-zinc-100 md:ml-auto md:mr-16" loading="lazy" /></picture>
-    </div>
-  </div>
-  <div class="mt-16 border-t border-zinc-200 pt-12">
-    <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Etablierte Standarddienste statt Eigenplattform</div>
-    <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">01</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Konfiguration statt Plattform.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich verkaufe keine eigene Software, sondern die Konfiguration und Integration etablierter Standard-Dienste, alle einzeln dokumentiert und einzeln austauschbar.</p></div>
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">02</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Zusammenarbeit ohne Umwege.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich kenne den Druck im operativen Tagesgeschäft selbst: knappe Zeit, anspruchsvolle Kunden, schwankende Auslastung. Absprachen kurz, R&uuml;ckmeldungen sachlich.</p></div>
-      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Dokumentierte Auftragsverarbeitung.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Den Datenschutz kl&auml;re ich beim Start, nicht erst im Verkaufsgespr&auml;ch. Auftragsverarbeitungsvertrag und Datenschutzerklärung bekommst du vor Vertragsschluss, die Dienstleisterliste auf Nachfrage.</p></div>
-    </div>
-  </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Alltag deines Betriebs konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
-</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         12. INTEGRATIONEN (Kompetenz-Kategorien, ohne Anbieternamen)
-         ==================================================================== -->
-    <section id="integrationen" class="section" aria-labelledby="integrationen-title" data-section="12-integrationen">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="integrationen-title" class="sr-only">Integrationen</h2>
-        <div data-slot="integrationen">
-<div class="mx-auto max-w-6xl px-6">
-  <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Integrationen · Eingesetzte Technik</div>
-    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Bewährte Technik, jede Komponente austauschbar.</h2>
-    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Module laufen auf Diensten, die sich im Markt bewährt haben und von etablierten Anbietern betrieben werden. Jede Komponente ist einzeln vertraglich geregelt und austauschbar. Du bekommst eine Konfiguration, keine Plattform-Bindung.</p>
-  </div>
-  <div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Sprache &amp; Telefonie</div><p class="mt-2 text-sm text-zinc-600">Sprachsynthese, Dialogsteuerung, Telefonie</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Nachrichtenkanäle</div><p class="mt-2 text-sm text-zinc-600">WhatsApp-Anbindung, SMS, E-Mail-Versand</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>Automatisierung</div><p class="mt-2 text-sm text-zinc-600">Abläufe verbinden, Dienste verketten</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>Sprachmodelle</div><p class="mt-2 text-sm text-zinc-600">Sprachverarbeitung, Textentwürfe, Zuordnung des Anliegens</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>Hosting &amp; Infrastruktur</div><p class="mt-2 text-sm text-zinc-600">Hosting, EU-Anbieter bevorzugt, nachvollziehbare Änderungsstände</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>Systeme deines Betriebs</div><p class="mt-2 text-sm text-zinc-600">Termin- und Reservierungssysteme, Buchungssysteme, Kundenverwaltung, Warenwirtschaft. Ob sich ein System anbinden lässt, entscheidet seine Schnittstelle. Das wird vor dem Angebot geprüft.</p></div>
-    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Wissensbasis</div><p class="mt-2 text-sm text-zinc-600">Das Wissen deines Betriebs an einer Stelle gepflegt, Grundlage jeder Auskunft</p></div>
-  </div>
-  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><div class="flex items-start gap-4"><div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M12 17v-3"/></svg></div><div><p class="text-[15px] font-semibold tracking-tight text-zinc-900">Keine Plattform-Bindung.</p><p class="mt-1 text-[15px] leading-relaxed text-zinc-600">Jede Komponente ist ein eigenständiger Standard-Dienst mit eigenem Vertrag, eigenem Datenexport und eigenem Wartungsmodell.</p></div></div></div>
-</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         10. COMPLIANCE-BADGES (DSGVO · AVV · Sub-Prozessoren · Standard-Dienste)
-         ==================================================================== -->
-    <section id="compliance" class="section section-dark" aria-labelledby="compliance-title" data-section="10-compliance-badges">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="compliance-title" class="sr-only">Datenschutz</h2>
-        <div data-slot="compliance-badges">
-  <div class="mx-auto max-w-6xl px-6">
-    <div class="max-w-3xl">
-      <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Datenschutz</div>
-      <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Klare Datenwege. Klare Verantwortung.</h2>
-      <p class="mt-4 text-lg leading-relaxed text-zinc-600">Ein KI-Agent verarbeitet personenbezogene Daten: Rufnummer, Anliegen, Gesprächstext. Vor dem Start bekommst du einen Auftragsverarbeitungsvertrag nach Art.&nbsp;28 DSGVO. Welche Dienste beteiligt sind, mit Hostingregion, Speicherdauer und den Stellen, an denen Daten das EU-Ausland berühren, erfährst du auf Nachfrage.</p>
-      <p class="mt-4 text-lg leading-relaxed text-zinc-600">Dein Betrieb legt Zweck und Rechtsgrundlage fest, die Logik-Agentur erfüllt die Pflichten als Auftragsverarbeiter. Was auf dieser Website selbst verarbeitet wird, steht in der <a href="datenschutz.html" class="font-medium text-[color:var(--color-accent,#E67533)] underline underline-offset-4 hover:text-[color:var(--color-accent-hover,#C45A1A)]">Datenschutzerklärung</a>.</p>
-    </div>
-  </div>
-</div>
-      </div>
-    </section>
-
-    <!-- ====================================================================
-         5b. TESTANRUF  (Demo-Rufnummer, vor dem Preisteil)
-         ==================================================================== -->
-    <section id="testanruf" class="section" aria-labelledby="testanruf-title" data-section="05b-testanruf">
+    <section id="ausprobieren" class="section" aria-labelledby="ausprobieren-title" data-section="05-ausprobieren">
       <div class="max-w-content mx-auto px-6">
         <div class="mx-auto max-w-6xl px-6">
+          <div class="max-w-3xl">
+            <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Ausprobieren</div>
+            <h2 id="ausprobieren-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Erst h&ouml;ren, dann rechnen, dann Preise.</h2>
+            <p class="mt-4 text-lg leading-relaxed text-zinc-600">Zwei Wege, das Angebot zu pr&uuml;fen, bevor du dich mit Paketen besch&auml;ftigst: einmal selbst mit dem Assistenten sprechen und einmal mit deinen eigenen Zahlen durchrechnen.</p>
+          </div>
+        </div>
+        <div class="mx-auto max-w-6xl px-6 mt-10">
           <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm sm:p-8">
             <div class="max-w-3xl">
               <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Testanruf</div>
-              <h2 id="testanruf-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hör dir den Assistenten selbst an.</h2>
+              <h3 id="testanruf-title" class="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">Hör dir den Assistenten selbst an.</h3>
               <p class="mt-4 text-lg leading-relaxed text-zinc-600">Bevor du über Preise nachdenkst, ruf an und sprich mit dem Assistenten. Er stellt das Angebot vor und führt dabei genau das vor, worum es geht. Der Anruf kostet dich nur die Gebühren deines Anbieters.</p>
               <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                 <a href="tel:+4950319439008" data-la-call-open aria-haspopup="dialog" class="inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[color:var(--color-accent,#E67533)] px-6 py-4 text-base font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">
@@ -1057,6 +1017,19 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="max-w-content mx-auto px-6 mt-4">
+        <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
+             Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
+             mountet sich self-acting auf dieses #roi-rechner-root.
+             Self-mounting Embed-Pattern. -->
+        <div id="roi-rechner-root"
+             data-slot="roi-rechner-mount"
+             aria-live="polite"></div>
+        <noscript>
+          <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Was kosten nicht angenommene Anrufe?</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">An dieser Stelle steht ein Rechner, mit dem du mit deinen eigenen Zahlen durchspielen kannst, was verpasste Anrufe kosten k&ouml;nnen. Er braucht JavaScript. Ist das in deinem Browser abgeschaltet, rechnen wir das im Erstgespr&auml;ch gemeinsam durch.</p>
+        </noscript>
       </div>
     </section>
 
@@ -1263,7 +1236,13 @@
 
   <p class="mt-6 text-[15px] text-zinc-600">Mehrere Standorte oder Filialen: <span class="font-medium text-zinc-900">Enterprise ab 799&nbsp;&euro; / Monat</span>, Umfang und Preis werden individuell kalkuliert.</p>
 
-  <div id="preis-hinweise" class="mt-10 scroll-mt-24 border-t border-zinc-200 pt-8">
+  <details id="preis-details" class="group mt-10 scroll-mt-24 border-t border-zinc-200 pt-8">
+    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 text-left">
+      <span class="text-[17px] font-semibold tracking-tight text-zinc-900">Alle Einzelheiten: Hinweise zu den Preisen, Add-ons und Vertragliches</span>
+      <span class="mt-1 shrink-0 text-zinc-400 transition-transform group-open:rotate-180"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></span>
+    </summary>
+    <div class="mt-2">
+  <div id="preis-hinweise" class="mt-8 scroll-mt-24">
     <h3 class="text-sm font-semibold uppercase tracking-wider text-zinc-500">Hinweise zu den Preisen</h3>
     <dl class="mt-5 grid gap-x-10 gap-y-5 text-[15px] leading-relaxed text-zinc-600 sm:grid-cols-2">
       <div>
@@ -1310,29 +1289,86 @@
   <p class="mt-8 text-sm text-zinc-500">Monatlich k&uuml;ndbar, keine Mindestlaufzeit. Das einmalige Setup wird erst mit deiner Abnahme f&auml;llig, nicht bei Vertragsschluss. Zu jedem Paket wird ein Verbrauchsdeckel vereinbart, damit aus einem ungew&ouml;hnlich starken Monat keine &Uuml;berraschungsrechnung wird.</p>
   <p class="mt-3 text-sm text-zinc-500">Im Setup enthalten: Einrichtung des Agenten, Aufbau der Wissensbasis aus deinen Angaben, Konfiguration der &Uuml;bergabe an dein Team und Test bis zum ersten produktiven Einsatz. Mehrere Standorte oder die Anbindung an ein Buchungssystem werden gesondert kalkuliert.</p>
   <p class="mt-3 text-sm text-zinc-500"><span class="font-medium text-zinc-700">Onboarding mit Fragenkatalog:</span> Der Fragenkatalog sammelt alle Angaben zu deinem Betrieb, die der Assistent kennen muss: deine Leistungen und Preise, Erreichbarkeiten und Terminvergabe, typische Kundenfragen, Abl&auml;ufe und Ansprechpartner f&uuml;r &Uuml;bergaben. Nach dem Erstgespr&auml;ch f&uuml;lle ich ihn zum gr&ouml;&szlig;ten Teil schon vor, du pr&uuml;fst und erg&auml;nzt. Das Einpflegen und Einrichten &uuml;bernehme ich. Verbindliche Kostenaufstellung nach dem Erstgespr&auml;ch.</p>
+    </div>
+  </details>
 </div>
 </div>
       </div>
     </section>
 
     <!-- ====================================================================
-         7. ROI-RECHNER (Mount-Point fuer das gebaute Widget-Bundle)
+         9. ÜBER MICH
          ==================================================================== -->
-    <section id="roi" class="section section-dark" aria-labelledby="roi-title" data-section="07-roi-rechner">
+    <section id="ueber-mich" class="section section-dark" aria-labelledby="ueber-mich-title" data-section="09-ueber-mich">
       <div class="max-w-content mx-auto px-6">
-        <h2 id="roi-title" class="sr-only">Rechnerisches Potenzial</h2>
+        <h2 id="ueber-mich-title" class="sr-only">Über mich</h2>
+        <div data-slot="ueber-mich">
+<div class="mx-auto max-w-6xl px-6">
+  <div class="max-w-3xl">
+    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Über mich</div>
+    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hotelier am Steinhuder Meer.<br class="hidden sm:block">Und die Person hinter der Logik-Agentur.</h2>
+    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Was hier angeboten wird, läuft täglich im eigenen Betrieb.</p>
+  </div>
+  <div class="mt-12 grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-12">
+    <div>
+      <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Wer ich bin</div>
+      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Pantelis Nanis</p>
+      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Hotelier am Steinhuder Meer. Mitinhaber des Hotels Nanis. Der Umgang mit Computern und IT reicht bis in die Jugend zurück und begleitet die Arbeit seit Jahrzehnten. Aktive KI-Weiterbildung über KI-Campus, openHPI, Harvard Online und die KI-Wirtschaftsregion Hannover.</p>
+      <div class="mt-10 text-xs font-medium uppercase tracking-wider text-zinc-500">Warum das relevant ist</div>
+      <p class="mt-3 text-2xl font-semibold tracking-tight text-zinc-900">Praxis statt Theorie.</p>
+      <p class="mt-4 text-[15px] leading-relaxed text-zinc-600">Was ich anbiete, ist vorher im eigenen Betrieb gelaufen. Ich empfehle nichts, was ich nicht selbst im Tagesgeschäft einsetze.</p>
+    </div>
+    <div>
+      <picture><source srcset="assets/portrait.webp" type="image/webp"><img src="assets/portrait.jpg" alt="Porträtfoto an einem Empfangstresen" width="557" height="912" class="w-full max-w-[14.7rem] rounded-2xl shadow-sm ring-1 ring-zinc-100 md:ml-auto md:mr-16" loading="lazy" /></picture>
+    </div>
+  </div>
+  <div class="mt-16 border-t border-zinc-200 pt-12">
+    <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Woran du die Zusammenarbeit messen kannst</div>
+    <div class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10">
+      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">01</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Konfiguration statt Plattform.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich verkaufe keine eigene Software, sondern die Konfiguration und Integration etablierter Standard-Dienste, alle einzeln dokumentiert und einzeln austauschbar. Keine eigenentwickelte KI und keine Bastell&ouml;sung, die nur einer versteht.</p></div>
+      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">02</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Zusammenarbeit ohne Umwege.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Ich kenne den Druck im operativen Tagesgeschäft selbst: knappe Zeit, anspruchsvolle Kunden, schwankende Auslastung. &Auml;nderungen meldest du per E-Mail oder WhatsApp an eine Person, die deinen Betrieb kennt, kein Ticketsystem und kein Callcenter. Kleinigkeiten sind meist am selben Tag erledigt.</p></div>
+      <div><div class="inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent-subtle font-mono text-sm font-semibold text-[color:var(--color-accent,#E67533)]">03</div><h3 class="mt-4 text-lg font-semibold tracking-tight text-zinc-900">Dokumentierte Auftragsverarbeitung.</h3><p class="mt-2 text-[15px] leading-relaxed text-zinc-600">Den Datenschutz kl&auml;re ich beim Start, nicht erst im Verkaufsgespr&auml;ch. Auftragsverarbeitungsvertr&auml;ge mit allen eingesetzten Dienstleistern, dazu Datenschutzerkl&auml;rung vor Vertragsschluss und die vollst&auml;ndige Anbieter&uuml;bersicht auf Nachfrage.</p></div>
+    </div>
+  </div>
+  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><p class="max-w-2xl text-[15px] leading-relaxed text-zinc-700">Wenn du wissen willst, wie das im Alltag deines Betriebs konkret aussieht, <span class="font-semibold text-zinc-900">ist ein 30-Minuten-Gespräch der direkteste Weg.</span></p><a href="https://cal.eu/pantelis-nanis-m54voh/30min" class="mt-5 inline-flex items-center gap-2 rounded-lg bg-[color:var(--color-accent,#E67533)] px-5 py-2.5 text-[15px] font-medium text-white shadow-sm transition hover:bg-[color:var(--color-accent-hover,#C45A1A)]">Erstgespräch buchen<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></div>
+</div>
+        </div>
+      </div>
+    </section>
 
-        <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
-             Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
-             mountet sich self-acting auf dieses #roi-rechner-root.
-             Self-mounting Embed-Pattern. -->
-        <div id="roi-rechner-root"
-             data-slot="roi-rechner-mount"
-             aria-live="polite"></div>
-        <noscript>
-          <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Was kosten nicht angenommene Anrufe?</h2>
-          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">An dieser Stelle steht ein Rechner, mit dem du mit deinen eigenen Zahlen durchspielen kannst, was verpasste Anrufe kosten k&ouml;nnen. Er braucht JavaScript. Ist das in deinem Browser abgeschaltet, rechnen wir das im Erstgespr&auml;ch gemeinsam durch.</p>
-        </noscript>
+    <!-- ====================================================================
+         TECHNIK & DATENSCHUTZ  (Integrationen + Compliance, zusammengelegt 2026-08-24)
+         ==================================================================== -->
+    <section id="technik" class="section" aria-labelledby="technik-title" data-section="12-technik">
+      <div class="max-w-content mx-auto px-6">
+        <h2 id="technik-title" class="sr-only">Technik und Datenschutz</h2>
+        <div data-slot="technik">
+<div class="mx-auto max-w-6xl px-6">
+  <div class="max-w-3xl">
+    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Integrationen · Eingesetzte Technik</div>
+    <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Bewährte Technik, jede Komponente austauschbar.</h2>
+    <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Module laufen auf Diensten, die sich im Markt bewährt haben und von etablierten Anbietern betrieben werden. Jede Komponente ist einzeln vertraglich geregelt und austauschbar. Du bekommst eine Konfiguration, keine Plattform-Bindung.</p>
+  </div>
+  <div class="mt-12 grid grid-cols-1 gap-x-12 gap-y-10 md:grid-cols-2">
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Sprache &amp; Telefonie</div><p class="mt-2 text-sm text-zinc-600">Sprachsynthese, Dialogsteuerung, Telefonie</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Nachrichtenkanäle</div><p class="mt-2 text-sm text-zinc-600">WhatsApp-Anbindung, SMS, E-Mail-Versand</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></svg>Automatisierung</div><p class="mt-2 text-sm text-zinc-600">Abläufe verbinden, Dienste verketten</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>Sprachmodelle</div><p class="mt-2 text-sm text-zinc-600">Sprachverarbeitung, Textentwürfe, Zuordnung des Anliegens</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>Hosting &amp; Infrastruktur</div><p class="mt-2 text-sm text-zinc-600">Hosting, EU-Anbieter bevorzugt, nachvollziehbare Änderungsstände</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>Systeme deines Betriebs</div><p class="mt-2 text-sm text-zinc-600">Termin- und Reservierungssysteme, Buchungssysteme, Kundenverwaltung, Warenwirtschaft. Ob sich ein System anbinden lässt, entscheidet seine Schnittstelle. Das wird vor dem Angebot geprüft.</p></div>
+    <div><div class="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-zinc-500"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>Wissensbasis</div><p class="mt-2 text-sm text-zinc-600">Das Wissen deines Betriebs an einer Stelle gepflegt, Grundlage jeder Auskunft</p></div>
+  </div>
+  <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><div class="flex items-start gap-4"><div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#E67533)]"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M12 17v-3"/></svg></div><div><p class="text-[15px] font-semibold tracking-tight text-zinc-900">Keine Plattform-Bindung.</p><p class="mt-1 text-[15px] leading-relaxed text-zinc-600">Jede Komponente ist ein eigenständiger Standard-Dienst mit eigenem Vertrag, eigenem Datenexport und eigenem Wartungsmodell.</p></div></div></div>
+  <div class="mt-16 border-t border-zinc-200 pt-12">
+    <div class="max-w-3xl">
+      <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Datenschutz</div>
+      <h3 class="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">Klare Datenwege. Klare Verantwortung.</h3>
+      <p class="mt-4 text-lg leading-relaxed text-zinc-600">Ein KI-Agent verarbeitet personenbezogene Daten: Rufnummer, Anliegen, Gesprächstext. Vor dem Start bekommst du einen Auftragsverarbeitungsvertrag nach Art.&nbsp;28 DSGVO. Welche Dienste beteiligt sind, mit Hostingregion, Speicherdauer und den Stellen, an denen Daten das EU-Ausland berühren, erfährst du auf Nachfrage.</p>
+      <p class="mt-4 text-lg leading-relaxed text-zinc-600">Dein Betrieb legt Zweck und Rechtsgrundlage fest, die Logik-Agentur erfüllt die Pflichten als Auftragsverarbeiter. Was auf dieser Website selbst verarbeitet wird, steht in der <a href="datenschutz.html" class="font-medium text-[color:var(--color-accent,#E67533)] underline underline-offset-4 hover:text-[color:var(--color-accent-hover,#C45A1A)]">Datenschutzerklärung</a>.</p>
+    </div>
+  </div>
+</div>
+        </div>
       </div>
     </section>
 
@@ -1421,11 +1457,12 @@
       <div class="text-xs font-medium uppercase tracking-wider text-zinc-500">Schnellnavigation</div>
       <ul class="mt-3 space-y-2 text-sm text-zinc-700">
         <li><a href="#omnichannel" class="hover:text-[color:var(--color-accent,#E67533)]">Leistungen</a></li>
-            <li><a href="#branchen" class="hover:text-[color:var(--color-accent,#E67533)]">Branchen</a></li>
+        <li><a href="#branchen" class="hover:text-[color:var(--color-accent,#E67533)]">Branchen</a></li>
         <li><a href="#ablauf" class="hover:text-[color:var(--color-accent,#E67533)]">Umsetzung</a></li>
-        <li><a href="#ueber-mich" class="hover:text-[color:var(--color-accent,#E67533)]">Über mich</a></li>
+        <li><a href="#ausprobieren" class="hover:text-[color:var(--color-accent,#E67533)]">Ausprobieren</a></li>
         <li><a href="#pricing" class="hover:text-[color:var(--color-accent,#E67533)]">Preise</a></li>
-        <li><a href="#roi" class="hover:text-[color:var(--color-accent,#E67533)]">Potenzial</a></li>
+        <li><a href="#ueber-mich" class="hover:text-[color:var(--color-accent,#E67533)]">Über mich</a></li>
+        <li><a href="#technik" class="hover:text-[color:var(--color-accent,#E67533)]">Technik &amp; Datenschutz</a></li>
         <li><a href="#faq" class="hover:text-[color:var(--color-accent,#E67533)]">FAQ</a></li>
       </ul>
     </div>
@@ -1772,11 +1809,11 @@
     (function () {
       if (!('IntersectionObserver' in window)) { document.documentElement.classList.remove('js'); return; }
       var sel = '#omnichannel .max-w-3xl, #ablauf .max-w-3xl, #ueber-mich .max-w-3xl,'
-              + '#integrationen .max-w-3xl, #compliance .max-w-3xl, #pricing .max-w-3xl,'
+              + '#technik .max-w-3xl, #ausprobieren .max-w-3xl, #pricing .max-w-3xl,'
               + '#faq .max-w-3xl, #value .text-center,'
               + '#omnichannel article, #value article, #pricing article,'
-              + '#ablauf .grid > div, #compliance .grid > div,'
-              + '#integrationen .grid > div, #ueber-mich .grid > div';
+              + '#ablauf .grid > div,'
+              + '#technik .grid > div, #ueber-mich .grid > div';
       var els = [].slice.call(document.querySelectorAll(sel));
       els.forEach(function (el) {
         var i = [].indexOf.call(el.parentNode.children, el);
@@ -1788,6 +1825,102 @@
         });
       }, { rootMargin: '0px 0px -10% 0px', threshold: 0.05 });
       els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <script>
+    /* Aufklapp-Menue fuer Handy und Tablet. Ohne JavaScript bleibt das Menue
+       zu, die Seite ist aber vollstaendig scrollbar und der CTA sichtbar. */
+    (function () {
+      var knopf = document.getElementById('menu-toggle');
+      var panel = document.getElementById('menu-panel');
+      if (!knopf || !panel) return;
+
+      function setze(offen) {
+        knopf.setAttribute('aria-expanded', offen ? 'true' : 'false');
+        panel.hidden = !offen;
+        knopf.querySelector('.sr-only').textContent = offen ? 'Men\u00fc schlie\u00dfen' : 'Men\u00fc \u00f6ffnen';
+      }
+
+      knopf.addEventListener('click', function () {
+        setze(knopf.getAttribute('aria-expanded') !== 'true');
+      });
+
+      panel.addEventListener('click', function (e) {
+        if (e.target.closest('a')) setze(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && knopf.getAttribute('aria-expanded') === 'true') {
+          setze(false);
+          knopf.focus();
+        }
+      });
+
+      // Wechsel auf Desktop-Breite: Panel schliessen, damit nichts haengen bleibt
+      var gross = window.matchMedia('(min-width: 1024px)');
+      var beiWechsel = function (e) { if (e.matches) setze(false); };
+      if (gross.addEventListener) gross.addEventListener('change', beiWechsel);
+      else if (gross.addListener) gross.addListener(beiWechsel);
+    })();
+  </script>
+
+  <script>
+    /* Springt ein Link in einen eingeklappten Bereich, klappt der Bereich auf.
+       Betrifft die Sternchen-Verweise auf #preis-hinweise. */
+    (function () {
+      function oeffne(hash) {
+        if (!hash || hash.length < 2) return;
+        var ziel;
+        try { ziel = document.querySelector(hash); } catch (e) { return; }
+        if (!ziel) return;
+        var d = ziel.closest('details');
+        while (d) { d.open = true; d = d.parentElement ? d.parentElement.closest('details') : null; }
+        ziel.scrollIntoView();
+      }
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest('a[href^="#"]');
+        if (a) setTimeout(function () { oeffne(a.getAttribute('href')); }, 0);
+      });
+      window.addEventListener('hashchange', function () { oeffne(location.hash); });
+      if (location.hash) setTimeout(function () { oeffne(location.hash); }, 0);
+    })();
+  </script>
+
+  <script>
+    /* Branchen-Auswahl. Ohne JavaScript bleiben alle neun Karten sichtbar. */
+    (function () {
+      var wahl = document.getElementById('branchen-auswahl');
+      var grid = document.getElementById('branchen-grid');
+      if (!wahl || !grid) return;
+
+      var karten = Array.prototype.slice.call(grid.querySelectorAll('.branche-karte'));
+      var mehrZeile = document.getElementById('branchen-mehr-zeile');
+      var mehrKnopf = document.getElementById('branchen-mehr');
+      var ERST = 3;
+      var alleZeigen = false;
+
+      function zeichne() {
+        var w = wahl.value;
+        if (w === 'alle') {
+          karten.forEach(function (k, i) { k.hidden = !alleZeigen && i >= ERST; });
+          if (mehrZeile) mehrZeile.hidden = alleZeigen;
+        } else {
+          karten.forEach(function (k) { k.hidden = k.dataset.branche !== w; });
+          if (mehrZeile) mehrZeile.hidden = true;
+        }
+      }
+
+      wahl.addEventListener('change', function () {
+        if (wahl.value !== 'alle') alleZeigen = false;
+        zeichne();
+      });
+
+      if (mehrKnopf) {
+        mehrKnopf.addEventListener('click', function () { alleZeigen = true; zeichne(); });
+      }
+
+      zeichne();
     })();
   </script>
 
