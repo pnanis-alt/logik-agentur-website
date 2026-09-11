@@ -36,8 +36,21 @@ ob es noch da ist. Fehlt es, erlischt der Zugang zur Search Console nach einer F
 
 ### Teil A: Pantelis, in der Search Console
 
+0. **Einmalig: eigenes Google-Konto fuer die Agentur anlegen**, nicht das Hotel-Konto nehmen.
+   Eine Gmail-Adresse ist nicht noetig, die Agentur-E-Mail-Adresse reicht.
+   Doku: https://support.google.com/accounts/answer/27441?hl=de
+   1. Oeffne https://accounts.google.com
+   2. Klicke auf **Konto erstellen**.
+   3. Waehle **Fuer meine private Nutzung**.
+   4. Gib die allgemeinen Kontoinformationen an.
+   5. Tippe auf **E-Mail-Adresse verwenden** und gib die Agentur-Adresse ein.
+   6. Klicke auf **Weiter**.
+   7. Gib den Code ein, den Google an diese Adresse schickt.
+   8. Klicke auf **Weiter** und lege ein Passwort an. Passwort in Bitwarden speichern.
 1. Oeffne in Chrome https://search.google.com/search-console
-2. Melde dich mit dem Google-Konto an, das dauerhaft zur Agentur gehoeren soll.
+2. Melde dich mit dem Agentur-Google-Konto aus Schritt 0 an.
+   Andere Personen oder Konten lassen sich spaeter unter **Einstellungen > Nutzer und
+   Berechtigungen** hinzufuegen, die Wahl ist also nicht endgueltig.
 3. Hast du noch keine Property, siehst du die Auswahl sofort. Sonst oeffne oben links
    die Property-Auswahl und klicke auf **+ Property hinzufuegen**.
 4. Waehle **URL-Praefix**.
@@ -81,3 +94,8 @@ ob es noch da ist. Fehlt es, erlischt der Zugang zur Search Console nach einer F
 - [ ] Teil A bis C durchgefuehrt
 - [ ] Nach ein paar Tagen `site:logik-agentur.de` bei Google pruefen
 - [ ] Google Search Console in "Wofuer ist das nochmal?" eintragen, sobald das Konto steht
+- [ ] Google Unternehmensprofil fuer die Agentur: erst klaeren, ob die Agentur ueberhaupt
+      darf. Google erlaubt ein Profil nur mit Standort, den Kunden besuchen, oder mit
+      Dienstleistungen beim Kunden vor Ort (dann Adresse ausblenden, Einzugsgebiet angeben).
+      Reine Fernarbeit reicht nicht. Richtlinie, geprueft am 11.09.2026:
+      https://support.google.com/business/answer/3038177?hl=de
