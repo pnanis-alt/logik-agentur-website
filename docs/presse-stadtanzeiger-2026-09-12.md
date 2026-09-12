@@ -80,6 +80,7 @@ Selbst ausprobieren: Link in der Bio.
        **Ohne das Zeitungsfoto.** Ein kompletter Abdruck des Artikels ist Sache des
        Verlags, das waere eine Urheberrechtsfrage. Stattdessen haengt an dem Beitrag die
        Linkvorschau auf logik-agentur.de, die ist klickbar und gehoert uns selbst.
-       Offen: Webseite noch im LinkedIn-Profil eintragen.
+       Webseite am 12.09.2026 auch im LinkedIn-Profil eingetragen, unter
+       Kontaktinformationen, Art der Website "Geschaeftlich".
 4. [ ] Instagram: Beitrag posten, Link in der Bio prüfen
 5. [ ] Bing Webmaster Tools, Import aus der Search Console ist jetzt moeglich
