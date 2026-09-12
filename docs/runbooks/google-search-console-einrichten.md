@@ -134,6 +134,26 @@ Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet l
       Profilbild hochladen, Zweitkategorie "Unternehmensberater" ergaenzen.
       Bis die Bestaetigung durch ist: Name, Adresse und Kategorie nicht aendern.
       Logo-PNG fuer Google entsteht aus `assets/logo.svg`, 512 mal 512 auf weissem Grund.
+- [x] Indexierung: am 12.09.2026, rund eine Stunde nach dem Antrag, liefert
+      `site:logik-agentur.de` zwei Treffer, Startseite und `presse.html`. Vorher null.
+- [x] Adresse: im Profil steht "Kein Geschaeftsstandort vorhanden". Die Privatadresse
+      wird also nicht oeffentlich angezeigt, geprueft am 12.09.2026.
+- [x] Einzugsgebiet: stand zuerst auf "Deutschland", das verstoesst gegen Googles
+      Zwei-Stunden-Regel. Am 12.09.2026 ersetzt durch 13 Gebiete: Hannover, Wunstorf,
+      Barsinghausen, Neustadt am Ruebenberge, Stadthagen, Bad Nenndorf, Rehburg-Loccum,
+      Lauenhagen, Pollhagen, Hagenburg, Woelpinghausen, Auhagen, Sachsenhagen.
+      Status "ausstehend", Google prueft das laut Hinweis bis zu zehn Minuten.
+- [ ] Der Profilname lautet bei Google **"Logik Agentur" ohne Bindestrich**, obwohl
+      "Logik-Agentur" eingegeben wurde. Nicht jetzt korrigieren: Name, Adresse und
+      Kategorie waehrend der laufenden Bestaetigung zu aendern macht Bestaetigungscodes
+      ungueltig. Nach der Bestaetigung nachziehen.
+- [ ] Aus demselben Grund wartet die Zweitkategorie "Unternehmensberater" bis nach der
+      Bestaetigung.
+- [ ] Logo als Profilbild: Claude kann es nicht hochladen. Das Bearbeitungsfenster liegt
+      in einem Bereich, den die Browser-Werkzeuge nicht auslesen koennen, und der
+      Hochladen-Knopf oeffnet ein Systemfenster, das Claude nicht bedienen darf.
+      Pantelis laedt hoch: `~/Desktop/logo-logik-agentur-512.png`, 512 mal 512, weisser
+      Grund, erzeugt aus `assets/logo.svg`.
 - [ ] Falle: Das Bearbeiten des Unternehmensprofils laeuft bei Google inzwischen auf
       `www.google.com/search`. Die Claude-Chrome-Erweiterung braucht fuer diese Domain
       eine eigene Freigabe, sonst kann Claude dort nichts sehen und nichts klicken.
