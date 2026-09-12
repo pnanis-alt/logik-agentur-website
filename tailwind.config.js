@@ -15,6 +15,7 @@ module.exports = {
     './datenschutz.html',
     './agb.html',
     './ki-kompetenz.html',
+    './presse.html',
     './widgets/**/*.{js,jsx}',
   ],
   theme: {
