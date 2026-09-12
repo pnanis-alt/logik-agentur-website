@@ -72,8 +72,10 @@ Selbst ausprobieren: Link in der Bio.
 
 ## 4. Reihenfolge heute
 
-1. [ ] E-Mail an die Redaktion raus (Text oben)
-2. [ ] Search Console einrichten, siehe `runbooks/google-search-console-einrichten.md`
+1. [~] E-Mail an die Redaktion: von Pantelis am 12.09.2026 gestrichen, er will das nicht.
+       Der Text bleibt oben stehen, falls es doch noch gebraucht wird.
+2. [x] Search Console eingerichtet am 12.09.2026, Details im Runbook. Property bestaetigt,
+       Sitemap eingereicht, Indexierung fuer Startseite und presse.html beantragt.
 3. [ ] LinkedIn: Webseite ins Profil eintragen, dann Beitrag posten
 4. [ ] Instagram: Beitrag posten, Link in der Bio prüfen
-5. [ ] Bing Webmaster Tools, geht erst nach Schritt 2 per Import aus der Search Console
+5. [ ] Bing Webmaster Tools, Import aus der Search Console ist jetzt moeglich

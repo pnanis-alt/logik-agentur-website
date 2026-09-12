@@ -111,7 +111,11 @@ Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet l
 
 ## Offene Punkte
 
-- [ ] Teil A bis C durchgefuehrt
+- [x] Teil A bis C durchgefuehrt am 12.09.2026, von Claude per Chrome-Erweiterung:
+      URL-Praefix-Property `https://logik-agentur.de/` angelegt, per HTML-Tag bestaetigt
+      (Google-Konto nanpan81@gmail.com), Sitemap `sitemap.xml` eingereicht, Indexierung
+      fuer die Startseite und fuer `presse.html` beantragt. Beide URLs waren zu dem
+      Zeitpunkt "nicht auf Google" und liegen jetzt in der Crawling-Warteschlange.
 - [ ] Nach ein paar Tagen `site:logik-agentur.de` bei Google pruefen
 - [ ] Google Search Console in "Wofuer ist das nochmal?" eintragen, sobald das Konto steht
 - [ ] Google Unternehmensprofil fuer die Agentur: erst klaeren, ob die Agentur ueberhaupt
