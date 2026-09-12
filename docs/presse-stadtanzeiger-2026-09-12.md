@@ -82,5 +82,6 @@ Selbst ausprobieren: Link in der Bio.
        Linkvorschau auf logik-agentur.de, die ist klickbar und gehoert uns selbst.
        Webseite am 12.09.2026 auch im LinkedIn-Profil eingetragen, unter
        Kontaktinformationen, Art der Website "Geschaeftlich".
-4. [ ] Instagram: Beitrag posten, Link in der Bio prüfen
-5. [ ] Bing Webmaster Tools, Import aus der Search Console ist jetzt moeglich
+4. [x] Instagram: von Pantelis selbst gepostet am 12.09.2026.
+5. [x] Bing Webmaster Tools am 12.09.2026 eingerichtet, per Import aus der Search Console.
+       Details im Runbook `runbooks/google-search-console-einrichten.md`.
