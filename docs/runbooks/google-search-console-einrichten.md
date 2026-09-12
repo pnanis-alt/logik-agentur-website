@@ -154,6 +154,19 @@ Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet l
       Hochladen-Knopf oeffnet ein Systemfenster, das Claude nicht bedienen darf.
       Pantelis laedt hoch: `~/Desktop/logo-logik-agentur-512.png`, 512 mal 512, weisser
       Grund, erzeugt aus `assets/logo.svg`.
+- [x] Bing Webmaster Tools, eingerichtet am 12.09.2026. Anmeldung mit dem Google-Konto
+      nanpan81@gmail.com, dann Import aus der Google Search Console. Damit ist die Seite
+      bei Bing ohne zweiten Bestaetigungscode verifiziert, und die Sitemap
+      `https://logik-agentur.de/sitemap.xml` kam automatisch mit (Status "Processing").
+      Zusaetzlich per URL Submission eingereicht: Startseite und `presse.html`
+      ("Success: 2 URLs submitted"). Tageskontingent 100 URLs, danach noch 98 frei.
+      Bing braucht laut eigenem Hinweis bis zu 48 Stunden, bis Daten und Berichte stehen.
+      Bing ist auch die Quelle fuer ChatGPT und Microsoft Copilot.
+      Freigegebene Google-Rechte: nur Lesen (`webmasters.readonly`) plus E-Mail-Adresse.
+      Doku geprueft am 12.09.2026:
+      https://www.bing.com/webmasters/help/add-and-verify-site-12184f8b
+- [ ] Offen bei Bing: IndexNow-Schluessel einrichten, damit neue oder geaenderte Seiten
+      automatisch gemeldet werden, statt sie von Hand einzureichen.
 - [ ] Falle: Das Bearbeiten des Unternehmensprofils laeuft bei Google inzwischen auf
       `www.google.com/search`. Die Claude-Chrome-Erweiterung braucht fuer diese Domain
       eine eigene Freigabe, sonst kann Claude dort nichts sehen und nichts klicken.
