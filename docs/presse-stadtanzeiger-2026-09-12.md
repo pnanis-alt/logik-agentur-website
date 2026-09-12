@@ -76,6 +76,10 @@ Selbst ausprobieren: Link in der Bio.
        Der Text bleibt oben stehen, falls es doch noch gebraucht wird.
 2. [x] Search Console eingerichtet am 12.09.2026, Details im Runbook. Property bestaetigt,
        Sitemap eingereicht, Indexierung fuer Startseite und presse.html beantragt.
-3. [ ] LinkedIn: Webseite ins Profil eintragen, dann Beitrag posten
+3. [x] LinkedIn: Beitrag am 12.09.2026 gepostet, von Claude im Browser, Text wie oben.
+       **Ohne das Zeitungsfoto.** Ein kompletter Abdruck des Artikels ist Sache des
+       Verlags, das waere eine Urheberrechtsfrage. Stattdessen haengt an dem Beitrag die
+       Linkvorschau auf logik-agentur.de, die ist klickbar und gehoert uns selbst.
+       Offen: Webseite noch im LinkedIn-Profil eintragen.
 4. [ ] Instagram: Beitrag posten, Link in der Bio prüfen
 5. [ ] Bing Webmaster Tools, Import aus der Search Console ist jetzt moeglich
