@@ -59,6 +59,30 @@ ob es noch da ist. Fehlt es, erlischt der Zugang zur Search Console nach einer F
    ohnehin oeffentlich im Quelltext der Seite.
 10. **Noch nicht auf Bestaetigen klicken.** Das Fenster offen lassen.
 
+### Variante zu Teil A: Claude in Chrome klicken lassen
+
+Wenn du nicht selbst klicken willst, kann der Claude in der Chrome-Erweiterung die
+Search Console bedienen. Das ist eine eigene Sitzung, sie kennt weder dieses Gespraech
+noch das Repo und kann nichts live schalten. Deshalb in zwei Schritten.
+
+**Auftrag 1, vor dem Einbau des Codes.** In die Chrome-Erweiterung einfuegen:
+
+> Ich bin in der Google Search Console angemeldet. Bitte lege eine neue Property vom
+> Typ URL-Praefix fuer https://logik-agentur.de/ an. Waehle als Bestaetigungsmethode
+> HTML-Tag und gib mir das vollstaendige Meta-Tag als Text aus, damit ich es kopieren
+> kann. Klicke NICHT auf Bestaetigen und aendere sonst nichts.
+
+Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet live.
+
+**Auftrag 2, erst nachdem das Tag live ist.** In die Chrome-Erweiterung einfuegen:
+
+> Das Bestaetigungs-Tag ist jetzt auf https://logik-agentur.de/ eingebaut. Bitte
+> klicke in der Search Console auf Bestaetigen. Danach oeffne links Sitemaps, trage
+> unter Neue Sitemap hinzufuegen https://logik-agentur.de/sitemap.xml ein und klicke
+> Senden. Danach oben ueber URL pruefen nacheinander https://logik-agentur.de/ und
+> https://logik-agentur.de/presse.html pruefen und jeweils Indexierung beantragen.
+> Sag mir nach jedem Schritt, was auf dem Bildschirm steht.
+
 ### Teil B: Claude, im Repo
 
 1. Tag in den `<head>` von `index.html` einsetzen, direkt unter `<meta name="robots">`.
