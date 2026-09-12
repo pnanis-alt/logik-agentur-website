@@ -143,13 +143,16 @@ Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet l
       Barsinghausen, Neustadt am Ruebenberge, Stadthagen, Bad Nenndorf, Rehburg-Loccum,
       Lauenhagen, Pollhagen, Hagenburg, Woelpinghausen, Auhagen, Sachsenhagen.
       Status "ausstehend", Google prueft das laut Hinweis bis zu zehn Minuten.
-- [ ] Der Profilname lautet bei Google **"Logik Agentur" ohne Bindestrich**, obwohl
-      "Logik-Agentur" eingegeben wurde. Nicht jetzt korrigieren: Name, Adresse und
-      Kategorie waehrend der laufenden Bestaetigung zu aendern macht Bestaetigungscodes
-      ungueltig. Nach der Bestaetigung nachziehen.
-- [ ] Aus demselben Grund wartet die Zweitkategorie "Unternehmensberater" bis nach der
-      Bestaetigung.
-- [ ] Logo als Profilbild: Claude kann es nicht hochladen. Das Bearbeitungsfenster liegt
+- [x] Profilname: Pantelis hat ihn am 12.09.2026 selbst angepasst und die Schreibweise
+      ohne Bindestrich behalten.
+- [x] Zweitkategorie "Unternehmensberater" am 12.09.2026 ergaenzt, primaer bleibt
+      "Automationsunternehmen". Status "ausstehend", Google prueft bis zu zehn Minuten.
+      **Einwand vorher vorgetragen und von Pantelis ueberstimmt:** Google raet davon ab,
+      Name, Adresse oder Kategorie waehrend der laufenden Bestaetigung zu aendern, weil
+      Bestaetigungscodes dadurch ungueltig werden koennen. Wenn die Bestaetigung
+      fehlschlaegt, ist das die erste Spur, die man pruefen sollte.
+- [x] Logo als Profilbild: von Pantelis selbst hochgeladen am 12.09.2026.
+      Frueherer Befund, weiter gueltig: Claude kann es nicht hochladen. Das Bearbeitungsfenster liegt
       in einem Bereich, den die Browser-Werkzeuge nicht auslesen koennen, und der
       Hochladen-Knopf oeffnet ein Systemfenster, das Claude nicht bedienen darf.
       Pantelis laedt hoch: `~/Desktop/logo-logik-agentur-512.png`, 512 mal 512, weisser
