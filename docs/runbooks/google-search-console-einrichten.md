@@ -118,8 +118,22 @@ Das ausgegebene Meta-Tag an Claude Code schicken. Der baut es ein und schaltet l
       Zeitpunkt "nicht auf Google" und liegen jetzt in der Crawling-Warteschlange.
 - [ ] Nach ein paar Tagen `site:logik-agentur.de` bei Google pruefen
 - [ ] Google Search Console in "Wofuer ist das nochmal?" eintragen, sobald das Konto steht
-- [ ] Google Unternehmensprofil fuer die Agentur: erst klaeren, ob die Agentur ueberhaupt
-      darf. Google erlaubt ein Profil nur mit Standort, den Kunden besuchen, oder mit
-      Dienstleistungen beim Kunden vor Ort (dann Adresse ausblenden, Einzugsgebiet angeben).
-      Reine Fernarbeit reicht nicht. Richtlinie, geprueft am 11.09.2026:
-      https://support.google.com/business/answer/3038177?hl=de
+- [~] Google Unternehmensprofil fuer die Agentur, angelegt am 12.09.2026 im selben
+      Google-Konto wie das Hotelprofil. Zulaessig, weil Pantelis Kunden auch vor Ort
+      besucht, also "Unternehmen ohne festen Standort" mit Einzugsgebiet. Richtlinie
+      geprueft am 11.09.2026: https://support.google.com/business/answer/3038177?hl=de
+      Gesetzt: Name "Logik-Agentur", Hauptkategorie "Automationsunternehmen" (Google hat
+      keine KI-Kategorie, "KI" liefert nur Kino und Kiosk), Telefon, Webseite,
+      Beschreibung 654 Zeichen mit Voice-Agent als Hauptbegriff.
+      Bewusst uebersprungen: Foto der Aussenansicht (Wohnhaus), Fotogalerie,
+      Google-Ads-Guthaben 450 Euro, Google Workspace (Microsoft 365 ist im Einsatz).
+      Status im Dashboard: "Inhalte werden ueberprueft", Geschaeftscode
+      11949288074443089549. **Noch offen:** Bestaetigung (Methode bestimmt Google, meist
+      Video oder Telefon, bis zu fuenf Werktage), Kontrolle ob die Privatadresse
+      ausgeblendet ist, Einzugsgebiete Wunstorf und Region Hannover pruefen, Logo als
+      Profilbild hochladen, Zweitkategorie "Unternehmensberater" ergaenzen.
+      Bis die Bestaetigung durch ist: Name, Adresse und Kategorie nicht aendern.
+      Logo-PNG fuer Google entsteht aus `assets/logo.svg`, 512 mal 512 auf weissem Grund.
+- [ ] Falle: Das Bearbeiten des Unternehmensprofils laeuft bei Google inzwischen auf
+      `www.google.com/search`. Die Claude-Chrome-Erweiterung braucht fuer diese Domain
+      eine eigene Freigabe, sonst kann Claude dort nichts sehen und nichts klicken.
