@@ -373,58 +373,6 @@ export default function ROIRechner() {
           )}
         </div>
 
-        {/* === CTA === */}
-        <div
-          style={{
-            marginTop: '1.5rem',
-            background: '#18181B',
-            borderRadius: '12px',
-            padding: '1.5rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '1rem',
-            flexWrap: 'wrap',
-          }}
-        >
-          <div>
-            <div
-              style={{
-                fontSize: '1rem',
-                fontWeight: 600,
-                color: '#FFFFFF',
-                marginBottom: '0.25rem',
-              }}
-            >
-              Was davon trifft auf deinen Betrieb zu?
-            </div>
-          </div>
-          <a
-            href="https://cal.eu/pantelis-nanis-m54voh/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              padding: '0.75rem 1.5rem',
-              background: '#E67533',
-              color: '#FFFFFF',
-              border: 'none',
-              borderRadius: '8px',
-              fontSize: '0.9375rem',
-              fontWeight: 500,
-              cursor: 'pointer',
-              fontFamily: 'inherit',
-              textDecoration: 'none',
-              transition: 'background 0.15s ease',
-              whiteSpace: 'nowrap',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = '#C45A1A')}
-            onMouseLeave={(e) => (e.currentTarget.style.background = '#E67533')}
-          >
-            Beratungstermin buchen →
-          </a>
-        </div>
-
         {/* === Disclaimer === */}
         <p
           style={{
