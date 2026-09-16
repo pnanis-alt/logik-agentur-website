@@ -18,3 +18,6 @@ patch_links.py
 
 # Tailwind Standalone-CLI Binary (~48 MB, nicht committen — bei Bedarf neu laden)
 .build/
+
+# Persoenliche Claude-Code-Einstellungen, nicht veroeffentlichen
+.claude/settings.local.json
