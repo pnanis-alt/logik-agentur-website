@@ -106,7 +106,22 @@ Dazu: Der Rechner wird jetzt als `widgets/roi-rechner/dist.js?v=2026-09-16` eing
 Versionsnummer liefert der Browser nach dem Deploy die alte Fassung aus seinem Zwischenspeicher, in
 der die entfernte Schaltfläche noch steckt. Bei der nächsten Änderung am Rechner die Nummer mitziehen.
 
-## Buchungsfragen in Cal.eu (freigegeben, noch nicht eingerichtet)
+## Buchungsfragen in Cal.eu: eingerichtet am 17.09.2026
+
+Statt eines Formulars für alle gibt es drei Buchungslinks mit passenden Fragen, weil Cal.eu keine
+Fragen abhängig von anderen Antworten einblenden kann. Eingerichtet per Cloud-Browser nach
+`docs/runbooks/cal-eu-buchungsfragen-einrichten.md`, öffentlich geprüft (Seitentitel und HTTP 200):
+
+- `/30min` "Kostenloses Erstgespräch": Firmenname, Branche (11 Optionen inkl. Energie & Solar), Falls
+  Sonstiges, Wobei soll dich die KI entlasten? (Mehrfachauswahl), Website. Alle allgemeinen Buttons.
+- `/erstgespraech-telefon-chat`: statt der Entlastungsfrage "Wie viele Anrufe bekommt ihr ungefähr pro
+  Tag?". Modulkarten Voice-Agent, Website-Chatbot, Termin- und Buchungsanbindung.
+- `/erstgespraech-automatisierung`: statt der Entlastungsfrage "Welche Programme nutzt ihr heute?"
+  (freiwillig). Modulkarten E-Mail-Assistent, Prozess-Automatisierung, Onboarding-Assistent.
+
+Die Frage nach der Mitarbeiterzahl ist bewusst verworfen: Sie sagt nichts über das Anrufaufkommen.
+
+### Ursprünglich geplante Fragen (überholt)
 
 1. Firmenname (Pflicht, zugleich der sichtbare B2B-Nachweis)
 2. Branche (Auswahl, Pflicht)
