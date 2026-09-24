@@ -1,6 +1,8 @@
 # CLAUDE.md — logik-agentur-website
 
-**Version:** 1.0 | **Stand:** 24.08.2026
+**Version:** 1.1 | **Stand:** 24.09.2026
+
+> **Changelog v1.1 (24.09.2026):** Ordner `demo/` in Abschnitt 4 ergänzt (Entscheidung E1 von Pantelis am 23.09.2026, Seestern-Spezifikation v1.2 im privaten Repo). Keine Regeländerung.
 **Geltung:** Repo-spezifische Regeln für dieses Repo. Die projektübergreifenden Arbeitsanweisungen stehen in `~/.claude/CLAUDE.md` und gelten zusätzlich. Die Commit-Konventionen sind absichtlich identisch zu `../ai-agency-clients-/CLAUDE.md`, damit beide Repos gleich funktionieren.
 
 ## 1. Was das Repo ist
@@ -31,6 +33,7 @@ Regel: Wer eine Quelldatei ändert, baut das Ergebnis neu und committet beides z
 - Seiten: HTML im Repo-Root (`index.html`, `impressum.html`, `datenschutz.html`, `agb.html`, `ki-kompetenz.html`).
 - Bilder, Schriften, Logos, gebautes CSS: `assets/`.
 - Widgets: `widgets/<name>/`, Quelle und `dist.js` im selben Ordner.
+- Hoteldemos: `demo/<kennung>/index.html` je Hotel, gemeinsame Dateien in `demo/assets/`. Seiten mit `noindex`, nicht in `sitemap.xml`. Gateway und Agenten liegen im privaten Repo.
 - Interne Arbeitsunterlagen: `docs/`. Neue interne Datei außerhalb von `docs/` gehört zusätzlich in die `exclude`-Liste in `_config.yml`.
 - Rechtstexte werden versioniert im Text selbst (Stand und Versionsnummer auf der Seite), nicht über Dateinamen.
 - Einmalige Patch-Skripte (`patch_*.py`) und `*.bak` bleiben lokal, sie stehen in `.gitignore`. Nicht mit `git add -f` erzwingen.
