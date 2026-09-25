@@ -6,8 +6,8 @@
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <meta name="theme-color" content="#2E3849" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>KI-Demo für das Hotel Garni Seestern | Logik-Agentur</title>
-  <meta name="description" content="Unverbindliche KI-Demo der Logik-Agentur anhand öffentlicher Informationen zum Hotel Garni Seestern." />
+  <title>KI-Demo-Agent für Hotels | Logik-Agentur</title>
+  <meta name="description" content="Werbe-Demo der Logik-Agentur: KI-Demo-Agent für Hotels anhand öffentlicher Informationen." />
   <link rel="stylesheet" href="/assets/fonts.css" />
   <link rel="stylesheet" href="/demo/assets/demo.css" />
 </head>
@@ -24,17 +24,18 @@
     data-gateway="https://logik-demo-gate.nanpan81.workers.dev"
     data-links="cal.eu,via.eviivo.com,hotel-seestern.de,logik-agentur.de">
 
-    <h1>KI-Demo für das Hotel Garni Seestern</h1>
-    <p class="unterzeile">Testen Sie, wie ein KI-Assistent typische Gästefragen beantwortet: per Chat oder per Sprache im Browser.</p>
+    <h1>KI-Demo-Agent für Hotels</h1>
+    <p class="unterzeile">Testen Sie, wie ein KI-Assistent typische Gästefragen beantwortet: per Chat oder per Sprache im Browser.<br /><span class="klein">Beispiel mit öffentlichen Angaben zum Hotel Garni Seestern, Timmendorfer Strand</span></p>
 
     <div class="hinweis">
-      <p><strong>Unverbindliche Demo der Logik Agentur anhand öffentlicher Informationen.</strong> Nicht vom Hotel beauftragt. Kein Zugriff auf Buchungen, Preise oder Verfügbarkeiten.</p>
-      <p>Mit dem Klick auf einen der Knöpfe verbindet sich Ihr Browser mit unserem Startdienst bei Cloudflare und mit ElevenLabs in den USA. Das Mikrofon wird nur für das Sprachgespräch und erst nach Ihrer Freigabe im Browser genutzt. Jeder Start zählt zu den begrenzten Demo-Gesprächen, ein Gespräch dauert höchstens 3 Minuten. Bitte geben Sie keine persönlichen Daten ein. Einzelheiten in der <a href="/datenschutz.html#demoseiten">Datenschutzerklärung</a>.</p>
+      <p><strong>Werbe-Demo der Logik Agentur anhand öffentlicher Informationen.</strong> Diese Demo ist nicht mit dem Buchungssystem verbunden und nennt deshalb keine Preise oder freien Zimmer. Im echten Einsatz fragt der Assistent beides live in eviivo ab.</p>
+      <p>Das Mikrofon wird nur für den Test per Sprache und erst nach Ihrer Freigabe im Browser genutzt. Es findet keine Audioaufzeichnung statt. Jeder Start zählt zu den begrenzten Demo-Gesprächen, ein Gespräch dauert höchstens 3 Minuten. Bitte geben Sie keine persönlichen Daten ein. Einzelheiten in der <a href="/datenschutz.html#demoseiten">Datenschutzerklärung</a>.</p>
+      <p class="widerspruch"><strong>Sie möchten diese Demo nicht?</strong> Ein Klick genügt: <a href="mailto:kontakt@logik-agentur.de?subject=Demo%20Seestern%20entfernen&amp;body=Bitte%20nehmen%20Sie%20die%20Demo%20zu%20unserem%20Hotel%20offline%20und%20senden%20Sie%20uns%20keine%20Werbung%20mehr." data-zaehle="demo-widerspruch-klick">Demo entfernen und keine Werbung mehr</a>. Es öffnet sich eine vorbereitete E-Mail an uns. Wir nehmen die Demo dann umgehend offline und schreiben Sie nicht mehr an.</p>
     </div>
 
     <div class="knoepfe">
-      <button type="button" class="knopf" id="demo-chat-start" disabled>Chat starten</button>
-      <button type="button" class="knopf orange" id="demo-voice-start" disabled>Sprachgespräch starten</button>
+      <button type="button" class="knopf" id="demo-chat-start" disabled>Per Chat testen</button>
+      <button type="button" class="knopf orange" id="demo-voice-start" disabled>Per Sprache testen</button>
     </div>
     <p class="meldung" id="demo-meldung" role="status" aria-live="polite"></p>
     <noscript><p class="meldung fehler">Für die Demo wird JavaScript benötigt. Der Kontakt unten funktioniert auch ohne.</p></noscript>
@@ -48,7 +49,7 @@
       </form>
     </section>
 
-    <section class="feld" id="demo-voice" hidden aria-label="Sprachgespräch">
+    <section class="feld" id="demo-voice" hidden aria-label="Test per Sprache">
       <div class="sprache">
         <p class="zustand" id="demo-voice-zustand">Verbindung wird aufgebaut …</p>
         <button type="button" class="knopf leise" id="demo-voice-ende" disabled>Gespräch beenden</button>
@@ -88,7 +89,7 @@
   <!-- Reichweitenmessung wie auf allen Seiten: Umami, selbst gehostet, cookielos, respektiert Do Not Track.
        data-domains: zaehlt nur auf logik-agentur.de, lokale Tests (localhost) senden nichts an die echte Statistik. -->
   <script defer src="/assets/umami.js" data-website-id="5981dae0-1ad6-4c3a-a36e-c8c22c982030" data-host-url="https://stats.logik-agentur.de" data-do-not-track="true" data-domains="logik-agentur.de"></script>
-  <!-- Das ElevenLabs-SDK (lokal, 1 MB) laedt demo.js erst beim Klick auf "Sprachgespraech starten". -->
+  <!-- Das ElevenLabs-SDK (lokal, 1 MB) laedt demo.js erst beim Klick auf "Per Sprache testen". -->
   <script defer src="/demo/assets/demo.js"></script>
 </body>
 </html>

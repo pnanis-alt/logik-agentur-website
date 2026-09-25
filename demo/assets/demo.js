@@ -24,7 +24,7 @@
     kontingent: "Alle Demo-Gespräche für diesen Kanal sind aufgebraucht. Gern zeigen wir die Demo im Gespräch, Kontakt unten.",
     tageslimit: "Für heute sind keine weiteren Starts möglich. Bitte versuchen Sie es morgen wieder oder nutzen Sie den Kontakt unten.",
     "nicht-verfuegbar": "Die Demo ist gerade nicht erreichbar. Termin, Telefon und E-Mail unten funktionieren weiter.",
-    mikrofon: "Ohne Mikrofonfreigabe ist kein Sprachgespräch möglich. Der Chat funktioniert ohne Mikrofon.",
+    mikrofon: "Ohne Mikrofonfreigabe ist kein Test per Sprache möglich. Der Chat funktioniert ohne Mikrofon.",
     fehler: "Das hat nicht geklappt. Termin, Telefon und E-Mail unten funktionieren weiter.",
   };
 
@@ -226,7 +226,7 @@
       sperreKnoepfe(false);
       return;
     }
-    zeige("Sprachgespräch wird gestartet …");
+    zeige("Gespräch wird gestartet …");
     const antwort = await holeStart("voice");
     if (antwort.status !== "ok") {
       zeige(TEXTE[antwort.grund] || TEXTE.fehler, antwort.grund !== "kontingent");
@@ -244,7 +244,7 @@
         libsampleratePath: "/demo/assets/libsamplerate-2.1.2.worklet.js",
         onConnect: () => {
           sprachZustand.textContent = "Verbunden. Sprechen Sie einfach los.";
-          zeige("Sprachgespräch läuft. Höchstens 3 Minuten je Gespräch.");
+          zeige("Gespräch läuft. Höchstens 3 Minuten je Gespräch.");
           zaehle("demo-voice-gestartet", { kanal: "voice" });
         },
         onModeChange: (m) => {
@@ -258,7 +258,7 @@
         },
         onDisconnect: () => {
           sprachZustand.textContent = "Gespräch beendet.";
-          zeige("Das Sprachgespräch ist beendet. Jeder Start zählt zu den Demo-Gesprächen.");
+          zeige("Das Gespräch ist beendet. Jeder Start zählt zu den Demo-Gesprächen.");
           sprachGespraech = null;
           sprachEnde.disabled = true;
           sperreKnoepfe(false);
