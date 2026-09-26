@@ -63,5 +63,9 @@ h2 { color: var(--navy); font-size: 1.2rem; margin: 2.2rem 0 0.8rem; }
 @media (max-width: 480px) {
   h1 { font-size: 1.55rem; }
   .knopf { width: 100%; }
+  /* Chat-Eingabe: Feld in eigener Zeile, Senden und Beenden darunter nebeneinander */
+  .eingabe { flex-wrap: wrap; }
+  .eingabe input { flex-basis: 100%; }
+  .eingabe .knopf { width: auto; flex: 1; }
   .verlauf { height: 60vh; }
 }
