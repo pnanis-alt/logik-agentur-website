@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+  <meta name="theme-color" content="#2E3849" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>KI-Demo-Agent für Hotels | Logik-Agentur</title>
+  <meta name="description" content="Werbe-Demo der Logik-Agentur: KI-Demo-Agent für Hotels anhand öffentlicher Informationen." />
+  <link rel="stylesheet" href="/assets/fonts.css" />
+  <link rel="stylesheet" href="/demo/assets/demo.css" />
+</head>
+<body>
+  <header class="kopf">
+    <div class="kopf-innen">
+      <a href="/" class="marke">Logik-Agentur</a>
+      <a href="/datenschutz.html#demoseiten" class="klein">Datenschutz</a>
+    </div>
+  </header>
+
+  <main
+    data-demo="weinhaus-wiedemann"
+    data-gateway="https://logik-demo-gate.nanpan81.workers.dev"
+    data-links="cal.eu,via.eviivo.com,hotel-weinhaus-wiedemann.de,logik-agentur.de">
+
+    <h1>KI-Demo-Agent für Hotels</h1>
+    <p class="unterzeile">Testen Sie, wie ein KI-Assistent typische Gästefragen beantwortet: per Chat oder per Sprache im Browser.<br /><span class="klein">Beispiel mit öffentlichen Angaben zum Hotel Weinhaus Wiedemann, Ginsheim-Gustavsburg</span></p>
+
+    <div class="hinweis">
+      <p><strong>Werbe-Demo der Logik Agentur anhand öffentlicher Informationen.</strong> Diese Demo ist nicht mit dem Buchungssystem verbunden und nennt deshalb keine Preise oder freien Zimmer. Im echten Einsatz kann der Assistent Preise und freie Zimmer live aus eviivo abfragen.</p>
+      <p>Das Mikrofon wird nur für den Test per Sprache und erst nach Ihrer Freigabe im Browser genutzt. Es findet keine Audioaufzeichnung statt. Jeder Start zählt zu den begrenzten Demo-Gesprächen, ein Gespräch dauert höchstens 3 Minuten. Bitte geben Sie keine persönlichen Daten ein. Einzelheiten in der <a href="/datenschutz.html#demoseiten">Datenschutzerklärung</a>.</p>
+      <p class="widerspruch"><strong>Sie möchten diese Demo nicht?</strong> Ein Klick genügt: <a href="mailto:kontakt@logik-agentur.de?subject=Demo%20Wiedemann%20entfernen&amp;body=Bitte%20nehmen%20Sie%20die%20Demo%20zu%20unserem%20Hotel%20offline%20und%20senden%20Sie%20uns%20keine%20Werbung%20mehr." data-zaehle="demo-widerspruch-klick">Demo entfernen und keine Werbung mehr</a>. Es öffnet sich eine vorbereitete E-Mail an uns. Wir nehmen die Demo dann umgehend offline und schreiben Sie nicht mehr an.</p>
+    </div>
+
+    <div class="knoepfe">
+      <button type="button" class="knopf" id="demo-chat-start" disabled>Per Chat testen</button>
+      <button type="button" class="knopf orange" id="demo-voice-start" disabled>Per Sprache testen</button>
+    </div>
+    <p class="meldung" id="demo-meldung" role="status" aria-live="polite"></p>
+    <noscript><p class="meldung fehler">Für die Demo wird JavaScript benötigt. Der Kontakt unten funktioniert auch ohne.</p></noscript>
+
+    <section class="feld" id="demo-chat" hidden aria-label="Chat">
+      <div class="verlauf" id="demo-chat-verlauf"></div>
+      <form class="eingabe" id="demo-chat-form">
+        <input id="demo-chat-eingabe" type="text" maxlength="500" autocomplete="off" placeholder="Ihre Frage an den Assistenten" aria-label="Ihre Frage" />
+        <button type="submit" class="knopf">Senden</button>
+        <button type="button" class="knopf leise" id="demo-chat-ende">Beenden</button>
+      </form>
+    </section>
+
+    <section class="feld" id="demo-voice" hidden aria-label="Test per Sprache">
+      <div class="sprache">
+        <p class="zustand" id="demo-voice-zustand">Verbindung wird aufgebaut …</p>
+        <button type="button" class="knopf leise" id="demo-voice-ende" disabled>Gespräch beenden</button>
+      </div>
+    </section>
+
+    <section class="kontakt">
+      <h2>So erreichen Sie die Logik Agentur</h2>
+      <ul>
+        <li>
+          <a href="https://cal.eu/pantelis-nanis-m54voh/15min" target="_blank" rel="noopener noreferrer" data-zaehle="demo-termin-klick">15-Minuten-Termin selbst buchen</a>
+          <span class="klein">Videogespräch über Cal.eu, Sie wählen die Zeit.</span>
+        </li>
+        <li>
+          <a href="tel:+4950319779116" data-zaehle="demo-telefon-klick">05031 9779116</a>
+          <span class="klein">Direkt anrufen.</span>
+        </li>
+        <li>
+          <a href="mailto:kontakt@logik-agentur.de?subject=R%C3%BCckruf%20Demo%20Wiedemann" data-zaehle="demo-email-klick">kontakt@logik-agentur.de</a>
+          <span class="klein">Für einen Rückruf schreiben Sie uns kurz, wann es Ihnen passt.</span>
+        </li>
+      </ul>
+    </section>
+
+    <p class="klein" style="margin-top:2rem">Die Hotelangaben stammen von der Website und der Buchungsseite des Hotels, Stand September 2026. Sie wurden nicht vom Hotel bestätigt. Maßgeblich sind immer die Angaben des Hotels.</p>
+  </main>
+
+  <footer class="fuss">
+    <div class="fuss-innen">
+      <span>© 2026 Logik-Agentur</span>
+      <a href="/impressum.html">Impressum</a>
+      <a href="/datenschutz.html">Datenschutz</a>
+      <a href="/">Startseite</a>
+    </div>
+  </footer>
+
+  <!-- Reichweitenmessung wie auf allen Seiten: Umami, selbst gehostet, cookielos, respektiert Do Not Track.
+       data-domains: zaehlt nur auf logik-agentur.de, lokale Tests (localhost) senden nichts an die echte Statistik. -->
+  <script defer src="/assets/umami.js" data-website-id="5981dae0-1ad6-4c3a-a36e-c8c22c982030" data-host-url="https://stats.logik-agentur.de" data-do-not-track="true" data-domains="logik-agentur.de"></script>
+  <!-- Das ElevenLabs-SDK (lokal, 1 MB) laedt demo.js erst beim Klick auf "Per Sprache testen". -->
+  <script defer src="/demo/assets/demo.js"></script>
+</body>
+</html>
