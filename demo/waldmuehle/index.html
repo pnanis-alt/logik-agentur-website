@@ -27,15 +27,9 @@
     <h1>KI-Demo-Agent für Hotels</h1>
     <p class="unterzeile">Testen Sie, wie ein KI-Assistent typische Gästefragen beantwortet: per Chat oder per Sprache im Browser.<br /><span class="klein">Beispiel mit öffentlichen Angaben zum Hotel Waldmühle, Elend im Harz</span></p>
 
-    <div class="hinweis">
-      <p><strong>Werbe-Demo der Logik Agentur anhand öffentlicher Informationen.</strong> Diese Demo ist nicht mit dem Buchungssystem verbunden und nennt deshalb keine Preise oder freien Zimmer. Im echten Einsatz kann der Assistent Preise und freie Zimmer live aus eviivo abfragen.</p>
-      <p>Das Mikrofon wird nur für den Test per Sprache und erst nach Ihrer Freigabe im Browser genutzt. Es findet keine Audioaufzeichnung statt. Jeder Start zählt zu den begrenzten Demo-Gesprächen, ein Gespräch dauert höchstens 3 Minuten. Bitte geben Sie keine persönlichen Daten ein. Einzelheiten in der <a href="/datenschutz.html#demoseiten">Datenschutzerklärung</a>.</p>
-      <p class="widerspruch"><strong>Sie möchten diese Demo nicht?</strong> Ein Klick genügt: <a href="mailto:kontakt@logik-agentur.de?subject=Demo%20Waldm%C3%BChle%20entfernen&amp;body=Bitte%20nehmen%20Sie%20die%20Demo%20zu%20unserem%20Hotel%20offline%20und%20senden%20Sie%20uns%20keine%20Werbung%20mehr." data-zaehle="demo-widerspruch-klick">Demo entfernen und keine Werbung mehr</a>. Es öffnet sich eine vorbereitete E-Mail an uns. Wir nehmen die Demo dann umgehend offline und schreiben Sie nicht mehr an.</p>
-    </div>
-
     <div class="knoepfe">
-      <button type="button" class="knopf" id="demo-chat-start" disabled>Per Chat testen</button>
-      <button type="button" class="knopf orange" id="demo-voice-start" disabled>Per Sprache testen</button>
+      <button type="button" class="knopf gross" id="demo-chat-start" disabled><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/></svg>Per Chat testen</button>
+      <button type="button" class="knopf orange gross" id="demo-voice-start" disabled><svg class="symbol" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>Per Sprache testen</button>
     </div>
     <p class="meldung" id="demo-meldung" role="status" aria-live="polite"></p>
     <noscript><p class="meldung fehler">Für die Demo wird JavaScript benötigt. Der Kontakt unten funktioniert auch ohne.</p></noscript>
@@ -55,6 +49,12 @@
         <button type="button" class="knopf leise" id="demo-voice-ende" disabled>Gespräch beenden</button>
       </div>
     </section>
+
+    <div class="hinweis">
+      <p><strong>Werbe-Demo der Logik Agentur anhand öffentlicher Informationen.</strong> Diese Demo ist nicht mit dem Buchungssystem verbunden und nennt deshalb keine Preise oder freien Zimmer. Im echten Einsatz kann der Assistent Preise und freie Zimmer live aus eviivo abfragen.</p>
+      <p>Das Mikrofon wird nur für den Test per Sprache und erst nach Ihrer Freigabe im Browser genutzt. Es findet keine Audioaufzeichnung statt. Jeder Start zählt zu den begrenzten Demo-Gesprächen, ein Gespräch dauert höchstens 3 Minuten. Bitte geben Sie keine persönlichen Daten ein. Einzelheiten in der <a href="/datenschutz.html#demoseiten">Datenschutzerklärung</a>.</p>
+      <p class="widerspruch"><strong>Sie möchten diese Demo nicht?</strong> Ein Klick genügt: <a href="mailto:kontakt@logik-agentur.de?subject=Demo%20Waldm%C3%BChle%20entfernen&amp;body=Bitte%20nehmen%20Sie%20die%20Demo%20zu%20unserem%20Hotel%20offline%20und%20senden%20Sie%20uns%20keine%20Werbung%20mehr." data-zaehle="demo-widerspruch-klick">Demo entfernen und keine Werbung mehr</a>. Es öffnet sich eine vorbereitete E-Mail an uns. Wir nehmen die Demo dann umgehend offline und schreiben Sie nicht mehr an.</p>
+    </div>
 
     <section class="kontakt">
       <h2>So erreichen Sie die Logik Agentur</h2>
