@@ -46,7 +46,7 @@
         <h2 class="text-xl font-semibold mb-4">Welche Google-Daten Stella nutzt</h2>
         <p class="text-slate-700 leading-relaxed mb-3">Stella ist mit genau einem eigenen Gmail-Testkonto der Logik-Agentur verbunden (Google-Projekt <code>stella-phase1</code>) und hat dort nur zwei Rechte:</p>
         <ul class="space-y-2 text-slate-700 mb-4 list-disc pl-5">
-          <li><strong>E-Mails lesen</strong> (<code>gmail.readonly</code>): Kopfzeilen und den reinen Textteil neuer Mails im Posteingang. Anhänge und HTML-Teile werden nicht verwendet.</li>
+          <li><strong>E-Mails lesen</strong> (<code>gmail.readonly</code>): Kopfzeilen und den reinen Textteil neuer Mails im Posteingang, dazu Name und Größe von Anhängen, nie ihren Inhalt. HTML-Teile werden nicht verwendet. Außerdem liest Stella die eigenen Entwürfe nach dem Ablegen zur Kontrolle zurück.</li>
           <li><strong>E-Mails einfügen</strong> (<code>gmail.insert</code>): Stella legt seine Antwortentwürfe als Entwurf in dasselbe Testkonto.</li>
         </ul>
         <p class="text-slate-700 leading-relaxed">Stella kann über Gmail nicht senden, nicht löschen, nicht verschieben und nicht markieren. Andere Google-Dienste nutzt Stella nicht.</p>
@@ -55,7 +55,7 @@
       <section class="mb-10">
         <h2 class="text-xl font-semibold mb-4">Keine Weitergabe, kein Training</h2>
         <p class="text-slate-700 leading-relaxed mb-4">Daten aus Gmail werden nicht verkauft, nicht für Werbung genutzt und an niemanden weitergegeben, außer an den KI-Anbieter für die Antwortvorschläge.</p>
-        <p class="text-slate-700 leading-relaxed mb-4"><strong>KI-Verarbeitung.</strong> Für die Antwortvorschläge schickt Stella Absender, Betreff, Datum und Text einer Testmail an die Schnittstelle von Anthropic (Sprachmodell Claude). Die Verarbeitung findet in den USA statt. Anthropic löscht Ein- und Ausgaben der Schnittstelle nach eigenen Angaben innerhalb von 30 Tagen; Ausnahmen gelten, wenn der Anbieter die Daten zur Durchsetzung seiner Nutzungsrichtlinien oder wegen einer gesetzlichen Pflicht länger braucht. Nach den gewerblichen Nutzungsbedingungen verwendet Anthropic die Inhalte nicht zum Training von KI-Modellen.</p>
+        <p class="text-slate-700 leading-relaxed mb-4"><strong>KI-Verarbeitung.</strong> Für die Antwortvorschläge schickt Stella Absender, Betreff, Datum, Text und gegebenenfalls Namen und Größe von Anhängen einer Testmail an die Schnittstelle von Anthropic (Sprachmodell Claude). Das geschieht nur bei Mails von fest eingetragenen Testabsendern. Die Verarbeitung findet in den USA statt. Anthropic löscht Ein- und Ausgaben der Schnittstelle nach eigenen Angaben innerhalb von 30 Tagen; Ausnahmen gelten, wenn der Anbieter die Daten zur Durchsetzung seiner Nutzungsrichtlinien oder wegen einer gesetzlichen Pflicht länger braucht. Nach den gewerblichen Nutzungsbedingungen verwendet Anthropic die Inhalte nicht zum Training von KI-Modellen.</p>
         <p class="text-slate-700 leading-relaxed mb-4">Stellas Nutzung von Informationen, die über Google-Schnittstellen empfangen werden, hält die Google API Services User Data Policy ein, einschließlich der Limited-Use-Anforderungen.</p>
         <p class="text-slate-700 leading-relaxed" lang="en">Stella’s use of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
       </section>
