@@ -15,6 +15,7 @@ module.exports = {
     './datenschutz.html',
     './agb.html',
     './ki-kompetenz.html',
+    './stella.html',
     './presse.html',
     './widgets/**/*.{js,jsx}',
   ],
