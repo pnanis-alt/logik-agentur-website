@@ -29,6 +29,10 @@
 
   <style>
     body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    /* Zeilenlaenge unter 80 Zeichen (Impeccable-Pruefung 12.11.2026):
+       Spalte war 720 px breit, rund 95 Zeichen pro Zeile. Nur Text wird
+       schmaler, Tabellen behalten die volle Breite. */
+    .legal-prose :is(p, ul, ol, h2, h3, h4):not(table *) { max-width: 60ch; }
     .legal-prose h2 { color: #2E3849; }
     .legal-prose h3 { color: #2E3849; }
     .legal-prose a { color: #B54C14; text-decoration: underline; text-underline-offset: 2px; word-break: break-word; }
