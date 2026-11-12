@@ -484,6 +484,10 @@
     .branche-karte { --color-text-subtle: #52525B; }
     #omnichannel article .text-zinc-500,
     .branche-karte .text-zinc-500 { color: #52525B; }
+    /* Zeilenlaenge unter 80 Zeichen (Impeccable-Pruefung 12.11.2026):
+       Einleitungsabsaetze der Abschnitte und Einleitung im ROI-Rechner. */
+    .max-w-3xl > p.mt-4.text-lg { max-width: 60ch; }
+    #roi-rechner-root > div > div > p { max-width: 65ch; margin-inline: auto; }
     @media (hover: hover) and (pointer: fine) {
       #omnichannel article:hover,
       .branche-karte:hover { border-color: rgba(47,54,72,0.34); }

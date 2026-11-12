@@ -30,6 +30,10 @@
     .legal-prose a { color: #B54C14; text-decoration: underline; text-underline-offset: 2px; }
     .legal-prose a:hover { color: #c95c1f; }
     .legal-prose strong { color: #2E3849; }
+    /* Zeilenlaenge unter 80 Zeichen (Impeccable-Pruefung 12.11.2026):
+       Spalte war 720 px breit, rund 95 Zeichen pro Zeile. Nur Text wird
+       schmaler, Tabellen behalten die volle Breite. */
+    .legal-prose :is(p, ul, ol, h2, h3, h4):not(table *) { max-width: 60ch; }
   </style>
 </head>
 <body class="bg-white text-slate-800 antialiased">
