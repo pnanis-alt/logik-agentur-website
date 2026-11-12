@@ -3,7 +3,7 @@ import { Phone, TrendingUp, Calendar, Calculator, ChevronDown, Sparkles } from '
 
 // ============================================================================
 // ROI-Rechner — Logik-Agentur
-// Design: Clean Tech Light · Akzent: Orange (#E67533)
+// Design: Clean Tech Light · Akzent: Orange (#B54C14)
 // Zielgruppe: KMU-Hotels DACH
 // ============================================================================
 
@@ -68,7 +68,7 @@ export default function ROIRechner() {
           appearance: none;
           width: 22px;
           height: 22px;
-          background: #E67533;
+          background: #B54C14;
           border-radius: 50%;
           border: 3px solid #FFFFFF;
           box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.08);
@@ -81,7 +81,7 @@ export default function ROIRechner() {
         .lg-slider::-moz-range-thumb {
           width: 22px;
           height: 22px;
-          background: #E67533;
+          background: #B54C14;
           border-radius: 50%;
           border: 3px solid #FFFFFF;
           box-shadow: 0 1px 3px rgba(0,0,0,0.12);
@@ -229,7 +229,7 @@ export default function ROIRechner() {
               style={{
                 fontSize: '3rem',
                 fontWeight: 700,
-                color: '#E67533',
+                color: '#B54C14',
                 letterSpacing: '-0.03em',
                 lineHeight: 1,
                 marginBottom: '0.5rem',
@@ -354,7 +354,7 @@ export default function ROIRechner() {
               <div style={{ marginBottom: '0.75rem' }}>
                 <span style={{ color: '#71717A' }}>Rechnerisches Potenzial / Monat</span>
                 <br />
-                = {fmtNum(calc.verpassteBuchungenMonat)} × {fmtEUR(buchungswert)} = <strong style={{ color: '#E67533' }}>{fmtEUR(calc.mehrumsatzMonat)}</strong>
+                = {fmtNum(calc.verpassteBuchungenMonat)} × {fmtEUR(buchungswert)} = <strong style={{ color: '#B54C14' }}>{fmtEUR(calc.mehrumsatzMonat)}</strong>
               </div>
               <div
                 style={{
@@ -430,7 +430,7 @@ function SliderField({ icon, label, value, displayValue, min, max, step, onChang
           style={{
             fontSize: '1rem',
             fontWeight: 600,
-            color: '#E67533',
+            color: '#B54C14',
             fontVariantNumeric: 'tabular-nums',
             minWidth: '5rem',
             textAlign: 'right',
