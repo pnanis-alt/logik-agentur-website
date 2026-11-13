@@ -243,6 +243,7 @@ export default function ROIRechner() {
                   color: '#7A3A0E',
                   letterSpacing: 'normal',
                   marginLeft: '0.5rem',
+                  whiteSpace: 'nowrap',
                 }}
               >
                 / Monat
@@ -275,7 +276,7 @@ export default function ROIRechner() {
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '0.75rem',
+              padding: '0.5rem 0',
             }}
           >
             <SecondaryMetric
@@ -287,6 +288,7 @@ export default function ROIRechner() {
               label="Verpasste Anrufe"
               value={fmtNum(calc.verpassteAnrufeMonat)}
               unit="pro Monat"
+              trennlinie
             />
           </div>
 
@@ -470,14 +472,15 @@ function SliderField({ icon, label, value, displayValue, min, max, step, onChang
   );
 }
 
-function SecondaryMetric({ label, value, unit }) {
+function SecondaryMetric({ label, value, unit, trennlinie = false }) {
   return (
     <div
       style={{
-        background: '#FAFAFA',
-        border: '1px solid #E4E4E7',
-        borderRadius: '8px',
-        padding: '0.875rem 1rem',
+        padding: trennlinie ? '0.25rem 0 0.25rem 1.25rem' : '0.25rem 1.25rem 0.25rem 0',
+        borderLeft: trennlinie ? '1px solid #E4E4E7' : 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
       }}
     >
       <div
