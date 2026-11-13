@@ -1542,8 +1542,12 @@
     /* Am Handy verdeckte der Chat-Knopf "Testanruf starten" (Critique
        13.11.2026). Solange ein Testanruf-Knopf im Bild ist, ruht er. */
     #la-chat-consent { transition: opacity 200ms ease, visibility 200ms; }
+    /* Famulor-Fenster nach Einwilligung: ruht wie der eigene Knopf, aber
+       nur zugeklappt (Klasse setzt das Skript unten, 14.11.2026). */
+    iframe[src*="app.famulor.de/web-widget"] { transition: opacity 200ms ease, visibility 200ms; }
     @media (max-width: 639px) {
       #la-chat-consent.la-chat-ruht { opacity: 0; visibility: hidden; pointer-events: none; }
+      html.la-famulor-ruht iframe[src*="app.famulor.de/web-widget"] { opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
     }
     #la-chat-card { display: none; max-width: 320px; background: #fff;
       border: 1px solid var(--color-border, #e4e4e7); border-radius: 14px;
@@ -1631,13 +1635,33 @@
       var ziele = document.querySelectorAll('[data-la-call-open]');
       if (!box || !ziele.length || !('IntersectionObserver' in window)) return;
       var sichtbar = new Set();
+      // Famulor-Fenster (nach Einwilligung) ruht nur, solange es zugeklappt
+      // ist. Ein offener Chat bleibt immer sichtbar.
+      function famulor() { return document.querySelector('iframe[src*="app.famulor.de/web-widget"]'); }
+      function aktualisiere() {
+        var ruht = sichtbar.size > 0;
+        box.classList.toggle('la-chat-ruht', ruht);
+        var f = famulor();
+        var zu = f && f.getBoundingClientRect().height < 200;
+        document.documentElement.classList.toggle('la-famulor-ruht', !!(ruht && zu));
+      }
       var io = new IntersectionObserver(function (eintraege) {
         eintraege.forEach(function (e) {
           if (e.isIntersecting) sichtbar.add(e.target); else sichtbar.delete(e.target);
         });
-        box.classList.toggle('la-chat-ruht', sichtbar.size > 0);
+        aktualisiere();
       });
       ziele.forEach(function (z) { io.observe(z); });
+      // Das Famulor-Fenster kommt erst nach der Einwilligung und aendert seine
+      // Groesse beim Auf- und Zuklappen.
+      if ('ResizeObserver' in window) {
+        var ro = new ResizeObserver(aktualisiere);
+        var beobachtet = null;
+        new MutationObserver(function () {
+          var f = famulor();
+          if (f && f !== beobachtet) { beobachtet = f; ro.observe(f); aktualisiere(); }
+        }).observe(document.body, { childList: true });
+      }
     })();
   </script>
   <!-- Reichweitenmessung: Umami, selbst gehostet auf eigenem Server, cookielos.
