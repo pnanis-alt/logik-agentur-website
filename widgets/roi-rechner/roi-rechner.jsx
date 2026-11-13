@@ -12,10 +12,10 @@ const CONVERSION_RATE = 0.5;    // 50% der Buchungsanfragen führen zur Buchung
 const TAGE_PRO_MONAT = 30;
 
 export default function ROIRechner() {
-  // Inputs mit realistischen KMU-Startwerten
-  const [anrufeProTag, setAnrufeProTag] = useState(8);
-  const [anteilBuchung, setAnteilBuchung] = useState(40);
-  const [buchungswert, setBuchungswert] = useState(250);
+  // Vorsichtige Startwerte (13.11.2026, Pantelis): 3 Anrufe, 30 %, 150 Euro
+  const [anrufeProTag, setAnrufeProTag] = useState(3);
+  const [anteilBuchung, setAnteilBuchung] = useState(30);
+  const [buchungswert, setBuchungswert] = useState(150);
   const [zeigeFormel, setZeigeFormel] = useState(false);
 
   // Berechnung (memoized)
