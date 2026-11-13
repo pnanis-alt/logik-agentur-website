@@ -752,17 +752,17 @@
     }
     .hp-title {
       display: grid; gap: 2px;
-      font-family: var(--font-mono); font-size: 11px;
+      font-family: var(--font-mono); font-size: 12px;
       letter-spacing: 0.06em; text-transform: uppercase;
     }
     .hp-title em {
-      font-style: normal; font-size: 11px; letter-spacing: 0.04em;
+      font-style: normal; font-size: 12px; letter-spacing: 0.04em;
       color: rgba(255,255,255,0.58); text-transform: none;
     }
     .hp-log { margin: 0; padding: 15px; list-style: none; display: grid; gap: 11px; }
     .hp-log li { display: grid; gap: 4px; }
     .hp-who {
-      font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+      font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em;
       text-transform: uppercase; color: var(--color-text-subtle);
     }
     .hp-who.hp-agent { color: var(--color-accent-text); }
@@ -779,7 +779,7 @@
     .hp-note {
       margin: 0; padding: 10px 15px 0;
       display: flex; flex-wrap: wrap; gap: 5px 12px;
-      font-family: var(--font-mono); font-size: 11px; color: var(--color-text-subtle);
+      font-family: var(--font-mono); font-size: 12px; color: var(--color-text-subtle);
     }
     .hp-note span { display: inline-flex; align-items: center; gap: 6px; }
     .hp-note span + span::before {
@@ -788,7 +788,7 @@
     }
     .hp-legal {
       margin: 0; padding: 7px 15px 11px;
-      font-size: 11px; color: var(--color-text-subtle);
+      font-size: 12px; color: var(--color-text-subtle);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -943,7 +943,6 @@
 <!-- Module: Voice-Agent als Hauptmodul, Rest als Liste (13.11.2026) -->
 <div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Module &middot; Frei kombinierbar</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Der Einstieg ist meist das Telefon.</h2>
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Anfragen, Prozesse und internes Wissen. Was der Assistent sagt, wie er &uuml;bergibt und an welche Systeme er angebunden wird, entsteht im Setup. Du w&auml;hlst, was du brauchst.</p>
   </div>
@@ -996,7 +995,6 @@
       <div class="max-w-content mx-auto px-6">
         <div class="mx-auto max-w-6xl px-6">
           <div class="max-w-3xl">
-            <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Branchen &middot; Anwendungsf&auml;lle</div>
             <h2 id="branchen-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Wof&uuml;r Betriebe den Assistenten einsetzen.</h2>
             <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Anliegen unterscheiden sich je Betrieb, der Ablauf dahinter ist derselbe: annehmen, verstehen, aufnehmen, an dein Team &uuml;bergeben.</p>
           </div>
@@ -1114,7 +1112,6 @@
         <h2 id="ablauf-title" class="sr-only">Umsetzung</h2>
         <div class="mx-auto max-w-6xl px-6">
           <div class="max-w-3xl">
-            <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Umsetzung</div>
             <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">In zwei bis drei Wochen einsatzbereit.</h2>
             <p class="mt-4 text-lg leading-relaxed text-zinc-600">Die Umsetzung beginnt, sobald deine Angaben und die nötigen Zugänge vorliegen. Den Fragenkatalog gehen wir gemeinsam durch. Umfangreichere Anbindungen brauchen entsprechend länger.</p>
           </div>
@@ -1136,7 +1133,6 @@
       <div class="max-w-content mx-auto px-6">
         <div class="mx-auto max-w-6xl px-6">
           <div class="max-w-3xl">
-            <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Testanruf</div>
             <h2 id="ausprobieren-title" class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">H&ouml;r dir den Assistenten selbst an.</h2>
             <p class="mt-4 text-lg leading-relaxed text-zinc-600">Ruf an und sprich mit dem Assistenten. Er stellt das Angebot vor und f&uuml;hrt dabei genau das vor, worum es geht. Der Anruf kostet dich nur die Geb&uuml;hren deines Anbieters.</p>
           </div>
@@ -1166,7 +1162,6 @@
         <div data-slot="ueber-mich">
 <div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Über mich</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Hotelier am Steinhuder Meer. <br class="hidden sm:block">Und die Person hinter der Logik-Agentur.</h2>
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Was hier angeboten wird, läuft täglich im eigenen Betrieb.</p>
   </div>
@@ -1208,7 +1203,6 @@
         <div data-slot="technik">
 <div class="mx-auto max-w-6xl px-6">
   <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Integrationen · Eingesetzte Technik</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Bewährte Technik, jede Komponente austauschbar.</h2>
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Hier stehen die Dienste, die ich tats&auml;chlich einsetze, mit Namen. Jede Komponente ist einzeln vertraglich geregelt und einzeln austauschbar. Du bekommst eine Konfiguration, keine Plattform-Bindung. Wo welche Daten verarbeitet werden, steht vollst&auml;ndig in der <a href="datenschutz.html" class="font-medium text-[color:var(--color-accent,#B54C14)] underline underline-offset-4 hover:text-[color:var(--color-accent-hover,#963F10)]">Datenschutzerkl&auml;rung</a>.</p>
   </div>
@@ -1226,7 +1220,6 @@
   <div class="mt-16 rounded-2xl border border-zinc-200 bg-[color:var(--color-bg-subtle,#FAFAFA)] p-6 sm:p-8"><div class="flex items-start gap-4"><div class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-subtle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#B54C14)]"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M12 17v-3"/></svg></div><div><p class="text-[15px] font-semibold tracking-tight text-zinc-900">Keine Plattform-Bindung.</p><p class="mt-1 text-[15px] leading-relaxed text-zinc-600">Jede Komponente ist ein eigenständiger Standard-Dienst mit eigenem Vertrag, eigenem Datenexport und eigenem Wartungsmodell.</p></div></div></div>
   <div class="mt-16 border-t border-zinc-200 pt-12">
     <div class="max-w-3xl">
-      <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">Datenschutz</div>
       <h3 class="text-2xl font-semibold tracking-tight text-zinc-900 sm:text-3xl">Klare Datenwege. Klare Verantwortung.</h3>
       <p class="mt-4 text-lg leading-relaxed text-zinc-600">Ein KI-Agent verarbeitet personenbezogene Daten: Rufnummer, Anliegen, Gesprächstext. Vor dem Start bekommst du einen Auftragsverarbeitungsvertrag nach Art.&nbsp;28 DSGVO. Welche Dienste beteiligt sind, mit Hostingregion, Speicherdauer und den Stellen, an denen Daten das EU-Ausland berühren, erfährst du auf Nachfrage.</p>
       <p class="mt-4 text-lg leading-relaxed text-zinc-600">Dein Betrieb legt Zweck und Rechtsgrundlage fest, die Logik-Agentur erfüllt die Pflichten als Auftragsverarbeiter. Was auf dieser Website selbst verarbeitet wird, steht in der <a href="datenschutz.html" class="font-medium text-[color:var(--color-accent,#B54C14)] underline underline-offset-4 hover:text-[color:var(--color-accent-hover,#963F10)]">Datenschutzerklärung</a>.</p>
@@ -1246,7 +1239,6 @@
         <div data-slot="faq">
 <div class="mx-auto max-w-4xl px-6">
   <div class="max-w-3xl">
-    <div class="mb-4 text-xs font-medium uppercase tracking-wider text-zinc-500">FAQ</div>
     <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Häufige Fragen aus Erstgesprächen.</h2>
     <p class="mt-4 text-lg leading-relaxed text-zinc-600">Wenn deine Frage hier nicht steht, <a href="mailto:kontakt@logik-agentur.de" class="font-medium text-[color:var(--color-accent,#B54C14)] underline underline-offset-4">schreib mir direkt</a>.</p>
   </div>
