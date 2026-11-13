@@ -491,6 +491,10 @@
     .section-dark::after { display: none; }
     /* Kopfzeile wird beim Scrollen niedriger (Skript am Seitenende):
        Computer 180 auf 80 px, Handy 107 auf 73 px. */
+    /* Scroll-Verankerung aus: Sonst schiebt der Browser die Seite mit, wenn
+       die Kopfzeile oben wieder gross wird, und sie springt zwischen gross
+       und klein hin und her (Stottern beim Hochscrollen, 13.11.2026). */
+    html { overflow-anchor: none; }
     #header .brand-logo { transition: height 200ms ease; }
     #header .header-inner { transition: padding 200ms ease; }
     #header.ist-klein .brand-logo { height: 44px; }
