@@ -497,6 +497,20 @@
        Einleitungsabsaetze der Abschnitte und Einleitung im ROI-Rechner. */
     .max-w-3xl > p.mt-4.text-lg { max-width: 60ch; }
     #roi-rechner-root > div > div > p { max-width: 65ch; margin-inline: auto; }
+    /* Belegzeile im Hero und Weiterleitung unter dem Rechner (13.11.2026). */
+    .hero-beleg { margin-top: 28px; display: flex; align-items: center; gap: 16px; max-width: 42rem;
+      padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14); }
+    .hero-beleg picture { flex: none; display: block; line-height: 0; }
+    .hero-beleg-bild { display: block; max-width: none; width: 60px; height: 60px; border-radius: 9999px;
+      object-fit: cover; object-position: 50% 18%; border: 2px solid rgba(255,255,255,0.35); }
+    .section-dark .hero-beleg-text { margin: 0; font-size: 14px; line-height: 1.55; color: rgba(255,255,255,0.80); }
+    .hero-beleg-text strong { color: #fff; font-weight: 600; }
+    .hero-beleg-text a { color: #F6BC8C; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+    .rechner-weiter { max-width: 720px; margin: 28px auto 0; text-align: center; }
+    .rechner-weiter p { margin: 0 auto 14px; max-width: 34rem; font-size: 15px; line-height: 1.55; color: #52525B; }
+    .rechner-weiter a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 22px; border-radius: 8px;
+      background: #B54C14; color: #fff; font-weight: 600; font-size: 15px; text-decoration: none; }
+    .rechner-weiter a:hover { background: #963F10; }
     @media (hover: hover) and (pointer: fine) {
       #omnichannel article:hover,
       .branche-karte:hover { border-color: rgba(47,54,72,0.34); }
@@ -807,7 +821,7 @@
     <div class="claim-band">
       <svg class="claim-band-net" viewBox="0 0 1200 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><line class="fluss" x1="26.0" y1="32.0" x2="166.0" y2="48.0" style="animation-duration:4.0s;animation-delay:0.0s"/><line x1="26.0" y1="32.0" x2="68.0" y2="106.7"/><line x1="26.0" y1="32.0" x2="208.0" y2="122.7"/><line class="fluss" x1="166.0" y1="48.0" x2="306.0" y2="32.0" style="animation-duration:6.7s;animation-delay:2.1s"/><line x1="306.0" y1="32.0" x2="446.0" y2="32.0"/><line x1="306.0" y1="32.0" x2="208.0" y2="122.7"/><line class="fluss" x1="306.0" y1="32.0" x2="348.0" y2="106.7" style="animation-duration:4.0s;animation-delay:4.2s"/><line x1="306.0" y1="32.0" x2="488.0" y2="106.7"/><line x1="446.0" y1="32.0" x2="586.0" y2="48.0"/><line class="fluss" x1="586.0" y1="48.0" x2="726.0" y2="32.0" style="animation-duration:6.7s;animation-delay:0.0s"/><line x1="586.0" y1="48.0" x2="488.0" y2="106.7"/><line x1="586.0" y1="48.0" x2="628.0" y2="122.7"/><line class="fluss" x1="586.0" y1="48.0" x2="768.0" y2="106.7" style="animation-duration:4.0s;animation-delay:2.1s"/><line x1="726.0" y1="32.0" x2="866.0" y2="32.0"/><line x1="866.0" y1="32.0" x2="1006.0" y2="48.0"/><line class="fluss" x1="866.0" y1="32.0" x2="768.0" y2="106.7" style="animation-duration:6.7s;animation-delay:4.2s"/><line x1="866.0" y1="32.0" x2="908.0" y2="106.7"/><line x1="866.0" y1="32.0" x2="1048.0" y2="122.7"/><line class="fluss" x1="1006.0" y1="48.0" x2="1146.0" y2="32.0" style="animation-duration:4.0s;animation-delay:0.0s"/><line x1="1146.0" y1="32.0" x2="1048.0" y2="122.7"/><line x1="1146.0" y1="32.0" x2="1188.0" y2="106.7"/><line class="fluss" x1="68.0" y1="106.7" x2="208.0" y2="122.7" style="animation-duration:6.7s;animation-delay:2.1s"/><line x1="208.0" y1="122.7" x2="348.0" y2="106.7"/><line x1="208.0" y1="122.7" x2="26.0" y2="181.3"/><line class="fluss" x1="208.0" y1="122.7" x2="166.0" y2="197.3" style="animation-duration:4.0s;animation-delay:4.2s"/><line x1="208.0" y1="122.7" x2="306.0" y2="181.3"/><line x1="348.0" y1="106.7" x2="488.0" y2="106.7"/><line class="fluss" x1="488.0" y1="106.7" x2="628.0" y2="122.7" style="animation-duration:6.7s;animation-delay:0.0s"/><line x1="488.0" y1="106.7" x2="306.0" y2="181.3"/><line x1="488.0" y1="106.7" x2="446.0" y2="181.3"/><line class="fluss" x1="488.0" y1="106.7" x2="586.0" y2="197.3" style="animation-duration:4.0s;animation-delay:2.1s"/><line x1="628.0" y1="122.7" x2="768.0" y2="106.7"/><line x1="768.0" y1="106.7" x2="908.0" y2="106.7"/><line class="fluss" x1="768.0" y1="106.7" x2="586.0" y2="197.3" style="animation-duration:6.7s;animation-delay:4.2s"/><line x1="768.0" y1="106.7" x2="726.0" y2="181.3"/><line x1="768.0" y1="106.7" x2="866.0" y2="181.3"/><line class="fluss" x1="908.0" y1="106.7" x2="1048.0" y2="122.7" style="animation-duration:4.0s;animation-delay:0.0s"/><line x1="1048.0" y1="122.7" x2="1188.0" y2="106.7"/><line x1="1048.0" y1="122.7" x2="866.0" y2="181.3"/><line class="fluss" x1="1048.0" y1="122.7" x2="1006.0" y2="197.3" style="animation-duration:6.7s;animation-delay:2.1s"/><line x1="1048.0" y1="122.7" x2="1146.0" y2="181.3"/><line x1="26.0" y1="181.3" x2="166.0" y2="197.3"/><line class="fluss" x1="26.0" y1="181.3" x2="68.0" y2="256.0" style="animation-duration:4.0s;animation-delay:4.2s"/><line x1="26.0" y1="181.3" x2="208.0" y2="272.0"/><line x1="166.0" y1="197.3" x2="306.0" y2="181.3"/><line class="fluss" x1="306.0" y1="181.3" x2="446.0" y2="181.3" style="animation-duration:6.7s;animation-delay:0.0s"/><line x1="306.0" y1="181.3" x2="208.0" y2="272.0"/><line x1="306.0" y1="181.3" x2="348.0" y2="256.0"/><line class="fluss" x1="306.0" y1="181.3" x2="488.0" y2="256.0" style="animation-duration:4.0s;animation-delay:2.1s"/><line x1="446.0" y1="181.3" x2="586.0" y2="197.3"/><line x1="586.0" y1="197.3" x2="726.0" y2="181.3"/><line class="fluss" x1="586.0" y1="197.3" x2="488.0" y2="256.0" style="animation-duration:6.7s;animation-delay:4.2s"/><line x1="586.0" y1="197.3" x2="628.0" y2="272.0"/><line x1="586.0" y1="197.3" x2="768.0" y2="256.0"/><line class="fluss" x1="726.0" y1="181.3" x2="866.0" y2="181.3" style="animation-duration:4.0s;animation-delay:0.0s"/><line x1="866.0" y1="181.3" x2="1006.0" y2="197.3"/><line x1="866.0" y1="181.3" x2="768.0" y2="256.0"/><line class="fluss" x1="866.0" y1="181.3" x2="908.0" y2="256.0" style="animation-duration:6.7s;animation-delay:2.1s"/><line x1="866.0" y1="181.3" x2="1048.0" y2="272.0"/><line x1="1006.0" y1="197.3" x2="1146.0" y2="181.3"/><line class="fluss" x1="1146.0" y1="181.3" x2="1048.0" y2="272.0" style="animation-duration:4.0s;animation-delay:4.2s"/><line x1="1146.0" y1="181.3" x2="1188.0" y2="256.0"/><line x1="68.0" y1="256.0" x2="208.0" y2="272.0"/><line class="fluss" x1="208.0" y1="272.0" x2="348.0" y2="256.0" style="animation-duration:6.7s;animation-delay:0.0s"/><line x1="348.0" y1="256.0" x2="488.0" y2="256.0"/><line x1="488.0" y1="256.0" x2="628.0" y2="272.0"/><line class="fluss" x1="628.0" y1="272.0" x2="768.0" y2="256.0" style="animation-duration:4.0s;animation-delay:2.1s"/><line x1="768.0" y1="256.0" x2="908.0" y2="256.0"/><line x1="908.0" y1="256.0" x2="1048.0" y2="272.0"/><line class="fluss" x1="1048.0" y1="272.0" x2="1188.0" y2="256.0" style="animation-duration:6.7s;animation-delay:4.2s"/><circle cx="26.0" cy="32.0" r="2.6" style="animation-delay:0.0s;animation-duration:3.4s"/><circle cx="166.0" cy="48.0" r="2.6" style="animation-delay:0.42s;animation-duration:3.95s"/><circle cx="306.0" cy="32.0" r="2.6" style="animation-delay:0.84s;animation-duration:4.5s"/><circle cx="446.0" cy="32.0" r="2.6" style="animation-delay:1.26s;animation-duration:5.05s"/><circle cx="586.0" cy="48.0" r="2.6" style="animation-delay:1.68s;animation-duration:5.6s"/><circle class="akzent" cx="726.0" cy="32.0" r="3.6" style="animation-delay:2.1s;animation-duration:3.4s"/><circle cx="866.0" cy="32.0" r="2.6" style="animation-delay:2.52s;animation-duration:3.95s"/><circle cx="1006.0" cy="48.0" r="2.6" style="animation-delay:2.94s;animation-duration:4.5s"/><circle cx="1146.0" cy="32.0" r="2.6" style="animation-delay:3.36s;animation-duration:5.05s"/><circle cx="68.0" cy="106.7" r="2.6" style="animation-delay:3.78s;animation-duration:5.6s"/><circle cx="208.0" cy="122.7" r="2.6" style="animation-delay:4.2s;animation-duration:3.4s"/><circle cx="348.0" cy="106.7" r="2.6" style="animation-delay:0.0s;animation-duration:3.95s"/><circle cx="488.0" cy="106.7" r="2.6" style="animation-delay:0.42s;animation-duration:4.5s"/><circle class="akzent" cx="628.0" cy="122.7" r="3.6" style="animation-delay:0.84s;animation-duration:5.05s"/><circle cx="768.0" cy="106.7" r="2.6" style="animation-delay:1.26s;animation-duration:5.6s"/><circle cx="908.0" cy="106.7" r="2.6" style="animation-delay:1.68s;animation-duration:3.4s"/><circle cx="1048.0" cy="122.7" r="2.6" style="animation-delay:2.1s;animation-duration:3.95s"/><circle cx="1188.0" cy="106.7" r="2.6" style="animation-delay:2.52s;animation-duration:4.5s"/><circle cx="26.0" cy="181.3" r="2.6" style="animation-delay:2.94s;animation-duration:5.05s"/><circle cx="166.0" cy="197.3" r="2.6" style="animation-delay:3.36s;animation-duration:5.6s"/><circle cx="306.0" cy="181.3" r="2.6" style="animation-delay:3.78s;animation-duration:3.4s"/><circle cx="446.0" cy="181.3" r="2.6" style="animation-delay:4.2s;animation-duration:3.95s"/><circle class="akzent" cx="586.0" cy="197.3" r="3.6" style="animation-delay:0.0s;animation-duration:4.5s"/><circle cx="726.0" cy="181.3" r="2.6" style="animation-delay:0.42s;animation-duration:5.05s"/><circle cx="866.0" cy="181.3" r="2.6" style="animation-delay:0.84s;animation-duration:5.6s"/><circle cx="1006.0" cy="197.3" r="2.6" style="animation-delay:1.26s;animation-duration:3.4s"/><circle cx="1146.0" cy="181.3" r="2.6" style="animation-delay:1.68s;animation-duration:3.95s"/><circle cx="68.0" cy="256.0" r="2.6" style="animation-delay:2.1s;animation-duration:4.5s"/><circle cx="208.0" cy="272.0" r="2.6" style="animation-delay:2.52s;animation-duration:5.05s"/><circle cx="348.0" cy="256.0" r="2.6" style="animation-delay:2.94s;animation-duration:5.6s"/><circle class="akzent" cx="488.0" cy="256.0" r="3.6" style="animation-delay:3.36s;animation-duration:3.4s"/><circle cx="628.0" cy="272.0" r="2.6" style="animation-delay:3.78s;animation-duration:3.95s"/><circle cx="768.0" cy="256.0" r="2.6" style="animation-delay:4.2s;animation-duration:4.5s"/><circle cx="908.0" cy="256.0" r="2.6" style="animation-delay:0.0s;animation-duration:5.05s"/><circle cx="1048.0" cy="272.0" r="2.6" style="animation-delay:0.42s;animation-duration:5.6s"/><circle cx="1188.0" cy="256.0" r="2.6" style="animation-delay:0.84s;animation-duration:3.4s"/></svg>
       <div class="max-w-content mx-auto px-12">
-        <p class="claim-band-text">Bereit f&uuml;r die Zukunft der Kundenkommunikation?</p>
+        <p class="claim-band-text">T&auml;glich im Einsatz im eigenen Hotel am Steinhuder Meer.</p>
       </div>
     </div>
 
@@ -838,6 +852,10 @@
             </div>
             <p class="mt-4 max-w-2xl text-sm text-zinc-500">30 Minuten, kostenlos und unverbindlich. Am Ende weißt du, ob sich das für deinen Betrieb lohnt, auch wenn die Antwort nein ist.</p>
             <p class="mt-2 max-w-2xl text-sm text-zinc-500">Der Assistent ist rund um die Uhr erreichbar. Echtes Gespräch, keine Tonaufnahme.</p>
+            <div class="hero-beleg">
+              <picture><source srcset="assets/portrait.webp" type="image/webp"><img src="assets/portrait.jpg" alt="Pantelis Nanis am Empfang des Hotels Nanis" width="557" height="912" class="hero-beleg-bild"></picture>
+              <p class="hero-beleg-text"><strong>Pantelis Nanis, Hotelier am Steinhuder Meer.</strong> Was hier angeboten wird, l&auml;uft t&auml;glich im eigenen Hotel. <a href="#ueber-mich">Mehr &uuml;ber mich</a></p>
+            </div>
             <ul class="mt-12 flex flex-col flex-wrap gap-x-8 gap-y-3 text-sm text-zinc-700 sm:flex-row">
               <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#B54C14)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Zugeschnitten auf Branche und Betriebsgröße</li>
               <li class="inline-flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-[color:var(--color-accent,#B54C14)]" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>Standard-Dienste, keine Plattform-Bindung</li>
@@ -1180,6 +1198,35 @@
     </section>
 
     <!-- ====================================================================
+         13b. RECHNER  (16.09.2026 ans Seitenende verschoben, damit der
+              Mittelteil nicht mit Aufforderungen ueberladen ist; seit
+              13.11.2026 vor dem Abschluss, damit die Seite mit dem
+              Erstgespraech endet. Knopf darunter springt zu #final-cta.)
+         ==================================================================== -->
+    <section id="rechner" class="section" aria-labelledby="rechner-title" data-section="13b-rechner">
+      <div class="max-w-content mx-auto px-6">
+        <h2 id="rechner-title" class="sr-only">Rechenbeispiel</h2>
+      <div class="mt-0">
+        <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
+             Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
+             mountet sich self-acting auf dieses #roi-rechner-root.
+             Self-mounting Embed-Pattern. -->
+        <div id="roi-rechner-root"
+             data-slot="roi-rechner-mount"
+             aria-live="polite"></div>
+        <noscript>
+          <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Was kosten nicht angenommene Anrufe?</h2>
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">An dieser Stelle steht ein Rechner, mit dem du mit deinen eigenen Zahlen durchspielen kannst, was verpasste Anrufe kosten k&ouml;nnen. Er braucht JavaScript. Ist das in deinem Browser abgeschaltet, rechnen wir das im Erstgespr&auml;ch gemeinsam durch.</p>
+        </noscript>
+      </div>
+      <div class="rechner-weiter">
+        <p>Die Zahlen sind deine Sch&auml;tzung. Im Erstgespr&auml;ch pr&uuml;fen wir sie mit deinen echten Werten.</p>
+        <a href="#final-cta">Zahlen im Erstgespr&auml;ch pr&uuml;fen</a>
+      </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
          13. FINAL CTA
          ==================================================================== -->
     <section id="final-cta" class="section section-dark" aria-labelledby="cta-title" data-section="13-final-cta">
@@ -1212,28 +1259,6 @@
       </div>
     </section>
 
-    <!-- ====================================================================
-         13b. RECHNER  (am 16.09.2026 ans Seitenende verschoben, damit der
-              Mittelteil nicht mit Aufforderungen ueberladen ist)
-         ==================================================================== -->
-    <section id="rechner" class="section" aria-labelledby="rechner-title" data-section="13b-rechner">
-      <div class="max-w-content mx-auto px-6">
-        <h2 id="rechner-title" class="sr-only">Rechenbeispiel</h2>
-      <div class="mt-0">
-        <!-- Mount-Point für widgets/roi-rechner/roi-rechner.jsx v2.
-             Bundle (esbuild) wird am Ende des <body> als defer-Script geladen,
-             mountet sich self-acting auf dieses #roi-rechner-root.
-             Self-mounting Embed-Pattern. -->
-        <div id="roi-rechner-root"
-             data-slot="roi-rechner-mount"
-             aria-live="polite"></div>
-        <noscript>
-          <h2 class="text-3xl font-semibold tracking-tight text-zinc-900 sm:text-4xl sm:leading-tight">Was kosten nicht angenommene Anrufe?</h2>
-          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-zinc-600">An dieser Stelle steht ein Rechner, mit dem du mit deinen eigenen Zahlen durchspielen kannst, was verpasste Anrufe kosten k&ouml;nnen. Er braucht JavaScript. Ist das in deinem Browser abgeschaltet, rechnen wir das im Erstgespr&auml;ch gemeinsam durch.</p>
-        </noscript>
-      </div>
-      </div>
-    </section>
 
   </main>
 
