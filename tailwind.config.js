@@ -53,7 +53,7 @@ module.exports = {
         'la-gold':       '#F2A93B',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Hanken Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
         mono: ['"JetBrains Mono"', '"SF Mono"', 'Menlo', 'monospace'],
       },
       spacing: {

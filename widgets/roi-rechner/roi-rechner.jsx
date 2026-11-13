@@ -48,7 +48,7 @@ export default function ROIRechner() {
   return (
     <div
       style={{
-        fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+        fontFamily: "'Hanken Grotesk', system-ui, -apple-system, sans-serif",
       }}
     >
       {/* Custom Slider Styling */}
@@ -340,7 +340,7 @@ export default function ROIRechner() {
                 fontFamily: "'JetBrains Mono', 'SF Mono', Menlo, monospace",
               }}
             >
-              <div style={{ marginBottom: '0.75rem', fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 500, color: '#18181B' }}>
+              <div style={{ marginBottom: '0.75rem', fontFamily: "'Hanken Grotesk', system-ui, sans-serif", fontWeight: 500, color: '#18181B' }}>
                 Berechnungsschritte:
               </div>
               <div style={{ marginBottom: '0.5rem' }}>
@@ -363,7 +363,7 @@ export default function ROIRechner() {
                   marginTop: '0.875rem',
                   paddingTop: '0.875rem',
                   borderTop: '1px solid #E4E4E7',
-                  fontFamily: "'Inter', system-ui, sans-serif",
+                  fontFamily: "'Hanken Grotesk', system-ui, sans-serif",
                   fontSize: '0.8125rem',
                   color: '#71717A',
                   lineHeight: 1.5,
