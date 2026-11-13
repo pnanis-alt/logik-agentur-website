@@ -200,10 +200,10 @@
     /* Sichtbarer Bandwechsel statt 1,6 % Helligkeitsunterschied */
     :root { --color-bg-band: #F7F5F2; }
     .section-alt { background: var(--color-bg-band); border-block: 1px solid var(--color-border); }
-    /* Fusszeile im dunklen Band mit demselben Raster wie die anderen
-       dunklen Abschnitte (16.09.2026). Die ID schlaegt .section-dark,
-       deshalb stehen Flaeche und Stapelkontext hier ausdruecklich. */
-    #footer { background: var(--color-logo-navy); position: relative; isolation: isolate; }
+    /* Fusszeile hell (14.11.2026): Seit der Rechner vor dem dunklen
+       Schlussabschnitt steht, folgt der Fuss direkt auf Dunkel. Vorher
+       (16.09.2026) dunkel, weil der helle Rechner davor lag. */
+    #footer { background: var(--color-bg); position: relative; isolation: isolate; }
 
     /* Sprungmarken nicht mehr hinter der klebenden Kopfzeile */
     /* Sprungmarke exakt auf Unterkante der Kopfzeile inklusive Naht.
@@ -221,9 +221,6 @@
       letter-spacing: 0.09em;
       color: var(--color-text-subtle);
     }
-    #footer .uppercase.tracking-wider { color: rgba(255,255,255,0.62); }
-    #footer .text-ink-subtle { color: rgba(255,255,255,0.58); }
-    #footer a:focus-visible { outline-color: #FFFFFF; }
     main div.uppercase.tracking-wider:not(.flex) {
       display: flex; align-items: center; gap: 10px;
     }
@@ -1255,7 +1252,7 @@
   <!-- ====================================================================
        14. FOOTER
        ==================================================================== -->
-  <footer id="footer" class="section-dark border-t border-line" data-section="14-footer">
+  <footer id="footer" class="border-t border-line" data-section="14-footer">
     <div class="max-w-content mx-auto px-6 py-12">
       <div data-slot="footer">
   <div class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 md:gap-12">
