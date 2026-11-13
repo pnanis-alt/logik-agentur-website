@@ -374,6 +374,12 @@
     /* Kopfzeileninhalt auf hellem Grund */
     #header nav a { color: var(--hero-bottom); font-weight: 600; }
     #header nav a:hover, #header nav a:focus-visible { color: var(--color-accent); }
+    /* Knopf "Erstgespraech buchen" im Handy-Menue: die Regel oben ist
+       spezifischer als .text-white und faerbte ihn dunkelblau auf Orange
+       (2,3 zu 1). Weiss auf #B54C14 hat 5,2 zu 1 (Pruefung 13.11.2026). */
+    #header nav a.bg-accent,
+    #header nav a.bg-accent:hover,
+    #header nav a.bg-accent:focus-visible { color: #FFFFFF; }
     #header .brand-claim {
       font-family: var(--font-mono); font-size: 11px; letter-spacing: .02em; white-space: nowrap; color: var(--seam-ink);
     }
