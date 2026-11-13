@@ -757,19 +757,19 @@
         <span class="inline-flex flex-col items-center gap-1"><img src="assets/logo-wortmarke.svg" alt="Logik-Agentur" class="brand-logo" /><span class="brand-claim hidden uppercase sm:block">KI für Kommunikation und Automation</span></span>
       </a>
       <div class="flex items-center gap-6 lg:gap-10">
-        <nav aria-label="Hauptnavigation" class="hidden lg:flex items-center gap-7 text-[15px] font-medium text-ink">
+        <nav aria-label="Hauptnavigation" class="hidden xl:flex items-center gap-7 whitespace-nowrap text-[15px] font-medium text-ink">
           <a href="#omnichannel" class="hover:text-accent transition-colors">Leistungen</a>
           <a href="#branchen" class="hover:text-accent transition-colors">Branchen</a>
           <a href="#ablauf" class="hover:text-accent transition-colors">Umsetzung</a>
           <a href="#ausprobieren" class="hover:text-accent transition-colors">Ausprobieren</a>
-          <a href="#final-cta" class="hover:text-accent transition-colors">Erstgespr&auml;ch</a>
+          <a href="#ueber-mich" class="hover:text-accent transition-colors">&Uuml;ber mich</a>
           <a href="#faq" class="hover:text-accent transition-colors">Fragen</a>
         </nav>
         <a href="https://cal.com/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
-           class="hidden sm:inline-flex items-center rounded-md bg-accent text-white text-[15px] font-medium px-5 py-3 shadow-sm hover:bg-accent-hover transition-colors lg:px-6">
+           class="hidden sm:inline-flex items-center whitespace-nowrap rounded-md bg-accent text-white text-[15px] font-medium px-5 py-3 shadow-sm hover:bg-accent-hover transition-colors lg:px-6">
           Erstgespr&auml;ch buchen
         </a>
-        <button type="button" id="menu-toggle" class="menu-toggle inline-flex lg:hidden" aria-expanded="false" aria-controls="menu-panel">
+        <button type="button" id="menu-toggle" class="menu-toggle inline-flex xl:hidden" aria-expanded="false" aria-controls="menu-panel">
           <span class="menu-toggle-bars" aria-hidden="true"><b></b><b></b><b></b></span>
           <span class="sr-only">Men&uuml; &ouml;ffnen</span>
         </button>
@@ -777,17 +777,16 @@
     </div>
 
     <!-- Aufklapp-Menue fuer Handy und Tablet -->
-    <div id="menu-panel" class="menu-panel lg:hidden" hidden>
+    <div id="menu-panel" class="menu-panel xl:hidden" hidden>
       <nav aria-label="Men&uuml;" class="max-w-content mx-auto px-4 sm:px-12 py-3">
         <ul class="menu-list">
           <li><a href="#omnichannel">Leistungen</a></li>
           <li><a href="#branchen">Branchen</a></li>
           <li><a href="#ablauf">Umsetzung</a></li>
           <li><a href="#ausprobieren">Ausprobieren</a></li>
-          <li><a href="#final-cta">Erstgespr&auml;ch</a></li>
           <li><a href="#ueber-mich">&Uuml;ber mich</a></li>
           <li><a href="#technik">Technik &amp; Datenschutz</a></li>
-          <li><a href="#faq">H&auml;ufige Fragen</a></li>
+          <li><a href="#faq">Fragen</a></li>
         </ul>
         <a href="https://cal.com/pantelis-nanis-m54voh/30min" target="_blank" rel="noopener"
            class="mt-3 inline-flex w-full items-center justify-center rounded-md bg-accent px-6 py-3 text-[15px] font-medium text-white shadow-sm transition-colors hover:bg-accent-hover">
@@ -1701,7 +1700,7 @@
       });
 
       // Wechsel auf Desktop-Breite: Panel schliessen, damit nichts haengen bleibt
-      var gross = window.matchMedia('(min-width: 1024px)');
+      var gross = window.matchMedia('(min-width: 1280px)');
       var beiWechsel = function (e) { if (e.matches) setze(false); };
       if (gross.addEventListener) gross.addEventListener('change', beiWechsel);
       else if (gross.addListener) gross.addListener(beiWechsel);
