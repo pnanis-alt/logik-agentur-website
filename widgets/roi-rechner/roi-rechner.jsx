@@ -115,7 +115,7 @@ export default function ROIRechner() {
             }}
           >
             <Calculator size={14} strokeWidth={2} />
-            ROI-Rechner
+            Rechenbeispiel
           </div>
           <h1
             style={{
